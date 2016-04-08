@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1024,587" layout="BorderLayout" title="Cadastro - Pa&#xed;ses">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Pa&#xed;s" id="fat_tabsubstrib" connection="jkawflex" kawTableName="fat_tabsubstrib" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_tabsubstrib WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="67, 79" tabPlacement="1" titles="Geral,Outros Dados">
+          <panel name="Panel_31" layout="FormLayout">
+            <formLayout colspecs="232px,2dlu,126px,2dlu,131px,2dlu,140px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_32" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="1"/>
+            </label>
+            <label name="Label_33" horizontalAlignment="4" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="3"/>
+            </label>
+            <label name="Label_34" horizontalAlignment="4" horizontalTextPosition="11" text="Regra para Calculo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="5"/>
+            </label>
+            <label name="Label_35" horizontalAlignment="4" horizontalTextPosition="11" text="Valor base Calculo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="7"/>
+            </label>
+            <label name="Label_36" horizontalAlignment="4" horizontalTextPosition="11" text="Aliquota do ICMS Subs.:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="9"/>
+            </label>
+            <label name="Label_37" horizontalAlignment="4" horizontalTextPosition="11" text="% para Pre&#xe7;o Estadual:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="11"/>
+            </label>
+            <label name="Label_38" horizontalAlignment="4" horizontalTextPosition="11" text="% para Pre&#xe7;o Inter Estadual:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label_39" horizontalAlignment="4" horizontalTextPosition="11" text="Aliquota Redu&#xe7;&#xe3;o Base Calc:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label_40" horizontalAlignment="4" horizontalTextPosition="11" text="Estados Excluso:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="Formula Calculo Subs.:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label_42" horizontalAlignment="4" horizontalTextPosition="11" text="Formula base Calc ICMS:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_43" id="codigo" columnAutoIncrement="true" columnCaption="Codigo" columnDataType="INT" columnDisplayMask="###" columnEditable="false" columnEditMask="###" columnName="id" columnRowId="true" columnTableName="fat_tabsubstrib" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_44" id="descricao" columnCaption="Descricao" columnDataType="STRING" columnName="descricao" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_45" id="regraParaCalculo" columnCaption="Regra Para Calculo" columnDataType="STRING" columnName="regraparacalculo" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_46" id="valorParaBaseCalculo" columnCaption="Valor parabase Calculo" columnDataType="STRING" columnName="valorparabasecalculo" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_47" id="aliquotaDoIcmsSubstituicao" columnCaption="Aliquota do ICMS Subs." columnDataType="STRING" columnName="aliquotadoicmssubstituicao" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_48" id="percentualParaPrecoEstadual" columnCaption="Percentual Para Pre&#xe7;o Estadual" columnDataType="BIGDECIMAL" columnDisplayMask="###,###.###" columnEditMask="###,##0.000" columnName="percentualparaprecoestadual" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridX="3" gridY="11"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_49" id="percentualParaPrecoInterEstadual" columnCaption="Percentual Para Preco Inter Estadual" columnDataType="BIGDECIMAL" columnDisplayMask="###,###.###" columnEditMask="###,##0.000" columnName="percentualparaprecointerestadual" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridX="3" gridY="13"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_50" id="aliquotaReducaoBaseCalculo" columnCaption="Aliquota Reducao Base Calculo" columnDataType="BIGDECIMAL" columnDisplayMask="###,###.###" columnEditMask="###,##0.000" columnName="aliquotareducaobasecalculo" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridX="3" gridY="15"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_51" id="estadosExcluso" columnCaption="Estados Excluso" columnDataType="STRING" columnName="estadosexcluso" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_52" id="formulaBaseCalculoSubstituicao" columnCaption="Formula Base Calculo Substituicao" columnDataType="STRING" columnName="formulabasecalculosubstituicao" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_53" id="formulaBaseCalculoIcmsNormal" columnCaption="Formula base calculo ICMS Normal" columnDataType="STRING" columnName="formulabasecalculoicmsnormal" columnTableName="fat_tabsubstrib">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_54" id="reterValorSubstituicao" columnCaption="Reter Valor Substituicao" columnDataType="BOOLEAN" columnName="retervalorsubstituicao" columnTableName="fat_tabsubstrib" label="Reter Valor de Substitui&#xe7;&#xe3;o?">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+          </panel>
+          <panel name="Panel_60" layout="FormLayout">
+            <formLayout colspecs="116px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+            <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_72" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="true" columnTableName="fat_tabsubstrib" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_73" horizontalAlignment="0" horizontalTextPosition="11" text="Hoara de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_74" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="true" columnTableName="fat_tabsubstrib" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_75" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_76" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="true" columnTableName="fat_tabsubstrib" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o: " verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_78" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="true" columnTableName="fat_tabsubstrib" columnWidth="10" editable="false">
+              <cellconstraints gridX="3" gridY="7"/>
+            </kawdbtextfield>
+            <label name="Label_79" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_80" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="true" columnTableName="fat_tabsubstrib" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_82" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="true" columnTableName="fat_tabsubstrib" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel2" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel3" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel7" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel8" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Aliquotas ICMS" id="navToolBar"/>
+      <label name="Label_105" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Pa&#xed;s" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_106" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel9" layout="FlowLayout">
+      <button name="Button_109" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=54-->
+<!--lastIdIndex=0-->

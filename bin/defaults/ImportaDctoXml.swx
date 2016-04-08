@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,954,198" layout="BorderLayout" title="Importar DFe ">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_11" tabPlacement="1" titles="Importar Documento Fiscal Eletr&#xf4;nico">
+      <panel name="Panel_12" layout="FormLayout">
+        <formLayout colspecs="166px,2dlu,86px,2dlu,457px,2dlu,73px,2dlu,109px" rowspecs="2dlu,26px,4dlu,28px,2dlu,22px,2dlu"/>
+        <label name="Label_11" horizontalAlignment="4" horizontalTextPosition="11" text="Arquivo XML:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_17" id="arquivoXml" preferredSize="50,25" text="">
+          <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <kawlookupbutton name="KawLookupButton_19" id="btnIniciar" action="actionIniciar" text="Iniciar">
+          <cellconstraints gridHeight="2" gridWidth="3" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+        </kawlookupbutton>
+        <kawlookupbutton name="KawLookupButton_24" id="btnArquivo" action="actionArquivo" text="Arquivo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="4" hAlign="Default" vAlign="Default"/>
+        </kawlookupbutton>
+        <label name="Label_25" horizontalAlignment="4" horizontalTextPosition="11" text="C&#xf3;digo da Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_26" id="transacao" preferredSize="50,25" text="">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="2" hAlign="Default" vAlign="Default"/>
+        </textfield>
+      </panel>
+    </tabbedpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_21" layout="BorderLayout">
+      <progressbar constraints="BorderLayout.CENTER" name="Progressbar_22" id="progressBar" borderPainted="true"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=26-->
+<!--lastIdIndex=0-->

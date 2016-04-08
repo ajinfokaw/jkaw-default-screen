@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1024,587" layout="BorderLayout" title="Cadastro - Contas Corrente">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_22" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Conta Corrente" id="financ_cc" connection="jkawflex" kawTableName="financ_cc" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM financ_cc WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
+          <panel name="Panel_82" layout="FormLayout">
+            <formLayout colspecs="122px,2dlu,63px,2dlu,31px,2dlu,70px,2dlu,237px,2dlu,69px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_83" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_84" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="id" columnPosicao="1" columnPrecision="0" columnRowId="true" columnTableName="financ_cc" columnWidth="5">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_85" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo Conta Corrente:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_88" horizontalAlignment="0" horizontalTextPosition="11" text="Banco:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_92" horizontalAlignment="0" horizontalTextPosition="11" text="Agencia:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_95" horizontalAlignment="0" horizontalTextPosition="11" text="No. Conta Corrente:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_96" id="numeroConta" columnCaption="N&#xba; da Conta" columnDataType="STRING" columnEditable="true" columnName="numeroconta" columnPosicao="10" columnRowId="false" columnTableName="financ_cc" columnWidth="15" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_97" horizontalAlignment="0" horizontalTextPosition="11" text="Descricao:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_98" id="descricao" columnCaption="Descri&#xe7;&#xe3;o da Conta Corrente" columnDataType="STRING" columnEditable="true" columnName="descricao" columnPosicao="12" columnRowId="false" columnTableName="financ_cc" columnWidth="25">
+              <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_99" id="conciliarLancamentos" columnDataType="BOOLEAN" columnName="conciliarlancamentos" columnPosicao="13" columnRowId="false" columnTableName="financ_cc" text="Conciliar Lcto Automaticamente?">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <kawdbcheckbox name="KawDbCheckBox_100" id="baixaTituloOutrasFilias" columnDataType="BOOLEAN" columnName="baixatitulooutrasfilias" columnPosicao="14" columnRowId="false" columnTableName="financ_cc" text="Permitir Baixa Titulos Outras Filiais?">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <label name="Label_101" horizontalAlignment="0" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_104" horizontalAlignment="0" horizontalTextPosition="11" text="DV:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_105" id="numeroContaDV" columnCaption="DV" columnDataType="INT" columnEditable="true" columnName="dv" columnPosicao="11" columnRowId="false" columnTableName="financ_cc" columnWidth="15" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_107" id="ccApuracao" columnDataType="BOOLEAN" columnDefault="true" columnName="ccapuracao" columnPosicao="14" columnRowId="false" columnTableName="financ_cc" text="C/C entra na apura&#xe7;&#xe3;o de resultado?">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <label name="Label_108" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo do Cedente:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_109" id="codigoCedente" columnCaption="C&#xf3;digo Cedente" columnDataType="STRING" columnEditable="true" columnName="codigocedente" columnPosicao="10" columnRowId="true" columnTableName="financ_cc" columnWidth="15" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_110" id="bancoId" columnCaption="Banco" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnHidden="false" columnName="financ_agencia_financ_banco_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_agencia_financ_banco_id" columnPosicao="0" columnRequired="true" columnRowId="false" columnTableName="financ_cc" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton_111" id="bancoLookupButton" action="" columnDestino="financ_agencia_financ_banco_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_banco" kawTableNameRelation="financ_cc" parameterQColumns="financ_agencia_financ_banco_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao  FROM financ_banco WHERE id = :financ_agencia_financ_banco_id" xmlLookupView="LookupBanco.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup_112" id="LookupBanco" columnCalcType="CALC" columnCaption="descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="banco_lookup" columnNameLookupRow="financ_agencia_financ_banco_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnTableName="financ_cc" columnWidth="20">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_113" id="agenciaId" columnCaption="N&#xba; da Ag&#xea;ncia" columnDataType="STRING" columnDisplayMask=">cccccc" columnEditable="true" columnEditMask=">cccccc" columnName="financ_agencia_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_agencia_id" columnPosicao="11" columnRequired="true" columnResolvable="true" columnRowId="false" columnServerColumnName="financ_agencia_id" columnTableName="financ_cc" columnWidth="5" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Top"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton_114" id="agenciaLookupButton" action="" columnDestino="financ_agencia_id" columnOrigem="id" columnsNameInitialKey="financ_agencia_financ_banco_id" connection="jkawflex" inheritsPopupMenu="true" kawTableName="financ_agencia" kawTableNameRelation="financ_cc" parameterQColumns="financ_agencia_id" parameterQColumnsDataType="STRING,INT" queryDataSet="SELECT id,nome,municipio,financ_banco_id FROM financ_agencia WHERE id = :financ_agencia_id" xmlLookupView="LookupAgencia.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Top"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup_115" id="LookupAgencia" columnCalcType="CALC" columnCaption="Nome da Ag&#xea;ncia" columnDataType="STRING" columnEditable="false" columnName="agencia_lookup" columnNameLookupRow="financ_agencia_id" columnNameOriginLookupRow="nome" columnPosicao="7" columnRowId="false" columnTableName="financ_cc" columnWidth="30" editable="false" UIClassID=" ">
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="7" hAlign="Default" vAlign="Top"/>
+            </kawdbtextfieldlookup>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_116" id="tipoCcId" columnCaption="Tipo C/C" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="financ_tipocc_id" columnNameLookupKey="id" columnPosicao="13" columnRowId="false" columnTableName="financ_cc" columnWidth="6" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton_117" id="tipoCcLookupButton" action="" columnDestino="financ_tipocc_id" columnOrigem="id" connection="jkawflex" defaultButton="true" kawTableName="financ_tipo_cc" kawTableNameRelation="financ_cc" parameterQColumns="financ_tipocc_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_tipo_cc WHERE id = :financ_tipocc_id" xmlLookupView="LookupTipoCc.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup_118" id="lookupTipoCc" columnCalcType="CALC" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="tipocc_lookup" columnNameLookupRow="financ_tipocc_id" columnNameOriginLookupRow="descricao" columnPosicao="14" columnResolvable="false" columnRowId="false" columnTableName="financ_cc" columnWidth="10">
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="3" hAlign="Fill" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_119" id="cadFilialId" columnCaption="Tipo C/C" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_filial_id" columnNameLookupKey="id" columnPosicao="13" columnRowId="false" columnTableName="financ_cc" columnWidth="6" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton_120" id="cadFilialLooKupButton" action="" columnDestino="cad_filial_id" columnOrigem="id" connection="jkawflex" defaultButton="true" kawTableName="cad_filial" kawTableNameRelation="financ_cc" parameterQColumns="cad_filial_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,nomefantasia FROM cad_filial WHERE id = :cad_filial_id" xmlLookupView="LookupFilial.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup_121" id="lookupFilial" columnCalcType="CALC" columnCaption="Desc. Transa&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="filial_lookup" columnNameLookupRow="cad_filial_id" columnNameOriginLookupRow="nomefantasia" columnPosicao="14" columnResolvable="false" columnRowId="false" columnTableName="financ_cc" columnWidth="10">
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="15" hAlign="Fill" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+          </panel>
+          <panel name="Panel_42" layout="FormLayout">
+            <formLayout colspecs="160px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
+            <label name="Label_43" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_44" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="financ_cc" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_45" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_46" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="financ_cc" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_47" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_48" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="financ_cc" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_49" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_50" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="financ_cc" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="7"/>
+            </kawdbtextfield>
+            <label name="Label_51" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_52" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="financ_cc" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_53" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_54" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="financ_cc" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+    <panel constraints="BorderLayout.NORTH" name="Panel_36" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_37" id="pesquisas" layout="FlowLayout">
+        <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+        <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_38" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_39" layout="BorderLayout">
+        <panel constraints="BorderLayout.WEST" name="Panel3" layout="FlowLayout">
+          <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Aliquotas ICMS" id="navToolBar"/>
+          <label name="Label_105" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Nome" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_106" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+        </panel>
+        <panel constraints="BorderLayout.EAST" name="Panel4" layout="FlowLayout"/>
+      </panel>
+      <button constraints="BorderLayout.EAST" name="Button_40" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=121-->
+<!--lastIdIndex=0-->

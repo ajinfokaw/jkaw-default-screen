@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,927,458" id="telaLookup" layout="BorderLayout" title="Consulta cadastro">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLookupClientesCartaCorrecao" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="ppesquisa" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,razaosocial,nomefantasia,municipio,uf,complemento,numero,endereco,cad_mun_id,cep,bairro FROM cad_cadastro WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) END" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_18" layout="FlowLayout">
+      <label name="Label_5" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_6" id="selecao" columnDataType="STRING" columnName="selecao" preferredSize="220,21"/>
+      <button name="Button_42" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+      <checkbox name="CheckBox_32" id="selecaoContida" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditMask="#####" columnName="id" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="razaoSocial" columnCaption="Raz&#xe3;o Social/Nome" columnDataType="STRING" columnName="razaosocial" columnWidth="40">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="nomeFantasia" columnCaption="Fantasia (nome usual)" columnDataType="STRING" columnName="nomefantasia" columnWidth="26">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="municipio" columnCaption="Cidade" columnDataType="STRING" columnName="municipio" columnWidth="20">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_31" id="uf" columnCaption="UF" columnDataType="STRING" columnName="uf" columnWidth="3">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="numero" columnCaption="N&#xfffd;&#xfffd;" columnDataType="STRING" columnName="numero" columnWidth="3" hidden="true">
+        <cellconstraints gridX="7" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_37" id="endereco" columnCaption="Endereco" columnDataType="STRING" columnName="endereco" columnWidth="26">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_38" id="complemento" columnCaption="Complemento" columnDataType="STRING" columnName="complemento" columnWidth="26">
+        <cellconstraints gridX="7" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_39" id="bairro" columnCaption="Bairro" columnDataType="STRING" columnName="bairro" columnWidth="26">
+        <cellconstraints gridX="5" gridY="9"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_40" id="cep" columnCaption="CEP" columnDataType="STRING" columnName="cep" columnWidth="26">
+        <cellconstraints gridX="7" gridY="9"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_41" id="munCodigo" columnCaption="Municipio" columnDataType="INT" columnName="cad_mun_id" columnWidth="26">
+        <cellconstraints gridX="5" gridY="11"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_23" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_24" id="navToolBarLookupClientes"/>
+    <button name="Button_25" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=42-->
+<!--lastIdIndex=0-->

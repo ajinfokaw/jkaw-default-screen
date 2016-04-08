@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,750,400" id="telaLookup" layout="BorderLayout" title="Consulta Motorista">
+  <panel constraints="BorderLayout.NORTH" name="Panel_3" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_5" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="id" columnWidth="4">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="razaoSocial" columnCaption="Raz&#xe3;o Social/Nome" columnDataType="STRING" columnEditable="false" columnName="razaosocial" columnWidth="25">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="nomeFantasia" columnCaption="Fantasia (nome usual)" columnDataType="STRING" columnEditable="false" columnName="nomefantasia" columnWidth="15">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_29" id="telefone1" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="{'('00')'}0000'-'0000^!" columnEditable="false" columnEditMask="{'('00')'}0000'-'0000^!" columnName="telefone1" columnWidth="10">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="municipio" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="municipio" columnWidth="20">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_31" id="uf" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf" columnWidth="3">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_14" id="placa1" columnCaption="N&#xba; Placa" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="placa1" columnWidth="6">
+        <cellconstraints gridX="5" gridY="8"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_15" id="placa2" columnCaption="N&#xba; Placa2" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="placa2" columnWidth="6">
+        <cellconstraints gridX="7" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_16" id="placa3" columnCaption="N&#xba; Placa3" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="placa3" columnWidth="6">
+        <cellconstraints gridX="7" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_17" id="veiculo" columnCaption="Ve&#xed;culo" columnDataType="STRING" columnEditable="false" columnName="veiculo" columnWidth="30">
+        <cellconstraints gridX="7" gridY="8"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Motorista" id="tableLookup" connection="jkawflex" editing="false" fillsViewportHeight="false" kawTableName="cad_cadastro" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT cad_veiculo.descricaoveiculo AS veiculo,cad_veiculo.placa1 AS placa1,cad_veiculo.placa2 AS placa2,cad_veiculo.placa3 AS placa3, cad_cadastro.id AS id, razaosocial,nomefantasia,municipio,uf,telefone1, contribuinteicms, calculoicmssobre_ipi FROM cad_cadastro RIGHT JOIN cad_veiculo ON  cad_cadastro.id = cad_veiculo.cad_cadastro_id_motorista WHERE motorista = true  AND CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN cad_cadastro.id = string_integer(:ppesquisa)  ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(nomefantasia) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nomefantasia) LIKE UPPER(:ppesquisa)||'%' OR UPPER(razaosocial) LIKE UPPER(:ppesquisa)||'%'END END" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_20" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=20-->
+<!--lastIdIndex=0-->

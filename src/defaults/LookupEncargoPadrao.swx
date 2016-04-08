@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="12,7,689,404" id="telaLookup" layout="BorderLayout" title="Consulta Encargos">
+  <panel constraints="BorderLayout.NORTH" name="Panel_4" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" visible="false" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_13" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,88px,2dlu,130px,5px,90px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_14" id="id" columnCaption="ID" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="id" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_15" id="cadFilialId" columnCaption="Filial" columnDataType="INT" columnEditable="false" columnName="cad_filial_id" columnWidth="5">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_16" id="icms" columnCaption="ICMS" columnDataType="INT" columnDisplayMask="###,##0.000" columnEditable="false" columnName="icms" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_17" id="ipi" columnCaption="IPI" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="ipi" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_18" id="subTotImp" columnCaption="SubTotal Imp" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="subtotimp" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_19" id="acrecimoFinanceiro" columnCaption="Acrecimo Financeiro" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="acrescfin" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_20" id="despesaOperacional" columnCaption="Despesa Operacional" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="despop" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_21" id="outros" columnCaption="Outros" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="outros" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_22" id="comissao" columnCaption="Comiss&#xe3;o" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="comissao" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_7" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_8" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="encargo" id="tableLookup" connection="jkawflex" kawTableName="fat_tencpadrao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT fat_encargopadrao.id, cad_filial_id, cad_filial.nomefantasia AS Nome, icms, ipi, subtotimp, acrescfin, despop, outros,comissao,totencarg FROM fat_encargopadrao LEFT JOIN cad_filial ON cad_filial.id = cad_filial_id" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_25" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_26" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=26-->
+<!--lastIdIndex=0-->

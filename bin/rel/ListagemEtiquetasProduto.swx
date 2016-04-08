@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,782,265" id="ListagemProdutos" layout="BorderLayout" title="Listagem de Etiquetas Produtos">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="128px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,403px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label_8" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_9" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawlookupbutton name="KawLookupButton_11" id="lookupButtonProdutoInicial" action="lookupProdutoInicial" columnDestino="produto_codigo_inicial" columnOrigem="id" connection="jkawflex" hidden="true" parameterQColumns="plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,pcadastro_codigo,ptipomovto,ppesquisa" parameterQColumnsDataType="INT,INT,INT,STRING,INT,INT,INT,STRING,STRING" queryDataSet="SELECT id,descricao FROM fat_produto ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_12" id="lookupButtonProdutoFinal" action="lookupProdutoFinal" columnDestino="produto_codigo_final" columnOrigem="id" connection="jkawflex" hidden="true" parameterQColumns="plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,pcadastro_codigo,ptipomovto,ppesquisa" parameterQColumnsDataType="INT,INT,INT,STRING,INT,INT,INT,STRING,STRING" queryDataSet="SELECT id,descricao FROM fat_produto ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_18" id="produtoInicial" columnCaption="Produto Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="produto_codigo_inicial" columnPosicao="4" columnRowId="true" columnWidth="5" editable="true" hidden="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_19" id="produtoFinal" columnCaption="Produto Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_codigo_final" columnPosicao="4" columnRowId="true" columnWidth="5" editable="true" hidden="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_22" id="produtoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_codigo_inicial_lookup" columnServerColumnName="" hidden="true" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_23" id="produtoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_codigo_final_lookup" columnServerColumnName="" hidden="true" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+    </label>
+    <combobox name="ComboBox_39" id="opcaoImpressao" editable="true" selectedItem="">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+    </combobox>
+    <label name="Label_43" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_44" id="grupoInicial" columnCaption="Grupo Inicial" columnDataType="INT" columnDefault=" " columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="grupo_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnWidth="5" editable="true" hidden="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawlookupbutton name="KawLookupButton_45" id="lookupButtonGrupoInicial" action="lookupGrupoInicial" columnDestino="grupo_inicial" columnOrigem="id" connection="jkawflex" hidden="true" parameterQColumns="plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,ppesquisa" parameterQColumnsDataType="INT,INT,INT,STRING,INT,INT,STRING" queryDataSet="SELECT id,descricao FROM fat_produto ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_46" id="grupoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_inicial_lookup" columnServerColumnName="" hidden="true" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_47" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_48" id="grupoFinal" columnCaption="Grupo Final" columnDataType="INT" columnDefault=" " columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="grupo_final" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnWidth="5" editable="true" hidden="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawlookupbutton name="KawLookupButton_49" id="lookupButtonGrupoFinal" action="lookupGrupoFinal" columnDestino="grupo_inicial" columnOrigem="id" connection="jkawflex" hidden="true" parameterQColumns="plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,ppesquisa" parameterQColumnsDataType="INT,INT,INT,STRING,INT,INT,STRING" queryDataSet="SELECT id,descricao FROM fat_produto ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_50" id="grupoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_final_lookup" columnServerColumnName="" hidden="true" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdatefield name="KawDateField_56" id="dataInicial">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdatefield>
+    <label name="Label_57" horizontalAlignment="0" horizontalTextPosition="11" text="Data das Etiquetas:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_41" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_42" layout="FlowLayout">
+      <button name="Button_15" id="btn_Imprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=58-->
+<!--lastIdIndex=0-->

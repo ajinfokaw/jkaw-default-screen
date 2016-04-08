@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,599,458" id="telaLookup" layout="BorderLayout" title="Consulta Movimenta&#xe7;&#xf5;es ">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableDoctoPC" connection="jkawflex" kawTableName="fat_docto_pc" parameterQColumns="tipo,cad_cadastro_id" parameterQColumnsDataType="STRING,INT" queryDataSet="SELECT fat_docto_c_controle, tipo, cad_cadastro_id, cad_filial_id, data_p, status_p FROM fat_docto_pc WHERE  status_p ='P' AND tipo = :tipo AND cad_cadastro_id = :cad_cadastro_id" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_18" layout="BorderLayout"/>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,95px,2dlu,87px,2dlu,21px,2dlu,148px,2dlu,109px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="controle" columnCaption="Controle" columnDataType="INT" columnEditable="false" columnEditMask="##########" columnName="fat_docto_c_controle" columnPosicao="2" columnRowId="true" columnTableName="fat_docto_pc" columnWidth="20">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="dataP" columnCaption="Data" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="data_p" columnPosicao="1" columnTableName="fat_docto_pc" columnWidth="15">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="status" columnCaption="Status" columnDataType="STRING" columnEditable="false" columnName="status_p" columnPosicao="2" columnTableName="fat_docto_pc" columnWidth="10">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_37" id="cadCadastroId" columnCaption="Codigo" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="cad_cadastro_id" columnPosicao="3" columnTableName="fat_docto_pc">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_39" id="baixar" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnName="baixar">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbcheckbox>
+      <kawdbtextfield name="KawDbTextField_40" id="cadFilialId" columnCaption="Filial" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="cad_filial_id" columnPosicao="3" columnTableName="fat_docto_pc">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_45" id="produtoId" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="fat_produto_id" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pi" columnWidth="6">
+        <cellconstraints gridX="11" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_46" id="controleId" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="fat_docto_pc_fat_docto_c_controle" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="11" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_47" id="qtde" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="qtde" columnPosicao="3" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="11" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_48" id="qtdePendente" columnCaption="Qtde-Pendente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="qtde_pendente" columnPosicao="5" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="11" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_49" id="qtdeAtendida" columnCaption="Qtde-Atendida" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="" columnName="qtde_atendida" columnPosicao="4" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="13" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_50" id="qtdeCancelada" columnCaption="Qtde-Cancelada" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="" columnName="qtde_cancelada" columnPosicao="6" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="13" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_51" id="baixarPI" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnHidden="false" columnName="baixarpi">
+        <cellconstraints gridX="13" gridY="3"/>
+      </kawdbcheckbox>
+      <kawdbtextfield name="KawDbTextField_52" id="produtoDescricao" columnCaption="Descricao" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="descricao" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="35">
+        <cellconstraints gridX="13" gridY="1"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_23" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_24" id="navToolBar"/>
+    <button name="Button_25" id="okButton" action="actionBaixar" actionCommand="" horizontalAlignment="0" horizontalTextPosition="11" text="Baixar Movimenta&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=52-->
+<!--lastIdIndex=0-->

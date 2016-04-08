@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,927,458" id="telaLookup" layout="BorderLayout" title="Consulta pedidos">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Pedidos" id="tableLookup" connection="jkawflex" kawTableName="fat_docto_c" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT controle,fat_transacao_id,fat_transacao.descricao,emissao,cad_cadastro_id,cad_cadastro.razaosocial FROM fat_docto_c INNER JOIN fat_transacao ON fat_transacao_id = fat_transacao.id INNER JOIN cad_cadastro ON cad_cadastro_id = cad_cadastro.id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(serie_id) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(serie_id) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_56" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_57" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_18" layout="FlowLayout"/>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="controle" columnCaption="Controle" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="controle" columnPosicao="1" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="transacaoCodigo" columnCaption="Emissao" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="emissao" columnPosicao="4" columnWidth="12">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="emissao" columnCaption="Transacao" columnDataType="INT" columnEditable="false" columnName="fat_transacao_id" columnPosicao="2" columnWidth="20">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_31" id="cadastroCodigo" columnCaption="Codigo do Cliente" columnDataType="INT" columnEditable="false" columnName="cad_cadastro_id" columnPosicao="5" columnWidth="15">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_37" id="descricao" columnCaption="Descricao Transacao" columnDataType="STRING" columnEditable="false" columnName="descricao" columnPosicao="3">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_38" id="razaoSocial" columnCaption="Nome do Cliente" columnDataType="STRING" columnEditable="false" columnName="razaosocial" columnPosicao="6">
+        <cellconstraints gridX="7" gridY="5"/>
+      </kawdbtextfield>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=57-->
+<!--lastIdIndex=0-->

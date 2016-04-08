@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ASCII"?>
+<frame xmlns="http://" bounds="2,2,1024,730" id="mainframe" layout="BorderLayout" title="JKawFlex - vers&#xe3;o  beta">
+  <menubar name="MenuBar_33">
+    <menu name="Arquivo" mnemonic="65" text="Arquivo">
+      <menu name="Config.Sistema" text="Configura&#xe7;&#xe3;o do Sistema">
+        <menuitem name="Cad.Diretivas" action="actionFatDiretivas" icon="img_FaturamentoDiretivas" text="Cadastro de Diretivas"/>
+        <menuitem name="Cad.Tabela de Campos" action="actionFatTbCampos" text="Cadastro de Tabelas de Campos "/>
+        <menu name="Menu_Transacao" text="Transa&#xe7;&#xe3;o e Diretivas">
+          <menuitem name="Cad.Transacao" action="actionFatTransacoes" icon="img_FaturamentoTransacoes" text="Cadastro/configura&#xe7;&#xe3;o de Transa&#xe7;&#xf5;es e Diretivas de lan&#xe7;amento"/>
+          <menuitem name="Cad.Consulta transacao" action="actionFatConsultaTransacao" text="Consulta Transa&#xe7;&#xf5;es e Diretivas de lan&#xe7;amento"/>
+        </menu>
+        <separator name="Separator_200"/>
+        <menu name="Menu_LookAndFeel" text="Look And Feel">
+          <radiobuttonmenuItem name="RadioB_Pasrao" enabled="true" action="actionLOOKANDFEEL_PADRAO" selected="false" text="Padr&#xe3;o"/>
+          <radiobuttonmenuItem name="RadioB_Metal" enabled="false" action="actionLOOKANDFEEL_METAL" text="Metal"/>
+          <radiobuttonmenuItem name="RadioB_Motif" enabled="false" action="actionLOOKANDFEEL_MOTIF" text="Motif"/>
+          <radiobuttonmenuItem name="RadioB_GTK" enabled="false" action="actionLOOKANDFEEL_GTK" text="GTK"/>
+        </menu>
+      </menu>
+      <separator name="Separator_46"/>
+      <menuitem name="Cad.Empresa" action="actionEmpresa" icon="img_ConfigBD" text="Cadastro de Empresas"/>
+      <menuitem name="Cad.Usuario" action="actionUsuario" icon="" text="Cadastro de Usuarios"/>
+      <menuitem name="Cad.Clas.Registro" action="actionClassificacao_Reg" text="Cadastro Classificacao de Registro"/>
+      <separator name="Separator_268"/>
+      <menuitem name="Config.Padrao" action="actionConfigPadrao" text="Configuracoes padrao do sistema"/>
+      <menuitem name="Config.BD" action="ConfigBD" text="Configura Acesso ao Banco de Dados"/>
+      <separator name="Separator_55"/>
+      <menuitem name="MenuItem_435" action="actionLogin" text="Logon"/>
+      <menuitem name="Sair" action="actionExit" icon="icons/exit.gif" mnemonic="83" text="Sair"/>
+    </menu>
+    <menu name="Cadastros" mnemonic="67" text="Cadastros">
+      <menu name="Cad.Gerais" text="Cadastros Gerais">
+        <menuitem name="Pais" action="actionCadPais" text="Cadastro de Pais"/>
+        <menuitem name="Estado" action="actionCadEstado" text="Cadastro de Estado"/>
+        <menuitem name="Cidade" action="actionCadCidade" text="Cadastro de Cidade"/>
+        <menuitem name="Cad.Filias" action="actionCadFilial" text="Cadastro de Filiais"/>
+        <menuitem name="Cad.Grup/SubGrup.Gerais" action="actionCadGrupoCadastro" text="Cadastro de Grupos/Sub-Grupos de Cadastros Gerais"/>
+        <menuitem name="Cad.Setor" action="actionCadSetor" text="Cadastro de Setores"/>
+      </menu>
+      <menu name="Fatu." text="Faturamento">
+        <menuitem name="Fat.Grup/SubGrup" action="actionFatGrupoProdutos" text="Cadastro de Grupos/Sub-Grupos de Produtos"/>
+        <menuitem name="Fat.Marc" action="actionFatMarcas" text="Cadastro de Marcas de Produtos"/>
+        <menuitem name="Fat.ListaPreco" action="actionFatListaPrecos" text="Cadastro de Listas de Precos"/>
+        <menuitem name="Fat.UnMedida" action="actionFatUnMedida" text="Cadastro Unidade de Medida"/>
+        <separator name="Separator_100"/>
+        <menu name="Produto" text="Produto">
+          <menuitem name="Cad.Prod" action="actionFatProduto" text="Cadastro Produtos"/>
+          <separator name="Separator_91"/>
+          <menuitem name="Clas.Orig" action="actionFatClassOrigem" text="Classifica&#xe7;&#xe3;o de Origem"/>
+          <menuitem name="Clas.Fiscal" action="actionFatClassFiscal" text="Classifica&#xe7;&#xe3;o Fiscal"/>
+          <menuitem name="Class.Trib" action="actionFatClassTributaria" text="Classificacao Tributaria"/>
+          <menuitem name="Clas.TIPI/NCM" action="actionFatClassTIPI" text="Classificacao TIPI/NCM"/>
+          <separator name="Separator_94"/>
+          <menuitem name="Aliq.ICMS" action="actionFatAliquotasICMS" text="Aliquotas de ICMS"/>
+          <menuitem name="Aliq.INSS" action="actionFatAliquotasINSS" text="Aliquotas FUNRURAL/INSS"/>
+          <menuitem name="Aliq.IRRF" action="actionFatAliquotasIRRF" text="Aliquotas de IRRF"/>
+          <menuitem name="Aliq.ISSQN" action="actionFatAliquotasISSQN" text="Aliquotas de ISSQN"/>
+          <menuitem name="Situacao Tributaria" action="actionSituacaoTributaria" text="Cadastro Situacao Tributaria"/>
+        </menu>
+        <separator name="Separator_99"/>
+        <menuitem name="Fat.CondPag" action="actionFatCondPg" text="Cadastro Condicoes de Pagamentos"/>
+        <menuitem name="Fat.SerieDoc" action="actionFatSerie" text="Cadastro Serie de Documentos"/>
+        <menuitem name="Fat.FormaPagto" action="actionFatFormaPagto" text="Cadastro de Forma de Pagamento"/>
+      </menu>
+      <menu name="Financ." text="Financeiro">
+        <menuitem name="Financ.Banco" action="actionFinanceiroBancos" text="Cadastro de Bancos"/>
+        <menuitem name="Financ.Agencia" action="actionFinanceiroAgencias" text="Cadastro de Agencias"/>
+        <menuitem name="Financ.ContCorrente" action="actionFinanceiroCC" text="Cadastro de Conta Corrente"/>
+        <menuitem name="Financ.TipoC/C" action="actionFinanceiroTipoCC" text="Cadastro de Tipos de C/C"/>
+        <menuitem name="Financ.Portador" action="actionFinanceiroPortador" text="Cadastro de Portador"/>
+        <menuitem name="Financ.TipoCob" action="actionFinanceiroTipoCobranca" text="Cadastro de Tipo de Cobranca"/>
+        <menuitem name="Financ.ClasGerencial" action="actionFinanceiroClassificacao_G" text="Cadastro de Classificacao Gerencial"/>
+        <menuitem name="Financ.Moeda" action="actionFinanceiroMoeda" text="Cadastro de Moeda"/>
+        <menuitem name="Recibo Avulso" action="actionReciboAvulso" text="Recibo Avulso"/>
+      </menu>
+    </menu>
+    <menu name="Movimentacao" mnemonic="77" text="Movimentacao">
+      <menu name="Faturamento" action="" text="Faturamento">
+        <menuitem name="LancamentoCompras" action="actionLancamentoCompra" text="Lan&#xe7;ar Compra de Mercadorias"/>
+        <menuitem name="LancamentoVendas" action="actionLancamentoVenda" text="Lan&#xe7;ar Venda de Mercadorias"/>
+        <separator name="Separator_319"/>
+      </menu>
+      <menu name="Financeiro" action="" text="Financeiro">
+        <menuitem name="lancamento de conta corrente" action="actionLancamentoContaCorrente" text="Lan&#xe7;amento de Conta Corrente"/>
+        <menuitem name="contas a receber" action="actionReceber" text="Contas a Receber"/>
+        <menuitem name="contas a pagar" action="actionPagar" text="Contas a Pagar"/>
+        <menuitem name="baixas contas a receber" action="actionRBaixa" text="Baixas de Contas a Receber"/>
+        <menuitem name="baixas contas a pagar" action="actionPBaixa" text="Baixas de Contas a Pagar"/>
+        <menuitem name="baixas contas a receber e a pagar" action="actionRPBaixa" text="Baixas de Contas a Receber e a Pagar"/>
+      </menu>
+      <menu name="Factoring" action="" text="Factoring">
+        <menuitem name="MenuItem_523" action="actionFacSimulacao" text="Simula&#xe7;&#xe3;o"/>
+        <menuitem name="MenuItem_520" action="actionDescontoPorCheque" text="Desconto Por Cheque"/>
+        <menuitem name="MenuItem_521" action="actionDescontoPorDuplicata" text="Desconto Por Duplicata"/>
+        <menuitem name="MenuItem_522" action="actionVendaAPrazo" text="Venda A Prazo"/>
+      </menu>
+    </menu>
+    <menu name="Relatorios" mnemonic="82" text="Relat&#xf3;rios">
+      <menu name="Fac." text="Factoring">
+        <menuitem name="PrazoMedio" action="actionListagemPrazoMedio" text="Prazo Medio"/>
+        <menuitem name="DescontoTitulos" action="actionListagemDescontoTitulos" text="Desconto por Titulos"/>
+        <menuitem name="Desconto por Cheque" action="actionListagemDescontoPorCheque" text="Desconto Por Cheque"/>
+      </menu>
+    </menu>
+    <menu name="Ajuda" mnemonic="74" text="Ajuda">
+      <menuitem name="MenuItem_188" action="actionHelp" text="Ajuda "/>
+      <menuitem name="MenuItem_189" action="actionAbout" text="Sobre Alt+S"/>
+    </menu>
+  </menubar>
+  <panel constraints="BorderLayout.NORTH" name="Panel_128" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_359" layout="FlowLayout">
+      <toolbar name="B. Principal">
+        <button name="Calculadora" toolTipText="Calculadora" action="actionCalc" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/calc.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Editor" toolTipText="Editor" action="actionEditor" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/editor.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Atendimento" toolTipText="Atendimento" action="actionAtendimento" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/atend.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Cliente" toolTipText="Cadastro de Clientes" action="actionCad" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/cliente2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Produto" toolTipText="Cadastro de Produtos" action="actionFatProd" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/produto2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Simula&#xe7;&#xe3;o de desconto" toolTipText="Cadastro Simulacao" action="actionFacSim" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/simulacao.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="DescontoCheque" toolTipText="Desconto de cheques" action="actionFacDescCheque" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/cheque.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="DescontoDuplicata" toolTipText="Desconto de Duplicatas" action="actionFacDescDpl" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/duplicata.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Desconto" toolTipText="Desconto Venda" action="actionFacDescVenda" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/descontovenda.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
+      <toolbar name="B,Fiananceiro">
+        <button name="BaixaReceber" font="Arial-7-NORMAL" toolTipText="Baixas Contas a Receber" action="actionBaixaReceber" horizontalAlignment="0" horizontalTextPosition="0" icon="com/jkawflex/main/images/receber2.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+        <button name="BaixaPagar" font="Arial-7-NORMAL" toolTipText="Baixas Contas a Pagar" action="actionBaixaPagar" horizontalAlignment="0" horizontalTextPosition="0" icon="com/jkawflex/main/images/pagar2.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+        <button name="CCMovto" font="Arial-7-NORMAL" toolTipText="Lan&#xe7;amento Conta Corrente" action="actionLancamentoCC" horizontalAlignment="0" horizontalTextPosition="0" icon="com/jkawflex/main/images/conta03.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+      </toolbar>
+      <toolbar name="B.Faturamento">
+        <button name="Venda" toolTipText="Venda" action="actionLancVenda" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/venda3.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Compra" toolTipText="Compra" action="actionLancCompra" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/compra.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel_392" layout="FlowLayout">
+      <toolbar name="B. Sair">
+        <button name="Sair" toolTipText="" action="actionExit" horizontalAlignment="0" horizontalTextPosition="11" icon="com/jkawflex/main/images/exit.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_191" layout="BorderLayout">
+    <panel constraints="BorderLayout.CENTER" name="Panel_192" layout="FormLayout">
+      <formLayout colspecs="default:grow(0.1),2dlu,default:grow(0.1),2dlu,Fill:234px,2dlu,default:grow" rowspecs="fill:default:grow(0.1)"/>
+      <kawclock name="KawClock_237">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Right" vAlign="Default"/>
+      </kawclock>
+      <kawdblabel name="KawDbLabel_195" id="SelectedEmpresa" text="Empresa">
+        <cellconstraints gridX="1" gridY="1"/>
+      </kawdblabel>
+      <kawdblabel name="KawDbLabel_198" id="UsuarioLogin" text="Usu&#xe1;rio">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdblabel>
+    </panel>
+  </panel>
+  <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
+</frame>
+<!--lastNameIndex=550-->
+<!--lastIdIndex=0-->

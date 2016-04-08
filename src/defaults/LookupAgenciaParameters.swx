@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,449,301" id="LookupAgenciaPar" layout="BorderLayout" title="Cadastro de Ag&#xea;ncias">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLookupAgencia" connection="jkawflex" kawTableName="financ_agencia" parameterQColumns="pBanco_Codigo" parameterQColumnsCaption="Codigo Bco" parameterQColumnsDataType="INT" queryDataSet="SELECT id,nome FROM financ_agencia WHERE financ_banco_id = :pBanco_Codigo ORDER BY nome" queryDataSetView="SELECT id FROM financ_agencia"/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_18" layout="FlowLayout">
+      <label name="Label_5" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_33" id="navFieldLookupAgencia"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu" rowspecs="default,2dlu,default,2dlu"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="STRING" columnEditable="false" columnEditMask="#####" columnName="id" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="agencia" columnCaption="Ag&#xea;ncia" columnDataType="STRING" columnEditable="false" columnName="nome" columnWidth="40">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_23" layout="FlowLayout">
+    <button name="Button_25" id="OK_Button" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=33-->
+<!--lastIdIndex=0-->

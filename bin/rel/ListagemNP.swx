@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="11,46,986,241" id="ListagemRomaneio" layout="BorderLayout" name="Listagem" title="Relat&#xf3;rio de Notas de Pesagem">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="128px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,558px,30px" rowspecs="27px,2dlu,27px,2px,27px,2dlu,27px,2dlu,27px,2dlu,27px"/>
+    <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_3" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="1"/>
+    </label>
+    <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+    </label>
+    <label name="Label_42" horizontalAlignment="4" horizontalTextPosition="11" text="Fornecedor Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+    </label>
+    <label name="Label_51" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_53" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="KawDbComboBox_55" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemNP' ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+    </kawdbcombobox>
+    <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="CLIENTE_FINAL" id="CLIENTE_FINAL" columnCaption="Cliente Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_final" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_58" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_notapesagem" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id" xmlLookupView="LookupClientes.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_59" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_notapesagem" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id" xmlLookupView="LookupClientes.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_60" id="clienteInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_inicial_lookup" columnNameLookupRow="cliente_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_61" id="clienteFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_final_lookup" columnNameLookupRow="cliente_final" columnNameOriginLookupRow="razaosocial" columnTableName="fat_notapesagem" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookuprow name="PRODUTO_INICIAL" id="PRODUTO_INICIAL" columnCaption="Produto Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="produto_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="PRODUTO_FINAL" id="PRODUTO_FINAL" columnCaption="Produto Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_final" columnNameLookupKey="id" columnNameRelationLookupKey="produto_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_64" id="lookupButtonProdutoInicial" action="lookupClienteInicial" columnDestino="produto_inicial" columnOrigem="id" connection="jkawflex" kawTableName="fat_produto" kawTableNameRelation="fat_notapesagem" parameterQColumns="produto_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao, referencia FROM fat_produto WHERE id = :produto_inicial ORDER BY id" xmlLookupView="LookupProdutos.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_65" id="lookupButtonProdutoFinal" action="lookupClienteFinal" columnDestino="produto_final" columnOrigem="id" connection="jkawflex" kawTableName="produto_final" kawTableNameRelation="fat_notapesagem" parameterQColumns="produto_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao, referencia FROM fat_produto WHERE id = :produto_final ORDER BY id" xmlLookupView="LookupProdutos.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_66" id="produtoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_inicial_lookup" columnNameLookupRow="produto_inicial" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_67" id="produtoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_final_lookup" columnNameLookupRow="produto_final" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdatefield name="DATA_INICIAL" id="DATA_INICIAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Fill"/>
+    </kawdatefield>
+    <kawdatefield name="DATA_FINAL" id="DATA_FINAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Fill"/>
+    </kawdatefield>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_34" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_35" layout="FlowLayout">
+      <button name="Button_15" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=69-->
+<!--lastIdIndex=0-->

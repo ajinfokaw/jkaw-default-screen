@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,927,458" id="telaLookup" layout="BorderLayout" title="Consulta Auditoria de Dados">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="Auditoria" id="tableLookup" connection="jkawflex" kawTableName="auditoria" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT pkyaud, dthaud, usuaud, hosaud, banaud, array_to_string(scmaud, ',') as scmaud , tabaud, camaud, array_to_string(npkaud,',') as npkaud , array_to_string(vpkaud, ',') as vpkaud, tacaud, maqaud, vanaud, vnoaud, queaud, data_hora_sync FROM auditoria WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN pkyaud = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(usuaud) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(banaud) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(hosaud) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(usuaud) LIKE UPPER(:ppesquisa)||'%' OR UPPER(banaud) LIKE UPPER(:ppesquisa)||'%' OR UPPER(hosaud) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px,2dlu,235px" rowspecs="14px,2dlu,19px,2dlu,default,2dlu"/>
+      <kawdbtextfield name="KawDbTextField_32" id="pkyaud" columnCaption="Id" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="pkyaud" columnPosicao="1" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="usuaud" columnCaption="Nome Usu&#xe1;rio" columnDataType="STRING" columnEditable="false" columnName="usuaud" columnPosicao="2" columnWidth="12">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_31" id="hosaud" columnCaption="Host" columnDataType="STRING" columnEditable="false" columnName="hosaud" columnPosicao="4" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_55" id="banaud" columnCaption="Banco" columnDataType="STRING" columnEditable="false" columnName="banaud" columnPosicao="5" columnWidth="12">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_56" id="tabaud" columnCaption="Tabela" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="tabaud" columnPosicao="7" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_57" id="npkaud" columnCaption="Nome do Campo" columnDataType="STRING" columnEditable="false" columnName="npkaud" columnPosicao="9" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextarea name="KawDbTextArea_59" id="scmaud" columnCaption="Schema" columnDataType="STRING" columnName="scmaud" columnPosicao="6" columnWidth="50">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextarea>
+      <kawdbtextarea name="KawDbTextArea_61" id="camaud" columnCaption="Campos da tabela" columnDataType="STRING" columnName="camaud" columnPosicao="8" columnWidth="50">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextarea>
+      <kawdbtextfield name="KawDbTextField_62" id="vpkaud" columnCaption="Valor PK" columnDataType="STRING" columnEditable="false" columnName="vpkaud" columnPosicao="10" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_63" id="tacaud" columnCaption="Tipo A&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="tacaud" columnPosicao="11" columnWidth="18">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_64" id="maqaud" columnCaption="M&#xe1;quina" columnDataType="STRING" columnEditable="false" columnName="maqaud" columnPosicao="12" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextarea name="KawDbTextArea_65" id="vanaud" columnCaption="vanaud" columnDataType="STRING" columnName="vanaud" columnPosicao="13" columnWidth="50">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextarea>
+      <kawdbtextarea name="KawDbTextArea_66" id="vnoaud" columnCaption="vnoaud" columnDataType="STRING" columnName="vnoaud" columnPosicao="14" columnWidth="50">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextarea>
+      <kawdbtextarea name="KawDbTextArea_67" id="queaud" columnCaption="queaud" columnDataType="STRING" columnName="queaud" columnPosicao="15" columnWidth="50">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextarea>
+      <kawdbtextfield name="KawDbTextField_85" id="dthaud" columnCaption="Data/Hora" columnDataType="STRING" columnEditable="false" columnName="dthaud" columnPosicao="3" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_86" id="data_hora_sync" columnCaption="Data/Hora SYNC" columnDataType="STRING" columnEditable="false" columnName="data_hora_sync" columnPosicao="10" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="2" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=86-->
+<!--lastIdIndex=0-->

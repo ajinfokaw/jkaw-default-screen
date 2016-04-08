@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,800,458" id="telaLookup" layout="BorderLayout" title="Consulta Motoristas">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLookup" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT cad_cadastro.id,razaosocial,nomefantasia,cad_mun_id,cad_mun.municipio, cad_mun.uf,endereco,complemento,bairro,telefone1,obstelefone1,email,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,CASE WHEN pessoa = 'Fisica' THEN cpf ELSE inscricaofederal END AS cnpj_cpf,CASE WHEN pessoa = 'Fisica' THEN rg ELSE inscricaoestadual END AS ie_rg, pessoa FROM cad_cadastro LEFT JOIN cad_mun ON cad_mun.id = cad_mun_id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN cad_cadastro.id = string_integer(:ppesquisa) AND COALESCE(desativado,false) != true ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(nomefantasia) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(razaosocial) LIKE UPPER(:ppesquisa)||'%' END END AND COALESCE(desativado, false) != true AND COALESCE(motorista, false) = true ORDER BY razaosocial" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_18" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_6" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" columnPosicao="12" preferredSize="220,21"/>
+      <button name="Button_48" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px,2dlu,235px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="0" columnRowId="false" columnWidth="7">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="razaoSocial" columnCaption="Raz&#xe3;o Social/Nome" columnDataType="STRING" columnEditable="false" columnName="razaosocial" columnPosicao="1" columnWidth="40">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="nomeFantasia" columnCaption="Fantasia (nome usual)" columnDataType="STRING" columnEditable="false" columnName="nomefantasia" columnPosicao="8" columnWidth="15">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_29" id="telefone1" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="{'('00')'}0000'-'0000^!" columnEditable="false" columnEditMask="{'('00')'}0000'-'0000^!" columnName="telefone1" columnPosicao="4" columnWidth="10">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="municipio" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="municipio" columnPosicao="2" columnWidth="15">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_31" id="uf" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf" columnPosicao="3" columnWidth="3">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="contribuinteICMS" columnCaption="Contrib. ICMS" columnDataType="STRING" columnEditable="false" columnName="contribuinteicms" columnPosicao="11" columnWidth="10" hidden="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_36" id="calculoICMSSobreIPI" columnCaption="Calculaicmssobreipi" columnDataType="BOOLEAN" columnHidden="true" columnName="calculoicmssobre_ipi" columnPosicao="11" columnRowId="false" hidden="true" text="Calcular ICMS sobre IPI?">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbcheckbox>
+      <kawdbtextfield name="KawDbTextField_39" id="email" columnCaption="Email" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="false" columnName="email" columnPosicao="4" columnWidth="40">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_40" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="celular" columnPosicao="6" columnWidth="14">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_41" id="obsTelefone1" columnCaption="OBS. Tel." columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="obstelefone1" columnPosicao="5" columnWidth="14">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_42" id="municipioId" columnCaption="Codigo Cidade" columnDataType="INT" columnEditable="false" columnName="cad_mun_id" columnPosicao="8" columnWidth="20">
+        <cellconstraints gridX="7" gridY="11"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_43" id="endereco" columnCaption="Endereco" columnDataType="STRING" columnEditable="false" columnName="endereco" columnPosicao="12" columnWidth="20">
+        <cellconstraints gridX="9" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_44" id="complemento" columnCaption="Complemento" columnDataType="STRING" columnEditable="false" columnName="complemento" columnPosicao="13" columnWidth="20">
+        <cellconstraints gridX="9" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_45" id="bairro" columnCaption="Bairro" columnDataType="STRING" columnEditable="false" columnName="bairro" columnPosicao="14" columnWidth="20">
+        <cellconstraints gridX="9" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_46" id="cnpjCpf" columnCaption="CNPJ/CPF" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="cnpj_cpf" columnPosicao="15" columnWidth="20">
+        <cellconstraints gridX="9" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_47" id="ieRg" columnCaption="IE/RG" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="ie_rg" columnPosicao="16" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=54-->
+<!--lastIdIndex=0-->

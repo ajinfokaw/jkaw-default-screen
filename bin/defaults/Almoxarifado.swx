@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,671,345" constraints="BorderLayout.CENTER" name="Almoxarifado" id="cadAlmoxarifado" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Almoxarifado" id="fat_almoxarifado" connection="jkawflex" kawTableName="fat_almoxarifado" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_almoxarifado WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
+          <panel name="Panel_10" layout="FormLayout">
+            <formLayout colspecs="95px,2dlu,108px,2dlu,95px,2dlu,182px" rowspecs="default,2dlu,default,2dlu,default"/>
+            <label name="Label_11" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_14" id="id" columnAutoIncrement="true" columnCalcType="" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="5" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_15" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_16" id="descricao" columnCalcType="" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnName="descricao" columnPosicao="1" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="60" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+          <panel name="Panel_60" layout="FormLayout">
+            <formLayout colspecs="116px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+            <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_72" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_73" horizontalAlignment="0" horizontalTextPosition="11" text="Hoara de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_74" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="true" columnTableName="fat_almoxarifado" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_75" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_76" id="dataInc" columnCalcType="" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o: " verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_78" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="7"/>
+            </kawdbtextfield>
+            <label name="Label_79" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_80" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_82" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="true" columnTableName="fat_almoxarifado" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_3" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_22" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Almoxarifado" id="navToolBar"/>
+      <label name="Label_23" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_24" id="navField" editable="true"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=27-->
+<!--lastIdIndex=0-->

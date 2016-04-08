@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1024,587" layout="BorderLayout" title="Cadastro - Moeda">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_22" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Moeda" id="financ_moeda" connection="jkawflex" kawTableName="financ_moeda" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,codigomoeda,descricao FROM financ_moeda  WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="SheetMoeda" tabPlacement="1" titles="Geral">
+          <panel name="Panel_8" layout="FormLayout">
+            <formLayout colspecs="137px,2dlu,22px,2dlu,73px,2dlu,306px" rowspecs="default,2dlu,default,2dlu,default"/>
+            <label name="Label_9" horizontalAlignment="0" horizontalTextPosition="11" text="Id:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_11" id="codigo" columnAutoIncrement="true" columnCaption="Id" columnDataType="INT" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="id" columnRowId="true" columnTableName="financ_moeda" columnWidth="8">
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_12" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_13" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnName="descricao" columnPosicao="1" columnRowId="false" columnTableName="financ_moeda" columnWidth="57">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField1" id="codigoMoeda" columnCaption="C&#xf3;digo Moeda" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnHidden="false" columnName="codigomoeda" columnRowId="true" columnTableName="financ_moeda" columnWidth="8" editable="true" enable="true" hidden="false">
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_24" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_21" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_22" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel3" layout="FlowLayout">
+        <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Aliquotas ICMS" id="navToolBar"/>
+        <label name="Label_105" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Pa&#xed;s" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField_106" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+      </panel>
+      <panel constraints="BorderLayout.EAST" name="Panel4" layout="FlowLayout"/>
+    </panel>
+    <button constraints="BorderLayout.EAST" name="Button_23" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=24-->
+<!--lastIdIndex=0-->

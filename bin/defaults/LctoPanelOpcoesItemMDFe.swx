@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1280,100" constraints="BorderLayout.CENTER" name="PANEL_OPCOES_ITEM_MDFE" id="PANEL_OPCOES_ITEM_MDFE" layout="BorderLayout">
+  <panel constraints="BorderLayout.WEST" name="Panel0" layout="FlowLayout">
+    <panel name="Op&#xe7;&#xf5;es - Item(s):" id="panelItens" visible="false" layout="FlowLayout">
+      <button name="Button12" id="insereButton_fat_docto_i" preferredSize="180,25" toolTipText="Inserir item (Ctrl + Insert)" visible="false" actionCommand="fat_docto_i" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Item" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button13" id="excluiButton_fat_docto_i" preferredSize="180,25" toolTipText="Deletar Item (Ctrl + Delete)" visible="false" actionCommand="fat_docto_i" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Item" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es -  Impress&#xe3;o Formul&#xe1;rio:" id="panelImpressao" visible="false" layout="FlowLayout">
+      <button name="Button8" id="btnForm1" preferredSize="70,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="1" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button9" id="btnForm2" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="2" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+      <button name="Button10" id="btnForm3" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="3" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es - Manifesto Eletr&#xf4;nico" id="panelBtnAux" layout="FlowLayout">
+      <button name="Button1" id="autorizarNfeButton" horizontalAlignment="0" horizontalTextPosition="11" text="Autorizar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button2" id="consultarNfeButton" horizontalAlignment="0" horizontalTextPosition="11" text="Consultar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button0" id="encerrarDfeButton" horizontalAlignment="0" horizontalTextPosition="11" text="Encerrar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button3" id="cancelarNfeButton" horizontalAlignment="0" horizontalTextPosition="11" text="Cancelar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button4" id="imprimirDanfeButton" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button5" id="enviarEmailButton" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button6" id="statusButton" horizontalAlignment="0" horizontalTextPosition="11" text="Status" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>

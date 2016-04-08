@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,559,275" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_9" tabPlacement="1" titles="Instalar Certificado">
+      <panel name="Panel_10" layout="FormLayout">
+        <formLayout colspecs="101px,2dlu,115px,2dlu,195px,2dlu,73px,2dlu,37px" rowspecs="2dlu,26px,4dlu,28px,2dlu,default"/>
+        <label name="Label_11" horizontalAlignment="4" horizontalTextPosition="11" text="Local:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_12" id="localNome" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="2" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_13" horizontalAlignment="4" horizontalTextPosition="11" text="Nome:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_14" id="certificadoNome" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <kawlookupbutton name="KawLookupButton_15" id="buttonInstalar" action="actionInstalar" text="Instalar">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+        </kawlookupbutton>
+        <button name="Button_24" id="buttonPesquisar" action="actionPesquisar" horizontalAlignment="0" horizontalTextPosition="11"  verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="2" hAlign="Default" vAlign="Default"/>
+        </button>
+        <button name="Button_25" id="buttonPesquisarNome" action="actionPesquisarNome" horizontalAlignment="0" horizontalTextPosition="11"  verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="4" hAlign="Default" vAlign="Default"/>
+        </button>
+      </panel>
+    </tabbedpane>
+  </panel>
+</dialog>
+<!--lastNameIndex=25-->
+<!--lastIdIndex=0-->

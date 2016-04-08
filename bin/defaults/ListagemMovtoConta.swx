@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,462,197" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_8" layout="FormLayout">
+    <formLayout colspecs="29px,2dlu,76px,2dlu,97px,2dlu,28px,2dlu,95px,2dlu,95px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label_14" horizontalAlignment="4" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="3" gridY="1"/>
+    </label>
+    <kawdatefield name="kawdatefield_15" id="dataInicial">
+      <cellconstraints gridX="5" gridY="1"/>
+    </kawdatefield>
+    <label name="Label_16" horizontalAlignment="0" horizontalTextPosition="11" text="&#xe0;" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="7" gridY="1"/>
+    </label>
+    <kawdatefield name="kawdatefield_17" id="dataFinal" >
+      <cellconstraints gridX="9" gridY="1"/>
+    </kawdatefield>
+    <label name="Label_18" horizontalAlignment="4" horizontalTextPosition="11" text="Filial Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="4" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+    </label>
+    <label name="Label_19" horizontalAlignment="4" horizontalTextPosition="11" text="Filial Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_20" id="filialInicial" columnCaption="Filial Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_id_inicial" columnRowId="true" editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_21" id="filialFinal" columnCaption="Filial Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_id_final" columnRowId="true" editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawlookupbutton name="KawLookupButton_22" id="lookupButtonFilialInicial" action="lookupFilialInicial" columnDestino="filial_id_inicial" columnOrigem="id" connection="jkawflex" queryDataSet="SELECT id,razaosocial,endereco FROM cad_filial ORDER BY id" >
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_23" id="lookupButtonFilialFinal" action="lookupFilialFinal" columnDestino="filial_id_final" columnOrigem="id" connection="jkawflex" queryDataSet="SELECT id,razaosocial,endereco FROM cad_filial ORDER BY id" >
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_26" id="filialInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_id_inicial_lookup"    text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_27" id="filialFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_id_final_lookup"    text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_28" horizontalAlignment="4" horizontalTextPosition="11" text="Conta:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_29" id="conta" columnCaption="Conta" columnDataType="STRING" columnDefault="" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="contaid" columnRowId="true" editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawlookupbutton name="KawLookupButton_30" id="lookupButtonConta" action="lookupConta" columnDestino="contaid" columnOrigem="numeroconta" connection="jkawflex" queryDataSet="SELECT id,descricao,numeroconta FROM financ_cc ORDER BY id" >
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_31" id="contaLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="conta_lookup"    text="">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <button name="Button_32" id="btn_Imprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="11" hAlign="Default" vAlign="Default"/>
+    </button>
+  </panel>
+</dialog>
+<!--lastNameIndex=32-->
+<!--lastIdIndex=0-->

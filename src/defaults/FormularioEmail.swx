@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="2,2,1250,634" layout="BorderLayout" name="Email" title="Email">
+  <panel constraints="BorderLayout.NORTH" name="Panel_5" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_6" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_10" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_11" layout="FlowLayout">
+      <button name="Button_13" id="btnEnviar" action="actionEnvia" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_37" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel_12" layout="FlowLayout">
+      <kawdbnavtoolbar name="KawDbNavToolBar_184" id="navToolBar" paintingTile="true" tips="true"/>
+      <label name="Label_185" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_186" id="navField" preferredSize="250,21"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_15" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPane_cad_email" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_17" layout="CardLayout">
+        <scrollpane constraints="ScrollPane_142" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="KawDbTable_179" id="cad_email" connection="jkawflex" kawTableName="cad_email" parameterQColumns="datainicial,datafinal,pid,pnumero_docto,ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Data Inicial,Data Final,N.Controle,N.Docto" parameterQColumnsDataType="DATE,DATE,INT,INT,STRING,BOOLEAN" parameterQDefault="now,now" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT * FROM cad_email WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(assunto) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(de) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(para) LIKE '%'||UPPER(:ppesquisa)||'%'  ELSE UPPER(assunto) LIKE UPPER(:ppesquisa)||'%' OR UPPER(de) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_18" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_21" tabPlacement="1" titles="Email,Condigura&#xe7;&#xe3;o da conta de e-mail">
+          <panel name="Panel_25" layout="BorderLayout">
+            <panel constraints="BorderLayout.CENTER" name="Panel_26" id="lookupPara" layout="FormLayout">
+              <formLayout colspecs="160px,2dlu,435px,2dlu,436px,2dlu,default" rowspecs="default,default,2dlu,default,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
+              <label name="Label_27" horizontalAlignment="0" horizontalTextPosition="11" text="De:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_28" id="de" columnCaption="De" columnDataType="STRING" columnName="de" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="2" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_29" horizontalAlignment="0" horizontalTextPosition="11" text="Para:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Right" vAlign="Default"/>
+              </label>
+              <label name="Label_30" horizontalAlignment="0" horizontalTextPosition="11" text="Assunto:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="6" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_31" id="assunto" columnCaption="Assunto" columnDataType="STRING" columnName="assunto" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="6" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_32" horizontalAlignment="0" horizontalTextPosition="11" text="Texto:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
+              </label>
+              <panel name="Panel_33" layout="BorderLayout">
+                <cellconstraints gridHeight="3" gridWidth="5" gridX="3" gridY="8" hAlign="Fill" vAlign="Fill"/>
+                <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_84" id="textoScroll" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                  <kawdbtextarea name="KawDbTextArea_94" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnTableName="cad_email"/>
+                </scrollpane>
+              </panel>
+              <label name="Label_34" horizontalAlignment="0" horizontalTextPosition="11" text="Anexo(s):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_36" id="para" columnCaption="Para" columnDataType="STRING" columnName="para" columnNameLookupKey="id" columnNameRelationLookupKey="para" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfieldlookuprow>
+              <kawlookupbutton name="KawLookupButton_37" id="lookupEmail" action="lookupCadastro" columnDestino="para" columnOrigem="email" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="cad_email" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,email,municipio,uf,telefone1,obstelefone1,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,pessoa FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="4" hAlign="Default" vAlign="Default"/>
+              </kawlookupbutton>
+              <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Id" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_39" id="id" columnAutoIncrement="true" columnCaption="Id" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="0" columnRowId="true" columnTableName="cad_email" columnWidth="5" editable="true" fieldNotEdit="true" focusable="false">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Left" vAlign="Default"/>
+              </kawdbtextfield>
+              <kawdbtextfield name="KawDbTextField_40" id="dataEnvio" columnCaption="Enviado em" columnDataType="TIMESTAMP" columnDisplayMask="dd/MM/yyyy HH:mm" columnEditMask="dd/MM/yyyy" columnName="data_envio" columnRowId="false" columnTableName="cad_email" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Fill" vAlign="Default"/>
+              </kawdbtextfield>
+              <panel name="Panel_44" id="pannelAnexos" layout="BorderLayout">
+                <cellconstraints gridHeight="2" gridWidth="5" gridX="3" gridY="12" hAlign="Default" vAlign="Default"/>
+                <panel constraints="BorderLayout.CENTER" name="Panel_45" layout="BorderLayout">
+                  <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                    <kawdbtable name="Anexos" id="cad_email_anexos" connection="jkawflex" hidden="false" kawTableName="cad_email_anexos" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="cad_email_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="cad_email" managingFocus="true" parameterQColumns="id" parameterQColumnsCaption="id docto" parameterQColumnsDataType="INT" parameterQDisplayMask="###########" queryDataSet="SELECT *  FROM cad_email_anexos WHERE cad_email_id = :id ORDER BY cad_arquivos_id" queryDataSetView=""/>
+                  </scrollpane>
+                </panel>
+                <panel constraints="BorderLayout.SOUTH" name="Panel_46" layout="BorderLayout">
+                  <panel constraints="BorderLayout.EAST" name="Botoes" layout="BorderLayout">
+                    <panel constraints="BorderLayout.NORTH" name="Panel1" layout="BorderLayout">
+                      <panel constraints="BorderLayout.CENTER" name="Panel0" layout="FlowLayout">
+                        <kawdbtextfield name="KawDbTextField0" id="doctoControle" columnCaption="Controle" columnDataType="INT" columnHidden="false" columnName="cad_email_id" columnResolvable="true" columnRowId="true" columnTableName="cad_email_anexos" hidden="true"/>
+                        <kawdbtextfield name="KawDbTextField1" id="arquivoId" columnCaption="Id-Arquivo" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cad_arquivos_id" columnPosicao="1" columnRequired="true" columnRowId="true" columnTableName="cad_email_anexos" columnWidth="5" editable="true" hidden="true"/>
+                        <kawdbtextfield name="KawDbTextField0" id="anexoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="anexo_lookup" columnPosicao="2" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="55" editable="false" hidden="true" UIClassID=" "/>
+                        <kawdbtextfield name="KawDbTextField3" id="doctoAnexoObs" caretPosition="0" columnCaption="Observa&#xe7;&#xf5;es" columnDataType="STRING" columnEditable="true" columnName="observacao" columnPosicao="3" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="100" hidden="true"/>
+                      </panel>
+                    </panel>
+                  </panel>
+                  <panel constraints="BorderLayout.WEST" name="Panel8" layout="BorderLayout">
+                    <panel constraints="BorderLayout.WEST" name="Panel9" layout="FlowLayout">
+                      <button name="Anexar Arquivo" id="btnAnexar" preferredSize="250,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Anexar" verticalAlignment="0" verticalTextPosition="0"/>
+                      <button name="Button1" id="btnAbrirAnexo" preferredSize="250,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Abrir Anexo" verticalAlignment="0" verticalTextPosition="0"/>
+                      <button name="Excluir Item" id="excluiButton_cad_email_anexos" preferredSize="250,25" horizontalAlignment="0" horizontalTextPosition="11" text="Excluir Anexo" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+                    </panel>
+                  </panel>
+                </panel>
+              </panel>
+            </panel>
+          </panel>
+          <panel name="Panel_42" layout="BorderLayout">
+            <panel constraints="BorderLayout.NORTH" name="Panel_43" layout="FormLayout">
+              <formLayout colspecs="146px,2dlu,333px,2dlu,108px,2dlu,273px" rowspecs="default,29px,2dlu,17px,2dlu,default,default,2dlu,default,default,5dlu,default"/>
+              <label name="Label_97" horizontalAlignment="0" horizontalTextPosition="11" text="smtpHostMail (indica qual ser&#xe1; o servidor de email &quot;gmail, hotmail&quot;):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="1" hAlign="Left" vAlign="Bottom"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_99" id="smtpHostMail" columnDataType="STRING" columnName="smtphostmail" columnResolvable="true" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_101" horizontalAlignment="0" horizontalTextPosition="11" text="smtpPortMail (ndica a porta de acesso ao servidor):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="1" hAlign="Left" vAlign="Bottom"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_102" id="smtpPortMail" columnDataType="STRING" columnName="smtpportmail" columnResolvable="true" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="2" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <kawdbcheckbox name="KawDbCheckBox_103" id="smtpAuth" columnDataType="BOOLEAN" columnName="smtpauth" columnResolvable="true" columnTableName="cad_email" text="smtpAuth (necessidade de autentica&#xe7;&#xe3;o)">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
+              </kawdbcheckbox>
+              <kawdbcheckbox name="KawDbCheckBox_104" id="smtpStarttls" columnDataType="BOOLEAN" columnName="smtpstarttls" columnResolvable="true" columnTableName="cad_email" text="smtpStarttls  (conex&#xe3;o segura)">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="4" hAlign="Default" vAlign="Default"/>
+              </kawdbcheckbox>
+              <label name="Label_105" horizontalAlignment="0" horizontalTextPosition="11" text="fromNameMail (nome do remetente do email):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="6" hAlign="Left" vAlign="Bottom"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_106" id="fromNameMail" columnDataType="STRING" columnName="fromnamemail" columnResolvable="true" columnRowId="false" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <kawdbtextfield name="KawDbTextField_107" id="userMail" columnDataType="STRING" columnName="usermail" columnResolvable="true" columnRowId="false" columnTableName="cad_email">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_108" horizontalAlignment="0" horizontalTextPosition="11" text="userMail (email do remetente):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="6" hAlign="Left" vAlign="Bottom"/>
+              </label>
+              <label name="Label_109" horizontalAlignment="0" horizontalTextPosition="11" text="passMail (senha do email do remetentel):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="9" hAlign="Left" vAlign="Bottom"/>
+              </label>
+              <button name="Button_114" id="btnSalvarConfig" horizontalAlignment="0" horizontalTextPosition="11" text="Salvar Configura&#xe7;&#xf5;es" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridX="7" gridY="12"/>
+              </button>
+              <passwordfield name="PasswordField_116" id="passMail" preferredSize="50,25">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="10" hAlign="Default" vAlign="Default"/>
+              </passwordfield>
+              <passwordfield name="PasswordField_131" id="passMail2" preferredSize="50,25">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="10" hAlign="Default" vAlign="Default"/>
+              </passwordfield>
+              <label name="Label_132" horizontalAlignment="0" horizontalTextPosition="11" text="Redigite a senha:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="9" hAlign="Left" vAlign="Bottom"/>
+              </label>
+            </panel>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+</dialog>
+<!--lastNameIndex=49-->
+<!--lastIdIndex=0-->

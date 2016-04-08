@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,516,230" id="ConfigImpCadGru" layout="BorderLayout" title="Par&#xe2;metros de Importa&#xe7;&#xe3;o - Grupos de Cadastro">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="119px,2dlu,156px,2dlu,123px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+    <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="codigo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_3" id="codigo" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="" columnPosicao="1" columnRowId="false" columnWidth="5"   editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_6" horizontalAlignment="0" horizontalTextPosition="11" text="descricao:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_7" id="descricao" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="" columnPosicao="1" columnRowId="false" columnWidth="5"   editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="classificacao:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_9" id="classificacao" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="" columnPosicao="1" columnRowId="false" columnWidth="5"   editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <label name="Label_76" horizontalAlignment="0" horizontalTextPosition="11" text="nome da tabela:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_77" id="nomeTabela" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="" columnPosicao="1" columnRowId="false" columnWidth="5"   editable="true">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_78" layout="BorderLayout">
+    <kawdbnavtoolbar constraints="BorderLayout.CENTER" name="Barra de Op&#xe7;&#xf5;es - Par&#xe2;metros de Importa&#xe7;&#xe3;o - Grupos de Cadastro" id="NavToolBarImpCadGru"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=80-->
+<!--lastIdIndex=0-->

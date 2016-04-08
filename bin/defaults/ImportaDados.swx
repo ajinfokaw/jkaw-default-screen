@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,722,198" layout="BorderLayout" title="Gerar Script SQL para Importa&#xe7;&#xe3;o de dados ">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_11" tabPlacement="1" titles="Importar dados SISTEMA INFOKAW">
+      <panel name="Panel_12" layout="FormLayout">
+        <formLayout colspecs="136px,2dlu,86px,2dlu,195px,2dlu,73px,2dlu,44px" rowspecs="2dlu,26px,4dlu,28px,2dlu,22px,2dlu"/>
+        <label name="Label_11" horizontalAlignment="4" horizontalTextPosition="11" text="URL:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_13" horizontalAlignment="4" horizontalTextPosition="11" text="Nome Esquema:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_17" id="url" preferredSize="50,25" text="jdbc:dbf:////home/alaor/importa/emp0001/dbf">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="2" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <textfield name="TextField_18" id="nomeEsquema" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <kawlookupbutton name="KawLookupButton_19" id="buttonSelecionar" action="actionSelecionar" text="Iniciar">
+          <cellconstraints gridHeight="2" gridWidth="3" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+        </kawlookupbutton>
+      </panel>
+    </tabbedpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_21" layout="BorderLayout">
+      <progressbar constraints="BorderLayout.CENTER" name="Progressbar_22" id="progressBar" borderPainted="true"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=22-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,489,526" constraints="BorderLayout.CENTER" id="cadTextoCartas" layout="BorderLayout">
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_1" id="tabbedPaneMain" tabPlacement="1" titles="Lista,Editar">
+    <panel name="Panel_2" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_8" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="KawDbTable_9" id="tableTextoCartas" connection="jkawflex" kawTableName="ef_textocartas" queryDataSet="SELECT * FROM ef_textocartas" queryDataSetView="SELECT modelo  FROM ef_textocartas"/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel_3" layout="BorderLayout">
+      <tabbedpane constraints="BorderLayout.NORTH" name="TabbedPane_4" tabPlacement="1" titles="Geral,Outros Dados">
+        <panel name="Panel_5" layout="FormLayout">
+          <formLayout colspecs="2dlu,122px,102px,2dlu,113px,2dlu,124px" rowspecs="default,2dlu,default,2dlu,default"/>
+          <label name="Label_25" horizontalAlignment="4" horizontalTextPosition="11" text="Modelo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_26" horizontalAlignment="4" horizontalTextPosition="11" text="Parte do texto:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_27" id="modelo" columnCaption="Modelo" columnDataType="INT" columnDisplayMask="#####" columnName="modelo" columnRowId="true">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_28" id="parteTexto" columnCaption="Parte Texto" columnDataType="STRING" columnDisplayMask="" columnName="parte_texto">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+        </panel>
+        <panel name="Panel_10" layout="FormLayout">
+          <formLayout colspecs="116px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+          <label name="Label_11" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_12" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_13" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_14" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_15" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_16" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
+          <label name="Label_17" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_18" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridX="3" gridY="7"/>
+          </kawdbtextfield>
+          <label name="Label_19" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_20" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnWidth="30" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_21" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_22" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnWidth="30" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+        </panel>
+      </tabbedpane>
+      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_35" tabPlacement="1" titles="Texto">
+        <panel name="Panel_38" layout="BorderLayout">
+          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_39" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+            <kawdbtextarea name="KawDbTextArea_14" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnPosicao="2"/>
+          </scrollpane>
+        </panel>
+      </tabbedpane>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_32" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_33" layout="FlowLayout">
+      <label name="Label_252" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_253" id="navFieldTextoCartas" dimensaoMaxima="250,21" dimensaoMinima="150,21" dimensaoPadrao="220,21" preferredScrollableViewportSize="0,0"/>
+    </panel>
+    <kawdbnavtoolbar constraints="BorderLayout.CENTER" name="KawDbNavToolBar_34" id="navToolBarTextoCartas"/>
+  </panel>
+</panel>
+<!--lastNameIndex=39-->
+<!--lastIdIndex=0-->

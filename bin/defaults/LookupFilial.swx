@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,725,441" id="telaLookup" layout="BorderLayout" name="" title="Consulta Filial">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" focusable="true" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="0" columnTableName="cad_filial" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="razaoSocial" columnCaption="Raz&#xe3;o Social" columnDataType="STRING" columnEditable="false" columnName="razaosocial" columnPosicao="1" columnTableName="cad_filial" columnWidth="40">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="endereco" columnCaption="Endere&#xe7;o" columnDataType="STRING" columnEditable="false" columnName="endereco" columnPosicao="1" columnTableName="cad_filial" columnWidth="6">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_29" id="numero" columnCaption="N&#xba;" columnDataType="STRING" columnEditable="false" columnName="numero" columnPosicao="1" columnTableName="cad_filial" columnWidth="6">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="municipio" columnCaption="Munic&#xed;pio" columnCurrency="true" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="" columnName="cad_mun_id" columnPosicao="2" columnTableName="cad_filial" columnWidth="12">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_10" id="telefone" columnCaption="Telefone" columnCurrency="true" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="telefone1" columnPosicao="2" columnTableName="cad_filial" columnWidth="12">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_20" id="nomefantasia" columnCaption="Nome Fantasia" columnDataType="STRING" columnEditable="false" columnName="nomefantasia" columnPosicao="1" columnTableName="cad_filial" columnWidth="12">
+        <cellconstraints gridX="7" gridY="5"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Filial" id="tableLookup" connection="jkawflex" kawTableName="cad_filial" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,razaosocial,endereco,numero,cad_mun_id,telefone1,nomefantasia FROM cad_filial WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nomefantasia) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_18" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_19" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=20-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="7,16,1020,800" constraints="BorderLayout.CENTER" name=" Diretivas do Sistema" id="cadDiretiva" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_146" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_157" id="tabbedPaneMain" tabPlacement="1" titles="Diretivas do sistema">
+      <panel name="Panel_164" layout="FormLayout">
+        <formLayout colspecs="default,2dlu,140px,2dlu,121px,2dlu,604px" rowspecs="default,2dlu,114px,2dlu,default,2dlu,265px,2dlu,default,2dlu,126px"/>
+        <tabbedpane name="TabbedPane_310" tabPlacement="1" titles="Lista,Editar">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+          <panel name="Panel_311" layout="BorderLayout">
+            <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_221" id="ScrollPane_fat_diretiva" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+              <kawdbtable name="Diretivas" id="fat_diretiva" connection="jkawflex" hidden="true" kawTableName="fat_diretiva" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa.PesquisaConte&#xfa;do" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_diretiva WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricaoresumida) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+            </scrollpane>
+          </panel>
+          <panel name="Panel_312" layout="BorderLayout">
+            <panel constraints="BorderLayout.NORTH" name="Panel_249" id="PanelDiretivaG" visible="true" layout="FormLayout">
+              <formLayout colspecs="153px,2dlu,58px,2dlu,125px,2dlu,182px" rowspecs="17px,2dlu,20px,2dlu,default,2dlu,default,2dlu,16px,2dlu"/>
+              <label name="Label_322" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_323" id="codigoG" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="fat_diretiva">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_324" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_325" id="descricaoG" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnTableName="fat_diretiva">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_326" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o abrev.:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_327" id="descricaoResumidaG" columnCaption="Abrev." columnDataType="STRING" columnName="descricaoresumida" columnTableName="fat_diretiva">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+            </panel>
+            <panel constraints="BorderLayout.CENTER" name="Panel_260" layout="BorderLayout"/>
+          </panel>
+        </tabbedpane>
+        <tabbedpane name="TabbedPane_313" id="tabbedPaneRegras" tabPlacement="1" titles="Lista,Editar">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+          <panel name="Panel_314" layout="BorderLayout">
+            <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_221" id="ScrollPane_fat_diretiva_regra" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+              <kawdbtable name="Regras" id="fat_diretiva_regra" connection="jkawflex" kawTableName="fat_diretiva_regra" linkCascadeDeletes="true" linkDetailColumns="fat_diretiva_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_diretiva" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Pesquisa Conte&#xfa;do" parameterQColumnsDataType="STRING,BOOLEAN" parameterQDisplayMask="#####" queryDataSet="SELECT * FROM fat_diretiva_regra WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+            </scrollpane>
+          </panel>
+          <panel name="Panel_315" layout="BorderLayout">
+            <panel constraints="BorderLayout.NORTH" name="Panel_249" id="PanelDiretivaRegraG" visible="true" layout="FormLayout">
+              <formLayout colspecs="153px,2dlu,58px,2dlu,125px,2dlu,182px" rowspecs="20px,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+              <label name="Label_250" horizontalAlignment="0" horizontalTextPosition="11" text="Diretiva:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_251" id="diretivaCodigoG" columnCaption="Diretiva" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="fat_diretiva_id" columnRowId="true" columnTableName="fat_diretiva_regra">
+                <cellconstraints gridX="3" gridY="3"/>
+              </kawdbtextfield>
+              <label name="Label_252" horizontalAlignment="0" horizontalTextPosition="11" text="Regra:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_253" id="regraCodigoG" columnCaption="Codigo" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="fat_diretiva_regra">
+                <cellconstraints gridX="3" gridY="5"/>
+              </kawdbtextfield>
+              <label name="Label_254" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_255" id="regraG" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnRequired="true" columnResolvable="true" columnRowId="true" columnTableName="fat_diretiva_regra">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_258" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo de entrada de dados:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbcombobox name="KawDbComboBox_259" id="propriedadeTipoG" columnCalcType=" " columnCaption="Tipo de Entrada" columnDataType="STRING" columnDestino="tipoentradadados" columnName="tipoentradadados" columnTableName="fat_diretiva_regra" connection="jkawflex" displayColumns="classificacao,sequencial" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='fat_diretiva_regra' AND coluna='tipoentradadados' ORDER BY sequencial">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+              </kawdbcombobox>
+            </panel>
+            <panel constraints="BorderLayout.CENTER" name="Panel_260" layout="BorderLayout"/>
+          </panel>
+        </tabbedpane>
+        <tabbedpane name="TabbedPane_316" id="tabbedPanePropriedades" tabPlacement="1" titles="Lista,Editar">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+          <panel name="Panel_317" layout="BorderLayout">
+            <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_221" id="ScrollPane_fat_diretiva_regra_propriedade" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+              <kawdbtable name="Propriedades" id="fat_diretiva_regra_propriedade" connection="jkawflex" hidden="true" kawTableName="fat_diretiva_regra_propriedade" linkCascadeDeletes="true" linkDetailColumns="fat_diretiva_id,fat_diretiva_regra_id" linkFetchAsNeeded="true" linkMasterColumns="fat_diretiva_id,id" linkMasterTable="fat_diretiva,fat_diretiva_regra" parameterQColumns="fat_diretiva_id,id" parameterQColumnsCaption="Codio Diretiva, Codio REgra" parameterQColumnsDataType="INT,INT" parameterQDisplayMask="" queryDataSet="SELECT * FROM fat_diretiva_regra_propriedade" queryDataSetView=""/>
+            </scrollpane>
+          </panel>
+          <panel constraints="BorderLayout.SOUTH" name="Panel_346" id="PanelDiretivaRegraOpG" visible="false" layout="FormLayout">
+            <formLayout colspecs="130px,2dlu,54px,2dlu,128px,2dlu,221px" rowspecs="18px,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_347" horizontalAlignment="0" horizontalTextPosition="11" text="Diretiva:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_348" id="regraOpDiretivaCodigoG" columnCaption="Diretiva" columnDataType="INT" columnName="fat_diretiva_id" columnRowId="true" columnTableName="fat_diretiva_regra_propriedade">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_349" horizontalAlignment="0" horizontalTextPosition="11" text="Regra:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_350" id="regraOpRegraCodigoG" columnCaption="Regra" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="fat_diretiva_regra_id" columnPosicao="1" columnRowId="true" columnTableName="fat_diretiva_regra_propriedade">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_351" horizontalAlignment="0" horizontalTextPosition="11" text="Propriedade:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_352" id="propriedadeG" columnCaption="Propriedade" columnDataType="STRING" columnName="propriedade" columnPosicao="3" columnRowId="true" columnTableName="fat_diretiva_regra_propriedade">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_361" id="regraDescricao" columnCalcType="" columnCaption="..." columnDataType="STRING" columnName="regra_descricao" columnPosicao="2" columnRowId="false" columnNameOriginLookupRow="regra_descricao" columnTableName="fat_diretiva_regra_propriedade" columnWidth="30" editable="false" UIClassID=" ">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+        <label name="Label_356" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Diretivas" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
+        </label>
+        <label name="Label_357" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Regras:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="5" hAlign="Left" vAlign="Default"/>
+        </label>
+        <label name="Label_358" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Propriedades:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="9" hAlign="Left" vAlign="Default"/>
+        </label>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel2" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel3" layout="FlowLayout">
+      <label name="Label_Pesquisa" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel10" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel11" layout="FlowLayout">
+      <kawdbnavtoolbar name="navToolBarDiretiva" id="navToolBar"/>
+      <label name="Label_33" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_34" id="navField" editable="true"/>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel12" layout="FlowLayout">
+      <button name="Button_37" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=371-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ASCII"?>
+<frame xmlns="http://" bounds="2,2,1024,730" id="mainframe" layout="BorderLayout" title="JKawFlex - vers&#xe3;o  beta">
+  <menubar name="MenuBar_33">
+    <menu name="Arquivo" text="Arquivo">
+      <menu name="Config.Sistema" icon="com/infokaw/udf/image/config.png" text="Configura&#xe7;&#xe3;o do Sistema">
+        <menu name="Menu_Transacao" text="Transa&#xe7;&#xe3;o e Diretivas">
+          <menuitem name="Cad.Transacao" action="actionFatTransacoes" icon="img_FaturamentoTransacoes" text="Cadastro/configura&#xe7;&#xe3;o de Transa&#xe7;&#xf5;es e Diretivas de lan&#xe7;amento"/>
+          <menuitem name="Cad.Consulta transacao" action="actionFatConsultaTransacao" text="Consulta Transa&#xe7;&#xf5;es e Diretivas de lan&#xe7;amento"/>
+        </menu>
+        <separator name="Separator_200"/>
+        <menu name="Menu_LookAndFeel" text="Look And Feel">
+          <radiobuttonmenuItem name="RadioB_Pasrao" enabled="true" action="actionLOOKANDFEEL_PADRAO" selected="false" text="Padr&#xe3;o"/>
+          <radiobuttonmenuItem name="RadioB_Metal" enabled="true" action="actionLOOKANDFEEL_METAL" text="Metal"/>
+          <radiobuttonmenuItem name="RadioB_Motif" enabled="true" action="actionLOOKANDFEEL_MOTIF" text="Motif"/>
+          <radiobuttonmenuItem name="RadioB_GTK" enabled="true" action="actionLOOKANDFEEL_GTK" text="GTK"/>
+        </menu>
+      </menu>
+      <separator name="Separator_46"/>
+      <menuitem name="Cad.Empresa" action="actionEmpresa" icon="img_ConfigBD" text="Cadastro de Empresas"/>
+      <menuitem name="Cad.Usuario" action="actionUsuario" icon="" text="Cadastro de Usuarios"/>
+      <separator name="Separator_51"/>
+      <menuitem name="Config.Padrao" action="actionConfigPadrao" text="Configuracoes padrao do sistema"/>
+      <menuitem name="Config.BD" action="ConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Configura Acesso ao Banco de Dados"/>
+      <separator name="Separator_55"/>
+      <menu name="Manutencao" horizontalAlignment="2" horizontalTextPosition="11" icon="com/infokaw/udf/image/config.png" text="Manuten&#xe7;&#xe3;o de Dados">
+        <menuitem name="MenuItem_609" action="actionImpDoctos" icon="img_ImportaTxt" text="Importar Lctos INFOKAW"/>
+        <menuitem name="MenuItem_610" action="actionImpBaixaRP" icon="img_ImportaTxt" text="Importa Baixas Contas Receber/Pagar (INFOKAW)"/>
+      </menu>
+      <menuitem name="Sair" action="actionExit" icon="com/infokaw/udf/image/door_in16.png" text="Sair"/>
+    </menu>
+    <menu name="Cadastros" text="Cadastros">
+      <menu name="Cad.Gerais" icon="com/infokaw/udf/image/report_edit.png" text="Cadastros Gerais">
+        <menuitem name="Pa&#xed;s" action="actionCadPais" text=" Pa&#xed;s"/>
+        <menuitem name="Estado" action="actionCadEstado" text="Estado (UF)"/>
+        <menuitem name="Cidade" action="actionCadCidade" text="Cidades/Munic&#xed;pio"/>
+        <menuitem name="Cad.Filias" action="actionCadFilial" text="Filiais"/>
+        <separator name="Separator_70"/>
+        <menuitem name="Cad.Cliente" action="actionCadastro" text="Cadastro Clientes/Fornecedores/Vendedores/Etc"/>
+      </menu>
+      <menu name="Fatu." text="Faturamento">
+        <menuitem name="Grupo/SubGrupos de Produtos" action="actionFatGrupoProdutos" text="Grupos/Sub-Grupos de Produtos"/>
+        <menuitem name="Marcas de Produtos" action="actionFatMarcas" text="Marcas de Produtos"/>
+        <menu name="Produto" text="Produto">
+          <menuitem name="Cad.Prod" action="actionFatProduto" text="Produtos"/>
+          <menuitem name="Especificacao_Tec" action="actionFatEspecificacaoTecnica" text="Especifica&#xe7;&#xe3;o T&#xe9;cnica"/>
+          <separator name="Separator_91"/>
+          <menuitem name="Clas.Orig" action="actionFatClassOrigem" text="Classifica&#xe7;&#xe3;o de Origem"/>
+          <menuitem name="Clas.Fiscal" action="actionFatClassFiscal" text="Classifica&#xe7;&#xe3;o Fiscal"/>
+          <menuitem name="Class.Trib" action="actionFatClassTributaria" text="Classificacao Tributaria"/>
+          <menuitem name="Class.TIPI/NCM" action="actionFatClassTIPI" text="Classificacao TIPI/NCM"/>
+          <separator name="Separator_94"/>
+          <menuitem name="Aliq.ICMS" action="actionFatAliquotasICMS" text="Aliquotas de ICMS"/>
+          <menuitem name="Aliq.INSS" action="actionFatAliquotasINSS" text="Aliquotas FUNRURAL/INSS"/>
+          <menuitem name="Aliq.IRRF" action="actionFatAliquotasIRRF" text="Aliquotas de IRRF"/>
+          <menuitem name="Aliq.ISSQN" action="actionFatAliquotasISSQN" text="Aliquotas de ISSQN"/>
+          <menuitem name="Situacao Tributaria" action="actionSituacaoTributaria" text="Cadastro Situacao Tributaria"/>
+          <menuitem name="TabST" action="actionTabSubsTrib" text="Tabela Substitui&#xe7;&#xe3;o Tribut&#xe1;ria"/>
+          <separator name="Separator_563"/>
+          <menuitem name="CadastroEtiquetas" toolTipText="Cadastro de Etiquetas p/ emiss&#xe3;o de Codigo de Barras" action="actionEtiquetaProduto" text="Cadastro de Etiquetas p/ emiss&#xe3;o de Codigo de Barras"/>
+        </menu>
+        <separator name="Separator_99"/>
+        <menuitem name="Fat.SerieDoc" action="actionFatSerie" text="Serie de Documentos"/>
+        <menuitem name="TextoAdicional" action="actionTextoAdicional" text="Texto Adicional"/>
+        <menuitem name="EncargoPadrao" action="actionEncargoPadrao" text="Encargos Pradr&#xf5;es"/>
+      </menu>
+    </menu>
+    <menu name="Movimentacao" text="Movimentacao">
+      <menu name="Faturamento" action="" text="Faturamento">
+        <menuitem name="GerenciadorNFe" action="actionGerenciadorNFe" text="GerenciadorNfe"/>
+        <menuitem name="NFC-e" action="actionNFCe" text="NFC-e  Venda"/>
+      </menu>
+    </menu>
+    <menu name="Relatorios" text="Relat&#xf3;rios">
+      <menu name="Cad.Gerais" text="Cadastros Gerais">
+        <menuitem name="listagem de cadastros" action="actionListagemCadastro" text="Listagem de Cadastros"/>
+      </menu>
+      <menu name="Fatu." text="Faturamento">
+        <menuitem name="ListagemProdutos" action="actionListagemProdutos" text="Listagem de Produtos"/>
+        <menuitem name="ListagemEtiquetas" enabled="true" action="actionListagemEtiquetas" horizontalTextPosition="10" text="Listagem de Etiquetas Codigo Barras Produto"/>
+        <menuitem name="listagem de transacoes" action="actionListagemTransacao" text="Listagem de Transa&#xe7;&#xf5;es"/>
+        <menuitem name="listagem movimentacao de produtos" action="actionListagemProdutoMovto" text="Listagem de Movimenta&#xe7;&#xe3;o de Produtos"/>
+        <menuitem name="inventario de produtos" action="actionInventarioProduto" text="Invent&#xe1;rio de Produtos"/>
+        <menuitem name="listagem vendas" action="actionListagemVENDA" text="Vendas"/>
+      </menu>
+    </menu>
+    <menu name="Ajuda" text="Ajuda">
+      <menuitem name="MenuItem_188" action="actionHelp" text="Ajuda "/>
+      <menuitem name="MenuItem_189" action="actionAbout" text="Sobre Alt+S"/>
+    </menu>
+  </menubar>
+  <panel constraints="BorderLayout.NORTH" name="Panel_128" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_359" layout="FlowLayout">
+      <toolbar name="B._Principal" id="bPrincipal">
+        <button name="Sair" toolTipText="Sair do sistema ..." action="actionExit" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/exit.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Calculadora" toolTipText="Calculadora" action="actionCalc" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/calc.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="BlocoNota" toolTipText="Anota&#xe7;&#xf5;es" action="actionEditor" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/editor.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Email" toolTipText="Enviar E-mail" action="actionEmail" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/email.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Cliente" toolTipText="Cadastro de Clientes" action="actionCadastro" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/cliente2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Produto" toolTipText="Cadastro de Produtos" action="actionFatProduto" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/produto2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Veiculo" font="Arial-7-NORMAL" toolTipText="Cadastro de ve&#xed;culos" action="actionVeiculo" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/autos.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+      </toolbar>
+      <toolbar name="B_ Faturamento" id="bFaturamento">
+        <button name="Lancamento" toolTipText="Lan&#xe7;amento (NF-e/Venda/Compra/Pedido/Or&#xe7;amento/etc..)" action="actionLcto" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/nfe310.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="NFCe" toolTipText="NFCe Nota Fiscal ao Consumidor Eletr&#xf4;nica" action="actionNFCe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/nfce310.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="MDFe" toolTipText="MDFe Manisfesto Eletr&#xf4;nico" action="actionLctoMDFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/mdfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="InutiliNFe" toolTipText="Inutiliza&#xe7;&#xe3;o n&#xfa;mero NF-e" action="actionInutiliNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/inutilinfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Gerenciador NFe" toolTipText="Gerenciador NF-e" action="actionNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/nfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_191" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_593" id="panelBarProgress" layout="BorderLayout">
+      <progressbar constraints="BorderLayout.CENTER" name="Progressbar_594" id="mainProgressBar" preferredSize="50,15" borderPainted="true"/>
+    </panel>
+    <panel constraints="BorderLayout.CENTER" name="Panel_598" layout="BorderLayout">
+      <panel constraints="BorderLayout.CENTER" name="Panel_582" layout="FlowLayout">
+        <kawdblabel name="KawDbLabel_584" id="" text="Usu&#xe1;rio:"/>
+        <kawdblabel name="KawDbLabel_583" id="UsuarioLogin" text="Usu&#xe1;rio"/>
+        <kawclock name="KawClock_581"/>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel_600" layout="BorderLayout">
+      <panel constraints="BorderLayout.CENTER" name="Panel_588" layout="FlowLayout">
+        <label name="Label_589" horizontalAlignment="0" horizontalTextPosition="11" text="Empresa:" verticalAlignment="0" verticalTextPosition="0"/>
+        <combobox name="ComboBox_590" id="selectedEmpresa"/>
+      </panel>
+    </panel>
+  </panel>
+  <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
+</frame>
+<!--lastNameIndex=614-->
+<!--lastIdIndex=0-->

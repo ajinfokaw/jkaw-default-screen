@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1024,700" layout="BorderLayout" title="Cadastro - Transa&#xe7;&#xf5;es">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" focusable="true" preferredSize="220,21"/>
+      <button name="Button_14" focusable="false" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_27" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_28" id="tabbedPaneMain" mnemonics="69, 76" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Transa&#xe7;&#xe3;o" id="fat_transacao" connection="jkawflex" kawTableName="fat_transacao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_transacao WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" id="paneleditmain" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.NORTH" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
+          <panel constraints="BorderLayout.NORTH" name="Panel_103" id="PanelDiretivaG" visible="true" layout="FormLayout">
+            <formLayout colspecs="153px,2dlu,58px,2dlu,19px,2dlu,120px,2dlu,97px,2dlu,107px,2dlu,73px" rowspecs="17px,2dlu,20px,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+            <label name="Label_104" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_105" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="1" columnRowId="true" columnTableName="fat_transacao" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_106" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_107" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnPosicao="2" columnTableName="fat_transacao" columnWidth="60">
+              <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_108" id="desativado" columnCaption="D." columnDataType="BOOLEAN" columnName="desativado" columnPosicao="0" columnTableName="fat_transacao" columnWidth="3" text="Desativado">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <label name="Label_109" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_110" horizontalAlignment="0" horizontalTextPosition="11" text="Diretivas:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Left" vAlign="Default"/>
+            </label>
+            <kawdbcombobox name="KawDbComboBox_111" id="classificacao" columnCaption="Classifica&#xe7;&#xe3;o" columnDataType="STRING" columnDefault="Juridica" columnDestino="financ_classificacao_g" columnEditable="true" columnName="financ_classificacao_g" columnPosicao="2" columnRowId="false" columnTableName="fat_transacao" columnWidth="30" connection="jkawflex" displayColumns="classificacao,sequencial" editable="true" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='fat_transacao' AND coluna='classificacao_g' ORDER BY sequencial">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbcombobox>
+          </panel>
+          <panel name="Panel_60" layout="FormLayout">
+            <formLayout colspecs="139px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+            <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_72" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="fat_transacao" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_73" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_74" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="fat_transacao" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_75" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_76" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="fat_transacao" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_78" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="fat_transacao" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_79" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_80" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="fat_transacao" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_82" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_transacao" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+        <panel constraints="BorderLayout.CENTER" name="Panel0" layout="BorderLayout">
+          <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane6" id="tabbedPane_fat_transacao_d" tabPlacement="1" titles="Lista,Editar,Outros Dados">
+            <panel constraints="BorderLayout.WEST" name="Panel0" layout="BorderLayout">
+              <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                <kawdbtable name="Diretiva" id="fat_transacao_d" connection="jkawflex" kawTableName="fat_transacao_d" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_transacao_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_transacao" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM fat_transacao_d WHERE fat_transacao_id = :id "/>
+              </scrollpane>
+            </panel>
+            <panel name="Panel8" layout="BorderLayout">
+              <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPane_fat_transacao_dr" tabPlacement="1" titles="Lista Porpriedades(Detalhes da Dirietiva),Editar Propriedade (Detalhe),Outros dados">
+                <panel constraints="BorderLayout.WEST" name="Panel2" layout="BorderLayout">
+                  <panel constraints="BorderLayout.CENTER" name="Panel0" layout="BorderLayout">
+                    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane0" id="SPCondPg" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                      <kawdbtable name="Regra" id="fat_transacao_dr" connection="jkawflex" kawTableName="fat_transacao_dr" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_transacao_d_fat_transacao_id,fat_transacao_d_fat_diretiva_id" linkFetchAsNeeded="true" linkMasterColumns="fat_transacao_id,fat_diretiva_id" linkMasterTable="fat_transacao_d" parameterQColumns="fat_transacao_id,fat_diretiva_id" parameterQColumnsDataType="INT,INT" queryDataSet="SELECT * FROM fat_transacao_dr WHERE fat_transacao_d_fat_transacao_id = :fat_transacao_id AND fat_transacao_d_fat_diretiva_id = :fat_diretiva_id "/>
+                    </scrollpane>
+                  </panel>
+                </panel>
+                <panel constraints="BorderLayout.SOUTH" name="Panel_132" id="PanelDiretivaRegraOpG" visible="false" layout="FormLayout">
+                  <formLayout colspecs="119px,2dlu,54px,2dlu,18px,2dlu,128px,2dlu,16px,2dlu,110px,2dlu,358px,31px" rowspecs="18px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default"/>
+                  <label name="Label_133" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_134" id="transacaoDRTransacaoCodigo" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="fat_transacao_d_fat_transacao_id" columnRowId="true" columnTableName="fat_transacao_dr" columnWidth="5" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_135" horizontalAlignment="0" horizontalTextPosition="11" text="Direitiva:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_136" id="transacaoDRDiretivaCodigo" columnCaption="Diretiva" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="fat_transacao_d_fat_diretiva_id" columnRowId="true" columnTableName="fat_transacao_dr" columnWidth="5" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_137" horizontalAlignment="0" horizontalTextPosition="11" text="Regra:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfieldlookuprow name="KawDbTextField_138" id="transacaoDRRegraCodigo" caretPosition="0" columnCaption="Regra" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="diretiva_regra_id" columnNameLookupKey="fat_diretiva_id,id" columnNameRelationLookupKey="fat_transacao_d_fat_diretiva_id,diretiva_regra_id" columnPosicao="0" columnRowId="true" columnTableName="fat_transacao_dr" columnWidth="5" editable="true" enable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfieldlookuprow>
+                  <kawdbtextfieldlookup name="KawDbTextField_140" id="regraLookup" caretPosition="0" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="regra_lookup" columnNameLookupRow="diretiva_regra_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnTableName="fat_transacao_dr" columnWidth="30">
+                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfieldlookup>
+                  <label name="Label_141" horizontalAlignment="0" horizontalTextPosition="11" text="Propriedade:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawlookupbutton name="KawLookupButton_142" id="lookupButtonRegraOpC" action="LookupRegraOpC" columnDestino="diretiva_regra_propriedade" columnOrigem="propriedade" columnsNameInitialKey="fat_transacao_d_fat_diretiva_id,diretiva_regra_id" connection="jkawflex" kawTableName="fat_diretiva_regra_propriedade" kawTableNameRelation="fat_transacao_dr" parameterQColumns="diretiva_regra_id,fat_transacao_d_fat_diretiva_id,pgrupo,plista" parameterQColumnsCaption="Codigo Regra,grupo tbcampos" parameterQColumnsDataType="INT,INT,STRING,INT" queryDataSet="SELECT propriedade FROM fat_diretiva_regra_propriedade WHERE fat_diretiva_regra_id = :diretiva_regra_id">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="14" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </kawlookupbutton>
+                  <kawdbtextfield name="KawDbTextField_143" id="transacaoDRRegraPropriedade" columnCalcType="" columnCaption="Op&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnHidden="false" columnName="diretiva_regra_propriedade" columnTableName="fat_transacao_dr" columnWidth="85" editable="true" enable="true" hidden="false">
+                    <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawlookupbutton name="KawLookupButton_144" id="lookupButtonRegra" action="lookupVeiculo" columnDestino="diretiva_regra_id" columnOrigem="id" columnsNameInitialKey="fat_transacao_d_fat_diretiva_id" connection="jkawflex" inheritsPopupMenu="true" kawTableName="fat_diretiva_regra" kawTableNameRelation="fat_transacao_dr" parameterQColumns="diretiva_regra_id,fat_transacao_d_fat_diretiva_id" parameterQColumnsDataType="INT,INT" queryDataSet="SELECT id,descricao,fat_diretiva_id FROM fat_diretiva_regra WHERE fat_diretiva_id = :fat_transacao_d_fat_diretiva_id AND id = :diretiva_regra_id " xmlLookupView="LookupRegra.xml">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Top"/>
+                  </kawlookupbutton>
+                </panel>
+                <panel name="Panel_146" layout="FormLayout">
+                  <formLayout colspecs="139px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+                  <label name="Label_147" horizontalAlignment="0" horizontalTextPosition="11" text="Data Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_148" id="dataAltDR" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="fat_transacao_dr" columnWidth="10" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_149" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_150" id="horaAltDR" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="fat_transacao_dr" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_151" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_152" id="dataIncDR" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="fat_transacao_dr" columnWidth="10" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridX="3" gridY="1"/>
+                  </kawdbtextfield>
+                  <label name="Label_153" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_154" id="horaIncDR" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="fat_transacao_dr" columnWidth="10" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_155" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_156" id="usuarioInclusaoDR" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="fat_transacao_dr" columnWidth="30" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_157" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_158" id="usuarioAlteracaoDR" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_transacao_dr" columnWidth="30" editable="false" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                </panel>
+              </tabbedpane>
+              <panel constraints="BorderLayout.SOUTH" name="Panel2" layout="BorderLayout">
+                <panel constraints="BorderLayout.WEST" name="Panel3" layout="FlowLayout">
+                  <button name="Inserir/Vincular Condi&#xe7;&#xe3;o de Pgto" id="insereButton_fat_transacao_dr" preferredSize="290,25" actionCommand="fat_transacao_dr" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Inserir propriedade " verticalAlignment="0" verticalTextPosition="0"/>
+                  <button name="Exclui Condi&#xe7;&#xe3;o de Pgto Vinculada" id="excluiButton_fat_transacao_dr" preferredSize="250,25" actionCommand="fat_transacao_dr" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Propriedade" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+                </panel>
+              </panel>
+              <panel constraints="BorderLayout.NORTH" name="Panel_122" id="PanelDiretivaRegraG" visible="true" layout="FormLayout">
+                <formLayout colspecs="133px,2dlu,58px,2dlu,20px,2dlu,125px,2dlu,71px,2dlu,default,2dlu,default,2dlu,145px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+                <label name="Label_123" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField_124" id="transacaoCodigo" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnHidden="false" columnName="fat_transacao_id" columnRowId="true" columnTableName="fat_transacao_d" columnWidth="5" fieldNotEdit="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label_125" horizontalAlignment="0" horizontalTextPosition="11" text="Diretiva:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfieldlookuprow name="KawDbTextField_126" id="diretivaCodigo" columnCaption="Diretiva" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnHidden="false" columnName="fat_diretiva_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_diretiva_id" columnPosicao="0" columnRowId="true" columnTableName="fat_transacao_d" columnWidth="8">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookuprow>
+                <label name="Label_127" horizontalAlignment="0" horizontalTextPosition="11" text="Observa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField_128" id="observacao" columnCaption="Observa&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnName="observacao" columnPosicao="2" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="50">
+                  <cellconstraints gridHeight="1" gridWidth="13" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawlookupbutton name="KawLookupButton_129" id="lookupButtonDiretiva" action="LookupDiretivas" columnDestino="fat_diretiva_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_diretiva" kawTableNameRelation="fat_transacao_d" parameterQColumns="fat_diretiva_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao,descricaoresumida FROM fat_diretiva WHERE id = :fat_diretiva_id ORDER BY descricao ">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawlookupbutton>
+                <kawdbtextfieldlookup name="KawDbTextField_130" id="diretivaLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="diretiva_lookup" columnNameLookupRow="fat_diretiva_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnTableName="fat_transacao_d" columnWidth="30">
+                  <cellconstraints gridHeight="1" gridWidth="9" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <label name="Label_131" horizontalAlignment="0" horizontalTextPosition="11" text="Propriedades:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Left" vAlign="Default"/>
+                </label>
+              </panel>
+            </panel>
+            <panel name="Panel0" layout="FormLayout">
+              <formLayout colspecs="152px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+              <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Data Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField2" id="dataAlteracao" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField4" id="horaAlteracao" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="fat_transacao_d" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label5" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField6" id="dataInclusao" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridX="3" gridY="1"/>
+              </kawdbtextfield>
+              <label name="Label7" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField8" id="horaInclusao" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label9" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField10" id="usuarioInc" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="30" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label11" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField12" id="usuarioAlte" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_transacao_d" columnWidth="30" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+            </panel>
+          </tabbedpane>
+          <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+            <panel constraints="BorderLayout.WEST" name="Panel1" layout="FlowLayout">
+              <button name="Inserir Tabela" id="insereButton_fat_transacao_d" preferredSize="250,25" actionCommand="fat_transacao_d" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Inserir Diretiva" verticalAlignment="0" verticalTextPosition="0"/>
+              <button name="Excluir Tabela" id="excluiButton_fat_transacao_d" preferredSize="250,25" actionCommand="fat_transacao_d" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Diretiva" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+            </panel>
+          </panel>
+        </panel>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_29" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_97" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Lista de Pre&#xe7;os" id="navToolBar"/>
+      <label name="Label_98" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_99" id="navField"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=159-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1024,100" constraints="BorderLayout.CENTER" name="PANEL_SELECAO" id="PANEL_SELECAO" preferredSize="1280,100" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel10" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel11" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="30" verticalScrollBarPolicy="21">
+        <panel name="Panel3" layout="BorderLayout">
+          <panel constraints="BorderLayout.WEST" name="Panel4" layout="BorderLayout">
+            <panel constraints="BorderLayout.EAST" name="Panel5" layout="FlowLayout">
+              <kawdbtextfield name="KawDbTextField1" id="aggTotalEntLista" columnAggName="valortotal_docto" columnCalcType="AGGREGATE" columnCaption="Total Lista" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="true" columnName="aggtotal_por_transacao" columnPosicao="7" columnsSumAgg="fat_transacao_id" columnTableName="fat_docto_c" columnWidth="12" fieldNotEdit="true" hidden="false"/>
+            </panel>
+            <panel constraints="BorderLayout.WEST" name="Panel6" layout="FlowLayout">
+              <kawdbtextfield name="KawDbTextField3" id="statusDoctoLookup" columnCalcType="CALC" columnDataType="STRING" columnHidden="true" columnName="statusdocto_lookup" columnTableName="fat_docto_c" fieldNotEdit="true" horizontalAlignment="3" preferredSize="800,15"/>
+            </panel>
+          </panel>
+        </panel>
+      </scrollpane>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel12" border="TitledBorder(Pesquisa Documento:)" id="pesquisas" layout="FlowLayout">
+      <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdatefield name="KawDateField2" id="dataInicialSelecao" dateFormat="dd/MM/yyyy" minimumSize="85,20" preferredSize="100,20"/>
+      <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdatefield name="KawDateField4" id="dataFinalSelecao" dateFormat="dd/MM/yyyy" minimumSize="85,20" preferredSize="100,20"/>
+      <label name="Label5" horizontalAlignment="0" horizontalTextPosition="11" text="N. Ctrl:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField6" id="numeroControleSelecao" columnDataType="STRING" columnName="numeroControle" focusable="true" preferredSize="120,21" requestFocusEnabled="true"/>
+      <label name="Label7" horizontalAlignment="0" horizontalTextPosition="11" text="N.Docto:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField8" id="numeroDoctoSelecao" columnDataType="STRING" columnName="numeroDocto" focusable="true" preferredSize="120,21" requestFocusEnabled="true"/>
+      <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow2" id="trasacaoIdConsulta" columnCaption="Cliente" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="fat_transacao_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_transacao_id" columnPosicao="12" columnRequired="false" columnRowId="false" columnServerColumnName="fat_transacao_id" columnTableName="fat_docto_c" columnWidth="5" editable="true" enable="true" focusable="true"/>
+      <kawlookupbutton name="KawLookupButton4" id="transacaoLookupButtonSelecao" action="lookupTransacaoAction" columnDestino="fat_transacao_id" columnOrigem="id" connection="jkawflex" defaultButton="true" kawTableName="fat_transacao" kawTableNameRelation="fat_docto_c" parameterQColumns="fat_transacao_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE id = :fat_transacao_id" xmlLookupView="LookupTransacao.xml"/>
+      <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Cliente:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfieldlookuprow name="Clientes/Fornecedores" id="cadastroIdConsulta" columnCaption="Cliente" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cad_cadastro_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_cadastro_id" columnPosicao="5" columnRequired="false" columnRowId="false" columnServerColumnName="cad_cadastro_id" columnTableName="fat_docto_c" columnWidth="5" editable="true" enable="true" focusable="true"/>
+      <kawlookupbutton name="KawLookupButton2" id="cadastroLookupButtonSelecao" action="lookupCadastro" columnDestino="cad_cadastro_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,municipio,uf,telefone1,obstelefone1,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,pessoa FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml"/>
+      <kawdbtextfieldlookup name="Nome" id="cadastroLookupSelecao" columnCalcType="CALC" columnDataType="STRING" columnName="cadastro_lookup" columnNameLookupRow="cad_cadastro_id" columnNameOriginLookupRow="razaosocial" columnTableName="fat_docto_c" preferredSize="450,25"/>
+      <panel name="Panel9" visible="false" layout="FlowLayout">
+        <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbtextfield name="KawDbTextField2" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+        <button name="Button3" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+  </panel>
+</panel>

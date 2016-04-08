@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="11,46,536,134" id="ListagemAgencia" layout="BorderLayout" name="ListagemAgencia" title="Listagem de Ag&#xea;ncias">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="128px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,173px" rowspecs="default,2dlu,default"/>
+    <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="Banco Inicial" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_3" horizontalAlignment="0" horizontalTextPosition="11" text="Banco Final" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="KawDbTextField_4" id="bancoInicial" columnCaption="Banco Inicial" columnDataType="INT" columnDefault=" " columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="bancoinicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnWidth="5" editable="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_5" id="bancoFinal" columnCaption="Banco Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="bancofinal" columnPosicao="4" columnRowId="true" columnWidth="5" editable="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawlookupbutton name="KawLookupButton_6" id="lookupButtonBancoInicial" action="lookupBancoInicial" columnDestino="bancoinicial" columnOrigem="id" connection="jkawflex" queryDataSet="SELECT id, descricao FROM financ_banco" >
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_7" id="lookupButtonBancoFinal" action="lookupBancoFinal" columnDestino="bancofinal" columnOrigem="id" connection="jkawflex" queryDataSet="SELECT id, descricao FROM financ_banco" >
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfield name="KawDbTextField_28" id="bancoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="bancoInicialLookup"    text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_29" id="bancoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="bancoFinalLookup"    text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_34" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_35" layout="FlowLayout">
+      <button name="Button_15" id="btn_Imprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=37-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,621,400" id="declaracaoSistema" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_16" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_17" tabPlacement="1" titles="Sistema,Usu&#xe1;rio,Fornecedor">
+      <panel name="Panel_18" layout="FormLayout">
+        <formLayout colspecs="190px,2dlu,126px,2dlu,38px,2dlu,default,2dlu,162px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+        <label name="Label_21" horizontalAlignment="4" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+        </label>
+        <combobox name="ComboBox_22" id="opcaoDeclaracao" selectedItem="Inscri&#xe7;&#xe3;o">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+        </combobox>
+        <label name="Label_23" horizontalAlignment="4" horizontalTextPosition="11" text="C&#xf3;digo de Identifica&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_24" horizontalAlignment="4" horizontalTextPosition="11" text="Nome do Sistema:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_27" id="nomeSistema" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_28" horizontalAlignment="4" horizontalTextPosition="11" text="Vers&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_29" id="versao" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_30" horizontalAlignment="4" horizontalTextPosition="11" text="CNPJ do Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_31" id="cnpjFornecedor" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_32" horizontalAlignment="4" horizontalTextPosition="11" text="Raz&#xe3;o Social do Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+        </label>
+        <textfield name="TextField_33" id="razaoSocial" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <textfield name="TextField_56" id="codigoIdentificacao" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_57" horizontalAlignment="4" horizontalTextPosition="11" text="Cliente:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="1"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_58" id="idCliente" columnCaption="Cliente" columnDataType="INT" columnName="cliente_id" columnRowId="true">
+          <cellconstraints gridX="3" gridY="1"/>
+        </kawdbtextfield>
+        <kawlookupbutton name="KawLookupButton_59" id="lookupButtonCliente" action="lookupCliente" columnDestino="cliente_id" columnOrigem="id" connection="jkawflex" parameterQColumns="cliente_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_cadastro WHERE id = :cliente_id ORDER BY id" >
+          <cellconstraints gridX="5" gridY="1"/>
+        </kawlookupbutton>
+        <kawdbtextfield name="KawDbTextField_60" id="clienteLookup" columnCalcType="CALC" columnDataType="STRING" columnName="cliente_lookup">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+      </panel>
+      <panel name="Panel_19" id="" layout="FormLayout">
+        <formLayout colspecs="94px,2dlu,143px,2dlu,66px,2dlu,195px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+        <label name="Label_34" horizontalAlignment="4" horizontalTextPosition="11" text="Nome:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="1"/>
+        </label>
+        <textfield name="TextField_35" id="nomeUsuario" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_36" horizontalAlignment="4" horizontalTextPosition="11" text="Cargo:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="3"/>
+        </label>
+        <textfield name="TextField_37" id="cargoUsuario" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_38" horizontalAlignment="4" horizontalTextPosition="11" text="CPF:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="5"/>
+        </label>
+        <textfield name="TextField_39" id="cpfUsuario" preferredSize="50,25">
+          <cellconstraints gridX="3" gridY="5"/>
+        </textfield>
+        <label name="Label_40" horizontalAlignment="4" horizontalTextPosition="11" text="Data:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="7"/>
+        </label>
+        <textfield name="TextField_43" id="dataUsuario" preferredSize="50,25">
+          <cellconstraints gridX="3" gridY="7"/>
+        </textfield>
+      </panel>
+      <panel name="Panel_20" layout="FormLayout">
+        <formLayout colspecs="94px,2dlu,148px,2dlu,65px,2dlu,178px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+        <label name="Label_44" horizontalAlignment="4" horizontalTextPosition="11" text="Nome:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="1"/>
+        </label>
+        <textfield name="TextField_45" id="nomeFornecedor" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_46" horizontalAlignment="4" horizontalTextPosition="11" text="Cargo:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="3"/>
+        </label>
+        <textfield name="TextField_47" id="cargoFornecedor" preferredSize="50,25">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+        </textfield>
+        <label name="Label_48" horizontalAlignment="4" horizontalTextPosition="11" text="CPF:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="5"/>
+        </label>
+        <textfield name="TextField_49" id="cpfFornecedor" preferredSize="50,25">
+          <cellconstraints gridX="3" gridY="5"/>
+        </textfield>
+        <label name="Label_50" horizontalAlignment="4" horizontalTextPosition="11" text="Data:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="7"/>
+        </label>
+        <textfield name="TextField_51" id="dataFornecedor" preferredSize="50,25">
+          <cellconstraints gridX="3" gridY="7"/>
+        </textfield>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_54" layout="BorderLayout">
+      <button constraints="BorderLayout.CENTER" name="Button_55" id="buttonImprimir" action="actionImprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=61-->
+<!--lastIdIndex=0-->

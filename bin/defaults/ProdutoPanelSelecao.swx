@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1380,100" constraints="BorderLayout.CENTER" name="PANEL_SELECAO" id="PANEL_SELECAO" preferredSize="1280,100" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel10" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel11" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="30" verticalScrollBarPolicy="21">
+        <panel name="Panel3" layout="BorderLayout">
+          <panel constraints="BorderLayout.WEST" name="Panel4" layout="BorderLayout">
+            <panel constraints="BorderLayout.EAST" name="Panel5" layout="FlowLayout">
+              <panel name="Panel0" layout="BorderLayout">
+                <panel constraints="BorderLayout.WEST" name="Panel1" layout="BorderLayout">
+                  <kawdbtextfield constraints="BorderLayout.CENTER" name="KawDbTextField1" id="statusProdutoLookup" columnCalcType="CALC" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="status_produto_lookup" columnTableName="fat_produto" fieldNotEdit="true" horizontalAlignment="3" preferredSize="1000,15"/>
+                </panel>
+              </panel>
+            </panel>
+            <panel constraints="BorderLayout.WEST" name="Panel6" layout="FlowLayout"/>
+          </panel>
+        </panel>
+      </scrollpane>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel12" border="TitledBorder(Pesquisa Documento:)" id="pesquisas" layout="FlowLayout">
+      <panel name="Panel9" visible="true" layout="FlowLayout">
+        <kawdbcheckbox name="KawDbCheckBox2" id="pDesativado" columnDataType="BOOLEAN" columnDefault="false" columnName="pdesativado" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Destivados?" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+        <label name="Label3" horizontalAlignment="4" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o ou C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbtextfield name="KawDbTextField2" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      </panel>
+      <label name="Label3" horizontalAlignment="4" horizontalTextPosition="11" text="Ref.:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField0" id="refSelecao" columnDataType="STRING" columnName="preferencia" focusable="true" preferredSize="120,21" requestFocusEnabled="true"/>
+      <label name="Label1" horizontalAlignment="4" horizontalTextPosition="11" text="C&#xf3;d.Barras:" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField1" id="codigoBarrasSelecao" columnDataType="STRING" columnName="pcodebar" focusable="true" preferredSize="120,21" requestFocusEnabled="true"/>
+      <button name="Button3" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>

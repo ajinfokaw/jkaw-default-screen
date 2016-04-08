@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,824,458" id="telaLookup" layout="BorderLayout" title="Consulta Movimenta&#xe7;&#xf5;es ">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" id="" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="fat_docto_pc" connection="jkawflex" kawTableName="fat_docto_pc" parameterQColumns="ppesquisa,ppesquisaconteudo,cad_cadastro_id,tipo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN,INT,STRING" queryDataSet="SELECT fat_docto_c_controle, tipo, cad_cadastro_id, cad_filial_id, data_p, status_p FROM fat_docto_pc WHERE  status_p ='P' AND tipo = :tipo AND cad_cadastro_id = :cad_cadastro_id" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_18" layout="BorderLayout"/>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="89px,2dlu,default,2dlu,95px,2dlu,87px,2dlu,72px,2dlu,77px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,119px"/>
+      <kawdbtextfield name="KawDbTextField_32" id="controle" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnName="fat_docto_c_controle" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pc" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="dataP" columnCaption="Data" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="data_p" columnPosicao="4" columnTableName="fat_docto_pc" columnWidth="12">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="status" columnCaption="Status" columnDataType="STRING" columnEditable="false" columnName="status_p" columnPosicao="2" columnTableName="fat_docto_pc" columnWidth="20">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_37" id="cadCadastroId" columnCaption="Codigo" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="cad_cadastro_id" columnPosicao="3" columnTableName="fat_docto_pc">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <scrollpane name="ScrollPane_47" visible="true" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+        <kawdbtable name="KawDbTable_68" id="fat_docto_pi" connection="jkawflex" hidden="true" kawTableName="fat_docto_pi" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_docto_pc_fat_docto_c_controle" linkFetchAsNeeded="false" linkMasterColumns="fat_docto_c_controle" linkMasterTable="fat_docto_pc" managingFocus="true" parameterQColumns="fat_docto_c_controle" parameterQColumnsCaption="Controle" parameterQColumnsDataType="LONG" parameterQDisplayMask="##########" queryDataSet="SELECT fat_produto_id, fat_docto_pc_fat_docto_c_controle, qtde, qtde_pendente, qtde_atendida, qtde_cancelada, descricao  FROM fat_docto_pi  LEFT JOIN fat_produto ON id = fat_produto_id WHERE qtde_pendente > 0" queryDataSetView=""/>
+      </scrollpane>
+      <scrollpane name="ScrollPane_50" visible="false" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+        <kawdbtable name="KawDbTable_53" id="fat_docto_pa" connection="jkawflex" kawTableName="fat_docto_pa" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_docto_pc_controle" linkMasterColumns="fat_docto_c_controle" linkMasterTable="fat_docto_pc" parameterQColumns="fat_docto_c_controle" parameterQColumnsCaption="Controle" parameterQColumnsDataType="LONG" queryDataSet="SELECT fat_docto_pa.id, fat_produto_id, fat_docto_pc_controle, fat_docto_c_controle,   qtde, qtde_naoatendida, qtde_cancelada, descricao FROM fat_docto_pa  INNER JOIN fat_produto ON fat_produto.id = fat_docto_pa.fat_produto_id WHERE  fat_docto_pc_controle = :fat_docto_c_controle" queryDataSetView=""/>
+      </scrollpane>
+      <kawdbtextfield name="KawDbTextField_55" id="fat_docto_pc_fat_docto_c_controle" columnCaption="N.Controle" columnDataType="LONG" columnHidden="true" columnName="fat_docto_pc_fat_docto_c_controle" columnPosicao="29" columnResolvable="true" columnRowId="true" columnTableName="fat_docto_pi" hidden="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_56" id="fat_docto_pc_controle" columnCaption="N.Controle" columnDataType="LONG" columnHidden="true" columnName="fat_docto_pc_controle" columnPosicao="29" columnResolvable="true" columnRowId="true" columnTableName="fat_docto_pa" hidden="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_57" id="baixar" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnName="baixar" columnResolvable="false" columnTableName="fat_docto_pc">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbcheckbox>
+      <kawdbcheckbox name="KawDbCheckBox_58" id="baixarPI" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnHidden="false" columnName="baixarpi" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="3">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbcheckbox>
+      <kawdbtextfield name="KawDbTextField_59" id="cadFilialId" columnCaption="Filial" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="cad_filial_id" columnPosicao="3" columnTableName="fat_docto_pc">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_60" id="produtoId" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="fat_produto_id" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pi" columnWidth="6">
+        <cellconstraints gridX="9" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_61" id="qtde" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde" columnPosicao="3" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridX="9" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_62" id="qtdePendente" columnCaption="Qtde-Pendente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="qtde_pendente" columnPosicao="5" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_63" id="produtoDescricao" columnCaption="Descricao" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="descricao" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="35">
+        <cellconstraints gridX="9" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_64" id="qtdeAtendida" columnCaption="Qtde-Atendida" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_atendida" columnPosicao="4" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_65" id="qtdeCancelada" columnCaption="Qtde-Cancelada" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_cancelada" columnPosicao="6" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_69" id="atender" columnCaption="Atender" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="atender" columnPosicao="7" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_70" id="cancelar" columnCaption="Cancelar" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="cancelar" columnPosicao="8" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel_39" visible="true" layout="FlowLayout">
+      <kawdbcheckbox name="KawDbCheckBox_40" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_41" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_42" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_43" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_44" layout="FlowLayout">
+      <kawdbnavtoolbar name="KawDbNavToolBar5" id="navToolBar"/>
+      <label name="Label_31" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_32" id="navField"/>
+    </panel>
+    <button constraints="BorderLayout.EAST" name="Button_66" id="okButton" action="actionBaixar" actionCommand="" horizontalAlignment="0" horizontalTextPosition="11" text="Baixar Movimenta&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=70-->
+<!--lastIdIndex=0-->

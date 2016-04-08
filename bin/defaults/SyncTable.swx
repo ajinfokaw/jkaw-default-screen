@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,766,523" constraints="BorderLayout.CENTER" name="Sync Table" id="panelVeiculo" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Sync Table" id="sync_table_details" connection="jkawflex" kawTableName="sync_table_details" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM sync_table_details WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(nome_table) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nome_table) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="CadastroProp" focusable="true" layout="FormLayout">
+        <formLayout colspecs="2dlu,137px,2dlu,93px,2dlu,24px,2dlu,90px,2dlu,107px,2dlu,58px,2dlu,101px" rowspecs="2dlu,default,2dlu,default,2dlu,13dlu,2dlu,22px,2dlu,default,2dlu,22px,2dlu,20px,2dlu,default,2dlu,default,2dlu,default,2dlu,23px,2dlu,default,2dlu,default"/>
+        <kawdbtextfield name="KawDbTextField_16" id="id" columnAutoIncrement="true" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnResolvable="true" columnRowId="true" columnTableName="sync_table_details" columnWidth="5" editable="false" fieldNotEdit="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="2" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_17" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="2" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="4" hAlign="Right" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField1" id="unidadeId" columnCaption="Unidade" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="unidade_id" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="4" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label6" horizontalAlignment="0" horizontalTextPosition="11" text="Vendedor:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="6" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Nome da Tabela:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="8" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Faixa Inicio:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="10" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Faixa Fim:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="12" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Sync Tick" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="14" hAlign="Right" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField0" id="vendedorId" columnCaption="Vendedor" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="vendedor_id" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="6" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField1" id="faixaInicio" columnCaption="Faixa Inicio" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="faixa_inicio" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="10" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField0" id="faixaFim" columnCaption="Faixa Fim" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="faixa_fim" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="12" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField0" id="syncTick" columnCaption="Sync Tick" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="sync_tick" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="14" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Sync Order:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="18" hAlign="Right" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField1" id="syncOrder" columnCaption="Sync Order" columnDataType="INT" columnDisplayMask="" columnEditable="true" columnEditMask="####" columnName="sync_order" columnPosicao="9" columnRowId="false" columnTableName="sync_table_details" columnWidth="8" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="18" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField0" id="cidade" columnCaption="Nome da Tabela" columnDataType="STRING" columnName="nome_table" columnPosicao="1" columnTableName="sync_table_details" columnWidth="30">
+          <cellconstraints gridHeight="1" gridWidth="7" gridX="4" gridY="8" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbcheckbox name="KawDbCheckBox0" id="enviado" columnCaption="Forn." columnDataType="BOOLEAN" columnName="sent" columnRowId="true" columnTableName="sync_table_details" text="Enviado">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="16" hAlign="Default" vAlign="Default"/>
+        </kawdbcheckbox>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_3" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_32" layout="FlowLayout">
+      <kawdbnavtoolbar name="navToolBar" id="navToolBar"/>
+      <label name="Label_33" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_34" id="navField" editable="true"/>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel_36" layout="FlowLayout">
+      <button name="Button_37" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=39-->
+<!--lastIdIndex=0-->

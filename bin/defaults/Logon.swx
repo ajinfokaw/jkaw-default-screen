@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,725,441" constraints="BorderLayout.CENTER"  id="telaLookup" layout="BorderLayout" title="Logon">
+    <panel constraints="BorderLayout.NORTH" name="Panel_2" layout="FlowLayout"> 
+        
+    <panel constraints="BorderLayout.WEST" name="Panel_12" layout="FlowLayout">
+   </panel>
+      
+        <formLayout colspecs="81px,default,27px,2dlu,default,2dlu,2dlu" rowspecs="default,2dlu,2dlu"/>
+        <kawdatefield name="kawdatefield0" id="dataInicial">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="1" hAlign="Default" vAlign="Default"/>
+        </kawdatefield>
+        <kawdatefield name="kawdatefield1" id="dataFinal">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+        </kawdatefield>
+        <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+        </label>
+        <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+        </label>
+      </panel>
+ 
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="conexaoId" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditMask="#####" columnName="conexaoid" columnPosicao="0" columnTableName="login" columnWidth="8">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="usuario" columnCaption="Usuario" columnDataType="STRING" columnName="usuario" columnPosicao="1" columnTableName="login" columnWidth="30">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="esquema" columnCaption="Esquema" columnDataType="STRING" columnName="esquema" columnPosicao="1" columnTableName="login" columnWidth="13">
+      
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_29" id="localHost" columnCaption="Local Host " columnDataType="STRING" columnName="localhost" columnPosicao="1" columnTableName="login" columnWidth="18">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="localHostUser" columnCaption="Local Host  User" columnCurrency="false" columnDataType="STRING" columnName="localhostuser" columnPosicao="2" columnTableName="login" columnWidth="17">
+        <cellconstraints gridX="7" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_10" id="dataLogin" columnCaption="Data" columnCurrency="false" columnDataType="TIMESTAMP" columnDisplayMask="dd/MM/yyyy HH:mm:ss" columnEditMask="dd/MM/yyyy HH:mm:ss" columnName="data_login" columnPosicao="2" columnTableName="login" columnWidth="20">
+      <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+    </panel>
+    <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLogin" connection="jkawflex" kawTableName="login" parameterQColumns="pdatainicial,pdatafinal" parameterQColumnsCaption="" parameterQColumnsDataType="DATE,DATE" parameterQDefault="" queryDataSet="SELECT conexaoid,usuario,esquema,localhost,localhostuser,data_login FROM login WHERE data_login BETWEEN :pdatainicial AND :pdatafinal"/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_6" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_7" id="navToolBarLogin"/>
+  </panel>
+  </dialog>
+<!--lastNameIndex=12-->
+<!--lastIdIndex=0-->

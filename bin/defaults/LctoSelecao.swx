@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1240,600" constraints="BorderLayout.CENTER" name="Sele&#xe7;&#xe3;o de T&#xed;tulos para Baixa" id="baixa" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.CENTER" name="Panel_55" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_58" id="SPLista" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="Lan&#xe7;amento - Sele&#xe7;&#xe3;o" id="fat_docto_c" connection="jkawflex " kawTableName="fat_docto_c" parameterQColumns="datainicial,datafinal,pcontrole,pnumero_docto,pcliente,ptransacao,ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Data Inicial,Data Final,N.Controle,N.Docto" parameterQColumnsDataType="DATE,DATE,LONG,LONG,INT,INT,STRING,BOOLEAN" parameterQDefault="now,now" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT statuslcto,tipolcto,controle,emissao,cad_filial_id,fat_docto_c.cad_cadastro_id AS cad_cadastro_id,nome,cnpj_cpf,seriedocto_codigo,numero_docto,serie_natureza,valortotal_docto,fat_transacao_id,fat_transacao.descricao, cadastro_vendedor_id, (SELECT nomefantasia FROM cad_cadastro WHERE id = cadastro_vendedor_id) AS nome_vendedor, seriedocto_id, fat_docto_c.fat_condpg_id, fat_docto_c.fat_listapre_id, fat_docto_c.fat_listapre_tabela_tabela, totalliquidoprodutos,descontodocto_perc, descontodocto_valor,desconto_valor, totalprodutos,icms_basecalculo,icms_valor, ipi_valor,funrural_perc,funrural_valor, nfechaveacesso,nfeprotocolo,statusdocto, frete_valor,despesa_valor,seguro_valor,icmssubst_valor,icmssubst_basecalculo,dataentradasaida,fat_serie.seriemodelo AS seriemodelo, (select propriedade FROM view_transacao WHERE codigo_transacao = fat_docto_c.fat_transacao_id AND diretiva = 122) AS operacao FROM fat_docto_c INNER JOIN cad_cadastro ON cad_cadastro.id = fat_docto_c.cad_cadastro_id INNER JOIN fat_transacao ON fat_transacao.id = fat_docto_c.fat_transacao_id LEFT JOIN fat_serie ON fat_serie.id = fat_docto_c.seriedocto_id WHERE CASE WHEN (:pcontrole > 0) THEN controle = :pcontrole WHEN (:pnumero_docto > 0) THEN numero_docto = :pnumero_docto WHEN (:pcliente > 0) THEN fat_docto_c.cad_cadastro_id = :pcliente AND emissao BETWEEN :datainicial AND :datafinal  WHEN (:ptransacao > 0) THEN fat_docto_c.fat_transacao_id = :ptransacao AND emissao BETWEEN :datainicial AND :datafinal ELSE emissao BETWEEN :datainicial AND :datafinal END ORDER BY controle" queryDataSetView=""/>
+      </scrollpane>
+      <panel constraints="BorderLayout.NORTH" name="Panel_109" visible="false" layout="FormLayout">
+        <formLayout colspecs="51px,2dlu,92px,2dlu,49px,2dlu,52px,2dlu,63px,2dlu,default,2dlu,115px,2dlu,98px,2dlu,87px" rowspecs="default,2dlu,default,2dlu,default"/>
+        <kawdbtextfield name="KawDbTextField1" id="tipoLcto" columnCaption="TPL" columnDataType="INT" columnEditable="false" columnEditMask="#" columnFixedPrecision="false" columnHidden="false" columnName="tipolcto" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="3" dragEnabled="true" editable="false" fieldNotEdit="true">
+          <cellconstraints gridX="5" gridY="5"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField0" id="nControle" columnAutoIncrement="false" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnFixedPrecision="false" columnName="controle" columnRowId="true" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+          <cellconstraints gridX="1" gridY="1"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField1" id="statusLcto" columnCaption="C.S." columnDataType="INT" columnEditable="false" columnEditMask="#" columnFixedPrecision="false" columnName="statuslcto" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="3" dragEnabled="true" editable="false" fieldNotEdit="true" focusable="false">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField2" id="emissao" columnCaption="Emiss&#xe3;o" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="emissao" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Left" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField3" id="dataEntraSaida" columnCaption="Entrada/Sa&#xed;da" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="dataentradasaida" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Left" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField6" id="filialCodigo" columnCaption="Filial" columnCurrency="false" columnDataType="INT" columnEditable="false" columnName="cad_filial_id" columnTableName="fat_docto_c" columnWidth="4">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField7" id="fatTransacaoId" columnCaption="Trans." columnCurrency="false" columnDataType="INT" columnEditable="true" columnName="fat_transacao_id" columnTableName="fat_docto_c" columnWidth="4">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField8" id="serieDoctoId" columnCaption="Filial" columnCurrency="false" columnDataType="INT" columnEditable="false" columnName="seriedocto_id" columnTableName="fat_docto_c" columnWidth="5">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField9" id="valorTotalDocto" columnCaption="TOTAL" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnHidden="false" columnName="valortotal_docto" columnPosicao="7" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" fieldNotEdit="true" hidden="false">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Fill" vAlign="Default"/>
+        </kawdbtextfield>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel6" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel7" layout="FlowLayout"/>
+    <panel constraints="BorderLayout.WEST" name="Panel8" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Lan&#xe7;amento / Faturamento" id="navToolBar" paintingTile="true" tips="true"/>
+      <button name="Button0" id="btnInsert" toolTipText="Lan&#xe7;amento (NF, NF-e, Pedidos, Or&#xe7;amentos, etc.)" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/dbswing/image/insert.png" mnemonic="70" text="Novo Lan&#xe7;amento" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button0" id="btnInsert2" toolTipText="Venda Balc&#xe3;o, NFC-e, Or&#xe7;amento Balc&#xe3;o, etc" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/dbswing/image/insert.png" mnemonic="70" text="Nova Venda (NFC-e)" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button0" id="btnInsertVB" toolTipText="Venda Balc&#xe3;o, NFC-e, Or&#xe7;amento Balc&#xe3;o, etc" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/dbswing/image/insert.png" mnemonic="70" text="Venda Balc&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button1" id="btnUpdate" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/edit.png" mnemonic="70" text="Editar Lcto/Venda" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button0" id="btnDelete" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/dbswing/image/delete.png" mnemonic="70" text="Deletar Lcto/Venda" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button0" id="btnConf" toolTipText="Conferir Itens/Produtos ..." visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/edit.png" mnemonic="70" text="Confer&#xea;ncia" verticalAlignment="0" verticalTextPosition="0"/>
+      <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Cli/For" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="CampoConsulta" id="navField" actionCommand="actionAutorizarNFCe" preferredSize="250,21"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel97" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel5" id="panel_selecao" layout="BorderLayout" include="xml/LctoPanelSelecao.xml#PANEL_SELECAO"/>
+  </panel>
+</panel>
+<!--lastNameIndex=179-->
+<!--lastIdIndex=0-->

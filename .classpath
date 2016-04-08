@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/infoutil.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/internals.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/jdic.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/swixEngine.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/plugins/com.invivosoft.swixeditor_3.2.21/lib/SwixUtils.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

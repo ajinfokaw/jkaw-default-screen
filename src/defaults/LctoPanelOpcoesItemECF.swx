@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1280,100" constraints="BorderLayout.CENTER" name="PANEL_OPCOES_ITEM_ECF" id="PANEL_OPCOES_ITEM_ECF" layout="BorderLayout">
+  <panel constraints="BorderLayout.WEST" name="Panel0" layout="FlowLayout">
+    <panel name="Op&#xe7;&#xf5;es - Item(s):" id="panelItens" layout="FlowLayout">
+      <button name="Button12" id="insereButton_fat_docto_i" preferredSize="180,25" toolTipText="Inserir item (Ctrl + Insert)" actionCommand="fat_docto_i" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Item" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button13" id="excluiButton_fat_docto_i" preferredSize="180,25" toolTipText="Deletar Item (Ctrl + Delete)" actionCommand="fat_docto_i" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Item" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es -  Impress&#xe3;o Formul&#xe1;rio:" id="panelImpressao" layout="FlowLayout">
+      <button name="Button8" id="btnForm1" preferredSize="70,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="1" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button9" id="btnForm2" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="2" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+      <button name="Button10" id="btnForm3" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="3" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es - Cupom Fiscal:" id="panelBtnAux" layout="FlowLayout">
+      <button name="Button7" id="consultarEcfButton" toolTipText="Consultar ECF" horizontalAlignment="0" horizontalTextPosition="11" text="Consultar ECF" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button8" id="leituraXButton" horizontalAlignment="0" horizontalTextPosition="11" text="Leitura X" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button9" id="emitirCupomButton" horizontalAlignment="0" horizontalTextPosition="11" text="Emitir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button10" id="cancelarCuponButton" horizontalAlignment="0" horizontalTextPosition="11" text="Cancelar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button11" id="reducaoZButton" horizontalAlignment="0" horizontalTextPosition="11" text="Redu&#xe7;&#xe3;o Z" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="80,2,1028,587" layout="BorderLayout" title="Encargos para manuten&#xe7;&#xe3;o/composi&#xe7;&#xe3;o de pre&#xe7;os">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel name="Panel0" id="cadEncargoPadrao" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" tabLayoutPolicy="0" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_4" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Encargo Padrao" id="fat_encargopadrao" autoscrolls="false" connection="jkawflex" kawTableName="fat_encargopadrao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="String,Boolean" queryDataSet="SELECT * FROM fat_encargopadrao WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN cad_filial_id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN TRUE END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_8" layout="FormLayout">
+        <formLayout colspecs="208px,2dlu,87px,2dlu,28px,2dlu,12px,2dlu,64px,2dlu,143px,2dlu,28px,2dlu,86px,2dlu,14px,2dlu,119px" rowspecs="default,2dlu,default,2dlu,15dlu,2dlu,15dlu,2dlu,15dlu,2dlu,15dlu,2dlu,15dlu,2dlu,13dlu,2dlu,15dlu,2dlu,15dlu,2dlu,15dlu,2dlu,15dlu,2dlu,default,2dlu,15dlu,2dlu,15dlu"/>
+        <label name="Label_9" horizontalAlignment="4" horizontalTextPosition="11" text="ID:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_10" horizontalAlignment="4" horizontalTextPosition="11" text="ICMS" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_11" horizontalAlignment="4" horizontalTextPosition="11" text="IPI" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_12" horizontalAlignment="4" horizontalTextPosition="11" text="PIS" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_14" horizontalAlignment="4" horizontalTextPosition="11" text="COFINS" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_15" horizontalAlignment="4" horizontalTextPosition="11" text="IRRF" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_16" horizontalAlignment="4" horizontalTextPosition="11" text="Contribui&#xe7;&#xe3;o Social:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_17" horizontalAlignment="4" horizontalTextPosition="11" text="Imposto Simples:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_18" horizontalAlignment="4" horizontalTextPosition="11" text="Sub Total" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_19" horizontalAlignment="4" horizontalTextPosition="11" text="TOTAL:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="25" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_48" id="pis" columnCaption="PIS" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="pis" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_69" id="cofins" columnCaption="Confins" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="cofins" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_70" id="irrf" columnCaption="IRRF" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="irrf" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_71" id="contribuicaoSocial" columnCaption="Contr. Social" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="contrsoc" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_72" id="impostoSimples" columnCaption="Impost. Simples" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="impsimples" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_73" id="subTotalImposto" columnCalcType="CALC" columnCaption="SubTotal Imposto Simples" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditMask="##0.00" columnName="subtotimp" columnResolvable="true" columnTableName="fat_encargopadrao" fieldNotEdit="true">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_111" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_112" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_113" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="17" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_172" id="total" columnCalcType="CALC" columnCaption="Total Encargos" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditMask="##0.00" columnName="totencarg" columnResolvable="true" columnTableName="fat_encargopadrao" fieldNotEdit="true">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="25" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_186" id="ipi" columnCaption="IPI" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="ipi" columnPosicao="1" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_26" id="id" columnAutoIncrement="true" columnCaption="Id" columnDataType="INT" columnDisplayMask="#####" columnEditMask="" columnName="id" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao" fieldNotEdit="true">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_4" horizontalAlignment="4" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_10" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_11" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_12" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_13" id="icms" columnCaption="ICMS" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="icms" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_14" horizontalAlignment="4" horizontalTextPosition="11" text="Acrescimo Financeiro:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_15" horizontalAlignment="4" horizontalTextPosition="11" text="Despesas Operacionais:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_16" horizontalAlignment="4" horizontalTextPosition="11" text="Outros:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_17" horizontalAlignment="4" horizontalTextPosition="11" text="Comiss&#xe3;o" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_18" id="acrescimoFinanceiro" columnCaption="Acresc. Financeiro" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="acrescfin" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="5" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_19" id="despesaOperacional" columnCaption="Desp. Operacionais" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="despop" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_81" id="outros" columnCaption="Outros" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="outros" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="9" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_82" id="comissao" columnCaption="Comiss&#xe3;o" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="comissao" columnPosicao="0" columnRowId="true" columnTableName="fat_encargopadrao">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="11" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_83" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_84" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_85" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_87" horizontalAlignment="4" horizontalTextPosition="11" text="Sub Total" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="21" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_88" id="subTotalEncargo" columnCalcType="CALC" columnCaption="SubTotal Encargos" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditMask="##0.00" columnName="subtotenc" columnResolvable="true" columnTableName="fat_encargopadrao" fieldNotEdit="true">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="21" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="21" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label1" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="21" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label2" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="25" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbcombobox name="KawDbComboBox0" id="filialId" columnCaption="Filial" columnDataType="INT" columnDefault="1" columnDestino="cad_filial_id" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="cad_filial_id" columnRowId="false" columnTableName="fat_encargopadrao" columnWidth="12" connection="jkawflex" displayColumns="id,nomefantasia" editable="true" enable="true" kawTableName="cad_filial" queryDataSet="SELECT id,nomefantasia,razaosocial,cad_mun_id FROM cad_filial">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+        </kawdbcombobox>
+      </panel>
+    </tabbedpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel2" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel9" layout="FlowLayout">
+        <kawdbnavtoolbar name="KawDbNavToolBar10" id="navToolBar"/>
+        <label name="Label11" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="codigo" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField12" id="navField" editable="true"/>
+      </panel>
+    </panel>
+  </panel>
+</dialog>

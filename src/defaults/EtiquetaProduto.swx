@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,766,523" constraints="BorderLayout.CENTER" name="Etiqueta Produto" id="EtiquetaProduto" layout="BorderLayout">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_2" layout="FlowLayout">
+      <kawdbnavtoolbar name="KawDbNavToolBar_3" id="navToolBar"/>
+      <label name="Label0" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField2" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel_4" layout="FlowLayout">
+      <button name="Button_256" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_5" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_6" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Etiqueta Produto" id="fat_etiqprod" connection="jkawflex" kawTableName="fat_etiqprod" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_etiqprod" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral">
+          <panel name="Cadastro" layout="FormLayout">
+            <formLayout colspecs="91px,2dlu,63px,2dlu,28px,2dlu,87px,2dlu,402px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_15" horizontalAlignment="0" horizontalTextPosition="11" text="Produto:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <label name="Label_17" horizontalAlignment="0" horizontalTextPosition="11" text="ID" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_26" id="id" columnAutoIncrement="true" columnCalcType="" columnCaption="ID" columnDataType="INT" columnDisplayMask="" columnEditMask="#######" columnName="id" columnPosicao="0" columnRowId="true" columnTableName="fat_etiqprod" columnWidth="5" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField_31" id="data" columnCaption="Data" columnDataType="DATE" columnDefault="current_date" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="data" columnPosicao="1" columnRequired="true" columnRowId="false" columnTableName="fat_etiqprod" columnWidth="10" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_32" horizontalAlignment="0" horizontalTextPosition="11" text="Data:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup" id="produtoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="produto_lookup" columnNameLookupRow="fat_produto_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_etiqprod" columnWidth="30" editable="false" UIClassID=" ">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+            <label name="Label_36" horizontalAlignment="0" horizontalTextPosition="11" text="Qtde:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_37" id="qtde" caretPosition="0" columnCaption="Qtde" columnDataType="INT" columnDefault="1" columnDisplayMask="###" columnEditable="true" columnEditMask="" columnName="qtde" columnPosicao="2" columnRowId="false" columnTableName="fat_etiqprod" columnWidth="10" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawlookupbutton name="KawLookupButton0" id="produtoLookupButton" action="lookupProduto" columnDestino="fat_produto_id" columnOrigem="id,id" connection="jkawflex" kawTableName="fat_produto" kawTableNameRelation="fat_etiqprod" managingFocus="false" parameterQColumns="fat_produto_id" parameterQColumnsCaption="" parameterQColumnsDataType="INT" parameterQDefault="" queryDataSet="SELECT id,descricao, cad_unidade1 FROM fat_produto WHERE id = :fat_produto_id" xmlLookupView="LookupProdutos.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="produtoId" columnCaption="Produto" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_produto_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_produto_id" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="fat_etiqprod" editable="true" enable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookuprow>
+            <label name="Label0" enabled="false" horizontalAlignment="0" horizontalTextPosition="11" text="Informar o n&#xba; de etiquetas que deseja imprimir" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Left" vAlign="Default"/>
+            </label>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+</panel>
+<!--lastNameIndex=37-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,32,533,314" id="telaLookup" layout="BorderLayout" name="" title="Regra/Propriedade">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_22" id="opcaoEntraDado" columnCaption="Parametro" columnDataType="STRING" columnEditable="true" columnHidden="true" columnName="entra_dado" columnRowId="false" columnTableName="fat_diretiva_regra_propriedade" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="2" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_23" id="tableLookup" connection="jkawflex" kawTableName="fat_diretiva_regra_propriedade" parameterQColumns="ppesquisa,ppesquisaconteudo,diretiva_regra_id,fat_transacao_d_fat_diretiva_id" parameterQColumnsCaption="pesquisa,conteudo,Diretiva,Regra " parameterQColumnsDataType="STRING,BOOLEAN,INT,INT" parameterQDisplayMask="#####,#####" parameterQEditMask="#####,#####" queryDataSet="SELECT propriedade FROM fat_diretiva_regra_propriedade WHERE fat_diretiva_id = :fat_transacao_d_fat_diretiva_id AND fat_diretiva_regra_id = :diretiva_regra_id" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_18" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_19" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true" hidden="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=23-->
+<!--lastIdIndex=0-->

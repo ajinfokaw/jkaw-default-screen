@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,689,451" id="telaLookup" layout="BorderLayout" title="Consulta Campos">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="STRING" columnEditMask="#####" columnName="id" columnTableName="to_tbcampos" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnTableName="to_tbcampos" columnWidth="40">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_10" id="grupo" columnCaption="Grupo" columnDataType="STRING" columnName="grupo" columnTableName="to_tbcampos" columnWidth="40">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLookup" connection="jkawflex" kawTableName="financ_portador" parameterQColumns="pgrupo" parameterQColumnsCaption="Grupo" parameterQColumnsDataType="STRING" parameterQDefault="" queryDataSet="SELECT id,descricao,grupo FROM to_tbcampos WHERE grupo = :pgrupo"/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_6" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_7" id="navToolBarLookup"/>
+    <button name="Button_8" id="OK_Button" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=10-->
+<!--lastIdIndex=0-->

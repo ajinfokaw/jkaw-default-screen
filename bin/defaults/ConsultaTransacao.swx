@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="14,12,726,502" id="consultaTransacao" layout="BorderLayout" title="Consulta transa&#xe7;&#xf5;es e diretivas de lan&#xe7;amento">
+  <panel constraints="BorderLayout.NORTH" name="Panel_5" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel_7" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_Codigo" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="###" columnEditMask="###" columnName="id" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_Descricao" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnWidth="65">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_18" id="desativado" columnCaption="D." columnDataType="BOOLEAN" columnName="desativado" columnWidth="5" hidden="true">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbcheckbox>
+      <kawdbtextfield name="KawDbTextField_19" id="codigoTransacao" columnDataType="INT" columnName="codigo_transacao">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_20" id="diretiva" columnCaption="Diretiva" columnDataType="INT" columnName="diretiva">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_21" id="regra" columnCaption="Regra" columnDataType="STRING" columnName="regra">
+        <cellconstraints gridX="7" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_22" id="propriedade" columnCaption="Propriedade" columnDataType="STRING" columnName="propriedade">
+        <cellconstraints gridX="7" gridY="7"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_8" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_9" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Transacao" id="tableConsulta" connection="jkawflex" kawTableName="" queryDataSet="SELECT desativado,id,descricao FROM fat_transacao LIMIT 100" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_14" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_15" id="navToolBarConsulta"/>
+    <button name="Button_16" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=23-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,805,569" constraints="BorderLayout.CENTER" id="cadSituacaoTributaria" layout="BorderLayout">
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_1" tabPlacement="1" titles="Lista,Editar">
+    <panel name="Panel_2" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="KawDbTable_5" id="fat_cst_key" connection="jkawflex" kawTableName="fat_cst_key" parameterQColumns="" parameterQColumnsCaption="" parameterQColumnsDataType="" queryDataSet="SELECT * FROM fat_cst_key WHERE CASE WHEN :ppesquisaconteudo THEN UPPER(tipo) LIKE '%'||UPPER(:ppesquisa)||'%' OR LIKE '%'||UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(tipo) LIKE UPPER(:ppesquisa)||'%' END" queryDataSetView=""/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel_3" layout="FormLayout">
+      <formLayout colspecs="94px,2dlu,181px,2dlu,183px,2dlu,160px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+      <label name="Label_6" horizontalAlignment="4" horizontalTextPosition="11" text="Tipo.:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridX="1" gridY="1"/>
+      </label>
+      <label name="Label_7" horizontalAlignment="4" horizontalTextPosition="11" text="Valor:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridX="1" gridY="3"/>
+      </label>
+      <label name="Label_8" horizontalAlignment="4" horizontalTextPosition="11" text="Grupo:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridX="1" gridY="5"/>
+      </label>
+      <label name="Label_9" horizontalAlignment="4" horizontalTextPosition="11" text="Descricao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridX="1" gridY="7"/>
+      </label>
+      <label name="Label_10" horizontalAlignment="4" horizontalTextPosition="11" text="Requer Tag:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridX="1" gridY="9"/>
+      </label>
+      <kawdbcombobox name="KawDbComboBox_26" id="tipo" columnCaption="Tipo" columnDataType="STRING" columnName="tipo" columnRowId="true" columnTableName="fat_cst_key" itens="ICMS,COFINS,PIS,IPI">
+        <cellconstraints gridX="3" gridY="1"/>
+      </kawdbcombobox>
+      <kawdbtextfield name="KawDbTextField_13" id="valor" columnCaption="Valor" columnDataType="STRING" columnName="valor" columnRowId="true" columnTableName="fat_cst_key">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_14" id="grupo" columnCaption="Grupo" columnDataType="STRING" columnName="grupo" columnTableName="fat_cst_key">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_15" id="descricao" columnCaption="Descricao" columnDataType="STRING" columnName="descricao" columnTableName="fat_cst_key">
+        <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_16" id="requerTag" columnCaption="Requer Tag" columnDataType="STRING" columnName="requertag" columnTableName="fat_cst_key">
+        <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbcheckbox name="KawDbCheckBox_18" id="isento" columnCaption="Isento" columnDataType="BOOLEAN" columnName="isento" columnTableName="fat_cst_key" text="Isento?">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbcheckbox>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.NORTH" name="Panel0" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel1" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel4" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel5" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Marcas" id="navToolBar"/>
+      <label name="Label_20" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_21" id="navField"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=24-->
+<!--lastIdIndex=0-->

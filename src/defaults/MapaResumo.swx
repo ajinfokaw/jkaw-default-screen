@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="2,2,534,481" constraints="BorderLayout.CENTER" name="Mapa Resumo" id="cadMapaResumo" layout="BorderLayout">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_5" layout="FlowLayout">
+      <label name="Label_Pesquisa" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneMain" tabPlacement="1" titles="Lista,Editar,Outros Dados">
+    <panel name="Panel_19" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_22" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="Mapa Resumo" id="ef_maparesumo" connection="jkawflex" kawTableName="ef_maparesumo" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM ef_maparesumo WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN numeromapa = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(numeroserieecf) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(numeroserieecf) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel_24" layout="BorderLayout">
+      <panel constraints="BorderLayout.NORTH" name="Panel_25" layout="FormLayout">
+        <formLayout colspecs="155px,2dlu,123px,2dlu,33px,2dlu,114px,2dlu,122px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+        <label name="Label_26" horizontalAlignment="4" horizontalTextPosition="11" text="Numero:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridX="1" gridY="1"/>
+        </label>
+        <label name="Label_27" horizontalAlignment="4" horizontalTextPosition="11" text="Emiss&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_28" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xba; ECF:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_29" horizontalAlignment="4" horizontalTextPosition="11" text="S&#xe9;rie ECF:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_30" horizontalAlignment="4" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_31" horizontalAlignment="4" horizontalTextPosition="11" text="Modelo Docto:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_32" horizontalAlignment="4" horizontalTextPosition="11" text="Contador Origem:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_33" horizontalAlignment="4" horizontalTextPosition="11" text="Contador Final:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_34" horizontalAlignment="4" horizontalTextPosition="11" text="NR Cupom Inicial:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_35" horizontalAlignment="4" horizontalTextPosition="11" text="NR Cupom Final:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_36" horizontalAlignment="4" horizontalTextPosition="11" text="Contador Redu&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_37" horizontalAlignment="4" horizontalTextPosition="11" text="Total Inicial:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_38" horizontalAlignment="4" horizontalTextPosition="11" text="Venda Bruta:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_39" horizontalAlignment="4" horizontalTextPosition="11" text="Total Final:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_40" horizontalAlignment="4" horizontalTextPosition="11" text="Subst. Tributaria:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="Isento:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_42" id="numero" columnCaption="Numero" columnDataType="INT" columnName="numeromapa" columnTableName="ef_maparesumo">
+          <cellconstraints gridX="3" gridY="1"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_43" id="emissao" columnCaption="Emissao" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="emissao" columnTableName="ef_maparesumo">
+          <cellconstraints gridX="9" gridY="1"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_44" id="numeroEcf" columnCaption="No ECF" columnDataType="INT" columnName="numeroecf" columnTableName="ef_maparesumo">
+          <cellconstraints gridX="3" gridY="3"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_45" id="numeroSerieEcf" columnCaption="Serie ECF" columnDataType="STRING" columnName="numeroserieecf" columnTableName="ef_maparesumo">
+          <cellconstraints gridX="9" gridY="3"/>
+        </kawdbtextfield>
+        <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="filialCodigo" columnCaption="Filiail Codigo" columnDataType="INT" columnName="cad_filial_id" columnNameLookupKey="id" columnTableName="ef_maparesumo">
+          <cellconstraints gridX="3" gridY="5"/>
+        </kawdbtextfieldlookuprow>
+        <kawdbtextfieldlookup name="KawDbTextField_47" id="lookupFilial" columnCalcType="CALC" columnCaption="Filial Descricao" columnDataType="STRING" columnName="filial_lookup" columnNameLookupRow="cad_filial_id" columnResolvable="false" columnNameOriginLookupRow="razaosocial" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfieldlookup>
+        <kawlookupbutton name="filialLookupButton" id="filialLookupButton" action="lookupFilial" columnDestino="cad_filial_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="ef_maparesumo" parameterQColumns="cad_filial_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_filial" xmlLookupView="LookupFilial.xml">
+          <cellconstraints gridX="5" gridY="5"/>
+        </kawlookupbutton>
+        <kawdbtextfield name="KawDbTextField_49" id="modeloDocto" autoscrolls="false" columnCaption="Modelo Docto" columnDataType="STRING" columnName="modelodocto" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_50" id="contadorOrigem" columnCaption="Contador Origem" columnDataType="INT" columnName="contadororigem" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_51" id="contadorFinal" columnCaption="Contador Final" columnDataType="INT" columnName="contadorfinal" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_52" id="cupomInicial" columnCaption="Cupom Inicial" columnDataType="INT" columnName="nrcupominicial" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_53" id="cupomFinal" columnCaption="Cupom Final" columnDataType="INT" columnName="nrcupomfinal" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_55" id="contadorReducao" autoscrolls="false" columnCaption="Contador Reducao" columnDataType="INT" columnName="contadorreducaoz" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_56" id="totalInicial" columnCaption="Total Inicial" columnDataType="BIGDECIMAL" columnName="grantotalinicial" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_57" id="vendaBruta" columnCaption="Venda Bruta" columnDataType="BIGDECIMAL" columnName="vendabrutadia" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_58" id="totalFinal" columnCaption="Total Final" columnDataType="BIGDECIMAL" columnName="grantotalfinal" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_59" id="tributaria" columnCaption="Subst Tributaria" columnDataType="BIGDECIMAL" columnName="substituicaotrib" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_60" id="isento" columnCaption="Isento" columnDataType="BIGDECIMAL" columnName="isento" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <label name="Label_61" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xe3;o Incidencia" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_62" horizontalAlignment="4" horizontalTextPosition="11" text="Cancelamentos:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="25" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_63" horizontalAlignment="4" horizontalTextPosition="11" text="Descontos:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_64" horizontalAlignment="4" horizontalTextPosition="11" text="ISSQN:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Default" vAlign="Default"/>
+        </label>
+        <label name="Label_65" horizontalAlignment="4" horizontalTextPosition="11" text="Percentual:" verticalAlignment="0" verticalTextPosition="0">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="27" hAlign="Default" vAlign="Default"/>
+        </label>
+        <kawdbtextfield name="KawDbTextField_67" id="incidencia" columnCaption="Nao Incidencia" columnDataType="BIGDECIMAL" columnName="naoincidencia" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_109" id="cancelamentos" columnCaption="Cancelamentos" columnDataType="BIGDECIMAL" columnName="cancelamentos" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="25" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_110" id="descontos" columnCaption="descontos" columnDataType="BIGDECIMAL" columnName="descontos" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="27" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_112" id="issqn" columnCaption="ISSNQ" columnDataType="BIGDECIMAL" columnName="issqn" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="29" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+        <kawdbtextfield name="KawDbTextField_113" id="percentual" columnCaption="percentual" columnDataType="BIGDECIMAL" columnName="perc_simples" columnTableName="ef_maparesumo">
+          <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="27" hAlign="Default" vAlign="Default"/>
+        </kawdbtextfield>
+      </panel>
+    </panel>
+    <panel name="Panel_114" layout="FormLayout">
+      <formLayout colspecs="122px,2dlu,102px,2dlu,127px,2dlu,148px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+      <label name="Label_115" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclusao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_116" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="true" columnTableName="ef_maparesumo" columnWidth="10" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="1"/>
+      </kawdbtextfield>
+      <label name="Label_117" horizontalAlignment="0" horizontalTextPosition="11" text="Data Alteracao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_118" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="true" columnTableName="ef_maparesumo" columnWidth="10" editable="false" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_119" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclusao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_120" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="true" columnTableName="ef_maparesumo" columnWidth="10" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="7"/>
+      </kawdbtextfield>
+      <label name="Label_121" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Alteracao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_122" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="true" columnTableName="ef_maparesumo" editable="false" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_123" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclusao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_126" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="true" columnTableName="ef_maparesumo" columnWidth="30" editable="false" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_127" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Alteracao:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_128" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="true" columnTableName="ef_maparesumo" columnWidth="30" editable="false" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_145" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_146" layout="FlowLayout">
+      <kawdbnavtoolbar name="KawDbNavToolBar_147" id="navToolBar"/>
+      <label name="Label_20" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_21" id="navField"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=148-->
+<!--lastIdIndex=0-->

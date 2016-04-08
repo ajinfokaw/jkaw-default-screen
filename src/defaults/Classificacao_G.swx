@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="2,1,720,447" constraints="BorderLayout.CENTER" name="Classifica&#xe7;&#xe3;o Gerencial" id="CadClassificacao_G" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="69, 76" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_19" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Classifica&#xe7;&#xe3;o Gerencial" id="financ_classificacao_g" connection="jkawflex" kawTableName="financ_classificacao_g" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT *, repeat('    ', char_length(replace(classificacao_g,' ',''))-2)||descricao as descricaoidentada FROM financ_classificacao_g WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END ORDER BY classificacao_g" queryDataSetView="" showGrid="true" showHorizontalLines="true"/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" id="Tab_Cadastro" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
+          <panel name="Panel_13" id="ClassDescri" layout="FormLayout">
+            <formLayout colspecs="117px,2dlu,77px,2dlu,200px,2dlu,236px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_14" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_15" id="Codigo" columnAutoIncrement="true" columnCalcType="INT" columnCaption="C&#xf3;digo" columnDisplayMask="#####" columnEditMask="#####" columnName="id" columnPosicao="1" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="5">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_16" id="Desativado" columnCaption="D." columnName="desativado" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="5" text="Registro Desativado?">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <label name="Label_17" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_18" id="Classifica&#xe7;&#xe3;o" columnCaption="Classifica&#xe7;&#xe3;o" columnDataType="STRING" columnDisplayMask="## ## ## ### " columnEditable="true" columnEditMask="## ## ## ### " columnName="classificacao_g" columnPosicao="2" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="20" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_9" id="Descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnName="descricao" columnPosicao="5" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="45" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_16" horizontalAlignment="0" horizontalTextPosition="11" text="Natureza:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbcomboboxlookuprow name="KawDbComboBoxLookupRow" id="natureza" columnCaption="Natureza" columnDataType="STRING" columnDestino="natureza" columnName="natureza" columnNameLookupKey="id" columnPosicao="4" columnRowId="true" columnTableName="financ_classificacao_g" connection="jkawflex" displayColumns="classificacao,sequencial" editable="true" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='financ_classificacao_g' AND coluna='natureza' ORDER BY sequencial">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbcomboboxlookuprow>
+            <kawdbcheckbox name="KawDbCheckBox_18" id="AtualizarRegimeCaixa" columnCaption="Cx" columnDataType="BOOLEAN" columnName="atualizarregimecaixa" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Atualizar regime de caixa?">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <kawdbcheckbox name="KawDbCheckBox_19" id="AtualizarRegimeCompetencia" columnCaption="Cp" columnDataType="BOOLEAN" columnName="atualizarregimecompetencia" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Atualizar regime de Compet&#xea;ncia?">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <kawdbtextfield name="KawDbTextField_21" id="DescricaoIdentada" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricaoidentada" columnPosicao="3" columnTableName="financ_classificacao_g" columnWidth="50" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox0" id="despesaFixa" columnCaption="Cx" columnDataType="BOOLEAN" columnName="despesafixa" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Agregar &#xe0; custos fixos?">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+            <kawdbcheckbox name="KawDbCheckBox2" id="custoVariavel" columnCaption="Cp" columnDataType="BOOLEAN" columnName="custovariavel" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Agregar &#xe0; custos vari&#xe1;veis?">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+            </kawdbcheckbox>
+          </panel>
+          <panel name="Panel_60" layout="FormLayout">
+            <formLayout colspecs="153px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+            <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_72" id="DataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="dataalteracao" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_73" horizontalAlignment="0" horizontalTextPosition="11" text="Hoara de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_74" id="HoraAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="true" columnTableName="financ_classificacao_g" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_75" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_76" id="DataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="datainclusao" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o: " verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_78" id="HoraInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="10" editable="false" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="7"/>
+            </kawdbtextfield>
+            <label name="Label_79" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_80" id="UsuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_82" id="UsuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="true" columnTableName="financ_classificacao_g" columnWidth="30" editable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel1" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel3" layout="FlowLayout">
+        <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Aliquotas ICMS" id="navToolBar"/>
+        <label name="Label_105" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Pa&#xed;s" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField_106" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+      </panel>
+      <panel constraints="BorderLayout.EAST" name="Panel4" layout="FlowLayout"/>
+    </panel>
+    <button constraints="BorderLayout.EAST" name="Button2" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</panel>
+<!--lastNameIndex=31-->
+<!--lastIdIndex=0-->

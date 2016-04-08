@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="24,12,752,458" id="LookupTabelas" layout="BorderLayout" title="Consulta Tabelas">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="TableLookup" connection="jkawflex" kawTableName="infobds" queryDataSet="SELECT tabela, descricao, esquema, nversao FROM infobds" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_18" layout="FlowLayout">
+      <label name="Label_5" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <checkbox name="CheckBox_32" id="SelecaoContida" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_6" id="Selecao" columnDataType="STRING" columnName="selecao" preferredSize="220,21"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_32" id="Tabela" columnCaption="Tabela" columnDataType="STRING" columnEditMask=" " columnName="tabela" columnWidth="20">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="Descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="descricao" columnWidth="50">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_27" id="Esquema" columnCaption="Esquema" columnDataType="STRING" columnName="esquema" columnWidth="12">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_29" id="NVersao" columnCaption="Vers&#xe3;o" columnDataType="INT" columnDisplayMask="####" columnEditMask="####" columnName="nversao" columnWidth="6">
+        <cellconstraints gridX="5" gridY="7"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_23" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_24" id="NavToolBar"/>
+    <button name="Button_25" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+    <button name="Button_26" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=32-->
+<!--lastIdIndex=0-->

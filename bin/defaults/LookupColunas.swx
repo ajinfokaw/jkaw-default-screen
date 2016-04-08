@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,451,453" id="telaLookup" layout="BorderLayout" title="Estrutura/Colunas da Tabela">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_20" id="tableLookup" connection="jkawflex" kawTableName="padrao.colunas" parameterQColumns="pesquema,ptabela" parameterQColumnsCaption="Esquema,Tabela" parameterQColumnsDataType="STRING,STRING" queryDataSet="Select campo, tipo FROM padrao.colunas WHERE tabela = :pTabela  AND esquema = :pEsquema" queryDataSetView="Select campo, tipo FROM padrao.colunas"/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_3" visible="false" layout="FormLayout">
+    <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu" rowspecs="default,2dlu,default,2dlu"/>
+    <kawdbtextfield name="KawDbTextField_4" id="campo" columnCaption="Coluna" columnDataType="STRING" columnEditable="false" columnEditMask=" " columnName="campo" columnWidth="20">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="KawDbTextField_5" id="tipo" columnCaption="Tipo" columnDataType="STRING" columnEditable="false" columnName="tipo" columnWidth="30">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_16" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_17" id="navToolBar"/>
+    <button name="Button_18" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=20-->
+<!--lastIdIndex=0-->

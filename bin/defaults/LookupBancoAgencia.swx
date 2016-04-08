@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,725,441" id="telaLookup" layout="BorderLayout" name="" title="Consulta Agencia">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="STRING" columnEditable="false" columnEditMask="#####" columnName="id" columnWidth="6">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="agencia" columnCaption="Ag&#xea;ncia" columnDataType="STRING" columnEditable="false" columnName="nome" columnWidth="40">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Agencia" id="tableLookup" connection="jkawflex" kawTableName="financ_agencia" parameterQColumns="ppesquisa,ppesquisaconteudo,banco_id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT id,nome,municipio, financ_banco_id FROM financ_agencia WHERE financ_banco_id = :banco_id AND CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN municipio = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(nome) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nome) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_6" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_15" layout="BorderLayout">
+      <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+        <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+        <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+      <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=19-->
+<!--lastIdIndex=0-->

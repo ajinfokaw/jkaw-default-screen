@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,574,400" layout="BorderLayout" name="cadDiretivas2" title="Cadastro de Diretivas">
+  <panel constraints="BorderLayout.WEST" name="Panel_1" id="PanelKawTree" layout="BorderLayout"/>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_3" layout="FlowLayout">
+    <button name="Button_4" id="addButton" actionCommand="add" horizontalAlignment="0" horizontalTextPosition="11" text="Adicionar" verticalAlignment="0" verticalTextPosition="0"/>
+    <button name="Button_5" id="removeButton" actionCommand="remove" horizontalAlignment="0" horizontalTextPosition="11" text="Remover" verticalAlignment="0" verticalTextPosition="0"/>
+    <button name="Button_7" id="clearButton" actionCommand="clear" horizontalAlignment="0" horizontalTextPosition="11" text="Limpar" verticalAlignment="0" verticalTextPosition="0"/>
+    <button name="Button_6" id="saveButton" actionCommand="save" horizontalAlignment="0" horizontalTextPosition="11" text="Salvar" verticalAlignment="0" verticalTextPosition="0"/>
+    <button name="Button_8" id="closeButton" actionCommand="close" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog><!--lastNameIndex=8--><!--lastIdIndex=0-->

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,700,800" constraints="BorderLayout.CENTER" layout="BorderLayout">
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPaneMain" tabPlacement="1" titles="Lista,Editar">
+    <panel name="Panel1" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="KawDbTable_9" id="tableRomaneio" connection="jkawflex" kawTableName="romaneio" linkCascadeDeletes="true" linkDetailColumns="idromaneio" linkFetchAsNeeded="true" linkMasterColumns="idromaneio" parameterQColumns="" parameterQColumnsDataType="" queryDataSet="SELECT * FROM romaneio" queryDataSetView="SELECT idromaneio FROM romaneio"/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel3" focusTraversalKeysEnabled="true" layout="BorderLayout">
+      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane4" tabPlacement="1" titles="Geral">
+        <panel name="Panel_30" layout="FormLayout">
+          <formLayout colspecs="141px,2dlu,117px,2dlu,37px,2dlu,125px,2dlu,108px,2dlu,80px,2dlu,46px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,25px,2dlu,default,2dlu,default,2dlu,389px,2dlu"/>
+          <label name="Label_32" horizontalAlignment="4" horizontalTextPosition="11" text="Nome:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_33" horizontalAlignment="4" horizontalTextPosition="11" text="Endere&#xe7;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_34" horizontalAlignment="4" horizontalTextPosition="11" text="Cidade:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_35" horizontalAlignment="4" horizontalTextPosition="11" text="CNPJ/CPF:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_36" horizontalAlignment="4" horizontalTextPosition="11" text="Placa do Veiculo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_37" horizontalAlignment="4" horizontalTextPosition="11" text="Placa Reboque 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_38" horizontalAlignment="4" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o do Veiculo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_39" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo de Motorista:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_40" horizontalAlignment="4" horizontalTextPosition="11" text="UF:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="IE/RG:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_42" horizontalAlignment="4" horizontalTextPosition="11" text="Placa Reboque 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_43" horizontalAlignment="4" horizontalTextPosition="11" text="Placa Reboque 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_44" horizontalAlignment="4" horizontalTextPosition="11" text="UF do Veiculo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="17" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_45" horizontalAlignment="4" horizontalTextPosition="11" text="Frete:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_47" horizontalAlignment="4" horizontalTextPosition="11" text="Descarga:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_49" id="nomeTransp" columnCaption="Nome" columnDataType="STRING" columnName="transp_nome" columnPosicao="3">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_50" id="enderecoTransp" columnCaption="Endereco" columnDataType="STRING" columnName="transp_endereco" columnPosicao="4">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_51" id="cidadeTransp" columnCaption="Cidade" columnDataType="STRING" columnName="transp_cidade" columnPosicao="5">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_52" id="cnpjCpfTransp" columnCaption="CNPJ/CPF" columnDataType="STRING" columnDisplayMask="000'.'000'.'000'-'00" columnEditMask="000'.'000'.'000'-'00" columnName="transp_cnpj_cpf" columnPosicao="7">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_53" id="placaVeiculoTransp" columnCaption="Placa do Veiculo" columnDataType="STRING" columnName="transp_placaveiculo" columnPosicao="9">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_54" id="placaVeiculoReboque2" columnCaption="Reboque 2" columnDataType="STRING" columnName="transp_placaveiculo_reboque2" columnPosicao="11">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_55" id="descricaoVeiculoTransp" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnName="transp_descricaoveiculo" columnPosicao="13">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_56" id="codigoMotoristaTransp" columnCaption="Codigo Motorista" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="transp_codigomotorista" columnPosicao="15">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_57" id="descarga" columnCaption="Descarga" columnDataType="STRING" columnDisplayMask="" columnName="descarga" columnPosicao="17">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_58" id="ufTransp" columnCaption="UF" columnDataType="STRING" columnName="transp_uf" columnPosicao="6">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_60" id="ieRgTransp" columnCaption="IE/RG" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="transp_ie_rg" columnPosicao="8">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_61" id="placaVeiculoReboque1" columnCaption="Praca Reboque 1" columnDataType="STRING" columnHidden="false" columnName="transp_placaveiculo_reboque1" columnPosicao="10">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_62" id="placaVeiculoReboque3" columnCaption="Reboque 3" columnDataType="STRING" columnName="transp_placaveiculo_reboque3" columnPosicao="12">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_63" id="ufVeiculoTransp" columnCaption="UF do Veiculo" columnDataType="STRING" columnName="transp_ufveiculo" columnPosicao="14">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="17" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_64" id="frete" columnCaption="Frete" columnDataType="STRING" columnDisplayMask="" columnName="frete" columnPosicao="18">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_66" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo Transportador:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_67" id="cadastroCodigoTransp" columnCaption="Codigo transportador" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="cadastro_codigotransp" columnPosicao="2" columnRowId="false">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawlookupbutton name="KawLookupButton_68" id="buttonCodigoTranspLookup" action="lookupCodigoTransp" columnDestino="cadastro_codigotransp,transp_nome,transp_endereco,transp_cidade,transp_uf,transp_cnpj_cpf,transp_ie_rg" columnOrigem="codigo,razaosocial,endereco,municipio,uf,cnpj_cpf,ie_rg" connection="jkawflex" queryDataSet="SELECT codigo,razaosocial FROM cadastro" >
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawlookupbutton>
+          <kawlookupbutton name="KawLookupButton0" id="buttonCodigoMotorista" action="lookupMotorista" columnDestino="transp_codigomotorista" columnOrigem="codigo" connection="jkawflex" queryDataSet="SELECT codigo,razaosocial,nomefantasia,municipio,uf,telefone1,obstelefone1 FROM cadastro ORDER BY razaosocial" >
+            <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="19" hAlign="Default" vAlign="Default"/>
+          </kawlookupbutton>
+          <kawdbtextfield name="KawDbTextField1" id="lookupCodigoMotorista" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnName="lookup_motorista" columnPosicao="16"  >
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="19" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Controle:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="1"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField1" id="idRomaneio" columnCalcType="" columnCaption="Controle" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="idromaneio" columnPosicao="1" columnRowId="true">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
+          <panel name="Panel0" layout="BorderLayout">
+            <cellconstraints gridHeight="1" gridWidth="13" gridX="1" gridY="25" hAlign="Fill" vAlign="Fill"/>
+            <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" tabPlacement="1" titles="Pedidos">
+              <panel name="Panel1" id="" layout="BorderLayout">
+                <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPanePedidos" tabPlacement="1" titles="Lista,Editar">
+                  <panel name="Panel0" layout="BorderLayout">
+                    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane3" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                      <kawdbtable name="KawDbTable0" id="tableRomaneioPedidos" connection="jkawflex" kawTableName="romaneiop" linkCascadeDeletes="true" linkDetailColumns="idromaneio" linkFetchAsNeeded="true" linkMasterColumns="idromaneio" parameterQColumns="idromaneio" parameterQColumnsDataType="INT" queryDataSet="SELECT *  FROM romaneiop WHERE idromaneio = :idromaneio" queryDataSetView="SELECT idromaneio FROM romaneiop"/>
+                    </scrollpane>
+                  </panel>
+                  <panel name="Panel1" visible="false" layout="FormLayout">
+                    <formLayout colspecs="153px,2dlu,94px,2dlu,35px,2dlu,97px,2dlu,96px,2dlu,107px,2dlu,59px,2dlu,43px" rowspecs="default,2dlu,24px,2dlu,24px,2dlu,default,2dlu,231px"/>
+                    <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridX="1" gridY="1"/>
+                    </label>
+                    <label name="Label1" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xba; Controle Pedido:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridX="1" gridY="3"/>
+                    </label>
+                    <label name="Label2" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo de Transacao:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridX="1" gridY="5"/>
+                    </label>
+                    <label name="Label4" horizontalAlignment="4" horizontalTextPosition="11" text="Sequencia Carregamento:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField5" id="idRomaneioPedidos" columnCalcType="" columnCaption="Codigo" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="idromaneio" columnPosicao="0" columnRowId="true"  >
+                      <cellconstraints gridX="3" gridY="1"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField6" id="doctoControlePedidos" columnCalcType="" columnCaption="Docto Controle" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="docto_c_controle" columnPosicao="2" columnRowId="false"  >
+                      <cellconstraints gridX="3" gridY="3"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField7" id="codigoTransacao" columnCalcType="" columnCaption="Codigo de Transacao" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="transacao_codigo" columnPosicao="3" columnRowId="true"  >
+                      <cellconstraints gridX="3" gridY="5"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField9" id="sequenciaCarregamento" columnCalcType="" columnCaption="Sequencia" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="sequenciacarregamento" columnPosicao="5" columnRowId="false">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawlookupbutton name="KawLookupButton0" id="buttonCodigoTransacao" action="lookupTransacao" columnDestino="transacao_codigo" columnOrigem="codigo" connection="jkawflex" hidden="True" parameterQColumns="lookup_transacao" parameterQColumnsDataType="STRING" queryDataSet="SELECT codigo,descricao FROM transacao" >
+                      <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <kawdbtextfield name="KawDbTextField1" id="lookupCodigoTransacao" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnName="lookup_transacao" columnPosicao="4"  >
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbcheckbox name="KawDbCheckBox0" id="nfFaturada" columnCaption="NF Faturada" columnDataType="BOOLEAN" columnName="nffaturada" columnPosicao="1" text="NF Faturada">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbcheckbox>
+                    <kawlookupbutton name="KawLookupButton0" id="buttonDoctoControle" action="actionDoctoControle" columnDestino="docto_c_controle,transacao_codigo" columnOrigem="controle,transacao_codigo" connection="jkawflex" queryDataSet="SELECT controle FROM docto_c" >
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <panel name="Panel0" layout="BorderLayout">
+                      <cellconstraints gridHeight="1" gridWidth="13" gridX="1" gridY="9" hAlign="Fill" vAlign="Fill"/>
+                      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPaneItens2" tabPlacement="1" titles="Itens">
+                        <panel name="Panel4" layout="BorderLayout">
+                          <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPaneItens" tabPlacement="1" titles="Lista,Editar">
+                            <panel name="Panel1" layout="BorderLayout">
+                              <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane3" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                                <kawdbtable name="KawDbTable0" id="tableRomaneioItens" connection="jkawflex" kawTableName="romaneioitens" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="idromaneio,docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="idromaneio,docto_c_controle" parameterQColumns="idromaneio,docto_c_controle" parameterQColumnsDataType="INT,INT" queryDataSet="SELECT * FROM romaneioitens WHERE romaneioitens.idromaneio = :idromaneio AND romaneioitens.docto_c_controle = :docto_c_controle" queryDataSetView="SELECT sequencia FROM romaneioitens"/>
+                              </scrollpane>
+                            </panel>
+                            <panel name="Panel2" preferredSize="0,100" layout="FormLayout">
+                              <formLayout colspecs="149px,2dlu,117px,2dlu,38px,2dlu,145px,2dlu,121px,2dlu,93px,2dlu,19px" rowspecs="default,2dlu,default,2dlu,default,2dlu,26px,2dlu,default,2dlu,default,2dlu,21px,2dlu,17px"/>
+                              <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Sequencia:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridX="1" gridY="1"/>
+                              </label>
+                              <kawdbtextfield name="KawDbTextField1" id="sequencia" columnCalcType="" columnCaption="Sequencia" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="sequencia" columnPosicao="1" columnRowId="false" columnWidth="10"  >
+                                <cellconstraints gridX="3" gridY="1"/>
+                              </kawdbtextfield>
+                              <label name="Label2" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                              </label>
+                              <kawdbtextfield name="KawDbTextField3" id="idRomaneioItens" columnCaption="Romaneio" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="idromaneio" columnPosicao="0" columnRowId="false" columnWidth="10"  >
+                                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                              </kawdbtextfield>
+                              <kawdbtextfield name="KawDbTextField4" id="doctoControleItens" columnCalcType="" columnCaption="Pedido" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="docto_c_controle" columnPosicao="2" columnRowId="false" columnWidth="10"  >
+                                <cellconstraints gridX="3" gridY="5"/>
+                              </kawdbtextfield>
+                              <label name="Label6" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xba; Controle Pedido:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridX="1" gridY="5"/>
+                              </label>
+                              <kawdbtextfield name="KawDbTextField7" id="produtoCodigoItens" columnCalcType="" columnCaption="Produto" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="produto_codigo" columnPosicao="3" columnRowId="false" columnWidth="5"  >
+                                <cellconstraints gridX="3" gridY="7"/>
+                              </kawdbtextfield>
+                              <label name="Label8" horizontalAlignment="4" horizontalTextPosition="11" text="Codigo do Produto:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridX="1" gridY="7"/>
+                              </label>
+                              <label name="Label9" horizontalAlignment="4" horizontalTextPosition="11" text="Quantidade:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridX="1" gridY="9"/>
+                              </label>
+                              <label name="Label10" horizontalAlignment="4" horizontalTextPosition="11" text="Quantidade Atendida:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridX="1" gridY="11"/>
+                              </label>
+                              <label name="Label11" horizontalAlignment="4" horizontalTextPosition="11" text="Quantidade Cancelada:" verticalAlignment="0" verticalTextPosition="0">
+                                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+                              </label>
+                              <kawdbtextfield name="KawDbTextField12" id="qtde" columnCalcType="" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="##############,######0.00" columnEditMask="#####" columnName="qtde" columnPosicao="5" columnRowId="false" columnWidth="10"  >
+                                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                              </kawdbtextfield>
+                              <kawdbtextfield name="KawDbTextField13" id="qtdeAtendida" columnCalcType="" columnCaption="Qtde Atendida" columnDataType="BIGDECIMAL" columnDisplayMask="##############,######0.00" columnEditMask="" columnName="qtde_atendida" columnPosicao="6" columnRowId="false" columnWidth="10">
+                                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                              </kawdbtextfield>
+                              <kawdbtextfield name="KawDbTextField14" id="qtdeCancelada" columnCalcType="" columnCaption="Qtde Cancelada" columnDataType="BIGDECIMAL" columnDisplayMask="##############,######0.00" columnEditMask="" columnName="qtde_cancelada" columnPosicao="7" columnRowId="true" columnWidth="10">
+                                <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+                              </kawdbtextfield>
+                              <kawlookupbutton name="KawLookupButton0" id="buttonCodigoProduto" action="lookupProdutos" columnDestino="produto_codigo" columnOrigem="codigo" connection="jkawflex" parameterQColumns="plista,ptabela,pfilial,puf,ptipoa,ptipoadif,pcadastro_codigo,ptipomovto,ppesquisa" parameterQColumnsDataType="INT,INT,INT,STRING,INT,INT,INT,STRING,STRING" queryDataSet="SELECT codigo,descricao FROM produto" >
+                                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+                              </kawlookupbutton>
+                              <kawdbtextfield name="KawDbTextField1" id="lookupCodigoProduto" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnName="lookup_codigo_produto" columnPosicao="4" columnWidth="20"  >
+                                <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+                              </kawdbtextfield>
+                            </panel>
+                          </tabbedpane>
+                        </panel>
+                      </tabbedpane>
+                    </panel>
+                  </panel>
+                </tabbedpane>
+              </panel>
+            </tabbedpane>
+          </panel>
+        </panel>
+      </tabbedpane>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel1" layout="FlowLayout">
+      <label name="Label_252" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_253" id="navFieldRomaneio" dimensaoMaxima="250,21" dimensaoMinima="150,21" dimensaoPadrao="220,21" preferredScrollableViewportSize="0,0"/>
+    </panel>
+    <kawdbnavtoolbar constraints="BorderLayout.CENTER" name="KawDbNavToolBar2" id="navToolBarRomaneio"/>
+    <panel constraints="BorderLayout.EAST" name="Panel3" layout="FlowLayout">
+      <button name="Button_256" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>

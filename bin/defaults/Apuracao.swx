@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,894,660" constraints="BorderLayout.CENTER" id="cadApuracao" layout="BorderLayout">
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_1" id="tabbedPaneMain" tabPlacement="1" titles="Lista,Editar">
+    <panel name="Panel_2" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="KawDbTable_7" id="tableApuracao" connection="jkawflex" kawTableName="ef_apuracao" queryDataSet="SELECT * FROM ef_apuracao" queryDataSetView="SELECT id  FROM ef_apuracao"/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel_3" layout="BorderLayout">
+      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_9" tabPlacement="1" titles="Geral,Debitos,Creditos,Dedu&#xe7;&#xf5;es,Observa&#xe7;&#xe3;o,Outros Dados">
+        <panel name="Panel_11" layout="FormLayout">
+          <formLayout colspecs="188px,2dlu,113px,2dlu,39px,2dlu,101px,2dlu,126px,2dlu,168px,2dlu,167px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+          <label name="Label_28" horizontalAlignment="4" horizontalTextPosition="11" text="Lancamento:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="1"/>
+          </label>
+          <label name="Label_29" horizontalAlignment="4" horizontalTextPosition="11" text="Periodo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="3"/>
+          </label>
+          <label name="Label_30" horizontalAlignment="4" horizontalTextPosition="11" text="Tipo Apura&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="5"/>
+          </label>
+          <label name="Label_31" horizontalAlignment="4" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="7"/>
+          </label>
+          <label name="Label_90" horizontalAlignment="4" horizontalTextPosition="11" text="Periodo 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_94" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xb0; Funcionarios:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_96" horizontalAlignment="4" horizontalTextPosition="11" text="Despesa Mensal:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_97" horizontalAlignment="4" horizontalTextPosition="11" text="Servi&#xe7;os:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_98" horizontalAlignment="4" horizontalTextPosition="11" text="ICMS GR.:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_99" horizontalAlignment="4" horizontalTextPosition="11" text="Produtos Primario:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_104" horizontalAlignment="4" horizontalTextPosition="11" text="Folha Pgto:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_105" horizontalAlignment="4" horizontalTextPosition="11" text="Material Consumo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_106" horizontalAlignment="4" horizontalTextPosition="11" text="Data Inventario:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_107" horizontalAlignment="4" horizontalTextPosition="11" text="Valor Inventario:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="15" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_108" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo Credor Ant.:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_109" horizontalAlignment="4" horizontalTextPosition="11" text="Movto Entrada:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_111" horizontalAlignment="4" horizontalTextPosition="11" text="Movto Saida :" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="17" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_112" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo Credor Atual:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_113" horizontalAlignment="4" horizontalTextPosition="11" text="ICMS recolher:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_120" horizontalAlignment="4" horizontalTextPosition="11" text="Dif. Aliquota:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_121" horizontalAlignment="4" horizontalTextPosition="11" text="Aliquota Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="21" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_125" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno CR Ativo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_127" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno CR Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="23" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_128" horizontalAlignment="4" horizontalTextPosition="11" text="Ativo Imobilizado:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_129" horizontalAlignment="4" horizontalTextPosition="11" text="Transf. CR Acumulado:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="25" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_130" horizontalAlignment="4" horizontalTextPosition="11" text="Material Consumo:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_131" horizontalAlignment="4" horizontalTextPosition="11" text="ICMS Antecipado:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="31" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_132" horizontalAlignment="4" horizontalTextPosition="11" text="Transf. CR Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="25" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_133" horizontalAlignment="4" horizontalTextPosition="11" text="Imobilizado Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="27" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_134" horizontalAlignment="4" horizontalTextPosition="11" text="Material Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="29" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_135" horizontalAlignment="4" horizontalTextPosition="11" text="ICMS Ant. Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="31" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_136" horizontalAlignment="4" horizontalTextPosition="11" text="Credito Rec. Tranferencia:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="33" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_137" horizontalAlignment="4" horizontalTextPosition="11" text="Simples Recolhido:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="35" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_138" horizontalAlignment="4" horizontalTextPosition="11" text="CFOP Transf. Filial:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="37" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_139" horizontalAlignment="4" horizontalTextPosition="11" text="Credito Transf. Vl:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="33" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_140" horizontalAlignment="4" horizontalTextPosition="11" text="Simples Recolhido Vl:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="35" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_141" horizontalAlignment="4" horizontalTextPosition="11" text="CFOP Transf Filial VL:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="37" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_142" id="lcto" columnCaption="Lancamento" columnDataType="INT" columnDisplayMask="######" columnName="id" columnRowId="true">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_143" id="periodo" columnCaption="Periodo" columnDataType="STRING" columnName="periodo">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_144" id="tipoApuracao" columnCaption="Tipo Apura&#xe7;&#xe3;o" columnDataType="STRING" columnName="tipoapuracao">
+            <cellconstraints gridX="3" gridY="5"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_145" id="codigoFilial" columnCaption="Filial" columnDataType="INT" columnDisplayMask="#####" columnName="cad_filial_id">
+            <cellconstraints gridX="3" gridY="7"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_147" id="lookupFilial" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnName="filial_lookup">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_160" id="periodo2" columnCaption="Periodo 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="periodo_2">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_179" id="numeroFuncionarios" columnCaption="N&#xb0; Funcionarios" columnDataType="INT" columnName="numerofuncionarios">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_180" id="folhaPgto" columnCaption="Folha Pgto" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="folhapgto">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_181" id="materialConsumo" columnCaption="Material Consumo" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="materialconsumo">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_182" id="despesaMensal" columnCaption="Despesa Mensal" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="despesamensal">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_183" id="servicos" columnCaption="Servi&#xe7;os" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="servicos">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_184" id="icmsGr" columnCaption="ICMS GR" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="icms_gr">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_185" id="produtosPrimario" columnCaption="Produtos Primarios" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="fat_produtosprimario">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_186" id="dataInventario" columnCaption="Data Inventario" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datainventario">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_187" id="valorInventario" columnCaption="Valor Inventario" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="valorinventario">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_188" id="saldoCredorAnterior" columnCaption="Saldo Credor Anterior" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="saldocredoranterior">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_189" id="movtoEntradas" columnCaption="Movto entrada" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="movtoentradas">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_190" id="movtoSaidas" columnCaption="Movto Saida" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="movtosaidas">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="17" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_191" id="saldoCredorAtual" columnCaption="Saldo Credor Atual" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="saldocredoratual">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_192" id="icmsRecolher" columnCaption="ICMS Recolher" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnFixedPrecision="false" columnName="icmsarecolher">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_196" id="diferencialAliquota" columnCaption="Diferencial Aliquota" columnDataType="STRING" columnName="diferencialaliquota">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_197" id="diferencialAliquotaValor" columnCaption="Valor Dif. Aliquotas" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="diferencialaliquota_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="21" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_198" id="estornoCrBemAtivo" columnCaption="Estorno  CR Bem Ativo" columnDataType="STRING" columnName="estornocrbemativo">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_199" id="estornoCrBemAtivoValor" columnCaption="Valor Estorno Bem Ativo" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornocrbemativo_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="23" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_200" id="transfCrAcumulados" columnCaption="Transf. Acumulados" columnDataType="STRING" columnName="transfcracumulados">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="25" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_201" id="transfCrAcumuladosValor" columnCaption="transfcr Acumulados Valor" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="transfcracumulados_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="25" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_202" id="ativoImobilizado" columnCaption="Ativo Imobilizado" columnDataType="STRING" columnName="ativoimobilizado">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="27" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_203" id="ativoImobilizadoValor" columnCaption="Ativo Imobilizado Valor" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="ativoimobilizado_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="27" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_204" id="materialUsoConsumo" columnCaption="Material Uso Consumo" columnDataType="STRING" columnName="materialusoconsumo">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="29" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_205" id="materialUsoConsumoValor" columnCaption="Material Uso Consumo" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="materialusoconsumo_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="29" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_206" id="icmsRecolhidoAntecipado" columnCaption="ICMS Recolhido Antecipado" columnDataType="STRING" columnName="icmsrecolhidoantecipado">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="31" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_207" id="icmsRecolhidoAntecipado2" columnCaption="ICMS Recolhido Ant, Valor" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="icmsrecolhidoantecipado_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="31" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_208" id="creditosRecTransferencia" columnCaption="Credito Transferencia" columnDataType="STRING" columnName="creditosrectransferencia">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="33" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_209" id="creditosRecTransferenciaValor" columnCaption="Credito Rec Transf. VL" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="creditosrectransferencia_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="33" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_210" id="simplesRecolhido" columnCaption="Simples Recolhido" columnDataType="STRING" columnName="simplesrecolhido">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="35" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_211" id="simplesRecolhidoValor" columnCaption="Simples Recolhido VL" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="simplesrecolhido_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="35" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_212" id="cfopTransfFilial" columnCaption="CFOP Transf. Filial" columnDataType="STRING" columnName="cfoptransffilial">
+            <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="37" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_213" id="cfopTransfFilialValor" columnCaption="CFOP Transf. Filial VL" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="cfoptransffilial_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="37" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawlookupbutton name="KawLookupButton_214" id="lookupButtonFilial" action="lookupFilial" columnDestino="cad_filial_id" columnOrigem="id" connection="jkawflex" parameterQColumns="codigo" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_filial" >
+            <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawlookupbutton>
+          <label name="Label_301" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="19" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_302" id="deducoes" columnCaption="Deducoes" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="deducoes">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="19" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbcheckbox name="KawDbCheckBox_304" id="calculado" columnCaption="Calculado?" columnDataType="BOOLEAN" columnName="calculado" text="Calculado">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbcheckbox>
+        </panel>
+        <panel name="Panel_219" layout="FormLayout">
+          <formLayout colspecs="136px,2dlu,116px,2dlu,156px,2dlu,115px,4dlu,125px,2dlu,139px" rowspecs="default,2dlu,default,2dlu,default,4dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+          <label name="Label_220" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Debitos 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="1"/>
+          </label>
+          <label name="Label_221" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Debitos 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="3"/>
+          </label>
+          <label name="Label_222" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Debitos 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="5"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_226" id="outrosDebitos1" columnCaption="Outros Debitos 1" columnDataType="STRING" columnName="outrosdebitos1">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_227" id="outrosDebitos2" columnCaption="Outros Debitos 2" columnDataType="STRING" columnName="outrosdebitos2">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_233" id="estornoDebito1" columnCaption="Estorno Debito 1" columnDataType="STRING" columnName="estornodebito1">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_234" id="estornoDebito2" columnCaption="Estorno Debito 2" columnDataType="STRING" columnName="estornodebito2">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_235" id="estornoDebito3" columnCaption="Estorno  Debito 3" columnDataType="STRING" columnName="estornodebito3">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_236" id="outrosDebitos3" columnCaption="Outros Debito 3" columnDataType="STRING" columnName="outrosdebitos3">
+            <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_237" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Debitos 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="7"/>
+          </label>
+          <label name="Label_238" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Debitos 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="9"/>
+          </label>
+          <label name="Label_239" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Debitos 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="1" gridY="11"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_241" id="outrosDebitosValor1" columnCaption="Valor Debito 1" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outrosdebitos1_valor">
+            <cellconstraints gridX="11" gridY="1"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_242" id="outrosDebitosValor2" columnCaption="Outros Debitos Valor 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outrosdebitos2_valor">
+            <cellconstraints gridX="11" gridY="3"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_258" id="outrosDebitosValor3" columnCaption="Outros Debitos VL 3" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outrosdebitos3_valor">
+            <cellconstraints gridX="11" gridY="5"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_259" id="estornoDebitoValor1" columnCaption="Valor Estorno 1" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornodebito1_valor">
+            <cellconstraints gridX="11" gridY="7"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_260" id="estornoDebitoValor2" columnCaption="Estorno Valor Debito 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornodebito2_valor">
+            <cellconstraints gridX="11" gridY="9"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_261" id="estornoDebitoValor3" columnCaption="Estorno Valor Debito 3" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornodebito3_valor">
+            <cellconstraints gridX="11" gridY="11"/>
+          </kawdbtextfield>
+          <label name="Label_262" horizontalAlignment="4" horizontalTextPosition="11" text="Debito 1 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="1"/>
+          </label>
+          <label name="Label_263" horizontalAlignment="4" horizontalTextPosition="11" text="Debito 2 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="3"/>
+          </label>
+          <label name="Label_264" horizontalAlignment="4" horizontalTextPosition="11" text="Debito 3 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="5"/>
+          </label>
+          <label name="Label_266" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 1 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="7"/>
+          </label>
+          <label name="Label_267" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 2 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="9"/>
+          </label>
+          <label name="Label_268" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 3 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridX="9" gridY="11"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_269" id="outrosDebitos" columnCaption="Outros Debitos" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outrosdebitos">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_270" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Debitos:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+        </panel>
+        <panel name="Panel_271" layout="FormLayout">
+          <formLayout colspecs="154px,2dlu,112px,2dlu,285px,4dlu,131px,2dlu,128px" rowspecs="default,2dlu,default,2dlu,default,4dlu,default,2dlu,default,2dlu,default,3dlu,default"/>
+          <label name="Label_272" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Creditos 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_273" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Creditos 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_274" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Creditos 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_275" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Credito 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_276" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Credito 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_277" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno Credito 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_278" id="outrosCreditos1" columnCaption="Outros Creditos 1" columnDataType="STRING" columnName="outroscreditos1">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_279" id="outrosCreditos2" columnCaption="Outros Creditos 2" columnDataType="STRING" columnName="outroscreditos2">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_280" id="outrosCreditos3" columnCaption="Outros Creditos 3" columnDataType="STRING" columnName="outroscreditos3">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_281" id="estornoCredito1" columnCaption="Estorno Credito 1" columnDataType="STRING" columnName="estornocredito1">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_282" id="estornoCredito2" columnCaption="Estorno Credito 2" columnDataType="STRING" columnName="estornocredito2">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_283" id="estornoCredito3" columnCaption="Estorno Credito 3" columnDataType="STRING" columnName="estornocredito3">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_284" horizontalAlignment="4" horizontalTextPosition="11" text="Credito 1 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_285" horizontalAlignment="4" horizontalTextPosition="11" text="Credito 2 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_286" horizontalAlignment="4" horizontalTextPosition="11" text="Credito 3 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_287" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 1 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_288" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 2 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_289" horizontalAlignment="4" horizontalTextPosition="11" text="Estorno 3 Valor:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_291" id="outrosCreditosValor1" columnCaption="Valor Credito 1" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outroscreditos1_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_293" id="outrosCreditosValor2" columnCaption="Valor Credito 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outroscreditos2_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_295" id="outrosCreditosValor3" columnCaption="Valor Credito 3" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outroscreditos3_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_296" id="estornoCreditoValor1" columnCaption="Valor Estorno Credito 1" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornocredito1_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_297" id="estornoCreditoValor2" columnCaption="Valor Estorno Credito 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornocredito2_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_298" id="estornoCreditoValor3" columnCaption="Valor Estorno Credito 3" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="estornocredito3_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_299" horizontalAlignment="4" horizontalTextPosition="11" text="Outros Creditos:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_300" id="outrosCreditos" columnCaption="Outros Creditos" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="outroscreditos">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+        </panel>
+        <panel name="Panel_305" layout="FormLayout">
+          <formLayout colspecs="117px,2dlu,135px,2dlu,263px,4dlu,133px,2dlu,131px" rowspecs="default,2dlu,default,2dlu,default"/>
+          <label name="Label_306" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_307" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_308" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_318" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es Valor 1:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_319" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es Valor 2:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+          </label>
+          <label name="Label_320" horizontalAlignment="4" horizontalTextPosition="11" text="Dedu&#xe7;&#xf5;es Valor 3:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_321" id="deducoes1" columnCaption="Dedu&#xe7;&#xf5;es 1" columnDataType="STRING" columnName="deducoes1">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_322" id="deducoes2" columnCaption="Dedu&#xe7;&#xf5;es 2" columnDataType="STRING" columnName="deducoes2">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_323" id="deducoes3" columnCaption="Dedu&#xe7;oes 3" columnDataType="STRING" columnName="deducoes3">
+            <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_324" id="deducoesValor1" columnCaption="Deduc&#xf5;es Valor 1" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="deducoes1_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_325" id="deducoesValor2" columnCaption="Dedu&#xe7;&#xf5;es Valor 2" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="deducoes2_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <kawdbtextfield name="KawDbTextField_326" id="deducoesValor3" columnCaption="Dedu&#xe7;&#xf5;es Valor 3" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnName="deducoes3_valor">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+        </panel>
+        <panel name="Panel_12" layout="BorderLayout">
+          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_13" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+            <kawdbtextarea name="KawDbTextArea_14" id="observacoes" columnCaption="Observa&#xe7;&#xe3;o" columnDataType="STRING" columnName="observacoes" columnPosicao="6"/>
+          </scrollpane>
+        </panel>
+        <panel name="Panel_15" layout="FormLayout">
+          <formLayout colspecs="116px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+          <label name="Label_16" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_17" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_18" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_19" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_20" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_21" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
+          <label name="Label_22" horizontalAlignment="0" horizontalTextPosition="11" text="Hora de Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_23" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnWidth="10" editable="false">
+            <cellconstraints gridX="3" gridY="7"/>
+          </kawdbtextfield>
+          <label name="Label_24" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_25" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnWidth="30" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+          <label name="Label_26" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_27" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnWidth="30" editable="false">
+            <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+          </kawdbtextfield>
+        </panel>
+      </tabbedpane>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_215" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_216" layout="FlowLayout">
+      <label name="Label_252" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_253" id="navFieldApuracao" dimensaoMaxima="250,21" dimensaoMinima="150,21" dimensaoPadrao="220,21" doubleBuffered="true" preferredScrollableViewportSize="0,0"/>
+    </panel>
+    <kawdbnavtoolbar constraints="BorderLayout.CENTER" name="KawDbNavToolBar_217" id="navToolBarApuracao"/>
+  </panel>
+</panel>
+<!--lastNameIndex=326-->
+<!--lastIdIndex=0-->

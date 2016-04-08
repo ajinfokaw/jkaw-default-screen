@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,804,700" constraints="BorderLayout.CENTER" id="cadInutilizacao" layout="BorderLayout">
+  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_1" id="tabbedPaneMain" tabPlacement="1" titles="Lista,Editar">
+    <panel name="Panel_2" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_24" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <kawdbtable name="Inutiliza&#xe7;&#xe3;o" id="ef_inutilizacao" connection="jkawflex" kawTableName="ef_inutilizacao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM ef_inutilizacao WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN numeroinicial = string_integer(:ppesquisa) OR numerofinal = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(justificativa) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(justificativa) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      </scrollpane>
+    </panel>
+    <panel name="Panel_3" id="pannel" layout="BorderLayout">
+      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_4" tabPlacement="1" titles="Geral,XML">
+        <panel name="Panel_5" layout="BorderLayout">
+          <panel constraints="BorderLayout.NORTH" name="Panel_20" layout="FormLayout">
+            <formLayout colspecs="134px,2dlu,121px,2dlu,24px,2dlu,38px,2dlu,430px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <label name="Label_26" horizontalAlignment="4" horizontalTextPosition="11" text="Id:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="1"/>
+            </label>
+            <label name="Label_27" horizontalAlignment="4" horizontalTextPosition="11" text="Justificativa:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridX="1" gridY="3"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_29" id="justificativa" columnCaption="Justificativa" columnDataType="STRING" columnName="justificativa" columnRowId="false" columnTableName="ef_inutilizacao">
+              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Ano:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField2" id="ano" columnCaption="Ano" columnDataType="INT" columnDisplayMask="####" columnEditMask="####" columnName="ano" columnRowId="false" columnTableName="ef_inutilizacao">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xfa;mero Inicial:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField0" id="numeroInicial" columnCaption="N.Inicial" columnDataType="INT" columnDisplayMask="########" columnEditMask="####" columnName="numeroinicial" columnRowId="false" columnTableName="ef_inutilizacao">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label1" horizontalAlignment="4" horizontalTextPosition="11" text="S&#xe9;rie:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xfa;mero Final:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField1" id="numeroFinal" columnCaption="N.Final" columnDataType="INT" columnDisplayMask="########" columnEditMask="####" columnName="numerofinal" columnRowId="false" columnTableName="ef_inutilizacao">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="LOG INUTILIZA&#xc7;&#xc3;O:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Left" vAlign="Bottom"/>
+            </label>
+            <label name="Label3" horizontalAlignment="4" horizontalTextPosition="11" text="Status:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField4" id="status" columnCaption="Status" columnDataType="STRING" columnEditable="false" columnName="status" columnRowId="false" columnTableName="ef_inutilizacao" editable="false" enable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField1" id="amb" columnCaption="Status" columnDataType="STRING" columnEditable="false" columnName="ambiente" columnRowId="false" columnTableName="ef_inutilizacao" editable="false" enable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label2" horizontalAlignment="4" horizontalTextPosition="11" text="Ambiente:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+            </label>
+            <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="1- Produ&#xe7;&#xe3;o  2- Homologa&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="13" hAlign="Left" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField1" id="id" columnAutoIncrement="true" columnCaption="ID" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="ef_inutilizacao" columnWidth="5" editable="true" fieldNotEdit="true">
+              <cellconstraints gridX="3" gridY="1"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField6" id="statusLcto" columnCaption="Status" columnDataType="INT" columnEditable="false" columnName="statuslcto" columnResolvable="true" columnRowId="false" columnTableName="ef_inutilizacao" editable="false" enable="false" fieldNotEdit="true" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="protocolo:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField1" id="protocolo" columnCaption="Protocolo" columnDataType="STRING" columnEditable="false" columnName="protocolo" columnRowId="false" columnTableName="ef_inutilizacao" editable="false" enable="false" fieldNotEdit="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow51" id="serieDoctoId" columnCaption="Id.S&#xe9;rie" columnDataType="INT" columnDisplayMask="" columnEditMask="###" columnHidden="true" columnName="seriedocto_id" columnNameLookupKey="id" columnNameRelationLookupKey="seriedocto_id" columnPosicao="3" columnRequired="true" columnRowId="false" columnTableName="ef_inutilizacao" columnWidth="4" focusable="false">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton52" id="serieCodigoLookupButton" action="lookupSerieAction" columnDestino="seriedocto_id" columnLIKE="" columnOrigem="id" connection="jkawflex" kawTableName="fat_serie" kawTableNameRelation="ef_inutilizacao" managingFocus="false" parameterQColumns="seriedocto_id" parameterQColumnsCaption="" parameterQColumnsDataType="INT" queryDataSet="SELECT  id,codigo,tipodocto,natureza,descricao,seguirnumeracao FROM fat_serie WHERE  id = :seriedocto_id" xmlLookupView="LookupSerie.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup53" id="serieCodigo" columnCalcType="CALC" columnCaption="S&#xe9;rie" columnDataType="STRING" columnDisplayMask=">cc#" columnEditable="false" columnEditMask=">cc#" columnHidden="false" columnName="serie_id" columnNameLookupRow="seriedocto_id" columnNameOriginLookupRow="codigo" columnPosicao="3" columnRequired="true" columnResolvable="true" columnRowId="false" columnTableName="ef_inutilizacao" columnWidth="5" focusable="false">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Left" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup54" id="serieNatureza" columnCalcType="CALC" columnCaption="Natureza" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask=" " columnName="serie_natureza" columnNameLookupRow="seriedocto_id" columnNameOriginLookupRow="natureza" columnPosicao="4" columnReadOnly="false" columnRequired="false" columnResolvable="false" columnRowId="false" columnServerColumnName="serie_natureza" columnTableName="ef_inutilizacao" columnWidth="5">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Left" vAlign="Default"/>
+            </kawdbtextfieldlookup>
+          </panel>
+          <panel constraints="BorderLayout.CENTER" name="Panel2" layout="BorderLayout">
+            <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane0" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+              <kawdbtextarea name="KawDbTextArea0" id="log" columnCaption="LOG" columnDataType="STRING" columnName="log" columnRowId="false" columnTableName="ef_inutilizacao"/>
+            </scrollpane>
+          </panel>
+          <panel constraints="BorderLayout.SOUTH" name="Panel5" layout="BorderLayout">
+            <panel constraints="BorderLayout.EAST" name="Panel6" layout="FlowLayout">
+              <panel name="Panel1" border="TitledBorder(Op&#xe7;&#xe3;o - Inutiliza&#xe7;&#xe3;o Numero NF-e:)" id="panelBtnCorrecao" layout="FlowLayout">
+                <button name="Button1" id="processarInutiliButton" horizontalAlignment="0" horizontalTextPosition="11" text="Precessar Inutiliza&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+              </panel>
+            </panel>
+          </panel>
+        </panel>
+        <panel name="Panel0" layout="BorderLayout">
+          <panel constraints="BorderLayout.CENTER" name="Panel1" layout="BorderLayout">
+            <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane0" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+              <kawdbtextarea name="KawDbTextArea0" id="xmlAssinado" columnCalcType="" columnCaption="XML" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="xmlassinado" columnRowId="false" columnTableName="ef_inutilizacao" editable="false"/>
+            </scrollpane>
+          </panel>
+        </panel>
+      </tabbedpane>
+    </panel>
+  </tabbedpane>
+  <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel3" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel4" layout="FlowLayout">
+        <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Grupo de Produtos" id="navToolBar"/>
+        <label name="Label_31" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="..." verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField_32" id="navField"/>
+      </panel>
+      <panel constraints="BorderLayout.EAST" name="Panel5" layout="FlowLayout">
+        <button name="Button_35" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel-selecao" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel2" layout="BorderLayout">
+      <panel constraints="BorderLayout.EAST" name="Panel7" layout="FlowLayout">
+        <kawdblabel name="KawDbLabel2" id="labelStatusDocto" columnName="status" text="..."/>
+        <kawdbtextfield name="KawDbTextField0" id="statusDoctoLookup" columnCalcType="CALC" columnDataType="STRING" columnHidden="true" columnName="statusdocto_lookup" columnTableName="ef_inutilizacao" fieldNotEdit="true" horizontalAlignment="3" preferredSize="400,15"/>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.WEST" name="Panel4" id="pesquisa" layout="FlowLayout">
+      <kawdbcheckbox name="KawDbCheckBox5" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField6" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <button name="Button7" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=37-->
+<!--lastIdIndex=0-->

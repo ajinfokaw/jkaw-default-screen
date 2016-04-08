@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,531,400" id="telaLookup" layout="BorderLayout">
+  <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_2" layout="FlowLayout">
+      <label name="Label_Pesquisa" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa :" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+      <checkbox name="CheckBox_Conteudo" id="pPesquisaConteudo" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_Codigo" id="codigo" columnCaption="C&#xf3;digo" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="id" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_Descricao" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnPosicao="1" columnWidth="40">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_13" id="iniobrigato" columnCaption="Inicio Obrigatoriedade" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnName="iniobrigato" columnWidth="7">
+        <cellconstraints gridX="5" gridY="5"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Cnae" id="tableLookup" connection="jkawflex" kawTableName="cad_cnae" parameterQColumns="ppesquisa" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,descricao,iniobrigato FROM cad_cnae WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = :ppesquisa END OR (UPPER(descricao) LIKE UPPER(:ppesquisa))" queryDataSetView="SELECT id FROM cad_cnae"/>
+    </scrollpane>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_6" layout="FlowLayout">
+    <kawdbnavtoolbar name="KawDbNavToolBar_7" id="navToolBar"/>
+    <button name="Button_8" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" text="OK" verticalAlignment="0" verticalTextPosition="0"/>
+  </panel>
+</dialog>
+<!--lastNameIndex=9-->
+<!--lastIdIndex=0-->

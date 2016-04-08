@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,875,433" layout="BorderLayout" title="Manuten&#xe7;&#xe3;o de T&#xed;tulos Receber/Pagar">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.CENTER" name="Panel_2" layout="FormLayout">
+      <formLayout colspecs="208px,2dlu,59px,2dlu,23px,2dlu,374px,default,default,default,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,126px"/>
+      <label name="Label_3" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xba; Boleto:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_4" id="numeroBoleto" columnCaption="Numero Boleto" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="false" columnName="numeroboleto" columnPosicao="5" columnRowId="false" columnTableName="financ_rp" columnWidth="10" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_5" horizontalAlignment="4" horizontalTextPosition="11" text="Prorroga&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_6" id="prorrogacao" columnCaption="Prorroga&#xe7;&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="prorrogacao" columnPosicao="6" columnRowId="false" columnTableName="financ_rp" columnWidth="10" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_7" horizontalAlignment="4" horizontalTextPosition="11" text="Novo Portador:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_8" id="portador" columnCaption="Portador" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="false" columnName="portador_id" columnNameLookupKey="id" columnNameRelationLookupKey="portador_id" columnPosicao="18" columnRowId="false" columnTableName="financ_rp" columnWidth="5" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookuprow>
+      <kawlookupbutton name="KawLookupButton_9" id="lookupButtonPortador" action="actionLookupPortador" columnDestino="portador_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_portador" kawTableNameRelation="financ_rp" parameterQColumns="portador_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_portador  WHERE id = :portador_id" xmlLookupView="LookupPortador.xml">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawlookupbutton>
+      <kawdbtextfieldlookup name="KawDbTextFieldLookup_13" id="cadastroPortadorLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="portador_lookup" columnNameLookupRow="portador_id" columnNameOriginLookupRow="descricao" columnPosicao="21" columnRowId="false" columnServerColumnName="" columnTableName="financ_rp" columnWidth="15" UIClassID=" ">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookup>
+      <label name="Label_15" horizontalAlignment="4" horizontalTextPosition="11" text="Novo Tipo Cobran&#xe7;a:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_17" id="tipoCobranca" columnCaption="Tipo Cobran&#xe7;a" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="false" columnName="tipocobranca_id" columnNameLookupKey="id" columnNameRelationLookupKey="tipocobranca_id" columnPosicao="20" columnRowId="false" columnTableName="financ_rp" columnWidth="5" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookuprow>
+      <kawlookupbutton name="KawLookupButton_18" id="lookupButtonTipoCobranca" action="LookupTipoCob" columnDestino="tipocobranca_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_tipocobranca" kawTableNameRelation="financ_rp" parameterQColumns="tipocobranca_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_tipocobranca  ORDER BY id" xmlLookupView="LookupTipoCobranca.xml">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawlookupbutton>
+      <kawdbtextfieldlookup name="KawDbTextFieldLookup_19" id="tipoCobrancaLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="tipoCobranca_lookup" columnNameLookupRow="tipocobranca_id" columnNameOriginLookupRow="descricao" columnPosicao="21" columnRowId="false" columnServerColumnName="" columnTableName="financ_rp" columnWidth="15" UIClassID=" ">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookup>
+      <label name="Label_20" horizontalAlignment="4" horizontalTextPosition="11" text="Juros Mora(%):" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_21" id="perJurosMora" columnCaption="Juros Mora(%)" columnCurrency="false" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="false" columnName="per_jurosmora" columnPosicao="10" columnResolvable="true" columnRowId="false" columnTableName="financ_rp" columnWidth="8" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label_22" horizontalAlignment="4" horizontalTextPosition="11" text="Multa(%):" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField_23" id="perMulta" columnCaption="Multa(%)" columnCurrency="false" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="false" columnName="per_multa" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="financ_rp" columnWidth="10" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <scrollpane name="ScrollPane_24" id="SPLista" visible="false" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+        <cellconstraints gridX="1" gridY="13"/>
+        <kawdbtable name="KawDbTable_25" id="financ_rp" connection="jkawflex" kawTableName="financ_rp" parameterQColumns="datainicial,datafinal,pcliente,ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Data inicial,Data Final,PCliente" parameterQColumnsDataType="DATE,DATE,INT,STRING,STRING" parameterQDefault="now,now" parameterQDisplayMask="dd/MM/yy,dd/MM/yy,#####" parameterQEditMask="dd/MM/yy,dd/MM/yy,#####" queryDataSet="SELECT fat_produto.id,fat_produto.referencia,fat_produto.codigobarra1,fat_produto.descricao AS descricao, unidadepadraovenda,volume,pesoliquido,pesobruto,fat_marca.descricao AS desc_marca,CAST(getpreco(:plista,:ptabela,fat_produto.id) AS NUMERIC(12,2)) AS preco, CAST(getestoque(:pfilial,fat_produto.id) AS NUMERIC(12,3)) AS saldo, classtipi_codigonbm, fat_classtipi.aliqnac AS ncm_aliqnac, classtipi_codigonbm, fat_classtipi.aliqimp AS ncm_aliqimp, CAST(getCustoProd(:pfilial,fat_produto.id, CURRENT_DATE) AS NUMERIC(12,4)) AS custodigitado,CAST(getmovtoprod(:pcadastro_codigo, fat_produto.id,CASE WHEN :ptipomovto = '2' OR :ptipomovto = 'C' THEN '1' WHEN :ptipomovto = '4' THEN '3' WHEN :ptipomovto = '6' THEN '5' WHEN :ptipomovto = '8' THEN '7' END, CASE WHEN :ptipomovto = 'C' THEN '2' ELSE :ptipomovto END) AS NUMERIC(12,3)) AS saldomovto,CAST(geticms(aliquotas_normal_id,:pUf,:pTipoA) AS NUMERIC(5,3)) AS icms,CAST(geticms(aliquotas_reducaos_id,:pUf,:pTipoA) AS NUMERIC(5,3)) As icmsredsai,CAST(geticms(aliquotas_reducaoe_id,:pUf,:pTipoA) AS NUMERIC(5,3)) As icmsredent,CAST(geticms(aliquotas_diferimento_id,:pUf,:pTipoA) AS NUMERIC(5,3)) As icmsdife,CAST(geticms(aliquotas_normal_id,:pUf,:pTipoADif) AS NUMERIC(5,3)) AS icmsdifp,CAST(geticms(aliquotas_reducaos_id,:pUf,:pTipoADif) AS NUMERIC(5,3)) As icmsredsaiDifP,CAST(geticms(aliquotas_reducaoe_id,:pUf,:pTipoADif) AS NUMERIC(5,3)) As icmsredentdifp,CAST(geticms(aliquotas_diferimento_id,:pUf,:pTipoADif) AS NUMERIC(5,3)) As icmsdifedifp, fat_produto.percentual_ipi AS ipi,classfiscal_id,CASE WHEN fat_produto_classtrib.uf IS NULL THEN :pUf ELSE fat_produto_classtrib.uf END AS uf, CASE WHEN fat_produto_classtrib.classtributaria_id IS NULL THEN fat_produto.classtributaria_id ELSE fat_produto_classtrib.classtributaria_id END AS classificacao_trib, fat_produto.classorigem_id AS classorigem_id , padrao.fat_classtributaria.codigoricms AS ricms,padrao.fat_aliqinss.aliquotapfisica AS aliq_funrural_inss_fisica,padrao.fat_aliqinss.aliquotapjuridica AS aliq_funrural_inss_juridica FROM fat_produto LEFT JOIN fat_marca ON fat_produto.fat_marca_id = fat_marca.id LEFT JOIN fat_classtipi ON fat_produto.classtipi_codigonbm = fat_classtipi.codigoncm LEFT JOIN fat_produto_classtrib ON fat_produto.id = fat_produto_classtrib.fat_produto_id AND :pUf = fat_produto_classtrib.uf LEFT JOIN padrao.fat_classtributaria ON CASE WHEN fat_produto_classtrib.classtributaria_id IS NULL THEN fat_produto.classtributaria_id ELSE fat_produto_classtrib.classtributaria_id END  = padrao.fat_classtributaria.id LEFT JOIN padrao.fat_aliqinss ON aliqinss_id = padrao.fat_aliqinss.id WHERE CAST(fat_produto.id AS bigint) = :pproduto_id OR CAST(fat_produto.codigobarra1 AS bigint) = :pproduto_id LIMIT 1" queryDataSetView=""/>
+      </scrollpane>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=25-->
+<!--lastIdIndex=0-->

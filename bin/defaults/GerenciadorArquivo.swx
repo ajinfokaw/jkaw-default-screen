@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,600,300" id="GerencArquivo" layout="BorderLayout" title="Gerenciador Arquivo Magnetico">
+  <panel constraints="BorderLayout.CENTER" name="Panel1" layout="FormLayout">
+    <formLayout colspecs="148px,2dlu,93px,2dlu,28px,2dlu,103px,2dlu,132px,2dlu,36px,2dlu,135px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="1"/>
+    </label>
+    <kawdbdatefield name="KawDbDateField1" id="dataInicial" columnDataType="DATE" columnDateFormat="dd/MM/yy" columnDefault="" columnHidden="true" columnName="" columnWidth="10" minimumSize="85,20" preferredSize="100,20">
+      <cellconstraints gridX="3" gridY="1"/>
+    </kawdbdatefield>
+    <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="5" gridY="1"/>
+    </label>
+    <kawdbdatefield name="KawDbDateField3" id="dataFinal" columnDataType="DATE" columnDateFormat="dd/MM/yy" columnHidden="true" columnName="" columnWidth="10" minimumSize="85,20" preferredSize="100,20">
+      <cellconstraints gridX="7" gridY="1"/>
+    </kawdbdatefield>
+    <label name="Label4" horizontalAlignment="4" horizontalTextPosition="11" text="Gera Registro dos Prod.:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="3"/>
+    </label>
+    <label name="Label6" horizontalAlignment="4" horizontalTextPosition="11" text="Notas Fiscais:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="5"/>
+    </label>
+    <label name="Label8" horizontalAlignment="4" horizontalTextPosition="11" text="Cod. da Finalidade:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="7"/>
+    </label>
+    <kawdbcombobox name="KawDbComboBox9" id="codigoFinalidade" columnDataType="STRING" columnName="codigofinalidade" connection="jkawflex" itens="1 - Normal,2 - Retificacao Total de Arquivos,3 - Retificacao Aditiva de Arquivos,4 - Retificacao Corretiva de Arquivos,5 - Desfazimento">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawdbcombobox>
+    <label name="Label10" horizontalAlignment="4" horizontalTextPosition="11" text="UF:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridX="1" gridY="9"/>
+    </label>
+    <label name="Label12" horizontalAlignment="0" horizontalTextPosition="11" text="Emitente:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="KawDbComboBox_3" id="emitente" columnDataType="INT" columnDestino="filial_codigo" columnLookupDisplay="codigo" columnName="filial_codigo" columnPickList="codigo" columnRowId="true" connection="jkawflex" displayColumns="codigo,nomefantasia" queryDataSet="SELECT codigo,nomefantasia FROM filial">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawdbcombobox>
+    <kawdbcombobox name="KawDbComboBox_4" id="geraRegistro" columnDataType="STRING" columnName="geraregistro" connection="jkawflex" itens="Sim,N&#xe3;o">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbcombobox>
+    <kawdbcombobox name="KawDbComboBox_5" id="notasFiscais" columnDataType="STRING" columnName="notas" connection="jkawflex" itens="Todas,Entradas,Saidas,F-Servi&#xe7;os">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawdbcombobox>
+    <kawdbcombobox name="KawDbComboBox_6" id="uf" columnDataType="STRING" columnDestino="uf_arquivo" columnLookupDisplay="uf" columnName="uf_arquivo" columnPickList="uf" columnRowId="true" connection="jkawflex" displayColumns="uf" queryDataSet="SELECT uf FROM cad_estado">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawdbcombobox>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_2" layout="FlowLayout">
+      <button name="Button_15" id="btnGerar" action="action_Gerar" horizontalAlignment="0" horizontalTextPosition="11" text="Gerar Arquivo" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=6-->
+<!--lastIdIndex=0-->

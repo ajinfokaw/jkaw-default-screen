@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="2,1,638,410" constraints="BorderLayout.CENTER" id="TextoAdic" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
+      <panel name="Panel_3" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_22" id="" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Texto Adicional" id="fat_textoadic" connection="jkawflex" kawTableName="fat_textoadic" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT * FROM fat_textoadic WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(texto) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(texto) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+        </scrollpane>
+      </panel>
+      <panel name="Panel_4" layout="BorderLayout">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral">
+          <panel name="Panel0" layout="BorderLayout">
+            <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
+              <formLayout colspecs="91px,2dlu,45px,2dlu,default,2dlu,306px" rowspecs="default,2dlu,default,2dlu,default"/>
+              <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField3" id="codigo" columnAutoIncrement="true" columnCaption="Codigo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="fat_textoadic" columnWidth="8" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+            </panel>
+            <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane4" tabPlacement="1" titles="Texto">
+              <panel name="Panel0" layout="BorderLayout">
+                <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                  <kawdbtextarea name="KawDbTextArea0" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnTableName="fat_textoadic" columnWidth="170"/>
+                </scrollpane>
+              </panel>
+            </tabbedpane>
+          </panel>
+        </tabbedpane>
+      </panel>
+    </tabbedpane>
+    <panel constraints="BorderLayout.NORTH" name="Panel0" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel1" id="pesquisas" layout="FlowLayout">
+        <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+        <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel5" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel6" layout="FlowLayout">
+        <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Condi&#xe7;&#xe3;o de Pagamento" id="navToolBar"/>
+        <label name="Label_82" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="KawDbNavField_83" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+      </panel>
+      <panel constraints="BorderLayout.EAST" name="Panel7" layout="FlowLayout">
+        <button name="Button_87" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=35-->
+<!--lastIdIndex=0-->

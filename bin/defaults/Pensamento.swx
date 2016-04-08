@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="208,174,520,350" layout="BorderLayout" title="Pensamento do Dia ...">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
+    <panel constraints="BorderLayout.SOUTH" name="Panel_130" id="panel" layout="BorderLayout">
+      <panel constraints="BorderLayout.CENTER" name="Panel_131" id="labelPensamento" layout="BorderLayout">
+        <label constraints="BorderLayout.CENTER" name="Label_132" id="pensamento" horizontalAlignment="0" horizontalTextPosition="11" text="Label" verticalAlignment="0" verticalTextPosition="0"/>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.CENTER" name="Panel_133" id="panelImage" layout="BorderLayout">
+      <label constraints="BorderLayout.CENTER" name="Label_141" id="imagemLogoTipo" horizontalAlignment="0" horizontalTextPosition="11" text="" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=141-->
+<!--lastIdIndex=0-->

@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="10,2,1024,768" constraints="BorderLayout.CENTER" name="Produto" id="cadProduto" layout="BorderLayout">
+  <panel constraints="BorderLayout.SOUTH" name="Panel_3" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_417" layout="FlowLayout">
+      <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Produto" id="navToolBar"/>
+      <label name="Label_418" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Produto" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbnavfield name="KawDbNavField_419" id="navField" dimensaoPadrao="80,20"/>
+    </panel>
+    <panel constraints="BorderLayout.EAST" name="Panel_421" layout="FlowLayout">
+      <button name="Button_422" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel0" layout="BorderLayout">
+    <panel constraints="BorderLayout.CENTER" name="Panel1" layout="BorderLayout">
+      <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPaneMain" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar">
+        <panel name="Panel_3" layout="BorderLayout">
+          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+            <kawdbtable name="Produto" id="fat_produto" connection="jkawflex" disable="true" dragEnabled="true" kawTableName="fat_produto" parameterQColumns="ppesquisa,ppesquisaconteudo,plista,ptabela,ptabela2,pfilial,ppesquisalocalizacao,preferencia,pcodebar,pdesativado" parameterQColumnsCaption="Pesquisa,Lista Pre&#xe7;o,Tabela" parameterQColumnsDataType="STRING,BOOLEAN,INT,INT,INT,INT,STRING,STRING,STRING,BOOLEAN" queryDataSet="SELECT *, CAST(getpreco(fat_parameters.fatlistaprecopadrao,fat_parameters.fattabelavendapadrao,fat_produto.id) AS NUMERIC(12,2)) AS preco1,CAST(getpreco(fat_parameters.fatlistaprecopadrao,fat_parameters.fattabelavendapadrao2,fat_produto.id) AS NUMERIC(12,2)) AS preco2,CAST(getpreco(fat_parameters.fatlistaprecopadrao2,fat_parameters.fattabelavendapadraol2_1,fat_produto.id) AS NUMERIC(12,2)) AS precol2_1,CAST(getpreco(fat_parameters.fatlistaprecopadrao2,fat_parameters.fattabelavendapadraol2_2,fat_produto.id) AS NUMERIC(12,2)) AS precol2_2,CAST(getestoque(fat_parameters.fatfilialpadrao,fat_produto.id) AS NUMERIC(12,3)) AS saldo, CAST(getCustoProd(fat_parameters.fatfilialpadrao,fat_produto.id, CURRENT_DATE) AS NUMERIC(12,4)) AS custodigitado FROM fat_produto LEFT JOIN fat_marca ON fat_marca.id = fat_marca_id, fat_parameters WHERE CASE WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN fat_produto.id = string_integer(:ppesquisa) WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false) = FALSE)) THEN (UPPER(fat_produto.descricao) LIKE UPPER(:ppesquisa)||'%' AND (coalesce(:pdesativado, false) = coalesce(desativado, false))) WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false))) THEN ((UPPER(fat_produto.descricao) LIKE '%'||UPPER(:ppesquisa)||'%') OR (UPPER(fat_marca.descricao) LIKE '%'||UPPER(:ppesquisa)||'%')) AND (coalesce(:pdesativado, false) = coalesce(desativado, false)) WHEN (SELECT :pcodebar  ~ '^[-0-9]+$') THEN codigobarra1 = :pcodebar WHEN CHAR_LENGTH(TRIM(:preferencia)) > 0 THEN UPPER(referencia) LIKE '%'||:preferencia||'%'END ORDER BY fat_produto.descricao" queryDataSetView=""/>
+          </scrollpane>
+        </panel>
+        <panel name="Panel_4" layout="BorderLayout">
+          <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 84, 80, 77, 79" tabPlacement="1" titles="Geral,Pre&#xe7;os,Tributa&#xe7;&#xe3;o,Movimenta&#xe7;&#xe3;o,Outros Dados">
+            <panel name="Panel6" layout="BorderLayout">
+              <panel constraints="BorderLayout.NORTH" name="Panel9" layout="FormLayout">
+                <formLayout colspecs="129px,2dlu,80px,2dlu,18dlu,2dlu,118px,2dlu,85px,2dlu,46px,2dlu,107px,24px,2dlu,149px,2dlu,109px,2dlu,131px,2dlu" rowspecs="default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default,1dlu,default"/>
+                <label name="Label10" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField11" id="codigo" columnAutoIncrement="true" columnCaption="Codigo." columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="1" columnRowId="true" columnTableName="fat_produto" columnWidth="5" fieldNotEdit="true">
+                  <cellconstraints gridX="3" gridY="1"/>
+                </kawdbtextfield>
+                <kawdbcheckbox name="desativado" id="desativado" columnCaption="D." columnDataType="BOOLEAN" columnName="desativado" columnRowId="false" columnTableName="fat_produto" columnWidth="2" text="Desativado?">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <label name="Label13" horizontalAlignment="0" horizontalTextPosition="11" text="Refer&#xea;ncia:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField14" id="referencia" columnCaption="Refer&#xea;ncia" columnDataType="STRING" columnName="referencia" columnPosicao="3" columnRowId="false" columnTableName="fat_produto" columnWidth="7">
+                  <cellconstraints gridHeight="1" gridWidth="14" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label15" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfieldlookup name="KawDbTextFieldLookup" id="grupoLookup" columnCalcType="CALC" columnCaption="Descri&#xe7;&#xe3;o Grupo" columnDataType="STRING" columnEditable="false" columnName="grupo_lookup" columnNameLookupRow="fat_grupoprodutos_id" columnNameOriginLookupRow="descricao" columnPosicao="11" columnTableName="fat_produto" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <label name="Label18" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField19" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="descricao" columnPosicao="3" columnRequired="true" columnRowId="false" columnTableName="fat_produto" columnWidth="40">
+                  <cellconstraints gridHeight="1" gridWidth="16" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label22" horizontalAlignment="0" horizontalTextPosition="11" text="Marca:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfieldlookup name="KawDbTextFieldLookup" id="marcaLookup" columnCalcType="CALC" columnCaption="Descri&#xe7;&#xe3;o Marca" columnDataType="STRING" columnEditable="false" columnName="marca_lookup" columnNameLookupRow="fat_marca_id" columnNameOriginLookupRow="descricao" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <label name="Label25" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbcombobox name="KawDbComboBox26" id="tipo" columnCaption="Tipo" columnDataType="STRING" columnDestino="tipo" columnEditable="true" columnName="tipo" columnPosicao="12" columnRequired="true" columnRowId="false" columnTableName="fat_produto" columnWidth="15" connection="jkawflex" displayColumns="classificacao,sequencial" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='fat_produto' AND coluna='tipo' ORDER BY sequencial">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <label name="Label27" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade1:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label28" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade2:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label29" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade3:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label30" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade4:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label31" horizontalAlignment="0" horizontalTextPosition="11" text="Unidade  Padrao:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbcombobox name="KawDbComboBox32" id="unidadePadraoVenda" columnCaption="Un-P" columnDataType="STRING" columnDestino="unidadepadraovenda" columnEditable="true" columnName="unidadepadraovenda" columnPosicao="3" columnRequired="true" columnTableName="fat_produto" connection="jkawflex" displayColumns="id,descricao" editable="true" kawTableName="" preferredSize="10,21" queryDataSet="SELECT id,descricao  FROM fat_unmedida">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <label name="Label33" horizontalAlignment="0" horizontalTextPosition="11" text="Fator Convers&#xe3;o p/unid 1:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="4" gridX="13" gridY="11" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField34" id="fatorUnidade1" columnCaption="F.Conv. 1" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.0000000000" columnEditable="true" columnHidden="true" columnName="fatorunidade1" columnPosicao="7" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="18" gridY="11" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label35" horizontalAlignment="0" horizontalTextPosition="11" text="Fator Convers&#xe3;o p/ unid 2:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="4" gridX="13" gridY="13" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField36" id="fatorUnidade2" columnCaption="F.Conv. 2" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.0000000000" columnEditable="true" columnHidden="true" columnName="fatorunidade2" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="18" gridY="13" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label37" horizontalAlignment="0" horizontalTextPosition="11" text="Fator Convers&#xe3;o p/unid 3:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="4" gridX="13" gridY="15" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField38" id="fatorUnidade3" columnCaption="F.Conv. 3" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.0000000000" columnEditable="true" columnHidden="true" columnName="fatorunidade3" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="18" gridY="15" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label39" horizontalAlignment="0" horizontalTextPosition="11" text="Peso Bruto:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="19" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField40" id="pesoBruto" columnCaption="Peso Bruto" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="pesobruto" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="19" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label41" horizontalAlignment="0" horizontalTextPosition="11" text="Peso L&#xed;quido:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="19" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField42" id="pesoLiquido" columnCaption="Peso Liquido" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="pesoliquido" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="16" gridY="19" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label43" horizontalAlignment="0" horizontalTextPosition="11" text="Volume:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="18" gridY="19" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField44" id="volume" columnCaption="Volume" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="volume" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="20" gridY="19" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbcombobox name="KawDbComboBox45" id="unidade1" columnCaption="Un-1" columnDataType="STRING" columnDestino="cad_unidade1" columnEditable="true" columnName="cad_unidade1" columnPosicao="13" columnRowId="false" columnTableName="fat_produto" columnWidth="8" connection="jkawflex" displayColumns="id,descricao" editable="true" kawTableName="" preferredSize="10,21" queryDataSet="SELECT id,descricao  FROM fat_unmedida">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <kawdbcombobox name="KawDbComboBox46" id="unidade2" columnCaption="Un-2" columnDataType="STRING" columnDestino="cad_unidade2" columnEditable="true" columnName="cad_unidade2" columnPosicao="13" columnRowId="false" columnTableName="fat_produto" columnWidth="8" connection="jkawflex" displayColumns="id,descricao" editable="true" kawTableName="" preferredSize="10,21" queryDataSet="SELECT id,descricao  FROM fat_unmedida">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <kawdbcombobox name="KawDbComboBox47" id="unidade3" columnCaption="Un-3" columnDataType="STRING" columnDestino="cad_unidade3" columnEditable="true" columnName="cad_unidade3" columnPosicao="13" columnRowId="false" columnTableName="fat_produto" columnWidth="8" connection="jkawflex" displayColumns="id,descricao" editable="true" kawTableName="" preferredSize="10,21" queryDataSet="SELECT id,descricao  FROM fat_unmedida">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <kawdbcombobox name="KawDbComboBox48" id="unidade4" columnCaption="Un-4" columnDataType="STRING" columnDestino="cad_unidade4" columnEditable="true" columnName="cad_unidade4" columnPosicao="13" columnRowId="false" columnTableName="fat_produto" columnWidth="8" connection="jkawflex" displayColumns="id,descricao" editable="true" kawTableName="" preferredSize="10,21" queryDataSet="SELECT id,descricao  FROM fat_unmedida">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+                </kawdbcombobox>
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookuprow" id="grupoProdCod" columnCaption="Grupo Produto" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_grupoprodutos_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_grupoprodutos_id" columnPosicao="10" columnRowId="false" columnTableName="fat_produto" editable="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookuprow>
+                <kawlookupbutton name="KawLookupButtonGrupoProd" id="lookupButtonGrupoProd" action="LookupGrupoProd" columnDestino="fat_grupoprodutos_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_grupoprodutos" kawTableNameRelation="fat_produto" parameterQColumns="fat_grupoprodutos_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_grupoprodutos WHERE id = :fat_grupoprodutos_id" xmlLookupView="LookupGrupoProdutos.xml">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                </kawlookupbutton>
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="marca" columnCaption="Marca" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_marca_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_marca_id" columnPosicao="4" columnRowId="false" columnTableName="fat_produto" columnWidth="5" editable="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookuprow>
+                <kawlookupbutton name="KawLookupButtonMarca" id="lookupButtonMarca" action="LookupMarca" columnDestino="fat_marca_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_marca" kawTableNameRelation="fat_produto" parameterQColumns="fat_marca_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_marca WHERE id = :fat_marca_id" xmlLookupView="LookupMarcas.xml">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+                </kawlookupbutton>
+                <kawdbtextfield name="KawDbTextField0" id="precoProduto2" columnCaption="Pre&#xe7;o Tab2" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="false" columnName="preco2" columnPosicao="7" columnResolvable="false" columnTableName="fat_produto" columnWidth="15" hidden="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="16" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField0" id="estoque" columnCaption="Saldo" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="false" columnName="saldo" columnPosicao="8" columnResolvable="false" columnTableName="fat_produto" columnWidth="15" fieldNotEdit="true" hidden="false">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="20" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="18" gridY="1" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField0" id="codigoBarra1" columnCaption="C&#xf3;digo barra 1" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="false" columnName="codigobarra1" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField0" id="codigoBarra2" columnCaption="C&#xf3;digo barra 2" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra2" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField1" id="codigoBarra3" columnCaption="C&#xf3;digo barra 3" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra3" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField2" id="codigoBarra4" columnCaption="C&#xf3;digo barra 4" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra4" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="17" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Barra1" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="11" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Barra2" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Barra3" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Barra4" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="17" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Localiza&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="2" gridX="18" gridY="3" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField1" id="localizacao" columnCaption="Localiza&#xe7;&#xe3;o" columnDataType="STRING" columnDisplayMask="" columnName="localizacao" columnPosicao="9" columnResolvable="true" columnRowId="false" columnTableName="fat_produto" columnWidth="30">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="20" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Class.Gerencial:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+                </label>
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="classificacaoGCodigo" columnCaption="Class.Gerencial" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="class_g_id" columnNameLookupKey="id" columnNameRelationLookupKey="class_g_id" columnPosicao="11" columnReadOnly="false" columnRowId="false" columnTableName="fat_produto" columnWidth="10" editable="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookuprow>
+                <kawlookupbutton name="KawLookupButtonClassGeren" id="lookupButtonClassificacaoG" action="LookupClassificacaoG" columnDestino="class_g_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_classificacao_g  " kawTableNameRelation="fat_produto" parameterQColumns="class_g_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,classificacao_g,descricao FROM financ_classificacao_g  WHERE id = :class_g_id  ORDER BY id" xmlLookupView="LookupClassificacaoG.xml">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawlookupbutton>
+                <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Complemento:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField1" id="complemento" columnCaption="Complemento" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="complemento" columnRowId="false" columnTableName="fat_produto" columnWidth="30">
+                  <cellconstraints gridHeight="1" gridWidth="18" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField0" id="precoProduto" columnCaption="Pre&#xe7;o Tab1" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="false" columnName="preco1" columnPosicao="6" columnResolvable="false" columnTableName="fat_produto" columnWidth="15" hidden="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="classGerencLookup" columnCalcType="CALC" columnCaption="Class. Geren." columnDataType="STRING" columnEditable="false" columnName="classGerencial_lookup" columnNameLookupRow="class_g_id" columnNameOriginLookupRow="descricao" columnPosicao="12" columnRowId="false" columnTableName="fat_produto" columnWidth="10">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <button name="Button0" id="btnImprimirEtiqueta" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir Etiquetas (c&#xf3;digo de barra)" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="8" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+                </button>
+                <kawdbtextfield name="KawDbTextField0" id="precol2_1Lookup" columnCalcType="" columnCaption="Atacado Vista" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnHidden="false" columnName="precol2_1" columnPosicao="9" columnResolvable="false" columnTableName="fat_produto" columnWidth="10" fieldNotEdit="true" hidden="true" horizontalAlignment="3" preferredSize="100,15">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="18" gridY="5" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField1" id="precol2_2Lookup" columnCalcType="" columnCaption="Atacado Prazo" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnHidden="false" columnName="precol2_2" columnPosicao="9" columnResolvable="false" columnTableName="fat_produto" columnWidth="10" fieldNotEdit="true" hidden="true" horizontalAlignment="3" preferredSize="100,15">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="18" gridY="7" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+              </panel>
+              <vbox constraints="BorderLayout.SOUTH" name="Vbox0" border="Dados Adicionais/Caracteristicas do Produto" defaultLocale="true" focusable="true" font="Arial Black-10-BOLD" id="panelDadosAdicionais">
+                <panel name="Panel1" border="Dados Adicionais/Caracteristicas" id="dadosAdicionaisp" layout="BorderLayout">
+                  <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" preferredSize="0,100" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                    <kawdbtextarea name="KawDbTextArea0" id="dadosAdicionais" columnCaption="Dados Adicionais" columnDataType="STRING" columnHidden="true" columnName="dadosadicionais" columnPosicao="30" columnResolvable="true" columnTableName="fat_produto" columnWidth="10"/>
+                  </scrollpane>
+                </panel>
+              </vbox>
+            </panel>
+            <panel name="Panel0" layout="BorderLayout">
+              <panel constraints="BorderLayout.CENTER" name="Panel6" id="panelPrecos" layout="BorderLayout">
+                <panel constraints="BorderLayout.SOUTH" name="Panel7" layout="BorderLayout">
+                  <panel constraints="BorderLayout.WEST" name="Panel0" id="panelItens" layout="FlowLayout">
+                    <button name="Button1" id="insereButton_fat_produto_preco" preferredSize="250,25" actionCommand="fat_produto_preco" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Pre&#xe7;o" verticalAlignment="0" verticalTextPosition="0"/>
+                    <button name="Button2" id="excluiButton_fat_produto_preco" preferredSize="250,25" actionCommand="fat_produto_preco" horizontalAlignment="0" horizontalTextPosition="11" text="Excluir Pre&#xe7;o" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+                  </panel>
+                </panel>
+                <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane8" id="tabbedPane_fat_produto_preco" tabPlacement="1" titles="Pre&#xe7;os,Edita Pre&#xe7;o,Outros Dados">
+                  <panel name="Panel1" defaultLocale="true" id="ListaPrecos" layout="BorderLayout">
+                    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_84" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                      <kawdbtable name="Produto Preco" id="fat_produto_preco" connection="jkawflex" kawTableName="fat_produto_preco" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_produto_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_produto" parameterQColumns="id" parameterQColumnsCaption="Codigo" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_produto_id, fat_listapre_tabela_fat_listapre_id, fat_listapre_tabela_tabela_id, preco,  fat_listapre_tabela.fatoracrescimo, fat_listapre_tabela.fatortipo FROM  fat_produto_preco  LEFT JOIN fat_listapre_tabela ON fat_listapre_id = fat_listapre_tabela_fat_listapre_id AND tabela_id = fat_listapre_tabela_tabela_id WHERE fat_produto_id = :id ORDER BY fat_listapre_tabela_fat_listapre_id, fat_listapre_tabela_tabela_id" queryDataSetView=""/>
+                    </scrollpane>
+                  </panel>
+                  <panel name="Panel2" id="EditarPrecos" layout="FormLayout">
+                    <formLayout colspecs="135px,2dlu,85px,2dlu,37px,2dlu,95px,2dlu,146px,2dlu,82px,2dlu,138px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,fill:2px,default,2dlu"/>
+                    <label name="Label_87" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_89" horizontalAlignment="0" horizontalTextPosition="11" text="Produto:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_105" horizontalAlignment="0" horizontalTextPosition="11" text="Lista de Pre&#xe7;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_110" horizontalAlignment="0" horizontalTextPosition="11" text="Pre&#xe7;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField0" id="preco" columnCaption="Pre&#xe7;o" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnHidden="false" columnName="preco" columnPosicao="4" columnResolvable="true" columnServerColumnName="preco" columnTableName="fat_produto_preco" columnWidth="8" editable="true" enable="true" focusable="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup1" id="lispreTabelaLookup" columnCalcType="CALC" columnCaption="Desc. Tabela" columnDataType="STRING" columnEditable="false" columnName="lispreTabelaLookup" columnNameLookupRow="fat_listapre_tabela_tabela_id" columnNameOriginLookupRow="descricao" columnPosicao="3" columnRowId="false" columnServerColumnName="descricao" columnTableName="fat_produto_preco" columnWidth="20" UIClassID=" ">
+                      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookup>
+                    <kawdbtextfield name="KawDbTextField0" id="fatProdutoPreco" columnAutoIncrement="false" columnCalcType="" columnCaption="C&#xf3;digo Produto" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="fat_produto_id" columnPosicao="1" columnRowId="true" columnTableName="fat_produto_preco" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="fatListaPreco" columnCaption="Lista de Pre&#xe7;os" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnName="fat_listapre_tabela_fat_listapre_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_listapre_tabela_fat_listapre_id" columnPosicao="0" columnRowId="true" columnTableName="fat_produto_preco" columnWidth="5">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookuprow>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="listaPrecoLookup" columnCalcType="CALC" columnCaption="Lista de Pre&#xe7;o" columnDataType="STRING" columnEditable="true" columnName="lispre_lookup" columnNameLookupRow="fat_listapre_tabela_fat_listapre_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="20" UIClassID=" ">
+                      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookup>
+                    <kawlookupbutton name="KawLookupButton0" id="lispreCodigoLookupButton" action="lookupListaPre" columnDestino="fat_listapre_tabela_fat_listapre_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_listapre" kawTableNameRelation="fat_produto_preco" parameterQColumns="fat_listapre_tabela_fat_listapre_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM fat_listapre WHERE id = :fat_listapre_tabela_fat_listapre_id" text="" xmlLookupView="LookupLisPre.xml">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <kawlookupbutton name="KawLookupButton1" id="lookupButtonfat_listapre_tabela_tabela_id" action="lookupListaPre" columnDestino="fat_listapre_tabela_tabela_id" columnOrigem="id" columnsNameInitialKey="fat_listapre_tabela_fat_listapre_id" connection="jkawflex" kawTableName="fat_listapre_tabela" kawTableNameRelation="fat_produto_preco" parameterQColumns="fat_listapre_tabela_tabela_id" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_listapre_id,tabela_id, descricao  FROM fat_listapre_tabela  WHERE tabela_id = :fat_listapre_tabela_tabela_id" text="" xmlLookupView="LookupLisPre.xml">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="listaPreTabela" columnCaption="Tabela" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_listapre_tabela_tabela_id" columnNameLookupKey="tabela_id" columnNameRelationLookupKey="fat_listapre_tabela_tabela_id" columnPosicao="2" columnRowId="true" columnTableName="fat_produto_preco" editable="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookuprow>
+                    <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="&#xcd;ndice:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField1" id="indiceAcrescimo" columnCaption="&#xcd;ndice" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00000" columnEditable="false" columnEditMask="###,###.#####" columnHidden="false" columnName="fatoracrescimo" columnPosicao="5" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="10" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField0" id="fatortipo" columnCaption="Fator" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="false" columnName="fatortipo" columnPosicao="6" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="10" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Fator:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Right" vAlign="Default"/>
+                    </label>
+                  </panel>
+                  <panel name="Panel3" id="outrosDados2" layout="FormLayout">
+                    <formLayout colspecs="116px,2dlu,85px,2dlu,146px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+                    <label name="Label_144" horizontalAlignment="0" horizontalTextPosition="11" text="Data Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_145" id="dataAltPreco" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="10" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_146" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_147" id="horaAltPreco" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="fat_produto_preco" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_148" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_149" id="dataIncPreco" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="10" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridX="3" gridY="1"/>
+                    </kawdbtextfield>
+                    <label name="Label_150" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_151" id="horaIncPreco" columnCaption="Hora Inc." columnDataType="TIME" columnDefault="" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="10" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridX="3" gridY="7"/>
+                    </kawdbtextfield>
+                    <label name="Label_152" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_153" id="usuarioInclusaoPreco" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="30" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_154" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_155" id="usuarioAlteracaoPreco" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_produto_preco" columnWidth="30" editable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                  </panel>
+                </tabbedpane>
+              </panel>
+            </panel>
+            <panel name="Panel0" layout="BorderLayout">
+              <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPaneTributacao" tabPlacement="1" titles="Geral,Combust&#xed;vel,Classifica&#xe7;&#xe3;o Tribut&#xe1;ria por ESTADO">
+                <panel name="Panel0" layout="BorderLayout">
+                  <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                    <panel name="Panel0" layout="FormLayout">
+                      <formLayout colspecs="409px,2dlu,126px,2dlu,25px,2dlu,11px,2dlu,124px,2dlu,76px,2dlu,163px,2dlu,50px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,1dlu,default,1dlu,default,2dlu,default,default,default"/>
+                      <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o de Origem:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o Tribut&#xe1;ria (CST/CSOSN):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label3" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o Fiscal:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label4" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o NCM/TIPI:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label5" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota de ICMS Normal:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label6" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota de ICMS Redu&#xe7;&#xe3;o (Sa&#xed;da):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label7" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota de ICMS Redu&#xe7;&#xe3;o (Entrada):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label8" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota de ICMS especial  diferido:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label9" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota  INSS/FUNRURAL:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label10" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota  IRRF:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="25" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label11" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela de Al&#xed;quota  ISSQN:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label12" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota de IPI (%) Saida :" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="33" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfield name="KawDbTextField13" id="aliquotaIpiSaida" columnCaption="Al&#xed;quota de IPI (%)" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="true" columnName="aliquota_ipi_saida" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="33" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <label name="Label14" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota de IPI (%) Entrada:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="35" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfield name="KawDbTextField15" id="aliquotaIpiEntrada" columnCaption="Al&#xed;quota de IPI (%)" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="true" columnName="aliquota_ipi_entrada" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="35" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <label name="Label16" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota de COFINS:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="37" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label17" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota de PIS:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="39" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfield name="KawDbTextField18" id="aliquotaCofins" columnCaption="Al&#xed;quota de IPI (%)" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="true" columnName="aliquota_cofins" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="37" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfield name="KawDbTextField19" id="aliquotaPIS" columnCaption="Al&#xed;quota Pis" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnHidden="true" columnName="aliquota_pis" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="39" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow20" id="classtipi_codigonbm" columnCaption="NCM" columnDataType="STRING" columnDisplayMask="##########" columnEditMask="" columnFixedPrecision="true" columnHidden="false" columnName="classtipi_codigonbm" columnNameLookupKey="codigoncm" columnNameRelationLookupKey="classtipi_codigonbm" columnPosicao="3" columnTableName="fat_produto" columnWidth="7">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawdbcombobox name="KawDbComboBox21" id="cstIpiSaida" columnCalcType="" columnCaption="Aliq.ISSQN" columnDataType="STRING" columnDestino="cst_ipi_saida" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="cst_ipi_saida" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='IPI'">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="33" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <kawdbcombobox name="KawDbComboBox22" id="cstIpiEntrada" columnCalcType="" columnCaption="Aliq.ISSQN" columnDataType="STRING" columnDestino="cst_ipi_entrada" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="cst_ipi_entrada" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='IPI'">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="35" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <kawdbcombobox name="KawDbComboBox23" id="cstCofins" columnCalcType="" columnCaption="Aliq.ISSQN" columnDataType="STRING" columnDestino="cst_cofins" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="cst_cofins" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='COFINS'">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="37" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <kawdbcombobox name="KawDbComboBox24" id="cstPis" columnCalcType="" columnCaption="Aliq.ISSQN" columnDataType="STRING" columnDestino="cst_pis" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="cst_pis" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='PIS'">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="39" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup25" id="classOrigemCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="classorigem_codigo_lookup" columnNameLookupRow="classorigem_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup26" id="classTributariaCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="classtributaria_codigo_lookup" columnNameLookupRow="classtributaria_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup27" id="classFiscalCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="classfiscal_codigo_lookup" columnNameLookupRow="classfiscal_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="9" hAlign="Fill" vAlign="Fill"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup28" id="classTipiCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="classtipi_codigo_lookup" columnNameLookupRow="classtipi_codigonbm" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup29" id="aliquotasNormalCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliquotas_normal_codigo_lookup" columnNameLookupRow="aliquotas_normal_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup30" id="aliqInssCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliqinss_codigo_lookup" columnNameLookupRow="aliqinss_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="17" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup31" id="aliquotasReducaosCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliquotas_reducaos_codigo_lookup" columnNameLookupRow="aliquotas_reducaos_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="19" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup32" id="aliquotasReducaoeCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliquotas_reducaoe_codigo_lookup" columnNameLookupRow="aliquotas_reducaoe_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="21" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup33" id="aliquotasDiferimentoCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliquotas_diferimento_codigo_lookup" columnNameLookupRow="aliquotas_diferimento_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="23" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup34" id="aliqIrrfCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliqirrf_codigo_lookup" columnNameLookupRow="aliqirrf_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="25" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup35" id="aliqIssqnCodigoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliqissqn_codigo_lookup" columnNameLookupRow="aliqissqn_id" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="27" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawlookupbutton name="KawLookupButton36" id="lookupButtonClassTipiNcm" action="lookupClassTipiNcm" columnDestino="classtipi_codigonbm,cest" columnOrigem="codigoncm,cest" connection="jkawflex" kawTableName="fat_classtipi" kawTableNameRelation="fat_produto" parameterQColumns="classtipi_codigonbm" parameterQColumnsDataType="STRING" queryDataSet="SELECT codigoncm,descricao, cest FROM fat_classtipi WHERE codigoncm = :classtipi_codigonbm" xmlLookupView="LookupNCMClassTipi.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow37" id="classorigem_id" columnCaption="Classif.da TIPI" columnDataType="STRING" columnDisplayMask="{00}" columnEditMask="{00}" columnHidden="true" columnName="classorigem_id" columnNameLookupKey="id" columnNameRelationLookupKey="classorigem_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton38" id="lookupButtonclassorigem_id" action="lookupClassTipiNcm" columnDestino="classorigem_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_classorigem" kawTableNameRelation="fat_produto" parameterQColumns="classorigem_id" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,descricao FROM fat_classorigem WHERE id =:classorigem_id" xmlLookupView="LookupClassOrigem.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow39" id="classtributaria_id" columnCaption="CST/CSOSN" columnDataType="STRING" columnDisplayMask=" c" columnEditMask="c" columnHidden="true" columnName="classtributaria_id" columnNameLookupKey="id" columnNameRelationLookupKey="classtributaria_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton40" id="lookupButtonclasstributaria_id" action="lookupClassTipiNcm" columnDestino="classtributaria_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_classtributaria" kawTableNameRelation="fat_produto" parameterQColumns="classtributaria_id" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,codigoricms,descricao FROM fat_classtributaria WHERE id = :classtributaria_id" xmlLookupView="LookupClassTrib.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawlookupbutton name="KawLookupButton41" id="lookupButtonclassfiscal_id" action="lookupClassTipiNcm" columnDestino="classfiscal_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_classfiscal  " kawTableNameRelation="fat_produto" parameterQColumns="classfiscal_id" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,descricao FROM fat_classfiscal  WHERE id = :classfiscal_id" xmlLookupView="LookupClassFiscal.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow42" id="classfiscal_id" columnCaption="Classif.da TIPI" columnDataType="STRING" columnDisplayMask="{000}" columnEditMask="{000}" columnHidden="true" columnName="classfiscal_id" columnNameLookupKey="id" columnNameRelationLookupKey="classfiscal_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton43" id="lookupButtonaliquotas_normal_id" action="lookupClassTipiNcm" columnDestino="aliquotas_normal_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliquotas " kawTableNameRelation="fat_produto" parameterQColumns="aliquotas_normal_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliquotas WHERE id = :aliquotas_normal_id" xmlLookupView="LookupAliquotas.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow44" id="aliquotas_normal_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliquotas_normal_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliquotas_normal_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton45" id="lookupaliqinss_id" action="lookupClassTipiNcm" columnDestino="aliqinss_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliqinss " kawTableNameRelation="fat_produto" parameterQColumns="aliqinss_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliqinss WHERE id = :aliqinss_id" xmlLookupView="LookupAliqINSS.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="17" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow46" id="aliqinss_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliqinss_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliqinss_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton47" id="lookupButtonaliquotas_reducaos_id" action="lookupClassTipiNcm" columnDestino="aliquotas_reducaos_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliquotas" kawTableNameRelation="fat_produto" parameterQColumns="aliquotas_reducaos_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliquotas WHERE id = :aliquotas_reducaos_id" xmlLookupView="LookupAliquotas.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="19" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow48" id="aliquotas_reducaos_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliquotas_reducaos_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliquotas_reducaos_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton49" id="lookupButtonaliquotas_reducaoe_id" action="lookupClassTipiNcm" columnDestino="aliquotas_reducaoe_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliquotas" kawTableNameRelation="fat_produto" parameterQColumns="aliquotas_reducaoe_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliquotas WHERE id = :aliquotas_reducaoe_id" xmlLookupView="LookupAliquotas.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="21" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow50" id="aliquotas_reducaoe_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliquotas_reducaoe_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliquotas_reducaoe_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton51" id="lookupButtonaliquotas_diferimento_id" action="lookupClassTipiNcm" columnDestino="aliquotas_diferimento_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliquotas" kawTableNameRelation="fat_produto" parameterQColumns="aliquotas_diferimento_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliquotas WHERE id = :aliquotas_diferimento_id" xmlLookupView="LookupAliquotas.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="23" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow52" id="aliquotas_diferimento_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliquotas_diferimento_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliquotas_diferimento_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton53" id="lookupButtonaliqirrf_id" action="lookupClassTipiNcm" columnDestino="aliqirrf_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliqirrf " kawTableNameRelation="fat_produto" parameterQColumns="aliqirrf_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliqirrf WHERE id = :aliqirrf_id" xmlLookupView="LookupAliqIRRF.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="25" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow54" id="aliqirrf_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliqirrf_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliqirrf_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="25" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow55" id="aliqissqn_id" columnCaption="Classif.da TIPI" columnDataType="INT" columnDisplayMask="####" columnEditMask="####" columnHidden="true" columnName="aliqissqn_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliqissqn_id" columnTableName="fat_produto">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="27" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton56" id="lookupButtonaliqissqn_id" action="lookupClassTipiNcm" columnDestino="aliqissqn_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliqissqn " kawTableNameRelation="fat_produto" parameterQColumns="aliqissqn_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, 'Aliq.:'||to_char(aliquota, '99D99') || '% - '|| servico_codigo|| '-' || descricao AS descricao  FROM fat_aliqissqn WHERE id = :aliqissqn_id" xmlLookupView="LookupAliqISSQN.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="27" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <label name="Label57" horizontalAlignment="0" horizontalTextPosition="11" text="Modalidade de determina&#xe7;&#xe3;o da BC do ICMS" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbcombobox name="KawDbComboBox58" id="modalidade_bc_icms" columnCalcType="" columnCaption="Mod.ICMS" columnDataType="STRING" columnDestino="modalidade_bc_icms" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="modalidade_bc_icms" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='ICMSN'">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <label name="Label59" horizontalAlignment="0" horizontalTextPosition="11" text="Modalidade de determina&#xe7;&#xe3;o da BC do  ICMS ST:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbcombobox name="KawDbComboBox60" id="modalidade_bc_icms_st" columnCalcType="" columnCaption="Mod.ICMSST" columnDataType="STRING" columnDestino="modalidade_bc_icms_st" columnDisplayMask="99" columnEditable="true" columnEditMask="99" columnHidden="true" columnName="modalidade_bc_icms_st" columnPosicao="5" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="valor,descricao" editable="false" queryDataSet="SELECT tipo,valor,descricao FROM fat_cst_key WHERE tipo='ICMSST'">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
+                      <kawdbcombobox name="KawDbComboBox61" id="indISS" columnCaption="" columnDataType="STRING" columnDefault="1" columnDestino="ind_iss" columnDisplayMask="9" columnEditable="true" columnEditMask="9" columnHidden="true" columnName="ind_iss" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="classificacao,labelcoluna" editable="true" queryDataSet="SELECT TRIM(classificacao) AS classificacao, tabela,coluna,sequencial,labelcoluna FROM cad_classificacao_reg WHERE tabela='fat_produto' AND coluna='indiss' ORDER BY sequencial">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="29" hAlign="Default" vAlign="Fill"/>
+                      </kawdbcombobox>
+                      <label name="Label62" horizontalAlignment="0" horizontalTextPosition="11" text="Indicador da exigibilidade do ISSQN:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Indicador de incentivo Fiscal ISSQN:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="31" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbcombobox name="KawDbComboBox1" id="indIncentivo" columnCaption="" columnDataType="STRING" columnDefault="1" columnDestino="ind_incentivo" columnDisplayMask="9" columnEditable="true" columnEditMask="9" columnHidden="true" columnName="ind_incentivo" columnRowId="false" columnTableName="fat_produto" columnWidth="10" connection="jkawflex" displayColumns="classificacao,labelcoluna" editable="true" queryDataSet="SELECT TRIM(classificacao) AS classificacao, tabela,coluna,sequencial,labelcoluna FROM cad_classificacao_reg WHERE tabela='fat_produto' AND coluna='indincentivo' ORDER BY sequencial">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="31" hAlign="Default" vAlign="Fill"/>
+                      </kawdbcombobox>
+                      <kawdbtextfield name="KawDbTextField0" id="cest" columnCaption="CEST" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="false" columnName="cest" columnPosicao="3" columnTableName="fat_produto" columnWidth="6">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo Especificador da Substitui&#xe7;&#xe3;o Tribut&#xe1;ria (CEST):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+                      </label>
+                    </panel>
+                  </scrollpane>
+                </panel>
+                <panel name="Panel0" border="TitledBorder(Par&#xe2;metros Combust&#xed;vel:)" layout="BorderLayout">
+                  <cellconstraints gridHeight="4" gridWidth="15" gridX="1" gridY="2" hAlign="Fill" vAlign="Fill"/>
+                  <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
+                    <formLayout colspecs="354px,2dlu,119px,2dlu,35px,2dlu,141px,default,default,default,170px" rowspecs="default,2dlu,default,2dlu,default"/>
+                    <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo ANP (Ag&#xea;ncia Nacional do Petr&#xf3;leo):" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow1" id="codigoANP" columnCaption="ANP" columnDataType="STRING" columnDisplayMask="##########" columnEditable="true" columnEditMask="" columnHidden="true" columnName="codigoanp" columnNameLookupKey="codigo" columnNameRelationLookupKey="codigoanp" columnPosicao="3" columnTableName="fat_produto" columnWidth="10">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookuprow>
+                    <kawlookupbutton name="KawLookupButton2" id="lookupButtonCodigoANP" action="lookupCodigoANP" columnDestino="codigoanp" columnOrigem="codigo" connection="jkawflex" hideActionText="true" kawTableName="fat_tabela_anp" kawTableNameRelation="fat_produto" parameterQColumns="codigoanp" parameterQColumnsDataType="STRING" queryDataSet="SELECT codigo,descricao,id FROM fat_tabela_anp WHERE codigo = :codigoanp" xmlLookupView="LookupANP.xml">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup5" id="codigoANPLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="codigoanp_lookup" columnNameLookupRow="codigoanp" columnNameOriginLookupRow="descricao" columnTableName="fat_produto" columnWidth="20">
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookup>
+                    <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xfa;mero do Bico:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label13" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xfa;mero do Tanque:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField14" id="comb_numero_bico" columnAutoIncrement="false" columnCaption="N&#xba; Bico" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="comb_numero_bico" columnPosicao="1" columnRowId="false" columnTableName="fat_produto" columnWidth="5" editable="true" enable="true" fieldNotEdit="false" focusTraversalPolicyProvider="true">
+                      <cellconstraints gridX="3" gridY="3"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField0" id="comb_numero_tanque" columnAutoIncrement="false" columnCaption="N&#xba; Tanque" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="comb_numero_tanque" columnPosicao="1" columnRowId="false" columnTableName="fat_produto" columnWidth="5" editable="true" enable="true" fieldNotEdit="false" focusTraversalPolicyProvider="true">
+                      <cellconstraints gridX="3" gridY="5"/>
+                    </kawdbtextfield>
+                  </panel>
+                </panel>
+                <panel name="Panel36" layout="BorderLayout">
+                  <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPane_fat_produto_classtrib" tabPlacement="1" titles="Lista,Editar">
+                    <panel constraints="BorderLayout.CENTER" name="Panel0" layout="BorderLayout">
+                      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                        <kawdbtable name="Classificacao Tributaria Produto" id="fat_produto_classtrib" connection="jkawflex" kawTableName="fat_produto_classtrib" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="fat_produto_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_produto" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM  fat_produto_classtrib WHERE fat_produto_id = :id "/>
+                      </scrollpane>
+                    </panel>
+                    <panel name="Panel4" id="classTributaria" layout="FormLayout">
+                      <formLayout colspecs="219px,2dlu,57px,2dlu,30px,2dlu,81px,2dlu,84px,2dlu,100px" rowspecs="default,2dlu,default,2dlu,default,default"/>
+                      <kawdbtextfield name="KawDbTextField2" id="classTribProdutoCodigo" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnHidden="false" columnName="fat_produto_id" columnPosicao="0" columnResolvable="true" columnRowId="true" columnTableName="fat_produto_classtrib" columnWidth="10" fieldNotEdit="true">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup" id="classTribCodigoTribLookup" columnCalcType="CALC" columnCaption="Classifica&#xe7;&#xe3;o Tribut&#xe1;ria" columnDataType="STRING" columnHidden="false" columnName="classtributaria_codigo_lookup" columnNameLookupRow="classtributaria_id" columnNameOriginLookupRow="descricao" columnPosicao="4" columnTableName="fat_produto_classtrib" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Uf(Estado):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Classifica&#xe7;&#xe3;o Tribut&#xe1;ria (CST):" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="uf" columnCaption="UF" columnDataType="STRING" columnDisplayMask="cc" columnEditable="true" columnEditMask="" columnHidden="false" columnName="uf" columnNameLookupKey="uf" columnNameRelationLookupKey="uf" columnPosicao="1" columnRowId="true" columnTableName="fat_produto_classtrib">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="lookupButtoncad_estado_id" id="lookupButtoncad_estado" action=" " columnDestino="uf" columnOrigem="uf" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="fat_produto_classtrib" parameterQColumns="uf" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,estado,uf FROM cad_estado WHERE uf = :uf" xmlLookupView="LookupEstado.xml">
+                        <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow2" id="classtributaria_id2" columnCaption="CST" columnDataType="STRING" columnDisplayMask=" c" columnEditMask=" c" columnHidden="false" columnName="classtributaria_id" columnNameLookupKey="id" columnNameRelationLookupKey="classtributaria_id" columnPosicao="3" columnTableName="fat_produto_classtrib">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="lookupButtonclasstributaria_id2" id="lookupButtonclasstributaria_id2" action="lookupClassTipiNcm" columnDestino="classtributaria_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_classtributaria" kawTableNameRelation="fat_produto_classtrib" parameterQColumns="classtributaria_id" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,codigoricms,descricao FROM fat_classtributaria WHERE id = :classtributaria_id" xmlLookupView="LookupClassTrib.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="ufLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnHidden="false" columnName="uf_lookup" columnNameLookupRow="uf" columnNameOriginLookupRow="estado" columnPosicao="2" columnTableName="fat_produto_classtrib" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                    </panel>
+                  </tabbedpane>
+                </panel>
+              </tabbedpane>
+            </panel>
+            <panel name="Panel_210" id="panelProdutoMovto" layout="BorderLayout">
+              <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPaneMovto" id="tabbedPane_fat_produto_movto" tabPlacement="1" titles="Movimenta&#xe7;&#xe3;o,Custos/Saldo">
+                <panel name="Panel_214" id="panelListaMovto" layout="BorderLayout">
+                  <panel constraints="BorderLayout.NORTH" name="Panel_247" layout="FormLayout">
+                    <formLayout colspecs="78px,2dlu,88px,2dlu,30px,2dlu,99px" rowspecs="default,2dlu"/>
+                    <label name="Label_256" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_258" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </label>
+                    <kawdatefield name="KawDateField0" id="dataInicialSelecao" dateFormat="dd/MM/yyyy" minimumSize="85,20" preferredSize="100,20">
+                      <cellconstraints gridX="3" gridY="1"/>
+                    </kawdatefield>
+                    <kawdatefield name="KawDateField2" id="dataFinalSelecao" dateFormat="dd/MM/yyyy" minimumSize="85,20" preferredSize="100,20">
+                      <cellconstraints gridX="7" gridY="1"/>
+                    </kawdatefield>
+                  </panel>
+                  <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_292" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                    <kawdbtable name="Produto Movimento" id="fat_produto_movto" connection="jkawflex" focusCycleRoot="true" kawTableName="fat_produto_movto" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_produto_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_produto" parameterQColumns="id,datainicial,datafinal" parameterQColumnsCaption="Codigo,Data Inicial, Data Final" parameterQColumnsDataType="INT,DATE,DATE" queryDataSet="SELECT fat_produto_id,datamovto,fat_docto_c_controle,fat_produto_movto.cad_filial_id,fat_docto_c.serie_id ||' '||fat_docto_c.numero_docto AS numerodocto,fat_docto_c.cad_cadastro_id,cad_cadastro.razaosocial,fat_produto_movto.fat_transacao_id,fat_transacao.descricao AS fat_transacao, fat_produto_movto.natureza,tipomovto, devolucao,atualizaestoque,alteracustomedio,alteracustoultimacompra,qtde,valorunitario,valortotal,custoinventario,custoinventariototal,custonf,custodigitado,custoreal,customedio,customediototal,fat_produto_movto.saldo AS saldo ,saldo2,saldoinventario FROM fat_produto_movto LEFT JOIN fat_docto_c ON fat_produto_movto.fat_docto_c_controle = fat_docto_c.controle LEFT JOIN cad_cadastro ON cad_cadastro.id = fat_docto_c.cad_cadastro_id  LEFT JOIN cad_filial ON cad_filial.id = fat_produto_movto.cad_filial_id LEFT JOIN fat_transacao ON fat_transacao.id = fat_produto_movto.fat_transacao_id LEFT JOIN fat_produto ON fat_produto.id = fat_produto_movto.fat_produto_id WHERE fat_produto_id = :id  AND datamovto BETWEEN :datainicial AND :datafinal ORDER BY datamovto,fat_docto_c_controle " queryDataSetView=""/>
+                  </scrollpane>
+                  <panel constraints="BorderLayout.SOUTH" name="Panel_294" visible="false" layout="FormLayout">
+                    <formLayout colspecs="182px,2dlu,195px,2dlu,222px,2dlu,196px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+                    <kawdbtextfield name="KawDbTextField_295" id="controle" columnCaption="Controle" columnDataType="INT" columnEditable="false" columnEditMask="##########" columnName="fat_docto_c_controle" columnPosicao="1" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="8">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_296" id="filialCodigo" columnCaption="Cod.Filial" columnDataType="INT" columnEditable="false" columnName="cad_filial_id" columnPosicao="5" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="3">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_297" id="dataMovto" columnCaption="Data" columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditable="false" columnEditMask="dd/MM/yy" columnName="datamovto" columnPosicao="0" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="8">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_299" id="valorTotal" columnCaption="Valor Total" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="valortotal" columnPosicao="13" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_300" id="codCliente" columnCaption="Cod.Cliente" columnCurrency="true" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="cad_cadastro_id" columnPosicao="3" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="5">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_301" id="nomeCliente" columnCaption="Nome Cliente" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="razaosocial" columnPosicao="4" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="25">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbcheckbox name="KawDbCheckBox_302" id="devolucao" columnCaption="Devolu&#xe7;&#xe3;o" columnCurrency="false" columnDataType="BOOLEAN" columnEditable="true" columnName="devolucao" columnPosicao="14" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_movto" columnWidth="3" contentAreaFilled="false" hidden="true" hideActionText="false" text="KawDbCheckBox_82">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbcheckbox>
+                    <kawdbtextfield name="KawDbTextField_304" id="transacaoCodigo" columnCalcType="" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnEditable="true" columnEditMask="" columnName="fat_transacao_id" columnPosicao="7" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="5">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_305" id="numeroDocto" columnCaption="Documento" columnDataType="STRING" columnEditable="false" columnEditMask="##########" columnName="numerodocto" columnPosicao="2" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="10">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_306" id="valorUnitario" columnCaption="Valor Unitario" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnEditMask="" columnName="valorunitario" columnPosicao="12" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_307" id="qtde" columnCaption="Qtde" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnEditMask="" columnName="qtde" columnPosicao="11" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="6">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_315" id="natureza" columnCaption="Nat." columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="natureza" columnPosicao="2" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="3">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_316" id="tipoMovto" columnCaption="T." columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="tipomovto" columnPosicao="2" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="3">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbcheckbox name="KawDbCheckBox_317" id="atualizaEstoque" columnCaption="Atualiza Estoque" columnCurrency="false" columnDataType="BOOLEAN" columnEditable="true" columnName="atualizaestoque" columnPosicao="15" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_movto" columnWidth="3" contentAreaFilled="false" hidden="true" hideActionText="false" text="KawDbCheckBox_82">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+                    </kawdbcheckbox>
+                    <kawdbcheckbox name="KawDbCheckBox_318" id="atualizaCustoMedio" columnCaption="Atualiza Custo Medio" columnCurrency="true" columnDataType="BOOLEAN" columnEditable="true" columnName="alteracustomedio" columnPosicao="16" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_movto" columnWidth="3" contentAreaFilled="false" hidden="true" hideActionText="false" text="KawDbCheckBox_82">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+                    </kawdbcheckbox>
+                    <kawdbcheckbox name="KawDbCheckBox_319" id="atualizaCustoUltCompra" columnCaption="Atualiza Custo Ult.Compra" columnCurrency="false" columnDataType="BOOLEAN" columnEditable="true" columnName="alteracustoultimacompra" columnPosicao="17" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_movto" columnWidth="3" contentAreaFilled="false" hidden="true" hideActionText="false" text="KawDbCheckBox_82">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+                    </kawdbcheckbox>
+                    <kawdbtextfield name="KawDbTextField_320" id="custoInventario" columnCaption="Custo Inventario" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="custoinventario" columnPosicao="18" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_321" id="custoInventarioTotal" columnCaption="Custo Inv.Total" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="custoinventariototal" columnPosicao="19" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_322" id="custoNf" columnCaption="Custo NF" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="custonf" columnPosicao="20" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_323" id="custoDigitado" columnCaption="Custo Digitado" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="custodigitado" columnPosicao="21" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_324" id="custoReal" columnCaption="Custo Real" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="custoreal" columnPosicao="22" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_325" id="custoMedio" columnCaption="Custo M&#xe9;dio" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="customedio" columnPosicao="23" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="9">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_326" id="custoMedioTotal" columnCaption="Custo M&#xe9;dio Total" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="customediototal" columnPosicao="24" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="13" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_327" id="saldo" columnCaption="Saldo" columnCurrency="false" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="saldo" columnPosicao="25" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_328" id="saldo2" columnCaption="Saldo2" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="saldo2" columnPosicao="26" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="17" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_329" id="saldoInventario" columnCaption="Saldo Inventario" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="saldoinventario" columnPosicao="27" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="7">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="19" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_330" id="codProduto" columnCaption="" columnCurrency="true" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="true" columnName="fat_produto_id" columnPosicao="3" columnResolvable="false" columnRowId="true" columnTableName="fat_produto_movto" columnWidth="5">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField0" id="transacaoDesc" columnCalcType="" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="true" columnEditMask="" columnName="fat_transacao" columnPosicao="8" columnResolvable="false" columnTableName="fat_produto_movto" columnWidth="17">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                  </panel>
+                </panel>
+                <panel name="Panel_215" id="panelSaldo" layout="FormLayout">
+                  <formLayout colspecs="168px,2dlu,93px,2dlu,23px,2dlu,168px,5px,102px,2dlu,208px,2dlu,100px" rowspecs="28px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+                  <label name="Label_332" horizontalAlignment="0" horizontalTextPosition="11" text="Produto:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_333" id="produtoCodigoSaldo" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="fat_produto_id" columnPosicao="0" columnResolvable="false" columnRowId="true" columnTableName="fat_produto_saldo" columnWidth="10" fieldNotEdit="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_334" horizontalAlignment="4" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_340" horizontalAlignment="4" horizontalTextPosition="11" text="Almoxarifado:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="almoxarifadoSaldo" columnCaption="Almoxarifado" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="almoxarifado_id" columnNameLookupKey="id" columnNameRelationLookupKey="almoxarifado_id" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfieldlookuprow>
+                  <label name="Label_345" horizontalAlignment="4" horizontalTextPosition="11" text="Ultima Entrada:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_346" horizontalAlignment="4" horizontalTextPosition="11" text="Ultima Sa&#xed;da:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_348" horizontalAlignment="4" horizontalTextPosition="11" text="Ultimo Movimento:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_350" id="ultimaEntrada" columnCaption="Ultima Entrada" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="ultimaentrada" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_353" id="ultimaSaida" columnCaption="Ultima Sa&#xed;da" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="ultimasaida" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_354" id="ultimoMovto" columnCaption="Ultimo Movto" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="true" columnName="ultimomovto" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_355" horizontalAlignment="4" horizontalTextPosition="11" text="Custo M&#xe9;dio:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_356" id="custoMedioSaldo" columnCaption="Custo M&#xe9;dio" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="customedio" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_357" id="custoMedioTotalSaldo" columnCaption="Custo M&#xe9;dio Total" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="customediototal" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_358" id="custoNfSaldo" columnCaption="Custo Nf" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="custonf" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="25" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_359" id="custoRealSaldo" columnCaption="Custo Real" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="custoreal" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_360" id="custoDigitadoSaldo" columnCaption="Custo Reposi&#xe7;&#xe3;o" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="custodigitado" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="27" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_361" horizontalAlignment="4" horizontalTextPosition="11" text="Custo M&#xe9;dio Total:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_362" horizontalAlignment="4" horizontalTextPosition="11" text="Custo Nf:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="25" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_363" horizontalAlignment="4" horizontalTextPosition="11" text="Custo Real:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_364" horizontalAlignment="4" horizontalTextPosition="11" text="Custo de Reposi&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_365" id="saldoProd" columnCaption="Saldo" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="saldo" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_366" id="saldo2Prod" columnCaption="Saldo2" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="saldo2" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_367" id="saldoInventarioProd" columnCaption="Saldo Invent&#xe1;rio" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="saldoinventario" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_368" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_369" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo2:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_370" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo Invent&#xe1;rio:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_371" horizontalAlignment="4" horizontalTextPosition="11" text="Com Defeito:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_372" id="comDefeito" columnCaption="Defeito" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="comdefeito" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="29" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_373" horizontalAlignment="4" horizontalTextPosition="11" text="Consigna&#xe7;&#xe3;o Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_374" id="consignacaoCliente" columnCaption="Consigna&#xe7;&#xe3;o Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="consignacaocliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_375" horizontalAlignment="4" horizontalTextPosition="11" text="Pedido Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_376" id="pedidoCliente" columnCaption="Pedido Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="pedidocliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_377" horizontalAlignment="4" horizontalTextPosition="11" text="Reserva Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_379" id="reservaCliente" columnCaption="Reserva Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="reservacliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_380" horizontalAlignment="4" horizontalTextPosition="11" text="Or&#xe7;amento Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_381" id="orcamentoCliente" columnCaption="Or&#xe7;amento Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="orcamentocliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_382" horizontalAlignment="4" horizontalTextPosition="11" text="Demonstra&#xe7;&#xe3;o Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_383" horizontalAlignment="4" horizontalTextPosition="11" text="Conserto Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_384" horizontalAlignment="4" horizontalTextPosition="11" text="Entrega Futura Cliente:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_387" id="consertoCliente" columnCaption="COncerto Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="consertocliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_388" id="demonstracaoCliente" columnCaption="Demonstra&#xe7;&#xe3;o Cliente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="demonstracaocliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_389" id="entregaFuturaCliente" columnCaption="Entrega Futura" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="entregafuturacliente" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_390" horizontalAlignment="4" horizontalTextPosition="11" text="Consigna&#xe7;&#xe3;o Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_391" id="consignacaoFornecedor" columnCaption="COnsigna&#xe7;&#xe3;o Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="consignacaofornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_392" horizontalAlignment="4" horizontalTextPosition="11" text="Pedido Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_393" id="pedidoFornecedor" columnCaption="Pedido Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="pedidofornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="9" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <label name="Label_394" horizontalAlignment="4" horizontalTextPosition="11" text="Reserva Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_395" horizontalAlignment="4" horizontalTextPosition="11" text="Or&#xe7;amento Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_396" horizontalAlignment="4" horizontalTextPosition="11" text="Demonstra&#xe7;&#xe3;o Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_397" horizontalAlignment="4" horizontalTextPosition="11" text="Conserto Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <label name="Label_398" horizontalAlignment="4" horizontalTextPosition="11" text="Entrega Futura Fornecedor:" verticalAlignment="0" verticalTextPosition="0">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </label>
+                  <kawdbtextfield name="KawDbTextField_399" id="reservaFornecedor" columnCaption="Reserva Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="reservafornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="11" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_400" id="orcamentoFornecedor" columnCaption="Or&#xe7;amento Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="orcamentofornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="13" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_401" id="demonstracaoFornecedor" columnCaption="Demonstra&#xe7;&#xe3;o Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="demonstracaofornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="15" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_402" id="consertoFornecedor" columnCaption="COncerto Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="consertofornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="17" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawdbtextfield name="KawDbTextField_403" id="entregaFuturaFornecedor" columnCaption="Entrega Futura Fornecedor" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="entregafuturafornecedor" columnPosicao="5" columnReadOnly="false" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="19" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfield>
+                  <kawlookupbutton name="KawLookupButtonFilial" id="lookupButtonFilialSaldo" action="actionLookupFilialSaldo" columnDestino="cad_filial_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="fat_produto_saldo" parameterQColumns="cad_filial_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia FROM cad_filial WHERE id = :cad_filial_id ORDER BY id;" xmlLookupView="LookupFilial.xml">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </kawlookupbutton>
+                  <kawlookupbutton name="KawLookupButtonAlmoxarifado" id="lookupButtonAlmoxarifadoSaldo" action="actionLookupAlmoxarifadoSaldo" columnDestino="almoxarifado_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_almoxarifado  " kawTableNameRelation="fat_produto_saldo" parameterQColumns="almoxarifado_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_almoxarifado  ORDER BY id" xmlLookupView="LookupAmoxarifado.xml">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                  </kawlookupbutton>
+                  <scrollpane name="ScrollPane_409" visible="false" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                    <cellconstraints gridHeight="5" gridWidth="1" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
+                    <kawdbtable name="Saldo" id="fat_produto_saldo" connection="jkawflex" hidden="true" kawTableName="fat_produto_saldo" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_produto_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="fat_produto" parameterQColumns="id" parameterQColumnsCaption="Codigo" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM fat_produto_saldo WHERE fat_produto_id = :id"/>
+                  </scrollpane>
+                  <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="filialSaldoLookup" columnCalcType="CALC" columnCaption="Filial" columnDataType="STRING" columnEditable="false" columnName="filial_saldo_lookup" columnNameLookupRow="cad_filial_id" columnNameOriginLookupRow="razaosocial" columnPosicao="5" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="10">
+                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Fill" vAlign="Default"/>
+                  </kawdbtextfieldlookup>
+                  <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="filialSaldo" columnCaption="Filial" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="cad_filial_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_filial_id" columnPosicao="0" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="5" editable="true">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                  </kawdbtextfieldlookuprow>
+                  <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="almoxarifadoLookup" columnCalcType="CALC" columnCaption="Almoxarifado" columnDataType="STRING" columnEditable="false" columnName="almoxarifado_saldo_lookup" columnNameLookupRow="almoxarifado_id" columnNameOriginLookupRow="descricao" columnPosicao="5" columnResolvable="false" columnRowId="false" columnTableName="fat_produto_saldo" columnWidth="10">
+                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="5" hAlign="Fill" vAlign="Default"/>
+                  </kawdbtextfieldlookup>
+                </panel>
+              </tabbedpane>
+            </panel>
+            <panel name="Panel_60" id="outrosDados" layout="FormLayout">
+              <formLayout colspecs="140px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+              <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_72" id="dataAlt" columnCaption="Data Alt." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="dataalteracao" columnRowId="false" columnTableName="fat_produto" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_73" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_74" id="horaAlt" columnCaption="Hora Alt." columnDataType="TIME" columnDisplayMask="HH:mm:ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horaalteracao" columnRowId="false" columnTableName="fat_produto" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_75" horizontalAlignment="0" horizontalTextPosition="11" text="Data Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_76" id="dataInc" columnCaption="Data Inc." columnDataType="DATE" columnDisplayMask="dd/MM/yy" columnEditMask="dd/MM/yy" columnHidden="true" columnName="datainclusao" columnRowId="false" columnTableName="fat_produto" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridX="3" gridY="1"/>
+              </kawdbtextfield>
+              <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="Hora Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_78" id="horaInc" columnCaption="Hora Inc." columnDataType="TIME" columnDisplayMask="HH:mm.ss" columnEditMask="HH:mm:ss" columnHidden="true" columnName="horainclusao" columnRowId="false" columnTableName="fat_produto" columnWidth="10" editable="false" fieldNotEdit="true">
+                <cellconstraints gridX="3" gridY="7"/>
+              </kawdbtextfield>
+              <label name="Label_79" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Inclus&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_80" id="usuarioInclusao" columnCaption="Usuariao Inc." columnDataType="STRING" columnHidden="true" columnName="usuarioinclusao" columnRowId="false" columnTableName="fat_produto" columnWidth="30" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="Usuario Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_82" id="usuarioAlteracao" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_produto" columnWidth="30" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="6" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+            </panel>
+          </tabbedpane>
+        </panel>
+      </tabbedpane>
+      <panel constraints="BorderLayout.NORTH" name="Panel0" id="" layout="BorderLayout">
+        <panel constraints="BorderLayout.WEST" name="Panel0" id="panel_selecao" layout="BorderLayout" include="xml/ProdutoPanelSelecao.xml#PANEL_SELECAO"/>
+      </panel>
+    </panel>
+  </panel>
+</panel>
+<!--lastNameIndex=422-->
+<!--lastIdIndex=0-->
