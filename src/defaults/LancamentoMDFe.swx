@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<panel xmlns="http://" bounds="2,23,1124,768" constraints="BorderLayout.CENTER" name="Panel_Lancamento" id="lancamento" layout="BorderLayout">
+<panel xmlns="http://" bounds="2,23,1124,600" constraints="BorderLayout.CENTER" name="Panel_Lancamento" id="lancamento" layout="BorderLayout">
   <panel constraints="BorderLayout.CENTER" name="Panel_ListaGeral" id="" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_12" id="tabbedPane_fat_docto_c" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar, MDF-e / Anexos">
       <panel name="Panel_Lista" id="panelMainLista" layout="BorderLayout">
@@ -8,159 +8,10 @@
         </scrollpane>
       </panel>
       <panel name="Panel_Editar" id="panelMainEditar" layout="BorderLayout">
-        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPane_fat_docto" mnemonics="71, 68, 73, 84, 79" tabPlacement="1" titles="Geral,Desdobramento das parcelas,Informa&#xe7;&#xf5;es para custo,Ve&#xed;culo,Dados adicionais,NF/NF-e/CT-e/Cupom Referenciados,Outros dados">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPane_fat_docto" mnemonics="71, 68, 73, 84, 79" tabPlacement="1" titles="Geral,Dados do Percurso,Desdobramento das parcelas,Informa&#xe7;&#xf5;es para custo,Ve&#xed;culo,Dados adicionais,NF/NF-e/CT-e/Cupom Referenciados,Outros dados">
           <panel name="Panel2" id="panelGeral" layout="BorderLayout">
-            <panel constraints="BorderLayout.WEST" name="Panel2" layout="BorderLayout">
-              <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane3" horizontalScrollBarPolicy="30" verticalScrollBarPolicy="20">
-                <panel name="Panel0" layout="BorderLayout">
-                  <panel constraints="BorderLayout.SOUTH" name="Panel1" border="TitledBorder(Totais da Carga:)" layout="BorderLayout">
-                    <panel constraints="BorderLayout.NORTH" name="Panel2" layout="FormLayout">
-                      <formLayout colspecs="628px,2dlu,148px,2dlu,default,2dlu" rowspecs="default,2dlu,default,2dlu,default"/>
-                      <label name="Label0" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="Valor Total da Mercadoria/Carga Transportada:" verticalAlignment="0" verticalTextPosition="0">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
-                      </label>
-                      <label name="Label0" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="C&#xf3;digo da Unidade de Medida do Peso Bruto da Carga / Mercadorias Transportada:" verticalAlignment="0" verticalTextPosition="0">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
-                      </label>
-                      <label name="Label1" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="Peso Bruto Total da Carga / Mercadoria Transportada:" verticalAlignment="0" verticalTextPosition="0">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
-                      </label>
-                      <kawdbtextfield name="KawDbTextField3" id="mdfe_totalmercadorias" columnCaption="Total Mercadorias" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="mdfe_totalmercadorias" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true" fieldNotEdit="false" hidden="false">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Fill" vAlign="Default"/>
-                      </kawdbtextfield>
-                      <kawdbtextfield name="KawDbTextField1" id="mdfe_pesobrutocarga" columnCaption="Total Docto" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="mdfe_pesobrutocarga" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true" fieldNotEdit="false" hidden="false">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Fill" vAlign="Default"/>
-                      </kawdbtextfield>
-                      <kawdbcombobox name="KawDbComboBoxUnPeso" id="mdfeUnPesobrutocarga" columnCaption="Unidade Carga" columnDataType="STRING" columnDestino="mdfe_un_pesobrutocarga" columnEditable="true" columnName="mdfe_un_pesobrutocarga" columnPosicao="12" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="15" connection="jkawflex" displayColumns="classificacao,sequencial" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='fat_docto_c' AND coluna='mdfe_un_pesobrutocarga' ORDER BY sequencial">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                      </kawdbcombobox>
-                    </panel>
-                  </panel>
-                  <panel constraints="BorderLayout.NORTH" name="Panel2" layout="FlowLayout">
-                    <panel name="Panel0" layout="BorderLayout">
-                      <panel constraints="BorderLayout.NORTH" name="Panel1" border="TitledBorder(Local de Carregamento:)" id="panelCarregamento" layout="BorderLayout">
-                        <panel constraints="BorderLayout.EAST" name="Panel1" layout="FormLayout">
-                          <formLayout colspecs="364px,2dlu" rowspecs="292px,2dlu"/>
-                          <tabbedpane name="TabbedPane1" id="tabbedPane_fat_docto_loccarga" tabPlacement="1" titles="Editar">
-                            <cellconstraints gridX="1" gridY="1"/>
-                            <panel name="Panel5" layout="BorderLayout">
-                              <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
-                                <formLayout colspecs="73px,2dlu,23px,2dlu,70px,2dlu,137px,35px" rowspecs="default,2dlu,default,4dlu"/>
-                                <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Cidade:" verticalAlignment="0" verticalTextPosition="0">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
-                                </label>
-                                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="cidadeId" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_mun_id" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="true" columnTableName="fat_docto_loccarga" editable="true" enable="true">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfieldlookuprow>
-                                <kawlookupbutton name="KawLookupButtonLocalCarga" id="cidadesLookupButton" action="lookupCidade" columnDestino="cad_mun_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_mun" kawTableNameRelation="fat_docto_loccarga" parameterQColumns="cad_mun_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,municipio,uf,codigoibge FROM cad_mun WHERE  id = :cad_mun_id" text="" xmlLookupView="LookupCidades.xml">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawlookupbutton>
-                                <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="cidadeLookup" columnCalcType="CALC" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="cidade_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="municipio" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="20" editable="false" enable="false">
-                                  <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfieldlookup>
-                                <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="ufLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="uf" columnPosicao="2" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="20">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="3" hAlign="Right" vAlign="Default"/>
-                                </kawdbtextfieldlookup>
-                                <kawdbtextfield name="KawDbTextField0" id="controleLocCarga" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnResolvable="true" columnRowId="true" columnTableName="fat_docto_loccarga" fieldNotEdit="true" hidden="true">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfield>
-                                <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="codigoIbgeLookup" columnCalcType="CALC" columnCaption="C&#xf3;d. IBGE" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="false" columnName="codigoibge" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="codigoibge" columnPosicao="8" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="10">
-                                  <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="1" hAlign="Right" vAlign="Default"/>
-                                </kawdbtextfieldlookup>
-                              </panel>
-                              <panel constraints="BorderLayout.CENTER" name="Panel5" layout="BorderLayout">
-                                <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                                  <kawdbtable name="Local de Carregamento" id="fat_docto_loccarga" connection="jkawflex" kawTableName="fat_docto_loccarga" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="fat_docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="controle" linkMasterTable="fat_docto_c" parameterQColumns="controle" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_docto_c_controle, cad_mun_id FROM  fat_docto_loccarga WHERE fat_docto_c_controle = :controle"/>
-                                </scrollpane>
-                              </panel>
-                              <panel constraints="BorderLayout.SOUTH" name="Panel6" layout="BorderLayout">
-                                <panel constraints="BorderLayout.CENTER" name="Panel7" id="panelButtonLocCarga" layout="FlowLayout">
-                                  <button name="Button1" id="insereButton_fat_docto_loccarga" preferredSize="170,25" actionCommand="fat_docto_loccarga" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Local" verticalAlignment="0" verticalTextPosition="0"/>
-                                  <button name="Button2" id="excluiButton_fat_docto_loccarga" preferredSize="170,25" actionCommand="fat_docto_loccarga" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Local" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
-                                </panel>
-                              </panel>
-                            </panel>
-                          </tabbedpane>
-                        </panel>
-                      </panel>
-                    </panel>
-                    <panel name="Panel2" id="panelPercurso" layout="BorderLayout">
-                      <panel constraints="BorderLayout.NORTH" name="Panel3" border="TitledBorder(Estados/UF do Percurso:)" layout="BorderLayout">
-                        <panel constraints="BorderLayout.CENTER" name="Panel0" layout="FormLayout">
-                          <formLayout colspecs="356px,2dlu" rowspecs="290px,2dlu"/>
-                          <tabbedpane name="TabbedPane1" id="tabbedPane_fat_docto_ufpercurso" tabPlacement="1" titles="Editar">
-                            <cellconstraints gridX="1" gridY="1"/>
-                            <panel name="Panel5" layout="BorderLayout">
-                              <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
-                                <formLayout colspecs="87px,2dlu,23px,2dlu,70px,2dlu,142px,24px" rowspecs="default,2dlu,default,4dlu"/>
-                                <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Estado/UF" verticalAlignment="0" verticalTextPosition="0">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
-                                </label>
-                                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="estadoId" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_estado_id" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="true" columnTableName="fat_docto_ufpercurso" editable="true" enable="true">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfieldlookuprow>
-                                <kawlookupbutton name="KawLookupButtonUfPercurso" id="estadoLookupButton" action="lookupCidade" columnDestino="cad_estado_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="fat_docto_ufpercurso" paintingForPrint="true" parameterQColumns="cad_estado_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,estado,uf,codigoibge FROM cad_estado WHERE  id = :cad_estado_id" text="" xmlLookupView="LookupEstado.xml">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawlookupbutton>
-                                <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="estadoLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnEditable="false" columnName="estado_lookup" columnNameLookupRow="cad_estado_id" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_ufpercurso" columnWidth="20" editable="false" enable="false">
-                                  <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfieldlookup>
-                                <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="ufEstadoLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_estado_id" columnNameOriginLookupRow="uf" columnPosicao="2" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_ufpercurso" columnWidth="20">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="3" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfieldlookup>
-                                <kawdbtextfield name="KawDbTextField0" id="controleUfPercurso" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnRowId="true" columnTableName="fat_docto_ufpercurso" fieldNotEdit="true" hidden="true">
-                                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
-                                </kawdbtextfield>
-                              </panel>
-                              <panel constraints="BorderLayout.CENTER" name="Panel5" layout="BorderLayout">
-                                <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                                  <kawdbtable name="Uf do Percurso" id="fat_docto_ufpercurso" connection="jkawflex" kawTableName="fat_docto_ufpercurso" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="fat_docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="controle" linkMasterTable="fat_docto_c" parameterQColumns="controle" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_docto_c_controle, cad_estado_id FROM  fat_docto_ufpercurso WHERE fat_docto_c_controle = :controle"/>
-                                </scrollpane>
-                              </panel>
-                              <panel constraints="BorderLayout.SOUTH" name="Panel6" layout="BorderLayout">
-                                <panel constraints="BorderLayout.CENTER" name="Panel7" id="panelButtonPercurso" layout="FlowLayout">
-                                  <button name="Button1" id="insereButton_fat_docto_ufpercurso" preferredSize="170,25" actionCommand="fat_docto_ufpercurso" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Estado/UF" verticalAlignment="0" verticalTextPosition="0"/>
-                                  <button name="Button2" id="excluiButton_fat_docto_ufpercurso" preferredSize="170,25" actionCommand="fat_docto_ufpercurso" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Estado/UF" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
-                                </panel>
-                              </panel>
-                            </panel>
-                          </tabbedpane>
-                        </panel>
-                      </panel>
-                    </panel>
-                    <panel name="Panel3" border="TitledBorder(Estados/UF de Descarga:)" layout="BorderLayout">
-                      <panel constraints="BorderLayout.CENTER" name="Panel6" layout="FormLayout">
-                        <formLayout colspecs="310px,2dlu" rowspecs="274px,2dlu"/>
-                        <panel name="Panel0" layout="BorderLayout">
-                          <cellconstraints gridX="1" gridY="1" hAlign="Fill" vAlign="Fill"/>
-                          <panel constraints="BorderLayout.NORTH" name="Panel0" layout="FormLayout">
-                            <formLayout colspecs="87px,2dlu,23px,2dlu,70px,2dlu,106px" rowspecs="default,2dlu,default,4dlu"/>
-                            <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Estado/UF" verticalAlignment="0" verticalTextPosition="0">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
-                            </label>
-                            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow2" id="estadoIdDescarga" columnCaption="UF Descarga" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_estado_iddescarga" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" editable="true" enable="true">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
-                            </kawdbtextfieldlookuprow>
-                            <kawlookupbutton name="KawLookupButtonUfDescarga" id="estadoDescargaLookupButton" action="lookupCidade" columnDestino="cad_estado_iddescarga" columnOrigem="id" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="fat_docto_c" parameterQColumns="cad_estado_iddescarga" parameterQColumnsDataType="INT" queryDataSet="SELECT id,estado,uf,codigoibge FROM cad_estado WHERE  id = :cad_estado_iddescarga" text="" xmlLookupView="LookupEstado.xml">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                            </kawlookupbutton>
-                            <kawdbtextfieldlookup name="KawDbTextFieldLookup4" id="estadoDescargaLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnEditable="false" columnName="estado_lookup_descarga" columnNameLookupRow="cad_estado_iddescarga" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" editable="false" enable="false">
-                              <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-                            </kawdbtextfieldlookup>
-                            <kawdbtextfield name="KawDbTextField5" id="controleUfDescarga" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnTableName="fat_docto_c" fieldNotEdit="true" hidden="true">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
-                            </kawdbtextfield>
-                          </panel>
-                          <panel constraints="BorderLayout.SOUTH" name="Panel6" visible="false" layout="BorderLayout" include="xml/LctoPanelItens.xml#PANEL_ITENS"/>
-                        </panel>
-                      </panel>
-                    </panel>
-                  </panel>
-                </panel>
-              </scrollpane>
-            </panel>
-            <panel constraints="BorderLayout.NORTH" name="Panel0" id="cabec" preferredSize="0,100" visible="true" layout="FormLayout">
-              <formLayout colspecs="153px,2dlu,75px,2dlu,36px,13px,25px,2dlu,154px,2dlu,119px,2dlu,97px,2dlu,20px,1dlu,29px,2dlu,70px,2dlu,32px,2dlu,122px" rowspecs="default,default,default,default,default,default,pref"/>
+            <panel constraints="BorderLayout.NORTH" name="Panel0" id="cabec" preferredSize="0,300" visible="true" layout="FormLayout">
+              <formLayout colspecs="153px,2dlu,75px,2dlu,36px,13px,25px,2dlu,154px,2dlu,119px,2dlu,97px,2dlu,20px,1dlu,29px,2dlu,70px,2dlu,32px,2dlu,122px" rowspecs="default,default,default,default,default,default,10dlu,default,default,default,default"/>
               <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xb0; Controle:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
@@ -312,6 +163,146 @@
               <kawdblabel name="KawDbLabel50" id="labelStatusDocto" columnName="statusdocto" text="...">
                 <cellconstraints gridX="3" gridY="7"/>
               </kawdblabel>
+              <label name="Label0" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="Valor Total da Mercadoria/Carga Transportada:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="11" gridX="1" gridY="8" hAlign="Default" vAlign="Default"/>
+              </label>
+              <label name="Label2" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="C&#xf3;digo da Unidade de Medida do Peso Bruto da Carga / Mercadorias Transportada:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="11" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+              </label>
+              <label name="Label3" font="Arial-12-BOLD" horizontalAlignment="4" horizontalTextPosition="11" text="Peso Bruto Total da Carga / Mercadoria Transportada:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="11" gridX="1" gridY="10" hAlign="Default" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField0" id="mdfe_totalmercadorias" columnCaption="Total Mercadorias" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="mdfe_totalmercadorias" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true" fieldNotEdit="false" hidden="false">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="8" hAlign="Fill" vAlign="Default"/>
+              </kawdbtextfield>
+              <kawdbcombobox name="KawDbComboBox1" id="mdfeUnPesobrutocarga" columnCaption="Unidade Carga" columnDataType="STRING" columnDestino="mdfe_un_pesobrutocarga" columnEditable="true" columnName="mdfe_un_pesobrutocarga" columnPosicao="12" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="15" connection="jkawflex" displayColumns="classificacao,sequencial" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='fat_docto_c' AND coluna='mdfe_un_pesobrutocarga' ORDER BY sequencial">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="9" hAlign="Default" vAlign="Default"/>
+              </kawdbcombobox>
+              <kawdbtextfield name="KawDbTextField2" id="mdfe_pesobrutocarga" columnCaption="Total Docto" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="mdfe_pesobrutocarga" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true" fieldNotEdit="false" hidden="false">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="10" hAlign="Fill" vAlign="Default"/>
+              </kawdbtextfield>
+            </panel>
+          </panel>
+          <panel name="Panel0" layout="BorderLayout">
+            <panel constraints="BorderLayout.WEST" name="Panel1" layout="FlowLayout">
+              <panel name="Panel2" layout="BorderLayout">
+                <panel constraints="BorderLayout.NORTH" name="Panel1" border="TitledBorder(Local de Carregamento:)" id="panelCarregamento" layout="BorderLayout">
+                  <panel constraints="BorderLayout.EAST" name="Panel1" layout="FormLayout">
+                    <formLayout colspecs="364px,2dlu" rowspecs="292px,2dlu"/>
+                    <tabbedpane name="TabbedPane1" id="tabbedPane_fat_docto_loccarga" tabPlacement="1" titles="Editar">
+                      <cellconstraints gridX="1" gridY="1"/>
+                      <panel name="Panel5" layout="BorderLayout">
+                        <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
+                          <formLayout colspecs="73px,2dlu,23px,2dlu,70px,2dlu,137px,35px" rowspecs="default,2dlu,default,4dlu"/>
+                          <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Cidade:" verticalAlignment="0" verticalTextPosition="0">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
+                          </label>
+                          <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="cidadeId" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_mun_id" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="true" columnTableName="fat_docto_loccarga" editable="true" enable="true">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfieldlookuprow>
+                          <kawlookupbutton name="KawLookupButtonLocalCarga" id="cidadesLookupButton" action="lookupCidade" columnDestino="cad_mun_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_mun" kawTableNameRelation="fat_docto_loccarga" parameterQColumns="cad_mun_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,municipio,uf,codigoibge FROM cad_mun WHERE  id = :cad_mun_id" text="" xmlLookupView="LookupCidades.xml">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawlookupbutton>
+                          <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="cidadeLookup" columnCalcType="CALC" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="cidade_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="municipio" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="20" editable="false" enable="false">
+                            <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfieldlookup>
+                          <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="ufLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="uf" columnPosicao="2" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="20">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="3" hAlign="Right" vAlign="Default"/>
+                          </kawdbtextfieldlookup>
+                          <kawdbtextfield name="KawDbTextField0" id="controleLocCarga" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnResolvable="true" columnRowId="true" columnTableName="fat_docto_loccarga" fieldNotEdit="true" hidden="true">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfield>
+                          <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="codigoIbgeLookup" columnCalcType="CALC" columnCaption="C&#xf3;d. IBGE" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="false" columnName="codigoibge" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="codigoibge" columnPosicao="8" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_loccarga" columnWidth="10">
+                            <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="1" hAlign="Right" vAlign="Default"/>
+                          </kawdbtextfieldlookup>
+                        </panel>
+                        <panel constraints="BorderLayout.CENTER" name="Panel5" layout="BorderLayout">
+                          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                            <kawdbtable name="Local de Carregamento" id="fat_docto_loccarga" connection="jkawflex" kawTableName="fat_docto_loccarga" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="fat_docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="controle" linkMasterTable="fat_docto_c" parameterQColumns="controle" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_docto_c_controle, cad_mun_id FROM  fat_docto_loccarga WHERE fat_docto_c_controle = :controle"/>
+                          </scrollpane>
+                        </panel>
+                        <panel constraints="BorderLayout.SOUTH" name="Panel6" layout="BorderLayout">
+                          <panel constraints="BorderLayout.CENTER" name="Panel7" id="panelButtonLocCarga" layout="FlowLayout">
+                            <button name="Button1" id="insereButton_fat_docto_loccarga" preferredSize="170,25" actionCommand="fat_docto_loccarga" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Local" verticalAlignment="0" verticalTextPosition="0"/>
+                            <button name="Button2" id="excluiButton_fat_docto_loccarga" preferredSize="170,25" actionCommand="fat_docto_loccarga" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Local" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+                          </panel>
+                        </panel>
+                      </panel>
+                    </tabbedpane>
+                  </panel>
+                </panel>
+              </panel>
+              <panel name="Panel3" id="panelPercurso" layout="BorderLayout">
+                <panel constraints="BorderLayout.NORTH" name="Panel3" border="TitledBorder(Estados/UF do Percurso:)" layout="BorderLayout">
+                  <panel constraints="BorderLayout.CENTER" name="Panel0" layout="FormLayout">
+                    <formLayout colspecs="356px,2dlu" rowspecs="290px,2dlu"/>
+                    <tabbedpane name="TabbedPane1" id="tabbedPane_fat_docto_ufpercurso" tabPlacement="1" titles="Editar">
+                      <cellconstraints gridX="1" gridY="1"/>
+                      <panel name="Panel5" layout="BorderLayout">
+                        <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
+                          <formLayout colspecs="87px,2dlu,23px,2dlu,70px,2dlu,142px,24px" rowspecs="default,2dlu,default,4dlu"/>
+                          <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Estado/UF" verticalAlignment="0" verticalTextPosition="0">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
+                          </label>
+                          <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="estadoId" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_estado_id" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="true" columnTableName="fat_docto_ufpercurso" editable="true" enable="true">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfieldlookuprow>
+                          <kawlookupbutton name="KawLookupButtonUfPercurso" id="estadoLookupButton" action="lookupCidade" columnDestino="cad_estado_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="fat_docto_ufpercurso" paintingForPrint="true" parameterQColumns="cad_estado_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,estado,uf,codigoibge FROM cad_estado WHERE  id = :cad_estado_id" text="" xmlLookupView="LookupEstado.xml">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawlookupbutton>
+                          <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="estadoLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnEditable="false" columnName="estado_lookup" columnNameLookupRow="cad_estado_id" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_ufpercurso" columnWidth="20" editable="false" enable="false">
+                            <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfieldlookup>
+                          <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="ufEstadoLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_estado_id" columnNameOriginLookupRow="uf" columnPosicao="2" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_ufpercurso" columnWidth="20">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="3" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfieldlookup>
+                          <kawdbtextfield name="KawDbTextField0" id="controleUfPercurso" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnRowId="true" columnTableName="fat_docto_ufpercurso" fieldNotEdit="true" hidden="true">
+                            <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                          </kawdbtextfield>
+                        </panel>
+                        <panel constraints="BorderLayout.CENTER" name="Panel5" layout="BorderLayout">
+                          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                            <kawdbtable name="Uf do Percurso" id="fat_docto_ufpercurso" connection="jkawflex" kawTableName="fat_docto_ufpercurso" linkCascadeDeletes="true" linkCascadeUpdates="false" linkDetailColumns="fat_docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="controle" linkMasterTable="fat_docto_c" parameterQColumns="controle" parameterQColumnsDataType="INT" queryDataSet="SELECT fat_docto_c_controle, cad_estado_id FROM  fat_docto_ufpercurso WHERE fat_docto_c_controle = :controle"/>
+                          </scrollpane>
+                        </panel>
+                        <panel constraints="BorderLayout.SOUTH" name="Panel6" layout="BorderLayout">
+                          <panel constraints="BorderLayout.CENTER" name="Panel7" id="panelButtonPercurso" layout="FlowLayout">
+                            <button name="Button1" id="insereButton_fat_docto_ufpercurso" preferredSize="170,25" actionCommand="fat_docto_ufpercurso" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo Estado/UF" verticalAlignment="0" verticalTextPosition="0"/>
+                            <button name="Button2" id="excluiButton_fat_docto_ufpercurso" preferredSize="170,25" actionCommand="fat_docto_ufpercurso" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar Estado/UF" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+                          </panel>
+                        </panel>
+                      </panel>
+                    </tabbedpane>
+                  </panel>
+                </panel>
+              </panel>
+              <panel name="Panel4" border="TitledBorder(Estados/UF de Descarga:)" layout="BorderLayout">
+                <panel constraints="BorderLayout.CENTER" name="Panel6" layout="FormLayout">
+                  <formLayout colspecs="310px,2dlu" rowspecs="224px,2dlu"/>
+                  <panel name="Panel0" layout="BorderLayout">
+                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Fill" vAlign="Fill"/>
+                    <panel constraints="BorderLayout.NORTH" name="Panel0" layout="FormLayout">
+                      <formLayout colspecs="87px,2dlu,23px,2dlu,70px,2dlu,106px" rowspecs="default,2dlu,default,4dlu"/>
+                      <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Estado/UF" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow2" id="estadoIdDescarga" columnCaption="UF Descarga" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_estado_iddescarga" columnNameLookupKey="id" columnPosicao="0" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" editable="true" enable="true">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButtonUfDescarga" id="estadoDescargaLookupButton" action="lookupCidade" columnDestino="cad_estado_iddescarga" columnOrigem="id" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="fat_docto_c" parameterQColumns="cad_estado_iddescarga" parameterQColumnsDataType="INT" queryDataSet="SELECT id,estado,uf,codigoibge FROM cad_estado WHERE  id = :cad_estado_iddescarga" text="" xmlLookupView="LookupEstado.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup4" id="estadoDescargaLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnEditable="false" columnName="estado_lookup_descarga" columnNameLookupRow="cad_estado_iddescarga" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" editable="false" enable="false">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <kawdbtextfield name="KawDbTextField5" id="controleUfDescarga" columnDataType="LONG" columnHidden="true" columnName="fat_docto_c_controle" columnTableName="fat_docto_c" fieldNotEdit="true" hidden="true">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                    </panel>
+                    <panel constraints="BorderLayout.SOUTH" name="Panel6" visible="false" layout="BorderLayout" include="xml/LctoPanelItens.xml#PANEL_ITENS"/>
+                  </panel>
+                </panel>
+              </panel>
             </panel>
           </panel>
           <panel name="Panel5" visible="true" layout="BorderLayout" include="xml/LctoPanelParcelas.xml#PANEL_PARCELAS"/>

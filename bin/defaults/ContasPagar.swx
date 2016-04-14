@@ -296,7 +296,7 @@
     <panel constraints="BorderLayout.WEST" name="Panel2" id="pnl_Nav2" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel3" layout="BorderLayout">
         <panel constraints="BorderLayout.EAST" name="Panel1" layout="FlowLayout">
-          <button name="Button_10" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+          <button name="Button_10" id="btnFechar" preferredSize="0,0" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
         <panel constraints="BorderLayout.WEST" name="Panel2" layout="FlowLayout">
           <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es " id="navToolBar" paintingTile="true" tips="true"/>
@@ -305,6 +305,7 @@
         </panel>
       </panel>
     </panel>
+    <kawlookupbutton constraints="BorderLayout.EAST" name="KawLookupButton0" id="itensFaturadoLookupButton" action="lookupItensFat" columnDestino="fatura" columnOrigem="fat_docto_c_controle" columnsNameInitialKey="fatura" connection="jkawflex" inheritsPopupMenu="true" kawTableName="fat_docto_i" kawTableNameRelation="financ_rp" label="Consulta Itens Faturado" parameterQColumns="fatura" parameterQColumnsDataType="LONG" preferredSize="250,20" queryDataSet="SELECT fat_docto_c_controle,fat_produto_id,fat_produto.descricao AS produto_lookup, fat_produto.unidadepadraovenda AS unidadepadraovenda_lookup, numero_docto,fat_transacao_id,cad_filial_id,seriedocto_codigo,qtde,valor_unitario,valor_unitario_liquido,desc_perc_unitario,valor_total_liquido,fat_docto_i.dataalteracao,fat_docto_i.horaalteracao,fat_docto_i.usuarioalteracao,fat_docto_i.datainclusao,fat_docto_i.horainclusao,fat_docto_i.usuarioinclusao  FROM  fat_docto_i  INNER JOIN fat_produto ON fat_produto.id = fat_produto_id WHERE fat_docto_c_controle = :fatura ORDER BY fat_docto_i.datainclusao, fat_docto_i.horaalteracao" xmlLookupView="LookupItensFaturado.xml"/>
   </panel>
   <panel constraints="BorderLayout.NORTH" name="Panel_9" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_11" visible="false" layout="FormLayout">
