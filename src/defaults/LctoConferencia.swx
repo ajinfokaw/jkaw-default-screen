@@ -9,6 +9,7 @@
         <panel constraints="BorderLayout.EAST" name="Panel_983" layout="BorderLayout">
           <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_985" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22"/>
         </panel>
+        <splitpane constraints="BorderLayout.CENTER" name="SplitPane_987" dividerLocation="15"/>
       </panel>
       <panel name="Panel0" layout="BorderLayout">
         <panel constraints="BorderLayout.CENTER" name="Panel0" id="panelEditar" layout="BorderLayout">
@@ -269,5 +270,5 @@
   </panel>
   <panel constraints="BorderLayout.NORTH" name="Panel_Selecao" id="Panel_Selecao" visible="false" layout="BorderLayout" include="xml/LctoPanelSelecao.xml#PANEL_SELECAO"/>
 </dialog>
-<!--lastNameIndex=986-->
+<!--lastNameIndex=987-->
 <!--lastIdIndex=0-->
