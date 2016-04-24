@@ -196,7 +196,7 @@
                 <kawdbtextfield name="KawDbTextField58" id="dataCadastro" columnCaption="Dt.Cadastro" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datacadastro" columnRowId="false" columnTableName="cad_cadastro" fieldNotEdit="true">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="19" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField59" id="numero" columnCaption="No." columnDataType="STRING" columnDisplayMask="ccccccccaccc" columnEditMask="ccccccccaccc" columnName="numero" columnPosicao="11" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="5">
+                <kawdbtextfield name="KawDbTextField59" id="numero" columnCaption="No." columnDataType="STRING" columnDisplayMask="ccccccccaccc" columnEditMask="" columnName="numero" columnPosicao="11" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="5">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="12" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label60" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="_Cidade:" verticalAlignment="0" verticalTextPosition="0">
