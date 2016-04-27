@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dialog xmlns="http://" bounds="8,19,826,318" id="ListagemProdutoMovto" layout="BorderLayout" title="Raz&#xe3;o por Classe Gerencial">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
-    <formLayout colspecs="220px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,default" rowspecs="default,2dlu,23px,2dlu,29px,2dlu,default,2dlu,default,2dlu,26px,2dlu,default,2dlu,default,2dlu,default"/>
+    <formLayout colspecs="220px,2dlu,109px,2dlu,21px,2dlu,113px,2dlu,303px,default" rowspecs="default,2dlu,23px,2dlu,29px,2dlu,default,2dlu,default,2dlu,26px,2dlu,default,2dlu,default,2dlu,default"/>
     <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Conta Inicial:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
     </label>
