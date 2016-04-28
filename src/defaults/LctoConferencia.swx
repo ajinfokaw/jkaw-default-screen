@@ -3,13 +3,15 @@
   <panel constraints="BorderLayout.CENTER" name="Panel-principal" id="panelPrincipal" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane5" id="tabbedPane_fat_docto_c" mnemonics="76,69" tabPlacement="1" titles="Confer&#xea;ncia dos Itens/Produtos,Venda">
       <panel name="Panel_979" layout="BorderLayout">
-        <panel constraints="BorderLayout.WEST" name="Panel_982" layout="BorderLayout">
-          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_986" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22"/>
+        <panel constraints="BorderLayout.NORTH" name="Panel_989" layout="FormLayout">
+          <formLayout colspecs="209px,2dlu,92px,2dlu,default,2dlu,default" rowspecs="default,2dlu,default,2dlu,default"/>
+          <label name="Label_990" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xb0; Controle:" verticalAlignment="0" verticalTextPosition="0">
+            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+          </label>
+          <kawdbtextfield name="KawDbTextField_991" id="nControle" columnAutoIncrement="true" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnFixedPrecision="false" columnName="controle" columnPosicao="0" columnRowId="true" columnTableName="fat_docto_c" columnWidth="8" dragEnabled="true" editable="false" fieldNotEdit="true">
+            <cellconstraints gridX="3" gridY="1"/>
+          </kawdbtextfield>
         </panel>
-        <panel constraints="BorderLayout.EAST" name="Panel_983" layout="BorderLayout">
-          <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_985" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22"/>
-        </panel>
-        <splitpane constraints="BorderLayout.CENTER" name="SplitPane_987" dividerLocation="15"/>
       </panel>
       <panel name="Panel0" layout="BorderLayout">
         <panel constraints="BorderLayout.CENTER" name="Panel0" id="panelEditar" layout="BorderLayout">
@@ -270,5 +272,5 @@
   </panel>
   <panel constraints="BorderLayout.NORTH" name="Panel_Selecao" id="Panel_Selecao" visible="false" layout="BorderLayout" include="xml/LctoPanelSelecao.xml#PANEL_SELECAO"/>
 </dialog>
-<!--lastNameIndex=987-->
+<!--lastNameIndex=991-->
 <!--lastIdIndex=0-->
