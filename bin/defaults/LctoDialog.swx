@@ -352,7 +352,7 @@
                   </panel>
                   <panel name="panelFUNRURAL" id="panelFUNRURAL" layout="BorderLayout">
                     <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
-                      <formLayout colspecs="211px,2dlu,default,2dlu,86px,2dlu,21px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,default"/>
+                      <formLayout colspecs="211px,2dlu,default,2dlu,86px,2dlu,21px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,default,default,default"/>
                       <kawdbtextfield name="KawDbTextField1" id="aggFunruralBaseCalculo" columnAggName="funrural_basecalculo" columnCalcType="AGGREGATE" columnCaption="BC Funrural" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnName="aggfunruralbasecalculo" columnPosicao="27" columnRowId="false" columnsSumAgg="fat_docto_c_controle" columnTableName="fat_docto_i" columnWidth="10" editable="true" fieldNotEdit="true">
                         <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Fill" vAlign="Default"/>
                       </kawdbtextfield>
@@ -801,5 +801,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=970-->
+<!--lastNameIndex=974-->
 <!--lastIdIndex=0-->
