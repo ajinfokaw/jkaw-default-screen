@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dialog xmlns="http://" bounds="8,19,980,257" id="ListagemProduto" layout="BorderLayout" title="Listagem de Produtos">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
-    <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,center:2px,211px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+    <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,center:2px,211px" rowspecs="default,4px,24px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
     <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Inicial:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
     </label>
     <label name="Label_9" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Final:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
     </label>
     <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
     </label>
     <label name="Label_43" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo Inicial:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_47" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo Final:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
     </label>
+    <label name="Label_47" horizontalAlignment="0" horizontalTextPosition="11" text="Grupo Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
     <kawdbcombobox name="opcaoImpressao" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemPRODUTO' ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="9" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <kawdbtextfieldlookuprow name="GRUPO_INICIAL" id="GRUPO_INICIAL" columnCaption="Grupo Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="grupo_codigo_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="grupo_codigo_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Fill"/>
-    </kawdbtextfieldlookuprow>
-    <kawdbtextfieldlookuprow name="GRUPO_FINAL" id="GRUPO_FINAL" columnCaption="Grupo Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="grupo_codigo_final" columnNameLookupKey="id" columnNameRelationLookupKey="grupo_codigo_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
-    <kawlookupbutton name="KawLookupButton_69" id="lookupButtonGrupoInicial" action="lookupGrupoInicial" columnDestino="grupo_codigo_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro_grupo" kawTableNameRelation="financ_rp" parameterQColumns="grupo_codigo_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_grupoprodutos WHERE id = :grupo_codigo_inicial ORDER BY id" text="" xmlLookupView="LookupGrupoProdutos.xml">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-    </kawlookupbutton>
-    <kawlookupbutton name="KawLookupButton_70" id="lookupButtonGrupoFinal" action="lookupGrupoFinal" columnDestino="grupo_codigo_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro_grupo" kawTableNameRelation="financ_rp" parameterQColumns="grupo_codigo_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_grupoprodutos WHERE id = :grupo_codigo_final ORDER BY id" text="" xmlLookupView="LookupGrupoProdutos.xml">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
-    </kawlookupbutton>
-    <kawdbtextfieldlookup name="KawDbTextFieldLookup_71" id="grupoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_codigo_inicial_lookup" columnNameLookupRow="grupo_codigo_inicial" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Default" vAlign="Fill"/>
-    </kawdbtextfieldlookup>
-    <kawdbtextfieldlookup name="KawDbTextFieldLookup_72" id="grupoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_codigo_final_lookup" columnNameLookupRow="grupo_codigo_final" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; final >>">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
-    </kawdbtextfieldlookup>
-    <kawdbtextfieldlookuprow name="PRODUTO_INICIAL" id="PRODUTO_INICIAL" columnCaption="Produto Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_codigo_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="produto_codigo_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+    <kawdbtextfieldlookuprow name="GRUPO_FINAL" id="GRUPO_FINAL" columnCaption="Grupo Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="grupo_codigo_final" columnNameLookupKey="id" columnNameRelationLookupKey="grupo_codigo_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
-    <kawdbtextfieldlookuprow name="PRODUTO_FINAL" id="PRODUTO_FINAL" columnCaption="Produto Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_codigo_final" columnNameLookupKey="id" columnNameRelationLookupKey="produto_codigo_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
-    </kawdbtextfieldlookuprow>
-    <kawlookupbutton name="KawLookupButton_75" id="lookupButtonProdutoInicial" action="lookupProdutoInicial" columnDestino="produto_codigo_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="produto_codigo_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_produto WHERE id = :produto_codigo_inicial ORDER BY id" xmlLookupView="LookupProdutos2.xml">
+    <kawlookupbutton name="KawLookupButton_69" id="lookupButtonGrupoInicial" action="lookupGrupoInicial" columnDestino="grupo_codigo_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro_grupo" kawTableNameRelation="financ_rp" parameterQColumns="grupo_codigo_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_grupoprodutos WHERE id = :grupo_codigo_inicial ORDER BY id" text="" xmlLookupView="LookupGrupoProdutos.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_70" id="lookupButtonGrupoFinal" action="lookupGrupoFinal" columnDestino="grupo_codigo_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro_grupo" kawTableNameRelation="financ_rp" parameterQColumns="grupo_codigo_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_grupoprodutos WHERE id = :grupo_codigo_final ORDER BY id" text="" xmlLookupView="LookupGrupoProdutos.xml">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
-    <kawlookupbutton name="KawLookupButton_76" id="lookupButtonProdutoFinal" action="lookupProdutoFinal" columnDestino="produto_codigo_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="produto_codigo_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_produto WHERE id = :produto_codigo_final ORDER BY id" xmlLookupView="LookupProdutos2.xml">
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_71" id="grupoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_codigo_inicial_lookup" columnNameLookupRow="grupo_codigo_inicial" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_72" id="grupoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="grupo_codigo_final_lookup" columnNameLookupRow="grupo_codigo_final" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookuprow name="PRODUTO_INICIAL" id="PRODUTO_INICIAL" columnCaption="Produto Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_codigo_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="produto_codigo_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="PRODUTO_FINAL" id="PRODUTO_FINAL" columnCaption="Produto Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="produto_codigo_final" columnNameLookupKey="id" columnNameRelationLookupKey="produto_codigo_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_75" id="lookupButtonProdutoInicial" action="lookupProdutoInicial" columnDestino="produto_codigo_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="produto_codigo_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_produto WHERE id = :produto_codigo_inicial ORDER BY id" xmlLookupView="LookupProdutos2.xml">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_76" id="lookupButtonProdutoFinal" action="lookupProdutoFinal" columnDestino="produto_codigo_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="produto_codigo_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_produto WHERE id = :produto_codigo_final ORDER BY id" xmlLookupView="LookupProdutos2.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_77" id="filialInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_codigo_inicial_lookup" columnNameLookupRow="produto_codigo_inicial" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" focusable="false" text="&lt;&lt; inicial >>">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_78" id="filialFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="produto_codigo_final_lookup" columnNameLookupRow="produto_codigo_final" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; final >>">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
+    <label name="Label_83" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o do Produto:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="DESCRICAO" id="DESCRICAO" columnCaption="Descricao Produto" columnDataType="STRING" columnDefault="" columnEditable="true" columnName="descricaoproduto" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+    </kawdbtextfield>
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_79" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_80" layout="FlowLayout">
@@ -64,5 +70,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=82-->
+<!--lastNameIndex=108-->
 <!--lastIdIndex=0-->

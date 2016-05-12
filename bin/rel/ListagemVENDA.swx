@@ -1,86 +1,98 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,952,369" id="ListagemVendas" layout="BorderLayout" title="Listagem de Vendas">
+<dialog xmlns="http://" bounds="1,2,935,443" id="ListagemCadastro" layout="BorderLayout" name="" title="Listagem de Vendas">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
-    <formLayout colspecs="177px,2dlu,99px,2dlu,21px,2dlu,98px,2dlu,308px,default" rowspecs="27px,2dlu,27px,2dlu,27px,2dlu,27px,2dlu,27px,2dlu,27px,2dlu,27px,2dlu,27px,2dlu,27px"/>
-    <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente Inicial:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    <formLayout colspecs="205px,2dlu,107px,2dlu,21px,2dlu,122px,2dlu,294px,31px" rowspecs="27px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label_61" horizontalAlignment="0" horizontalTextPosition="11" text="Opera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="18" hAlign="Right" vAlign="Default"/>
     </label>
-    <label name="Label_9" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente Final:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_57" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-    </label>
-    <label name="Label_59" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_62" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+    <kawdbcheckbox name="VENDA" id="VENDA" columnCaption="Venda" columnDataType="BOOLEAN" columnDefault="true" columnName="venda" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Venda">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="18" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="VENDABALCAO" id="VENDABALCAO" columnCaption="VendaB" columnDataType="BOOLEAN" columnDefault="true" columnName="vendabalcao" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Venda Balcao">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="20" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="COMPRA" id="COMPRA" columnCaption="Compra" columnDataType="BOOLEAN" columnDefault="true" columnName="compra" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Compra">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="22" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="ORDEMDESERVICO" id="ORDEMDESERVICO" columnCaption="Ordemdeservico" columnDataType="BOOLEAN" columnDefault="true" columnName="ordemdeservico" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Ordem de Servico(OS)">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="18" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="OUTROS" id="OUTROS" columnCaption="Outros" columnDataType="BOOLEAN" columnDefault="true" columnName="outros" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Outros">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="20" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <label name="Label_111" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
     </label>
-    <label name="Label_65" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo Lcto:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_66" horizontalAlignment="0" horizontalTextPosition="11" text="Status Lcto:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_70" horizontalAlignment="0" horizontalTextPosition="11" text="Natureza:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_72" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo de Documento:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
-    </label>
-    <label name="Label_74" horizontalAlignment="0" horizontalTextPosition="11" text="Opera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
-    </label>
-    <kawdbcombobox name="KawDbComboBox_77" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemVENDA' ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+    <kawdbcombobox name="KawDbComboBox_112" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemVENDA' ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
+    <label name="Label_113" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
     <kawdatefield name="DATA_INICIAL" id="DATA_INICIAL">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Fill" vAlign="Fill"/>
     </kawdatefield>
+    <label name="Label_115" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </label>
     <kawdatefield name="DATA_FINAL" id="DATA_FINAL">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Fill" vAlign="Fill"/>
     </kawdatefield>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_117" id="clienteInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_inicial_lookup" columnNameLookupRow="cliente_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawlookupbutton name="KawLookupButton_118" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
     <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
+    <label name="Label_120" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_121" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
     <kawdbtextfieldlookuprow name="CLIENTE_FINAL" id="CLIENTE_FINAL" columnCaption="Cliente Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_final" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
-    <kawlookupbutton name="KawLookupButton_85" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
-    </kawlookupbutton>
-    <kawlookupbutton name="KawLookupButton_86" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id">
+    <kawlookupbutton name="KawLookupButton_123" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
-    <kawdbtextfieldlookup name="KawDbTextFieldLookup_87" id="clienteInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_inicial_lookup" columnNameLookupRow="cliente_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_124" id="clienteFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_final_lookup" columnNameLookupRow="cliente_final" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
-    <kawdbtextfieldlookup name="KawDbTextFieldLookup_88" id="clienteFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_final_lookup" columnNameLookupRow="cliente_final" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; final >>">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
-    </kawdbtextfieldlookup>
-    <kawdbcombobox name="OPERACAO" id="OPERACAO" columnCaption="Operacao" columnDataType="STRING" columnDefault="99-TODOS" columnDestino="operacao" columnName="operacao" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="1-VENDA,2-VENDA BALCAO,3-COMPRA,4-ORDEM DE SERVICO(OS),9-OUTROS,99-TODOS">
+    <label name="Label_125" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo de Documento:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="TIPO_DOCTO" id="TIPO_DOCTO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="tipoDocto" columnName="tipoDocto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="NOTA FISCAL,ORCAMENTO,PEDIDO,TODOS">
       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="9" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
-    <kawdbcombobox name="TIPO_DOCTO" id="TIPO_DOCTO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="tipoDocto" columnName="tipoDocto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="NOTA FISCAL,ORCAMENTO,PEDIDO,TODOS">
+    <label name="Label_127" horizontalAlignment="0" horizontalTextPosition="11" text="Natureza:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="NATUREZA" id="NATUREZA" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="natureza" columnName="natureza" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="SAIDA,ENTRADA,TODOS">
       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="11" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
-    <kawdbcombobox name="STATUS_LCTO" id="STATUS_LCTO" columnCaption="Status" columnDataType="STRING" columnDefault="999-TODOS" columnDestino="statusLcto" columnName="statusLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="5-EM DIGITACAO,6-EMITIDO,7-CANCELADO,8-DENEGADO,9-ASSINADO,11-Finalizado,100-Autorizado Uso NF-e,999-TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Fill" vAlign="Fill"/>
-    </kawdbcombobox>
+    <label name="Label_129" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo Lcto:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+    </label>
     <kawdbcombobox name="TIPO_LCTO" id="TIPO_LCTO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="99-TODOS" columnDestino="tipoLcto" columnName="tipoLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="0-DIVERSOS,1-NFE,2-CUPOM FISCAL,3-ORCAMENTO,4-PEDIDO,99-TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="15" hAlign="Fill" vAlign="Fill"/>
-    </kawdbcombobox>
-    <kawdbcombobox name="NATUREZA" id="NATUREZA" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="natureza" columnName="natureza" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="SAIDA,ENTRADA,TODOS">
       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="13" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
+    <label name="Label_131" horizontalAlignment="0" horizontalTextPosition="11" text="Status Lcto:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="16" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="STATUS_LCTO" id="STATUS_LCTO" columnCaption="Status" columnDataType="STRING" columnDefault="999-TODOS" columnDestino="statusLcto" columnName="statusLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="5-EM DIGITACAO,6-EMITIDO,7-CANCELADO,8-DENEGADO,9-ASSINADO,11-Finalizado,100-Autorizado Uso NF-e,999-TODOS">
+      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="16" hAlign="Fill" vAlign="Fill"/>
+    </kawdbcombobox>
   </panel>
-  <panel constraints="BorderLayout.SOUTH" name="Panel_41" layout="BorderLayout">
-    <panel constraints="BorderLayout.EAST" name="Panel_42" layout="FlowLayout">
-      <button name="Button_97" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_16" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_17" layout="FlowLayout">
+      <button name="Button_108" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=97-->
+<!--lastNameIndex=135-->
 <!--lastIdIndex=0-->

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="8,19,826,318" id="ListagemProdutoMovto" layout="BorderLayout" title="Raz&#xe3;o por Classe Gerencial">
+  <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="220px,2dlu,109px,2dlu,21px,2dlu,113px,2dlu,303px,default" rowspecs="default,2dlu,23px,2dlu,29px,2dlu,default,2dlu,default,2dlu,26px,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Conta Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_9" horizontalAlignment="0" horizontalTextPosition="11" text="Conta Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_26" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_28" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </label>
+    <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_43" horizontalAlignment="0" horizontalTextPosition="11" text="Filial Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_47" horizontalAlignment="0" horizontalTextPosition="11" text="Filial Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="opcaoImpressao" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='RPCGerencial' ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+    </kawdbcombobox>
+    <kawdatefield name="DATA_INICIAL" id="DATA_INICIAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Fill" vAlign="Fill"/>
+    </kawdatefield>
+    <kawdatefield name="DATA_FINAL" id="DATA_FINAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Fill" vAlign="Fill"/>
+    </kawdatefield>
+    <kawdbtextfieldlookuprow name="FILIAL_INICIAL" id="FILIAL_INICIAL" columnCaption="Filial Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="filial_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="FILIAL_FINAL" id="FILIAL_FINAL" columnCaption="Filial Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_final" columnNameLookupKey="id" columnNameRelationLookupKey="filial_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_98" id="lookupButtonFilialInicial" action="lookupFilial" columnDestino="filial_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="filial_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_filial WHERE id = :filial_inicial ORDER BY id" xmlLookupView="LookupFilial.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_99" id="filialInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_inicial_lookup" columnNameLookupRow="filial_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="15" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawlookupbutton name="KawLookupButton_100" id="lookupButtonFilialFinal" action="lookupFilial" columnDestino="filial_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_rp" parameterQColumns="filial_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_filial WHERE id = :filial_final ORDER BY id" xmlLookupView="LookupFilial.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="17" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_101" id="filialFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_final_lookup" columnNameLookupRow="filial_final" columnNameOriginLookupRow="razaosocial" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="17" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <label name="Label_106" horizontalAlignment="0" horizontalTextPosition="11" text="Listar classes sem movto?" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="LISTA_CLASSE_SEM_MOVTO" id="LISTA_CLASSE_SEM_MOVTO" columnCaption="Pessoa" columnCurrency="false" columnDataType="STRING" columnDefault="Classes" columnDestino="classes" columnName="classes" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="S-Sim,N-Nao">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Fill" vAlign="Fill"/>
+    </kawdbcombobox>
+    <kawdbtextfieldlookuprow name="CONTA_INICIAL" id="CONTA_INICIAL" columnCaption="Conta Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="conta_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="conta_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_115" id="lookupButtonContaInicial" action="lookupContaInicial" columnDestino="conta_inicial" columnOrigem="id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_rp" parameterQColumns="conta_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM financ_cc WHERE id = :conta_inicial ORDER BY id" xmlLookupView="LookupCC.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_117" id="ContaInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="conta_inicial_lookup" columnNameLookupRow="conta_inicial" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookuprow name="CONTA_FINAL" id="CONTA_FINAL" columnCaption="Conta Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="conta_final" columnNameLookupKey="id" columnNameRelationLookupKey="conta_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_119" id="lookupButtonContaFinal" action="lookupContaFinal" columnDestino="conta_final" columnOrigem="id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_rp" parameterQColumns="conta_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM financ_cc WHERE id = :conta_final ORDER BY id" xmlLookupView="LookupCC.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="13" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_120" id="ContaFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="conta_final_lookup" columnNameLookupRow="conta_final" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="13" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <label name="Label_121" horizontalAlignment="0" horizontalTextPosition="11" text="Classe Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfieldlookuprow name="CLASSE_INICIAL" id="CLASSE_INICIAL" columnCaption="Classe Inicial" columnDataType="STRING" columnDefault="01" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="classe_inicial" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_123" id="lookupButtonClasseInicial" action="lookupClasseInicial" columnDestino="classe_inicial" columnOrigem="classificacao_g" connection="jkawflex" kawTableName="financ_classificacao_g" kawTableNameRelation="financ_rp" parameterQColumns="classe_inicial" parameterQColumnsDataType="STRING" queryDataSet="SELECT id, classificacao_g, descricao FROM financ_classificacao_g WHERE classificacao_g = :classe_inicial ORDER BY classificacao_g" xmlLookupView="LookupClassificacaoG.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_124" id="ClasseInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="classe_inicial_lookup" columnNameLookupRow="classe_inicial" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <label name="Label_130" horizontalAlignment="0" horizontalTextPosition="11" text="Classe Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfieldlookuprow name="CLASSE_FINAL" id="CLASSE_FINAL" columnCaption="Classe Final" columnDataType="STRING" columnDefault="99 99 99 999" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="classe_final" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_132" id="lookupButtonClasseFinal" action="lookupClasseFinal" columnDestino="classe_final" columnOrigem="classificacao_g" connection="jkawflex" kawTableName="financ_classificacao_g" kawTableNameRelation="financ_rp" parameterQColumns="classe_final" parameterQColumnsDataType="STRING" queryDataSet="SELECT id, classificacao_g, descricao FROM financ_classificacao_g WHERE classificacao_g = :classe_final ORDER BY classificacao_g" xmlLookupView="LookupClassificacaoG.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_133" id="ClasseFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="classe_final_lookup" columnNameLookupRow="classe_final" columnNameOriginLookupRow="descricao" columnTableName="fat_notapesagem" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_79" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_80" layout="FlowLayout">
+      <button name="Button_97" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=133-->
+<!--lastIdIndex=0-->
