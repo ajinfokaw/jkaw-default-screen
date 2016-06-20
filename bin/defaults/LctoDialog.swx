@@ -171,22 +171,22 @@
               <label name="Label_712" horizontalAlignment="0" horizontalTextPosition="11" text="Juros vendor (+):" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawdbtextfield name="KawDbTextField_713" id="infoCustoJurosVendor" columnCaption="Juros Vendor" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="true" columnName="infocustojurosvendor" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+              <kawdbtextfield name="KawDbTextField_713" id="infoCustoJurosVendor" columnCaption="Juros Vendor" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnHidden="true" columnName="infocustojurosvendor" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
                 <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <label name="Label_714" horizontalAlignment="0" horizontalTextPosition="11" text="Outras despesas (+):" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawdbtextfield name="KawDbTextField_715" id="infoCustoOutrasDesp" columnCaption="Outras despesas" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="true" columnName="infocustooutrasdesp" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+              <kawdbtextfield name="KawDbTextField_715" id="infoCustoOutrasDesp" columnCaption="Outras despesas" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnHidden="true" columnName="infocustooutrasdesp" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
                 <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <label name="Label_716" horizontalAlignment="0" horizontalTextPosition="11" text="Frete a pagar (+):" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawdbtextfield name="KawDbTextField_717" id="infoCustoFretePagar" columnCaption="Frete a PAgar" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="true" columnName="infocustofretepagar" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+              <kawdbtextfield name="KawDbTextField_717" id="infoCustoFretePagar" columnCaption="Frete a PAgar" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnHidden="true" columnName="infocustofretepagar" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
-              <kawdbtextfield name="KawDbTextField_725" id="infoCustoDescPgto" columnCaption="Desc.Pgto" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="true" columnName="infocustodescpgto" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+              <kawdbtextfield name="KawDbTextField_725" id="infoCustoDescPgto" columnCaption="Desc.Pgto" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnHidden="true" columnName="infocustodescpgto" columnPosicao="4" columnReadOnly="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="3" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <label name="Label48" horizontalAlignment="0" horizontalTextPosition="11" text="Desconto no pgto(-):" verticalAlignment="0" verticalTextPosition="0">

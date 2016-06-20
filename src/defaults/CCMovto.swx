@@ -252,7 +252,7 @@
                 </panel>
                 <panel name="Panel1" layout="BorderLayout">
                   <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
-                    <formLayout colspecs="148px,2dlu,86px,2dlu,41px,2dlu,62px,2dlu,239px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+                    <formLayout colspecs="148px,2dlu,86px,2dlu,41px,2dlu,62px,2dlu,40px,2dlu,397px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
                     <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Controle:" verticalAlignment="0" verticalTextPosition="0">
                       <cellconstraints gridX="1" gridY="1"/>
                     </label>
@@ -295,12 +295,15 @@
                     <kawlookupbutton name="KawLookupButton2" id="lookupButtonClassificacaoG" action="LookupClassificacaoG" columnDestino="financ_classificacao_g_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_classificacao_g" kawTableNameRelation="financ_cc_movcl" parameterQColumns="financ_classificacao_g_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,classificacao_g,descricao FROM financ_classificacao_g  WHERE id = :financ_classificacao_g_id" xmlLookupView="LookupClassificacaoG.xml">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
                     </kawlookupbutton>
-                    <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="descricaoClassGerencLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="claaGerencialDescricao_lookup" columnNameLookupRow="financ_classificacao_g_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnRowId="false" columnServerColumnName="" columnTableName="financ_cc_movcl" columnWidth="60" UIClassID=" ">
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="claaGerencialClassifi_lookup" columnCalcType="CALC" columnCaption="Classifica&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="claaGerencialClassifi_lookup" columnNameLookupRow="financ_classificacao_g_id" columnNameOriginLookupRow="classificacao_g" columnPosicao="1" columnRowId="false" columnServerColumnName="" columnTableName="financ_cc_movcl" columnWidth="13" UIClassID=" ">
                       <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
                     </kawdbtextfieldlookup>
                     <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Lcto:" verticalAlignment="0" verticalTextPosition="0">
                       <cellconstraints gridX="5" gridY="1"/>
                     </label>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="descricaoClassGerencLookup" columnCalcType="CALC" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="claaGerencialDescricao_lookup" columnNameLookupRow="financ_classificacao_g_id" columnNameOriginLookupRow="descricao" columnPosicao="2" columnRowId="false" columnServerColumnName="" columnTableName="financ_cc_movcl" columnWidth="60" UIClassID=" ">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookup>
                   </panel>
                 </panel>
               </tabbedpane>
