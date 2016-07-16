@@ -41,9 +41,6 @@
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_117" id="clienteInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_inicial_lookup" columnNameLookupRow="cliente_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
       <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
-    <kawlookupbutton name="KawLookupButton_118" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
-    </kawlookupbutton>
     <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
@@ -56,9 +53,6 @@
     <kawdbtextfieldlookuprow name="CLIENTE_FINAL" id="CLIENTE_FINAL" columnCaption="Cliente Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_final" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
-    <kawlookupbutton name="KawLookupButton_123" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
-    </kawlookupbutton>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_124" id="clienteFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_final_lookup" columnNameLookupRow="cliente_final" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; final >>">
       <cellconstraints gridHeight="1" gridWidth="2" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
@@ -86,6 +80,12 @@
     <kawdbcombobox name="STATUS_LCTO" id="STATUS_LCTO" columnCaption="Status" columnDataType="STRING" columnDefault="999-TODOS" columnDestino="statusLcto" columnName="statusLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="5-EM DIGITACAO,6-EMITIDO,7-CANCELADO,8-DENEGADO,9-ASSINADO,11-Finalizado,100-Autorizado Uso NF-e,999-TODOS">
       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="16" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
+    <kawlookupbutton name="KawLookupButton_136" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id" xmlLookupView="LookupClientes.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_137" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id" xmlLookupView="LookupClientes.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_16" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_17" layout="FlowLayout">
@@ -94,5 +94,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=135-->
+<!--lastNameIndex=137-->
 <!--lastIdIndex=0-->

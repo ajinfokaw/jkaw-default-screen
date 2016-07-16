@@ -160,7 +160,7 @@
                 <label name="Label46" horizontalAlignment="0" horizontalTextPosition="11" text="CPF:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField47" id="cpf" columnCaption="CPF" columnDataType="STRING" columnDisplayMask="000'.'000'.'000'-'00" columnEditMask="000'.'000'.'000'-'00" columnName="cpf" columnPosicao="23" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20" editable="true" enable="true">
+                <kawdbtextfield name="KawDbTextField47" id="cpf" columnCaption="CPF" columnDataType="STRING" columnDisplayMask="###'.'###'.'###'-'##" columnEditMask="000'.'000'.'000'-'00^!" columnName="cpf" columnPosicao="23" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20" editable="true" enable="true">
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="8" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label48" horizontalAlignment="0" horizontalTextPosition="11" text="RG:" verticalAlignment="0" verticalTextPosition="0">
@@ -175,7 +175,7 @@
                 <label name="Label51" horizontalAlignment="0" horizontalTextPosition="11" text="CNPJ:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField52" id="cnpj" columnCaption="CNPJ" columnDataType="STRING" columnDisplayMask="00'.'000'.'000'/'0000'-'00" columnEditMask="00'.'000'.'000'/'0000'-'00" columnHidden="true" columnName="inscricaofederal" columnPosicao="23" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20" editable="true" enable="true">
+                <kawdbtextfield name="KawDbTextField52" id="cnpj" columnCaption="CNPJ" columnDataType="STRING" columnDisplayMask="##'.'###'.'###'/'####'-'##" columnEditMask="00'.'000'.'000'/'0000'-'00^!" columnHidden="true" columnName="inscricaofederal" columnPosicao="23" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20" editable="true" enable="true">
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label53" horizontalAlignment="0" horizontalTextPosition="11" text="Insc. Estadual:" verticalAlignment="0" verticalTextPosition="0">
@@ -290,7 +290,7 @@
                 </label>
                 <vbox name="Vbox73">
                   <cellconstraints gridHeight="1" gridWidth="17" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
-                  <panel name="Panel1" border="Faturamento" id="tipoCadastro" layout="BorderLayout">
+                  <panel name="Panel1" border="Faturamento" focusCycleRoot="true" id="tipoCadastro" layout="BorderLayout">
                     <panel constraints="BorderLayout.CENTER" name="Panel_167" id="" layout="BorderLayout">
                       <panel constraints="BorderLayout.CENTER" name="Panel0" layout="FlowLayout">
                         <kawdbcheckbox name="KawDbCheckBox0" id="cliente" columnCaption="Cliente" columnDataType="BOOLEAN" columnDefault="true" columnName="cliente" columnResolvable="true" columnRowId="false" columnTableName="cad_cadastro" text="Cliente"/>

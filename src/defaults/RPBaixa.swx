@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dialog xmlns="http://" bounds="2,2,1082,724" id="baixa" layout="BorderLayout" name="" resizable="true" title="Baixa T&#xed;tulo">
-  <panel constraints="BorderLayout.CENTER" name="Panel_787" layout="BorderLayout">
+  <panel constraints="BorderLayout.CENTER" name="Panel_787" id="RPBaixa" layout="BorderLayout">
     <panel constraints="BorderLayout.NORTH" name="Panel_788" id="paneMain" layout="BorderLayout">
       <panel constraints="BorderLayout.NORTH" name="Panel_789" visible="false" layout="BorderLayout">
         <panel constraints="BorderLayout.SOUTH" name="Panel_485" id="pesquisas" layout="BorderLayout">
@@ -41,7 +41,7 @@
               <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_923" id="tabbedPane_financ_cc_movto" tabPlacement="1" titles="Lan&#xe7;amento,Baixa,Lcto C/C">
                 <panel name="Panel_804" layout="BorderLayout">
                   <panel constraints="BorderLayout.NORTH" name="Panel_805" id="pnl_Geral" maximumSize="0,0" layout="FormLayout">
-                    <formLayout colspecs="242px,2dlu,74px,2dlu,29px,2dlu,85px,2dlu,80px,2dlu,86px,2dlu,27px,2dlu,63px,2dlu,91px,2dlu,111px,2px,104px,2dlu" rowspecs="default,default,default,default,default,default,default,default,default,default,default,2dlu,70px"/>
+                    <formLayout colspecs="202px,2dlu,74px,2dlu,29px,2dlu,85px,2dlu,80px,2dlu,86px,2dlu,27px,2dlu,63px,2dlu,91px,2dlu,111px,2px,104px,2dlu" rowspecs="default,default,default,default,default,default,default,default,default,default,default,2dlu,70px"/>
                     <label name="Label_806" horizontalAlignment="4" horizontalTextPosition="11" text="Lcto:" verticalAlignment="0" verticalTextPosition="0">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
                     </label>

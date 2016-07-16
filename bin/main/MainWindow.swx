@@ -203,6 +203,9 @@
         <button name="InutiliNFe" toolTipText="Inutiliza&#xe7;&#xe3;o n&#xfa;mero NF-e" action="actionInutiliNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/inutilinfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="MDF-e" toolTipText="MDFe Manisfesto Eletr&#xf4;nico" action="actionLctoMDFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/mdfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
+      <toolbar name="B_ Carrinho" id="bCarrinho">
+        <button name="Button_650" toolTipText="Lan&#xe7;amento (Carrinho de Venda..)" action="actionLctoCarrinho" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/carrinho.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
       <toolbar name="B_Grafico" id="bGrafico">
         <button name="Venda E Compra" toolTipText="Grafico Venda e Compra" action="actionFat" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/graf.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="Pagar e receber" toolTipText="Grafico Pagar e receber" action="actionLan" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/graf1.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
@@ -252,5 +255,5 @@
   </panel>
   <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
 </frame>
-<!--lastNameIndex=648-->
+<!--lastNameIndex=654-->
 <!--lastIdIndex=0-->

@@ -505,7 +505,7 @@
                   <label constraints="BorderLayout.WEST" name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Dados Adicionais:" verticalAlignment="0" verticalTextPosition="0"/>
                 </panel>
               </panel>
-              <panel constraints="BorderLayout.CENTER" name="Panel_ItensGeral" layout="BorderLayout" include="xml/LctoPanelItens.xml#PANEL_ITENS"/>
+              <panel constraints="BorderLayout.NORTH" name="Panel_ItensGeral" layout="BorderLayout" include="xml/LctoPanelItens.xml#PANEL_ITENS"/>
             </panel>
             <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
               <panel constraints="BorderLayout.EAST" name="Panel0" layout="FlowLayout" include="xml/LctoPanelOpcoesItemNFCe.xml#PANEL_OPCOES_ITEM_NFCE"/>

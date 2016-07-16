@@ -149,16 +149,16 @@
                 <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="18" gridY="1" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField0" id="codigoBarra1" columnCaption="C&#xf3;digo barra 1" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="false" columnName="codigobarra1" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                <kawdbtextfield name="KawDbTextField0" id="codigoBarra1" columnCaption="C&#xf3;digo barra 1" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="" columnHidden="false" columnName="codigobarra1" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="11" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField0" id="codigoBarra2" columnCaption="C&#xf3;digo barra 2" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra2" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                <kawdbtextfield name="KawDbTextField0" id="codigoBarra2" columnCaption="C&#xf3;digo barra 2" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="" columnHidden="true" columnName="codigobarra2" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="13" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField1" id="codigoBarra3" columnCaption="C&#xf3;digo barra 3" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra3" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                <kawdbtextfield name="KawDbTextField1" id="codigoBarra3" columnCaption="C&#xf3;digo barra 3" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="" columnHidden="true" columnName="codigobarra3" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="15" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField2" id="codigoBarra4" columnCaption="C&#xf3;digo barra 4" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="##############" columnHidden="true" columnName="codigobarra4" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
+                <kawdbtextfield name="KawDbTextField2" id="codigoBarra4" columnCaption="C&#xf3;digo barra 4" columnDataType="STRING" columnDisplayMask="##############" columnEditMask="" columnHidden="true" columnName="codigobarra4" columnPosicao="2" columnRowId="false" columnTableName="fat_produto" columnWidth="15">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="17" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Barra1" verticalAlignment="0" verticalTextPosition="0">

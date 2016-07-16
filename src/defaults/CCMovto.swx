@@ -22,6 +22,7 @@
       </panel>
       <panel constraints="BorderLayout.WEST" name="Panel9" layout="FlowLayout">
         <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Lan&#xe7;amento / Faturamento" id="navToolBar" paintingTile="true" tips="true"/>
+        <button name="Button0" id="btnEstornar" toolTipText="Estorna  concilia&#xe7;&#xe3;o banc&#xe1;ria" horizontalAlignment="0" horizontalTextPosition="11" text="Estornar Concilia&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
         <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
         <kawdbnavfield name="CampoConsulta" id="navField" preferredSize="250,21"/>
       </panel>
@@ -29,7 +30,7 @@
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane10" id="tabbedPane_financ_cc_movto" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel11" id="pnl_Lista" layout="BorderLayout">
         <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_29" id="SPLista" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-          <kawdbtable name="Conta Corrente" id="financ_cc_movto" connection="jkawflex" kawTableName="financ_cc_movto" parameterQColumns="ppesquisa,ppesquisaconteudo,datainicial,datafinal,financ_cc_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,BOOLEAN,DATE,DATE,INT" parameterQDefault="" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT financ_cc_id,controle,documento,fat_transacao_id, cad_filial_id, data_emissao, data_vencimento, data_conciliacao, data_referencia, natureza, valor, cc_controle_conta_transf,conta_transf, historico, nominal, financ_rp_lctobaixa_lcto, contas_receber_pagar FROM financ_cc_movto  WHERE CASE WHEN :financ_cc_id > 0 THEN data_emissao BETWEEN :datainicial AND :datafinal  AND financ_cc_id = :financ_cc_id ELSE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN controle = string_integer(:ppesquisa)  WHEN :ppesquisaconteudo THEN UPPER(historico) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(historico) LIKE UPPER(:ppesquisa)||'%'  END END ORDER BY financ_cc_id,controle, data_emissao" queryDataSetView=""/>
+          <kawdbtable name="Conta Corrente" id="financ_cc_movto" connection="jkawflex" kawTableName="financ_cc_movto" parameterQColumns="ppesquisa,ppesquisaconteudo,datainicial,datafinal,financ_cc_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,BOOLEAN,DATE,DATE,INT" parameterQDefault="" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT financ_cc_id,controle,documento,fat_transacao_id, cad_filial_id, data_emissao, data_vencimento, data_conciliacao, data_referencia, natureza, valor, cc_controle_conta_transf,conta_transf, historico, nominal, financ_rp_lctobaixa_lcto, contas_receber_pagar FROM financ_cc_movto  WHERE CASE WHEN :financ_cc_id > 0 THEN data_emissao BETWEEN :datainicial AND :datafinal  AND financ_cc_id = :financ_cc_id ELSE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN controle = string_integer(:ppesquisa) OR Trim(documento) = Trim(:ppesquisa) WHEN :ppesquisaconteudo THEN UPPER(historico) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(historico) LIKE UPPER(:ppesquisa)||'%' OR Trim(documento) = Trim(:ppesquisa)  END END ORDER BY financ_cc_id,controle, data_emissao" queryDataSetView=""/>
         </scrollpane>
       </panel>
       <panel name="Panel14" layout="BorderLayout">
@@ -46,17 +47,17 @@
                   <panel constraints="BorderLayout.SOUTH" name="Refer&#xea;ncia de Saldo da Conta Corrente" border="TitledBorder(Informa&#xe7;&#xf5;es  Saldo da Conta Corrente:)" id="panelSaldo" layout="BorderLayout">
                     <panel constraints="BorderLayout.WEST" name="Panel0" layout="FlowLayout">
                       <panel name="Panel0" layout="FormLayout">
-                        <formLayout colspecs="248px,2dlu,101px,2dlu,269px,2dlu,103px" rowspecs="default,2dlu,default,2dlu"/>
-                        <label name="Label1" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo pela Data de Emiss&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                        <formLayout colspecs="129px,2dlu,101px,2dlu,123px,2dlu,103px" rowspecs="default,2dlu,default,2dlu"/>
+                        <label name="Label1" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="SALDO EMISS&#xc3;O:" verticalAlignment="0" verticalTextPosition="0">
                           <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
                         </label>
-                        <label name="Label3" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo pela Data de Concilia&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                        <label name="Label3" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="SALDO CONCILIADO:" verticalAlignment="0" verticalTextPosition="0">
                           <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Left" vAlign="Default"/>
                         </label>
-                        <label name="Label5" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo pela Data de Vencimento:" verticalAlignment="0" verticalTextPosition="0">
+                        <label name="Label5" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="SALDO VENCIMENTO:" verticalAlignment="0" verticalTextPosition="0">
                           <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Right" vAlign="Default"/>
                         </label>
-                        <label name="Label7" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo pela Data de Refer&#xea;ncia:" verticalAlignment="0" verticalTextPosition="0">
+                        <label name="Label7" font="Arial-12-BOLD" horizontalAlignment="0" horizontalTextPosition="11" text="SALDO REFER&#xca;NCIA:" verticalAlignment="0" verticalTextPosition="0">
                           <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Right" vAlign="Default"/>
                         </label>
                         <kawdbtextfield name="KawDbTextField15" id="saldoEmissao" columnCaption="Saldo Emiss&#xe3;o" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditMask="###,##0.00" columnFixedPrecision="true" columnHidden="true" columnName="saldoemissao" columnTableName="financ_cc_saldo" fieldNotEdit="true">
