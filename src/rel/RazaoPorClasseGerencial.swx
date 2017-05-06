@@ -53,7 +53,7 @@
     <label name="Label_106" horizontalAlignment="0" horizontalTextPosition="11" text="Listar classes sem movto?" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbcombobox name="LISTA_CLASSE_SEM_MOVTO" id="LISTA_CLASSE_SEM_MOVTO" columnCaption="Pessoa" columnCurrency="false" columnDataType="STRING" columnDefault="Classes" columnDestino="classes" columnName="classes" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="S-Sim,N-Nao">
+    <kawdbcombobox name="LISTA_CLASSE_SEM_MOVTO" id="LISTA_CLASSE_SEM_MOVTO" columnCaption="Pessoa" columnCurrency="false" columnDataType="STRING" columnDefault="N-Nao" columnDestino="classes" columnName="classes" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="S-Sim,N-Nao">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <kawdbtextfieldlookuprow name="CONTA_INICIAL" id="CONTA_INICIAL" columnCaption="Conta Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="conta_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="conta_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
@@ -77,7 +77,7 @@
     <label name="Label_121" horizontalAlignment="0" horizontalTextPosition="11" text="Classe Inicial:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbtextfieldlookuprow name="CLASSE_INICIAL" id="CLASSE_INICIAL" columnCaption="Classe Inicial" columnDataType="STRING" columnDefault="01" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="classe_inicial" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+    <kawdbtextfieldlookuprow name="CLASSE_INICIAL" id="CLASSE_INICIAL" columnCaption="Classe Inicial" columnDataType="STRING" columnDefault="03" columnDisplayMask="## ## ## ### " columnEditable="true" columnEditMask="## ## ## ### " columnName="classe_inicial" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <kawlookupbutton name="KawLookupButton_123" id="lookupButtonClasseInicial" action="lookupClasseInicial" columnDestino="classe_inicial" columnOrigem="classificacao_g" connection="jkawflex" kawTableName="financ_classificacao_g" kawTableNameRelation="financ_rp" parameterQColumns="classe_inicial" parameterQColumnsDataType="STRING" queryDataSet="SELECT id, classificacao_g, descricao FROM financ_classificacao_g WHERE classificacao_g = :classe_inicial ORDER BY classificacao_g" xmlLookupView="LookupClassificacaoG.xml">
@@ -89,7 +89,7 @@
     <label name="Label_130" horizontalAlignment="0" horizontalTextPosition="11" text="Classe Final:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbtextfieldlookuprow name="CLASSE_FINAL" id="CLASSE_FINAL" columnCaption="Classe Final" columnDataType="STRING" columnDefault="99 99 99 999" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="classe_final" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+    <kawdbtextfieldlookuprow name="CLASSE_FINAL" id="CLASSE_FINAL" columnCaption="Classe Final" columnDataType="STRING" columnDefault="99 99 99 999" columnDisplayMask="## ## ## ### " columnEditable="true" columnEditMask="## ## ## ### " columnName="classe_final" columnNameLookupKey="classificacao_g" columnNameRelationLookupKey="classe_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <kawlookupbutton name="KawLookupButton_132" id="lookupButtonClasseFinal" action="lookupClasseFinal" columnDestino="classe_final" columnOrigem="classificacao_g" connection="jkawflex" kawTableName="financ_classificacao_g" kawTableNameRelation="financ_rp" parameterQColumns="classe_final" parameterQColumnsDataType="STRING" queryDataSet="SELECT id, classificacao_g, descricao FROM financ_classificacao_g WHERE classificacao_g = :classe_final ORDER BY classificacao_g" xmlLookupView="LookupClassificacaoG.xml">

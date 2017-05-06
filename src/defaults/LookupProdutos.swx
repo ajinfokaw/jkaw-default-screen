@@ -47,7 +47,7 @@
       </kawdbtextfield>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_27" id="pesquisas" layout="FlowLayout">
-      <kawdbcheckbox name="KawDbCheckBox_31" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbcheckbox name="KawDbCheckBox_31" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" selected="false" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
       <kawdbtextfield name="KawDbTextField_29" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
       <button name="Button_30" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>

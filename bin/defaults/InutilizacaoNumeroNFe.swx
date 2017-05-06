@@ -29,7 +29,7 @@
             <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xfa;mero Inicial:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField0" id="numeroInicial" columnCaption="N.Inicial" columnDataType="INT" columnDisplayMask="########" columnEditMask="####" columnName="numeroinicial" columnRowId="false" columnTableName="ef_inutilizacao">
+            <kawdbtextfield name="KawDbTextField0" id="numeroInicial" columnCaption="N.Inicial" columnDataType="INT" columnDisplayMask="########" columnEditMask="########" columnName="numeroinicial" columnRowId="false" columnTableName="ef_inutilizacao">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label1" horizontalAlignment="4" horizontalTextPosition="11" text="S&#xe9;rie:" verticalAlignment="0" verticalTextPosition="0">
@@ -38,7 +38,7 @@
             <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="N&#xfa;mero Final:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Default" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField1" id="numeroFinal" columnCaption="N.Final" columnDataType="INT" columnDisplayMask="########" columnEditMask="####" columnName="numerofinal" columnRowId="false" columnTableName="ef_inutilizacao">
+            <kawdbtextfield name="KawDbTextField1" id="numeroFinal" columnCaption="N.Final" columnDataType="INT" columnDisplayMask="########" columnEditMask="########" columnName="numerofinal" columnRowId="false" columnTableName="ef_inutilizacao">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="LOG INUTILIZA&#xc7;&#xc3;O:" verticalAlignment="0" verticalTextPosition="0">

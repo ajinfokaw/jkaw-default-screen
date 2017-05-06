@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1141,458" id="telaLookup" layout="BorderLayout" title="Consulta lan&#xfffd;amento">
+<dialog xmlns="http://" bounds="0,0,1141,458" id="telaLookup" layout="BorderLayout" title="Consulta Lan&#xe7;amento">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
       <kawdbtable name="KawDbTable_7" id="tableLookup" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="datainicial,datafinal,pcontrole,pnumero_docto,ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="DATE,DATE,INT,INT,STRING,BOOLEAN" queryDataSet="SELECT statusdocto,controle,emissao,dataentradasaida,cad_filial_id,fat_transacao_id,fat_transacao.descricao AS transacao_lookup,seriedocto_id, seriedocto_codigo,fat_serie.natureza as serie_natureza,numero_docto,cad_cadastro_id,nome,cnpj_cpf,valortotal_docto,nfechaveacesso,nfeprotocolo,statuslcto FROM fat_docto_c LEFT JOIN fat_transacao ON fat_transacao.id = fat_transacao_id LEFT JOIN fat_serie ON fat_serie.id = seriedocto_id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN controle = string_integer(:ppesquisa) OR numero_docto = string_integer(:ppesquisa) WHEN :ppesquisaconteudo THEN UPPER((Select razaosocial FROM cad_cadastro where cad_cadastro.id = cad_cadastro_id)) LIKE '%'||UPPER(:ppesquisa)||'%'  ELSE emissao BETWEEN :datainicial AND :datafinal END ORDER BY emissao,controle " queryDataSetView=""/>
@@ -19,7 +19,7 @@
     <panel constraints="BorderLayout.WEST" name="Panel_18" id="pesquisas" layout="FlowLayout">
       <panel name="Panel_55" id="pesquisa" layout="FlowLayout">
         <panel name="Panel_64" layout="FlowLayout">
-          <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" selected="false" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
           <kawdbtextfield name="KawDbTextField2" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
           <button name="Button3" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>

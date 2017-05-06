@@ -133,7 +133,7 @@
           <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
         </kawlookupbutton>
         <kawdbtextfieldlookup name="KawDbTextFieldLookup_195" id="produtoLookup" caretPosition="0" columnCaption="Descri&#xe7;&#xe3;o" columnCurrency="false" columnDataType="STRING" columnEditable="false" columnName="produto_lookup" columnNameLookupRow="fat_produto_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="fat_manutencaoprecos" columnWidth="25" UIClassID=" ">
-          <cellconstraints gridHeight="1" gridWidth="11" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+          <cellconstraints gridHeight="1" gridWidth="11" gridX="7" gridY="5" hAlign="Fill" vAlign="Fill"/>
         </kawdbtextfieldlookup>
         <label name="Label_200" horizontalAlignment="4" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">
           <cellconstraints gridX="8" gridY="7"/>
@@ -164,7 +164,7 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_213" id="lucrosSPrecoVenda" columnCaption="Lucro S/ Preco venda" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="lucros_s_precovenda" columnTableName="fat_manutencaoprecos" editable="true" enable="true" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_214" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
@@ -173,13 +173,13 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_218" id="valorPrecoVenda" columnCalcType="" columnCaption="Valor preco venda" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="valorprecovenda" columnTableName="fat_manutencaoprecos" editable="true" enable="true" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_219" horizontalAlignment="4" horizontalTextPosition="11" text="Margem s/ Preco Custo:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_220" id="lucrosSPrecoCusto" columnCaption="Lucros s/ Preco Custo" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="lucro_s_precocusto" columnTableName="fat_manutencaoprecos" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_221" horizontalAlignment="4" horizontalTextPosition="11" text="%" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
@@ -188,19 +188,19 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_223" id="valorPrecoCusto" columnCalcType="" columnCaption="Valor Preco Custo" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnName="valorprecocusto" columnTableName="fat_manutencaoprecos" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_224" horizontalAlignment="4" horizontalTextPosition="11" text="Preco de Venda:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Fill"/>
             </label>
             <kawdbtextfield name="KawDbTextField_225" id="precoVenda" columnCaption="Preco Venda" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnName="precovenda" columnTableName="fat_manutencaoprecos" editable="true" enable="false" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Fill" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_226" horizontalAlignment="4" horizontalTextPosition="11" text="Preco de venda Atual:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Default" vAlign="Fill"/>
             </label>
             <kawdbtextfield name="KawDbTextField_227" id="precoVendaAtual" columnCalcType="" columnCaption="Preco Venda Atual" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnName="precovendaatual" columnTableName="fat_manutencaoprecos" fieldNotEdit="true" focusable="false">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
           </panel>
           <panel constraints="BorderLayout.SOUTH" name="Panel_296" layout="BorderLayout">

@@ -11,7 +11,7 @@
           <label name="Label1" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xd3;DIGO" verticalAlignment="0" verticalTextPosition="0">
             <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
           </label>
-          <kawdbtextfield name="KawDbTextField1" id="qtde" caretPosition="0" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000000" columnEditable="true" columnEditMask="###,###.######" columnName="qtde" columnPosicao="6" columnRowId="false" columnTableName="fat_docto_i" columnWidth="11" editable="true" focusCycleRoot="false">
+          <kawdbtextfield name="KawDbTextField1" id="qtde" caretPosition="0" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000000" columnEditable="true" columnEditMask="###,###.######" columnName="qtde" columnPosicao="6" columnRequired="false" columnRowId="true" columnTableName="fat_docto_i" columnWidth="11" editable="true" focusCycleRoot="false">
             <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="2" hAlign="Default" vAlign="Fill"/>
           </kawdbtextfield>
           <label name="Label0" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="QTDE" verticalAlignment="0" verticalTextPosition="0">

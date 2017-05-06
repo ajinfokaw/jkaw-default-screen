@@ -10,7 +10,7 @@
       <panel name="Panel_4" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel_8" layout="FormLayout">
-            <formLayout colspecs="160px,2dlu,85px,2dlu,95px,2dlu,132px,2dlu,101px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <formLayout colspecs="160px,2dlu,85px,2dlu,95px,2dlu,132px,2dlu,101px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
             <label name="Label_9" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
             </label>
@@ -44,20 +44,17 @@
             <label name="Label_21" horizontalAlignment="0" horizontalTextPosition="11" text="Numera&#xe7;&#xe3;o Inicial:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_22" id="numeracaoInicial" columnCaption="No.Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="######" columnEditable="false" columnEditMask="######" columnName="numeracaoinicial" columnPosicao="6" columnRequired="true" columnRowId="false" columnTableName="fat_serie" columnWidth="5">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
-            </kawdbtextfield>
             <label name="Label_36" horizontalAlignment="0" horizontalTextPosition="11" text="Numera&#xe7;&#xe3;o Final:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_37" id="numeracaoFinal" columnCaption="No.Final" columnDataType="INT" columnDefault="999999" columnDisplayMask="######" columnEditable="false" columnEditMask="######" columnName="numeracaofinal" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="fat_serie" columnWidth="5">
+            <kawdbtextfield name="KawDbTextField_37" id="numeracaoFinal" columnCaption="No.Final" columnDataType="INT" columnDefault="999999999" columnDisplayMask="#########" columnEditable="true" columnEditMask="#########" columnName="numeracaofinal" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="fat_serie" columnWidth="5" editable="true" enable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label_38" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="Sequ&#xea;ncia:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Right" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbcombobox name="KawDbComboBox0" id="nomeSeq" columnCaption="Nome Seq" columnDataType="STRING" columnDestino="nomeseq" columnEditable="true" columnName="nomeseq" columnPosicao="8" columnRequired="false" columnResolvable="true" columnRowId="true" columnTableName="fat_serie" columnWidth="20" connection="jkawflex" displayColumns="tabela,campo" editable="false" queryDataSet="SELECT * FROM dados_tabela('docto_c_%') where campo='sequence_name'">
-              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
             </kawdbcombobox>
             <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="ID Serie:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
@@ -82,6 +79,12 @@
             </label>
             <kawdbtextfield name="KawDbTextField6" id="serieNumero" columnCaption="S.Numero" columnDataType="INT" columnDisplayMask="" columnEditMask="" columnName="serienumero" columnPosicao="2" columnRequired="true" columnRowId="false" columnTableName="fat_serie" columnWidth="7">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField1" id="fatorcorrecao" columnCaption="fator" columnDataType="LONG" columnDefault="1" columnDisplayMask="###########" columnEditable="true" columnEditMask="###########" columnName="fatorccorrecao" columnPosicao="6" columnRequired="true" columnResolvable="false" columnRowId="false" columnTableName="fat_serie" columnWidth="5" editable="false" enable="false">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField2" id="numeracaoInicial" columnCaption="No.Final" columnDataType="INT" columnDefault="1" columnDisplayMask="#########" columnEditable="false" columnEditMask="#########" columnName="numeracaoinicial" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="fat_serie" columnWidth="5" editable="true" enable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
           </panel>
           <panel name="Panel_60" layout="FormLayout">

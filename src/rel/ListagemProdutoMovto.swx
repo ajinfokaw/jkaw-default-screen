@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="8,19,826,328" id="ListagemProdutoMovto" layout="BorderLayout" title="Listagem de Movimenta&#xe7;&#xe3;o dos Produtos">
+<dialog xmlns="http://" bounds="8,19,826,429" id="ListagemProdutoMovto" layout="BorderLayout" title="Listagem de Movimenta&#xe7;&#xe3;o dos Produtos">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
     <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,default" rowspecs="default,2dlu,34px,2dlu,29px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
     <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente/Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">

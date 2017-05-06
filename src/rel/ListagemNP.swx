@@ -11,7 +11,7 @@
     <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridX="1" gridY="1"/>
     </label>
-    <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
+    <label name="Label_41" horizontalAlignment="4" horizontalTextPosition="11" text="Forncedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
     </label>
     <label name="Label_42" horizontalAlignment="4" horizontalTextPosition="11" text="Fornecedor Final:" verticalAlignment="0" verticalTextPosition="0">

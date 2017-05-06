@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="2,2,1250,634" layout="BorderLayout" name="Email" title="Email">
+<dialog xmlns="http://" bounds="2,2,1220,634" layout="BorderLayout" name="Email" title="Email">
   <panel constraints="BorderLayout.NORTH" name="Panel_5" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_6" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -29,7 +29,7 @@
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_21" tabPlacement="1" titles="Email,Condigura&#xe7;&#xe3;o da conta de e-mail">
           <panel name="Panel_25" layout="BorderLayout">
             <panel constraints="BorderLayout.CENTER" name="Panel_26" id="lookupPara" layout="FormLayout">
-              <formLayout colspecs="160px,2dlu,435px,2dlu,436px,2dlu,default" rowspecs="default,default,2dlu,default,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
+              <formLayout colspecs="97px,2dlu,435px,2dlu,436px,2dlu,181px,23px" rowspecs="default,default,2dlu,default,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
               <label name="Label_27" horizontalAlignment="0" horizontalTextPosition="11" text="De:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Right" vAlign="Default"/>
               </label>
@@ -83,10 +83,10 @@
                   <panel constraints="BorderLayout.EAST" name="Botoes" layout="BorderLayout">
                     <panel constraints="BorderLayout.NORTH" name="Panel1" layout="BorderLayout">
                       <panel constraints="BorderLayout.CENTER" name="Panel0" layout="FlowLayout">
-                        <kawdbtextfield name="KawDbTextField0" id="doctoControle" columnCaption="Controle" columnDataType="INT" columnHidden="false" columnName="cad_email_id" columnResolvable="true" columnRowId="true" columnTableName="cad_email_anexos" hidden="true"/>
+                        <kawdbtextfield name="KawDbTextField0" id="doctoControle" columnCaption="Controle" columnDataType="INT" columnHidden="false" columnName="cad_email_id" columnResolvable="true" columnRowId="true" columnTableName="cad_email_anexos" columnWidth="5" hidden="true"/>
                         <kawdbtextfield name="KawDbTextField1" id="arquivoId" columnCaption="Id-Arquivo" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cad_arquivos_id" columnPosicao="1" columnRequired="true" columnRowId="true" columnTableName="cad_email_anexos" columnWidth="5" editable="true" hidden="true"/>
-                        <kawdbtextfield name="KawDbTextField0" id="anexoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="anexo_lookup" columnPosicao="2" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="55" editable="false" hidden="true" UIClassID=" "/>
-                        <kawdbtextfield name="KawDbTextField3" id="doctoAnexoObs" caretPosition="0" columnCaption="Observa&#xe7;&#xf5;es" columnDataType="STRING" columnEditable="true" columnName="observacao" columnPosicao="3" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="100" hidden="true"/>
+                        <kawdbtextfield name="KawDbTextField0" id="anexoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="anexo_lookup" columnPosicao="2" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="35" editable="false" hidden="true" UIClassID=" "/>
+                        <kawdbtextfield name="KawDbTextField3" id="doctoAnexoObs" caretPosition="0" columnCaption="Observa&#xe7;&#xf5;es" columnDataType="STRING" columnEditable="true" columnName="observacao" columnPosicao="3" columnRowId="false" columnTableName="cad_email_anexos" columnWidth="40" hidden="true"/>
                       </panel>
                     </panel>
                   </panel>
@@ -99,6 +99,9 @@
                   </panel>
                 </panel>
               </panel>
+              <kawlookupbutton name="KawLookupButton_50" id="lookupButtonTextoAdic" action="" columnDestino="Texto" columnOrigem="texto" connection="jkawflex" defaultButton="true" hidden="true" kawTableName="fat_textoadic" kawTableNameRelation="cad_email" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE id = :id" xmlLookupView="LookupTextoAdicional">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="10" hAlign="Default" vAlign="Fill"/>
+              </kawlookupbutton>
             </panel>
           </panel>
           <panel name="Panel_42" layout="BorderLayout">
@@ -156,5 +159,5 @@
     </tabbedpane>
   </panel>
 </dialog>
-<!--lastNameIndex=49-->
+<!--lastNameIndex=50-->
 <!--lastIdIndex=0-->

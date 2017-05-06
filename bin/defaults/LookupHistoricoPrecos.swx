@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1108,533" id="telaLookup" layout="BorderLayout" title="Hist&#xf3;rico de Altera&#xe7;&#xe3;o de Pre&#xe7;os">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="Hist&#xf3;rico de Altercao de pre&#xe7;os" id="tableLookup" connection="jkawflex" kawTableName="auditoria" parameterQColumns="ppesquisa,ppesquisaconteudo,fat_produto_id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT dthaud, usuaud, cast(vpkaud[1] as INT) as fat_produto_id, cast(vpkaud[3] as varchar(3))  ||'-'||fat_listapre.descricao as lista_id, cast(vpkaud[2] as varchar(2))||'-'||fat_listapre_tabela.descricao as tabela_id, CAST(LPAD(COALESCE((string_to_array( vanaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3)) AS preco_anterior, CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3)) AS preco_atual, CAST((CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) - (CAST(LPAD(COALESCE((string_to_array( vanaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) AS DECIMAL(12,3)) AS diferenca, CAST(CASE WHEN ((CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) - (CAST(LPAD(COALESCE((string_to_array( vanaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3)))* -1) > 0 AND (CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) > 0 THEN ((CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) - (CAST(LPAD(COALESCE((string_to_array( vanaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3)))) / (CAST(LPAD(COALESCE((string_to_array( vnoaud , ','))[4],'0'),9,'0') AS DECIMAL(12,3))) * 100 ELSE 0 END AS DECIMAL(9,3)) AS perc_diferenca, CAST(left(COALESCE((string_to_array( vanaud , ','))[12],''),length(COALESCE((string_to_array( vnoaud , ','))[12],''))-1) AS VARCHAR) AS observacao_ant,  CAST(left(COALESCE((string_to_array( vnoaud , ','))[12],''),length(COALESCE((string_to_array( vnoaud , ','))[12],''))-1) AS VARCHAR) AS observacao FROM auditoria  LEFT JOIN fat_listapre ON fat_listapre.id = cast(vpkaud[3] as INT) LEFT JOIN fat_listapre_tabela ON fat_listapre_tabela.fat_listapre_id = cast(vpkaud[3] as INT) AND fat_listapre_tabela.tabela_id = cast(vpkaud[2] as INT) WHERE tabaud = 'fat_produto_preco' AND (tacaud = 'UPDATE' OR tacaud = 'INSERT')   AND :fat_produto_id = cast(vpkaud[1] as INT) ORDER BY dthaud DESC, pkyaud LIMIT 50 OFFSET(1 - 1) * 50 " queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" visible="false" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" focusable="true" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,89px,2dlu,149px,2dlu,90px,default,default" rowspecs="default,2dlu,default,2dlu,default,2dlu"/>
+      <kawdbtextfield name="KawDbTextField_33" id="fat_produto_id" columnCaption="C&#xf3;d." columnDataType="INT" columnEditable="false" columnHidden="true" columnName="fat_produto_id" columnPosicao="1" columnTableName="auditoria" columnWidth="5">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_39" id="diferenca" columnCaption="Varia&#xe7;&#xe3;o" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnHidden="false" columnName="diferenca" columnPosicao="6" columnTableName="auditoria" columnWidth="15">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_43" id="usuaud" columnCaption="Usuario" columnDataType="STRING" columnEditable="false" columnName="usuaud" columnPosicao="1" columnTableName="auditoria" columnWidth="9">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_48" id="preco_atual" columnCaption="Pre&#xe7;o " columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="false" columnName="preco_atual" columnPosicao="5" columnTableName="auditoria" columnWidth="15">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField" id="preco_anterior" columnCaption="Pre&#xe7;o Anterior" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnName="preco_anterior" columnPosicao="4" columnTableName="auditoria" columnWidth="15">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField" id="lista_id" columnCaption="Lista" columnDataType="STRING" columnEditable="false" columnName="lista_id" columnPosicao="2" columnTableName="auditoria" columnWidth="17">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField" id="tabela_id" columnCaption="Tabela" columnDataType="STRING" columnEditable="false" columnName="tabela_id" columnPosicao="3" columnTableName="auditoria" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_55" id="dthaud" columnCaption="Data" columnDataType="TIMESTAMP" columnDisplayMask="dd/MM/yyyy HH:mm" columnEditMask="dd/MM/yyyy" columnName="dthaud" columnPosicao="8" columnResolvable="false" columnRowId="false" columnTableName="auditoria" columnWidth="20" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Fill" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_57" id="perc_diferenca" columnCaption="(%)" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnHidden="false" columnName="perc_diferenca" columnPosicao="7" columnTableName="auditoria" columnWidth="15">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_58" id="observacao_ant" columnCaption="Observa&#xe7;&#xe3;o Anterior" columnDataType="STRING" columnEditable="false" columnName="observacao_ant" columnPosicao="8" columnTableName="auditoria" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="10" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_59" id="observacao" columnCaption="Observa&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="observacao" columnPosicao="9" columnTableName="auditoria" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="10" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=59-->
+<!--lastIdIndex=0-->

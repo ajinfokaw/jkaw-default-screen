@@ -21,6 +21,7 @@
     <panel constraints="BorderLayout.SOUTH" name="Panel_791" layout="BorderLayout">
       <panel constraints="BorderLayout.EAST" name="Panel_792" layout="FlowLayout">
         <button name="Button_10" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Button_986" id="btnSelecionarCHPD" toolTipText="Selecinar Cheques Pr&#xe9; p/ pgto c/ cheques de 3&#xba;s" visible="false" action="actionSelecionarCHPD" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="70" text="Selcionar CHPD(s) " verticalAlignment="0" verticalTextPosition="0"/>
       </panel>
       <panel constraints="BorderLayout.WEST" name="Panel_793" layout="FlowLayout">
         <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Lan&#xe7;amento / Faturamento" id="navToolBar" paintingTile="true" tips="true"/>
@@ -157,10 +158,10 @@
                       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="4" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfield>
                     <label name="Label_490" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="TOTAL DEVEDOR:" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="3" gridX="15" gridY="5" hAlign="Right" vAlign="Default"/>
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="15" gridY="4" hAlign="Right" vAlign="Default"/>
                     </label>
                     <kawdbtextfield name="KawDbTextField_493" id="totalDebito" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnHidden="true" columnName="totalDebito" columnResolvable="false" columnTableName="financ_rp_lctobaixa" editable="false" enable="false" fieldNotEdit="true" hidden="true">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="5" hAlign="Default" vAlign="Fill"/>
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="4" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfield>
                     <label name="Label_491" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="TOTALSELECIONADO:" verticalAlignment="0" verticalTextPosition="0">
                       <cellconstraints gridHeight="1" gridWidth="3" gridX="16" gridY="6" hAlign="Right" vAlign="Default"/>
@@ -194,6 +195,12 @@
                     </kawdbtextfield>
                     <label name="Recalculo" id="lblRecalculo" visible="false" horizontalAlignment="4" horizontalTextPosition="11" text="Recalculo" verticalAlignment="0" verticalTextPosition="0">
                       <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Left" vAlign="Fill"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_984" id="totalNominal" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnHidden="true" columnName="totalNominal" columnResolvable="false" columnTableName="financ_rp_lctobaixa" editable="false" enable="false" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="5" hAlign="Default" vAlign="Fill"/>
+                    </kawdbtextfield>
+                    <label name="Label_985" horizontalAlignment="0" horizontalTextPosition="11" text="TOTAL NOMINAL:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="5" hAlign="Right" vAlign="Default"/>
                     </label>
                   </panel>
                   <panel constraints="BorderLayout.CENTER" name="Panel_847" layout="BorderLayout">
@@ -581,5 +588,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=983-->
+<!--lastNameIndex=986-->
 <!--lastIdIndex=0-->

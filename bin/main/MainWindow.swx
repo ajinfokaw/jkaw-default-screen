@@ -139,7 +139,7 @@
       <menuitem name="listagem de atendimentos " action="actionListagemAtendimento" text="Listagem de atendimentos"/>
       <menuitem name="listagem de sugestoes" action="actionListagemSugestoes" text="Listagem de Solicita&#xe7;&#xf5;es/Sugest&#xf5;es"/>
       <menu name="Cad.Gerais" text="Cadastros Gerais">
-        <menuitem name="listagem de cadastros" action="c" text="Listagem de Cadastros"/>
+        <menuitem name="listagem de cadastros" action="actionListagemCadastro" text="Listagem de Cadastros"/>
         <menuitem name="MenuItem_433" action="actionListagemSetor" text="Listagem de Setores"/>
       </menu>
       <menu name="Fatu." text="Faturamento">
@@ -158,7 +158,7 @@
         <menuitem name="listafem clientes sem compra" action="actionListagemClientesSemCompra" text="Listagem de Clientes sem Compra"/>
       </menu>
       <menu name="Financ." text="Financeiro">
-        <menuitem name="Balanco Resultado" action="actionBalancoResultao" text="Balan&#xe7;o de Resultado"/>
+        <menuitem name="Raz&#xe3;o por Classe" action="actionRazaoClasse" text="Raz&#xe3;o por Classe Gerencial"/>
         <menuitem name="MenuItem_559" action="actionListagemApuracao" text="Apura&#xe7;&#xe3;o de Resultados"/>
         <menuitem name="listagem contas receber/pagar" action="actionListagemRP" text="Contas a Receber/Pagar"/>
         <menuitem name="listagem conta corrente" action="actionListagemCC" text="Contas Correntes"/>
@@ -194,17 +194,20 @@
         <button name="Email" toolTipText="Enviar E-mail" action="actionEmail" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/email.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="Cliente" focusable="true" toolTipText="Cadastro de Clientes" action="actionCadastro" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/cliente2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="Produto" toolTipText="Cadastro de Produtos" action="actionFatProduto" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/produto2.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
-        <button name="ConsultarProduto" toolTipText="Consulta Produtos e Pre&#xe7;os" action="actionProdutoSelecao" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/consultarproduto.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="ManutencaoPreco" toolTipText="Manuten&#xe7;&#xe3;o de Pre&#xe7;os de Venda dos Produtos" action="actionManutencaoPrecos" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/manutencaopreco.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_ Faturamento" id="bFaturamento">
         <button name="Lancamento" toolTipText="Lan&#xe7;amento (NF-e/Venda/Compra/Pedido/Or&#xe7;amento/etc..)" action="actionLcto" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/lcto.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Romaneio" defaultLocale="true" toolTipText="Romaneio de Carga" visible="true" action="actionRomaneio" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/romaneio.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="NPesagem" defaultLocale="true" toolTipText="Notas de pesagem" visible="true" action="actionNotaPesagem" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/notapesagem.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="NFe" toolTipText="Gerenciador NF-e" action="actionNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/nfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="InutiliNFe" toolTipText="Inutiliza&#xe7;&#xe3;o n&#xfa;mero NF-e" action="actionInutiliNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/inutilinfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="MDF-e" toolTipText="MDFe Manisfesto Eletr&#xf4;nico" action="actionLctoMDFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/mdfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_ Carrinho" id="bCarrinho">
-        <button name="Button_650" toolTipText="Lan&#xe7;amento (Carrinho de Venda..)" action="actionLctoCarrinho" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/carrinho.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Venda Carrinho" toolTipText="Lan&#xe7;amento (Carrinho de Venda..)" action="actionLctoCarrinho" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/carrinho.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="VendaRapida" toolTipText="Lan&#xe7;amento (Venda R&#xe1;pida..)" action="actionLctoVendaRapida" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/vendarapida.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Tele Vendas" toolTipText="Lan&#xe7;amento (Tele Vendas..)" action="actionLctoTeleVendas" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/televendas.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_Grafico" id="bGrafico">
         <button name="Venda E Compra" toolTipText="Grafico Venda e Compra" action="actionFat" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/graf.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
@@ -255,5 +258,5 @@
   </panel>
   <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
 </frame>
-<!--lastNameIndex=654-->
+<!--lastNameIndex=657-->
 <!--lastIdIndex=0-->

@@ -10,7 +10,7 @@
       <panel name="Panel_4" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel_55" layout="FormLayout">
-            <formLayout colspecs="118px,2dlu,67px,2dlu,27px,2dlu,122px,2dlu,138px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
+            <formLayout colspecs="118px,2dlu,67px,2dlu,27px,2dlu,64px,2dlu,44px,252px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
             <label name="Label_56" horizontalAlignment="0" horizontalTextPosition="11" text="Banco" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
             </label>
@@ -27,7 +27,7 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_68" id="nome" columnCaption="Nome da Ag&#xea;ncia" columnHidden="false" columnName="nome" columnPosicao="4" columnRowId="true" columnTableName="financ_agencia" columnWidth="30">
-              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_69" id="grupoId" columnCaption="Banco" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnHidden="false" columnName="financ_banco_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_banco_id" columnPosicao="0" columnRequired="true" columnRowId="false" columnTableName="financ_agencia" editable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
@@ -36,7 +36,7 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawlookupbutton>
             <kawdbtextfieldlookup name="KawDbTextFieldLookup_72" id="bancoLookup" columnCalcType="CALC" columnCaption="descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="banco_lookup" columnNameLookupRow="financ_banco_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnTableName="financ_agencia" columnWidth="20">
-              <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfieldlookup>
             <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_73" id="cidadeId" columnCaption="Cidade" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="municipio" columnNameLookupKey="id" columnNameRelationLookupKey="municipio" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="financ_agencia" editable="true" enable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
@@ -50,6 +50,12 @@
             <kawdbtextfieldlookup name="KawDbTextFieldLookup_76" id="ufLookup" columnCalcType="CALC" columnCaption="Estado(Uf)" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="municipio" columnNameOriginLookupRow="uf" columnPosicao="8" columnRowId="false" columnTableName="financ_agencia" columnWidth="20">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
             </kawdbtextfieldlookup>
+            <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="DV:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_79" id="dv" columnCaption="N&#xba; da Ag&#xea;ncia" columnDataType="STRING" columnEditable="true" columnName="dv" columnPosicao="3" columnRowId="true" columnTableName="financ_agencia" columnWidth="15" editable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
           </panel>
           <panel name="Panel_42" layout="FormLayout">
             <formLayout colspecs="160px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
@@ -113,5 +119,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=76-->
+<!--lastNameIndex=79-->
 <!--lastIdIndex=0-->

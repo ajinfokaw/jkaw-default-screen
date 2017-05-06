@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="2,36,1280,990" defaultCloseOperation="2" layout="BorderLayout" title="Venda - Carrinho (BETA)">
+<dialog xmlns="http://" bounds="2,36,1087,786" defaultCloseOperation="2" layout="BorderLayout" title="V E N D A    C A R R I N H O">
   <panel constraints="BorderLayout.CENTER" name="Panel_Principal" id="Panel_Principal" layout="BorderLayout">
     <panel constraints="BorderLayout.SOUTH" name="Panel_ToolBar" id="Panel_ToolBar" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_395" layout="BorderLayout">
@@ -20,34 +20,56 @@
           <kawdbtable name="KawDbTable_409" id="fat_docto_i" connection="jkawflex" focusable="true" hidden="true" kawTableName="fat_docto_i" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="fat_docto_c_controle" linkFetchAsNeeded="true" linkMasterColumns="controle" linkMasterTable="fat_docto_c" managingFocus="true" parameterQColumns="controle" parameterQColumnsCaption="Controle" parameterQColumnsDataType="LONG" parameterQDisplayMask="##########" queryDataSet="SELECT fat_docto_c_controle,fat_produto_id,fat_produto.descricao AS produto_lookup,fat_produto.unidadepadraovenda AS unidadepadraovenda_lookup, fat_produto.classtipi_codigonbm AS ncm, fat_produto.cest AS cest, fat_transacao_id,cad_filial_id,cad_cadastro_id,seriedocto_codigo,emissao,dataentradasaida,qtde,valor_unitario,valor_unitario_liquido,desc_valor_unitario,desc_perc_unitario,fat_docto_i.valor_total AS valor_total ,valor_total_liquido,desc_perc_unitario,desc_valor_unitario,valor_unitario_liquido,valor_total_liquido,tabcfop_id,icms_digitacaomanual,icms_ricms,icms_classtrib,icms_classorigem,icms_preducao,icms_basecalculo,icms_perc,icms_subst_aliq_prop,icms_isentos,icms_outros,icms_subst_basecalculo,icms_subst_perc,icms_subst_valor,icms_valor  FROM  fat_docto_i  INNER JOIN fat_produto ON fat_produto.id = fat_produto_id WHERE fat_docto_c_controle = :controle" queryDataSetView="" requestFocusEnabled="true"/>
         </scrollpane>
         <panel constraints="BorderLayout.SOUTH" name="Panel_Total" id="Panel_Total" layout="BorderLayout">
-          <panel constraints="BorderLayout.EAST" name="Panel_497" layout="FlowLayout">
+          <panel constraints="BorderLayout.WEST" name="Panel_497" layout="FlowLayout">
             <label name="Label_498" horizontalAlignment="0" horizontalTextPosition="11" text="TOTAL PRODUTOS:" verticalAlignment="0" verticalTextPosition="0"/>
             <kawdbtextfield name="KawDbTextField_518" id="aggTotalProdutos" columnAggName="valor_total" columnCalcType="AGGREGATE" columnCaption="Total Bruto dos Produtos" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="aggtotalprodutos" columnPosicao="27" columnResolvable="false" columnRowId="false" columnsSumAgg="fat_docto_c_controle" columnTableName="fat_docto_i" columnWidth="10" editable="true" fieldNotEdit="true"/>
             <label name="Label_505" horizontalAlignment="0" horizontalTextPosition="11" text="TOTAL:" verticalAlignment="0" verticalTextPosition="0"/>
             <kawdbtextfield name="KawDbTextField_514" id="valorTotalDocto" columnCaption="TOTAL" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="false" columnName="valortotal_docto" columnPosicao="16" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" fieldNotEdit="true" hidden="false"/>
           </panel>
-          <panel constraints="BorderLayout.NORTH" name="Panel_535" layout="BorderLayout"/>
+          <panel constraints="BorderLayout.NORTH" name="Panel_535" layout="BorderLayout">
+            <panel constraints="BorderLayout.WEST" name="Panel_876" layout="FormLayout">
+              <formLayout colspecs="100px,1dlu,110px,1dlu,180px,1dlu,116px,1dlu,107px,1dlu,122px" rowspecs="1dlu,35px,1px,1px,1dlu"/>
+              <button name="Button_877" id="btnF8" toolTipText="Iniciar Fechamento da Venda Carrinho" visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F8/F11-Fechamento" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="2" hAlign="Fill" vAlign="Fill"/>
+              </button>
+              <button name="Button_878" id="btnForm1" preferredSize="70,25" toolTipText="Imprimir Formul&#xe1;rio 1" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F1" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="2" hAlign="Default" vAlign="Fill"/>
+              </button>
+              <button name="Button_879" id="btnForm2" preferredSize="70,25" toolTipText="Imprimir Formul&#xe1;rio 2" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F2" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="2" hAlign="Default" vAlign="Fill"/>
+              </button>
+              <button name="Button_881" id="btnF7" toolTipText="Iniciar/selecionar inclus&#xe3;o de produtos " visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F7-Carrinho" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="2" hAlign="Fill" vAlign="Fill"/>
+              </button>
+              <button name="Button_882" id="btnF3" toolTipText="Consulta Produtos " visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F3-Produto" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Fill" vAlign="Fill"/>
+              </button>
+              <button name="Button_880" id="btnForm3" preferredSize="70,25" toolTipText="Imprimir Formul&#xe1;rio 3" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F3" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="2" hAlign="Default" vAlign="Fill"/>
+              </button>
+            </panel>
+          </panel>
         </panel>
       </panel>
       <panel constraints="BorderLayout.WEST" name="Panel_C" id="Panel_C" layout="BorderLayout">
-        <tabbedpane constraints="BorderLayout.NORTH" name="TabbedPane_Venda" id="TabbedPane_Venda" tabPlacement="1" titles="Carrinho,Parcela(s),Fechamento,Auxiliar,Outros Dados">
+        <tabbedpane constraints="BorderLayout.NORTH" name="TabbedPane_Venda" id="TabbedPane_Venda" tabPlacement="1" titles="Carrinho,Fechamento,Parcela(s),Auxiliar,Outros Dados">
           <panel name="Panel_Produto" id="Panel_Produto" layout="BorderLayout">
-            <panel constraints="BorderLayout.NORTH" name="Panel_804" layout="BorderLayout">
+            <panel constraints="BorderLayout.CENTER" name="Panel_804" layout="BorderLayout">
               <panel constraints="BorderLayout.CENTER" name="Panel_833" border="TitledBorder(Item:)" id="Panel_Produto_Form_Item" layout="FormLayout">
-                <formLayout colspecs="86px,2dlu,63px,2dlu,default,2dlu,91px" rowspecs="default,2dlu,54px,37px,default,1dlu,49px,5dlu,default,2dlu,49px,2dlu,default,42px,default,15dlu"/>
+                <formLayout colspecs="86px,2dlu,63px,2dlu,default,2dlu,91px,46px" rowspecs="default,2dlu,54px,37px,default,1dlu,49px,5dlu,default,2dlu,49px,2dlu,default,42px,default,15dlu"/>
                 <label name="Label_834" horizontalAlignment="0" horizontalTextPosition="11" text="C &#xd3; D I G O   D O   P R O D U T O " verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
                 </label>
                 <label name="Label_835" horizontalAlignment="0" horizontalTextPosition="11" text="Q U A N T I D A D E" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="5" hAlign="Left" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField_836" id="qtde" caretPosition="0" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="###,###.##" columnName="qtde" columnPosicao="6" columnRowId="false" columnTableName="fat_docto_i" columnWidth="7" editable="true" focusable="false" requestFocusEnabled="false">
+                <kawdbtextfield name="KawDbTextField_836" id="qtde" caretPosition="0" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="qtde" columnPosicao="6" columnRequired="false" columnRowId="false" columnTableName="fat_docto_i" columnWidth="7" editable="false" focusable="false" requestFocusEnabled="false">
                   <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="7" hAlign="Default" vAlign="Fill"/>
                 </kawdbtextfield>
                 <label name="Label_837" horizontalAlignment="0" horizontalTextPosition="11" text="V A L O R     U N I T A R I O" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="9" hAlign="Left" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField_838" id="valorUnitario" columnCaption="Vl. Unit&#xe1;rio" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,###,##0.000000" columnEditable="true" columnEditMask="###,###.######" columnFixedPrecision="true" columnName="valor_unitario" columnPosicao="8" columnPrecision="6" columnReadOnly="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_i" columnWidth="12" editable="false" focusable="false" requestFocusEnabled="false">
+                <kawdbtextfield name="KawDbTextField_838" id="valorUnitario" columnCaption="Vl. Unit&#xe1;rio" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,###,##0.000000" columnEditable="true" columnEditMask="###,###.######" columnFixedPrecision="false" columnName="valor_unitario" columnPosicao="8" columnPrecision="6" columnReadOnly="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_i" columnWidth="12" editable="false" focusable="false" requestFocusEnabled="false">
                   <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="11" hAlign="Default" vAlign="Fill"/>
                 </kawdbtextfield>
                 <scrollpane name="ScrollPane_839" preferredSize="100,50" visible="false" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
@@ -75,28 +97,42 @@
                 <kawdbtextfield name="KawDbTextField_846" id="produtoAlternativo" columnCaption="C&#xf3;digo" columnDataType="LONG" columnDisplayMask="##################" columnEditable="true" columnEditMask="##################" columnHidden="true" columnName="fat_produto_alternativo" columnPosicao="0" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="fat_docto_i" columnWidth="14" editable="true" enable="true" focusCycleRoot="true" hidden="false">
                   <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="3" hAlign="Default" vAlign="Fill"/>
                 </kawdbtextfield>
+                <label name="F9" font="Arial Black-20-BOLD" foreground="ff0000" id="F9" horizontalAlignment="0" horizontalTextPosition="11" text="F9" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridX="8" gridY="7"/>
+                </label>
+                <label name="Label_855" font="Arial Black-20-BOLD" foreground="ff0000" id="F10" horizontalAlignment="0" horizontalTextPosition="11" text="F10" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridX="8" gridY="11"/>
+                </label>
+                <label name="Label_856" font="Arial Black-20-BOLD" foreground="ff0000" id="F7" horizontalAlignment="0" horizontalTextPosition="11" text="F7" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridX="8" gridY="3"/>
+                </label>
               </panel>
             </panel>
-          </panel>
-          <panel name="Panel_Parcela" id="Panel_Parcela" layout="BorderLayout" include="xml/LctoPanelParcelas.xml#PANEL_PARCELAS"/>
-          <panel name="Panel_Fechamento" id="Panel_Fechamento" layout="BorderLayout">
-            <panel constraints="BorderLayout.NORTH" name="Panel_588" border="TitledBorder(Fechamento:)" id="Panel_Produto_Form_Cliente" layout="FormLayout">
-              <formLayout colspecs="18px,72px,2dlu,29px,2dlu,49px,2dlu,125px" rowspecs="15dlu,default,2dlu,40px,5dlu,default,2dlu,46px,5dlu,default,53px,default,40px,default,40px,15dlu"/>
-              <label name="Label_589" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="2" gridY="6" hAlign="Left" vAlign="Default"/>
+            <panel constraints="BorderLayout.NORTH" name="Panel_884" layout="FormLayout">
+              <formLayout colspecs="default,2dlu,default,2dlu,default,2dlu,167px" rowspecs="default,2dlu,40px,2dlu,default,40px"/>
+              <label name="Label_885" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo Cliente" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="1" hAlign="Left" vAlign="Default"/>
               </label>
-              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_590" id="cadastroCodigo" columnCaption="Cliente" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="cad_cadastro_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_cadastro_id" columnPosicao="2" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" focusable="false" requestFocusEnabled="true">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="8" hAlign="Default" vAlign="Fill"/>
+              <label name="Label_887" horizontalAlignment="0" horizontalTextPosition="11" text="Nome do Cliente" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="5" hAlign="Left" vAlign="Default"/>
+              </label>
+              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_888" id="cadastroCodigo" columnCaption="Cliente" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="cad_cadastro_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_cadastro_id" columnPosicao="2" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" focusable="false" requestFocusEnabled="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfieldlookuprow>
-              <kawlookupbutton name="KawLookupButton_591" id="lookupCadastroCodigo" action="lookupFornecedor" columnDestino="cad_cadastro_id,nome,cnpj_cpf,endereco,bairro,cidade,uf,endereco_numero" columnOrigem="id,razaosocial,cnpj_cpf,endereco,bairro,municipio,uf,numero" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,cpf,telefone1,email,uf,bairro,municipio,numero  FROM cad_cadastro" requestFocusEnabled="true" xmlLookupView="LookupClientes.xml">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="8" hAlign="Default" vAlign="Fill"/>
+              <kawlookupbutton name="KawLookupButton_889" id="lookupCadastroCodigo" action="lookupFornecedor" columnDestino="cad_cadastro_id,nome,cnpj_cpf,endereco,bairro,cidade,uf,endereco_numero" columnOrigem="id,razaosocial,cnpj_cpf,endereco,bairro,municipio,uf,numero" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,cpf,telefone1,email,uf,bairro,municipio,numero  FROM cad_cadastro" requestFocusEnabled="true" xmlLookupView="LookupClientes.xml">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Fill"/>
               </kawlookupbutton>
-              <label name="Label_592" horizontalAlignment="0" horizontalTextPosition="11" text="Nome do Cliente" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="6" hAlign="Left" vAlign="Default"/>
-              </label>
-              <kawdbtextfield name="KawDbTextField_593" id="nomeCliente" columnCaption="Nome Cliente" columnDataType="STRING" columnEditable="true" columnFixedPrecision="false" columnHidden="false" columnName="nome" columnPosicao="3" columnPrecision="60" columnReadOnly="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30" dragEnabled="false" editable="true" focusable="false" requestFocusEnabled="true" scrollableTracksViewportHeight="false">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="8" hAlign="Default" vAlign="Fill"/>
+              <kawdbtextfield name="KawDbTextField_890" id="nomeCliente" columnCaption="Nome Cliente" columnDataType="STRING" columnEditable="true" columnFixedPrecision="false" columnHidden="false" columnName="nome" columnPosicao="3" columnPrecision="60" columnReadOnly="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30" dragEnabled="false" editable="true" focusable="false" requestFocusEnabled="true" scrollableTracksViewportHeight="false">
+                <cellconstraints gridHeight="1" gridWidth="7" gridX="1" gridY="6" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfield>
+              <label name="Label_891" font="Arial Black-20-BOLD" foreground="ff0000" id="F4" horizontalAlignment="0" horizontalTextPosition="11" text="F4" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+            </panel>
+          </panel>
+          <panel name="Panel_Fechamento" id="Panel_Fechamento" layout="BorderLayout">
+            <panel constraints="BorderLayout.WEST" name="Panel_588" border="TitledBorder(Fechamento:)" id="Panel_Produto_Form_Cliente" layout="FormLayout">
+              <formLayout colspecs="18px,72px,2dlu,29px,2dlu,49px,2dlu,176px" rowspecs="15dlu,default,2dlu,35px,5dlu,default,2dlu,40px,5dlu,default,35px,default,35px,default,35px,default,35px,default,40px,default,35px,15dlu"/>
               <label name="Label_594" horizontalAlignment="0" horizontalTextPosition="11" text="CPF/CNPJ do Cliente" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="7" gridX="2" gridY="10" hAlign="Left" vAlign="Default"/>
               </label>
@@ -104,31 +140,31 @@
                 <cellconstraints gridHeight="1" gridWidth="7" gridX="2" gridY="11" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfield>
               <label name="Label_596" horizontalAlignment="0" horizontalTextPosition="11" text="DESCONTO:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="2" gridY="14" hAlign="Right" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="2" gridY="20" hAlign="Right" vAlign="Default"/>
               </label>
               <label name="Label_597" horizontalAlignment="0" horizontalTextPosition="11" text="%:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="6" gridY="14" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="6" gridY="20" hAlign="Default" vAlign="Default"/>
               </label>
               <kawdbtextfield name="KawDbTextField_598" id="descontoDoctoPerc" columnCaption="(%Desc)" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditMask="###.##" columnHidden="true" columnName="descontodocto_perc" columnPosicao="5" columnTableName="fat_docto_c" focusable="false" requestFocusEnabled="true">
-                <cellconstraints gridHeight="1" gridWidth="5" gridX="2" gridY="15" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="2" gridY="21" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfield>
               <label name="Label_599" horizontalAlignment="0" horizontalTextPosition="11" text="R$:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="14" hAlign="Right" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="20" hAlign="Right" vAlign="Fill"/>
               </label>
               <kawdbtextfield name="KawDbTextField_600" id="descontoDoctoValor" columnCaption="Desc(R$)" columnDataType="BIGDECIMAL" columnDisplayMask="##,##0.000" columnEditMask="##,###.###" columnHidden="true" columnName="descontodocto_valor" columnPosicao="6" columnTableName="fat_docto_c" focusable="false" requestFocusEnabled="true">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="15" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="21" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfield>
               <label name="Label_601" horizontalAlignment="0" horizontalTextPosition="11" text="Pgto:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="2" gridX="2" gridY="12" hAlign="Left" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="2" gridX="2" gridY="18" hAlign="Left" vAlign="Default"/>
               </label>
               <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_602" id="condpgCodigo" columnCaption="C.P." columnDataType="INT" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnHidden="false" columnName="fat_condpg_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_condpg_id" columnPosicao="14" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" editable="true" focusable="false" requestFocusEnabled="true">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="13" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="19" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfieldlookuprow>
               <kawlookupbutton name="KawLookupButton_603" id="condpgLookupButton" action="lookupCondPgto" columnDestino="fat_condpg_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_condpg" kawTableNameRelation="fat_docto_c" parameterQColumns="fat_condpg_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM fat_condpg WHERE id = :fat_condpg_id" xmlLookupView="LookupCondPg.xml">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="13" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="19" hAlign="Default" vAlign="Fill"/>
               </kawlookupbutton>
               <kawdbtextfieldlookup name="KawDbTextFieldLookup_604" id="condpgLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="condpg_lookup" columnNameLookupRow="fat_condpg_id" columnNameOriginLookupRow="descricao" columnPosicao="15" columnRowId="false" columnServerColumnName="" columnTableName="fat_docto_c" columnWidth="15" editable="false" UIClassID=" ">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="13" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="19" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfieldlookup>
               <label name="Label_605" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="3" gridX="2" gridY="2" hAlign="Left" vAlign="Default"/>
@@ -148,8 +184,39 @@
               <kawdbtextfield name="KawDbTextField_611" id="nControle" columnAutoIncrement="true" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnFixedPrecision="false" columnName="controle" columnPosicao="0" columnRowId="true" columnTableName="fat_docto_c" columnWidth="8" dragEnabled="true" editable="false" fieldNotEdit="true">
                 <cellconstraints gridHeight="1" gridWidth="3" gridX="4" gridY="1" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
+              <label name="Label_858" horizontalAlignment="0" horizontalTextPosition="11" text="Vendedor / Caixa:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="7" gridX="2" gridY="16" hAlign="Left" vAlign="Default"/>
+              </label>
+              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_866" id="cadastroVendedorCodigo" columnCaption="Vendedor" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="false" columnName="cadastro_vendedor_id" columnNameLookupKey="id" columnNameRelationLookupKey="cadastro_vendedor_id" columnPosicao="16" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" editable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="17" hAlign="Default" vAlign="Fill"/>
+              </kawdbtextfieldlookuprow>
+              <kawlookupbutton name="KawLookupButton_867" id="cadastroVendedorLookupButton" action="lookupVendedor" columnDestino="cadastro_vendedor_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cadastro_vendedor_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia FROM cad_cadastro  WHERE id = :cadastro_vendedor_id" xmlLookupView="LookupVendedores.xml">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="17" hAlign="Left" vAlign="Fill"/>
+              </kawlookupbutton>
+              <kawdbtextfieldlookup name="KawDbTextFieldLookup_868" id="cadastroVendedorLookup" columnCalcType="CALC" columnCaption="Nome Vendedor" columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="cadastro_vendedor_lookup" columnNameLookupRow="cadastro_vendedor_id" columnNameOriginLookupRow="razaosocial" columnPosicao="17" columnRowId="false" columnServerColumnName="" columnTableName="fat_docto_c" columnWidth="20" UIClassID=" ">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="17" hAlign="Fill" vAlign="Fill"/>
+              </kawdbtextfieldlookup>
+              <label name="Label_869" horizontalAlignment="0" horizontalTextPosition="11" text="Endere&#xe7;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="2" gridX="2" gridY="12" hAlign="Left" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_870" id="Endereco" columnCaption="Endere&#xe7;o" columnDataType="STRING" columnHidden="true" columnName="endereco" columnPosicao="10" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30">
+                <cellconstraints gridHeight="1" gridWidth="7" gridX="2" gridY="13" hAlign="Default" vAlign="Fill"/>
+              </kawdbtextfield>
+              <label name="Label_871" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xfa;mero:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="2" gridX="2" gridY="14" hAlign="Left" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField_872" id="enderecoNumero" columnCaption="N&#xba;" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnFixedPrecision="false" columnHidden="true" columnName="endereco_numero" columnPosicao="5" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="false" editable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="15" hAlign="Default" vAlign="Fill"/>
+              </kawdbtextfield>
+              <kawdbtextfield name="KawDbTextField_873" id="Bairro" columnCaption="Bairro" columnDataType="STRING" columnHidden="true" columnName="bairro" columnPosicao="10" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="4" gridY="15" hAlign="Default" vAlign="Fill"/>
+              </kawdbtextfield>
+              <label name="Label_874" horizontalAlignment="0" horizontalTextPosition="11" text="Bairro:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="4" gridY="14" hAlign="Left" vAlign="Default"/>
+              </label>
             </panel>
           </panel>
+          <panel name="Panel_Parcela" id="Panel_Parcela" layout="BorderLayout" include="xml/LctoPanelParcelas.xml#PANEL_PARCELAS"/>
           <panel name="Panel_Auxiliar" id="Panel_Auxiliar" visible="false" layout="BorderLayout">
             <panel constraints="BorderLayout.NORTH" name="Panel_631" layout="FlowLayout">
               <panel name="Panel_641" id="panelFUNRURAL" layout="FormLayout">
@@ -488,18 +555,6 @@
               <label name="Label_350" horizontalAlignment="0" horizontalTextPosition="11" text="Tabela:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
               </label>
-              <label name="Label_355" horizontalAlignment="0" horizontalTextPosition="11" text="Caixa:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
-              </label>
-              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_361" id="cadastroVendedorCodigo" columnCaption="Vendedor" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="false" columnName="cadastro_vendedor_id" columnNameLookupKey="id" columnNameRelationLookupKey="cadastro_vendedor_id" columnPosicao="16" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" editable="true">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
-              </kawdbtextfieldlookuprow>
-              <kawlookupbutton name="KawLookupButton_362" id="cadastroVendedorLookupButton" action="lookupVendedor" columnDestino="cadastro_vendedor_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cadastro_vendedor_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia FROM cad_cadastro  WHERE id = :cadastro_vendedor_id" xmlLookupView="LookupVendedores.xml">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Left" vAlign="Default"/>
-              </kawlookupbutton>
-              <kawdbtextfieldlookup name="KawDbTextFieldLookup_363" id="cadastroVendedorLookup" columnCalcType="CALC" columnCaption="Nome Vendedor" columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="cadastro_vendedor_lookup" columnNameLookupRow="cadastro_vendedor_id" columnNameOriginLookupRow="razaosocial" columnPosicao="17" columnRowId="false" columnServerColumnName="" columnTableName="fat_docto_c" columnWidth="20" UIClassID=" ">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="9" hAlign="Fill" vAlign="Default"/>
-              </kawdbtextfieldlookup>
               <kawdbtextfieldlookup name="KawDbTextFieldLookup_364" id="lispreTabelaLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="lispreTabelaLookup" columnNameLookupRow="fat_listapre_tabela_tabela" columnNameOriginLookupRow="descricao" columnPosicao="13" columnRowId="false" columnServerColumnName="" columnTableName="fat_docto_c" columnWidth="15" UIClassID=" ">
                 <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="8" hAlign="Default" vAlign="Default"/>
               </kawdbtextfieldlookup>
@@ -587,15 +642,6 @@
               <kawlookupbutton name="KawLookupButton_775" id="lookupButtonTextoAdic" action="" columnDestino="dadosadicionais" columnOrigem="texto" connection="jkawflex" defaultButton="true" hidden="true" kawTableName="fat_textoadic" kawTableNameRelation="fat_docto_c" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE id = :id" xmlLookupView="LookupTextoAdicional">
                 <cellconstraints gridX="5" gridY="11"/>
               </kawlookupbutton>
-              <kawdbtextfield name="KawDbTextField_848" id="Endereco" columnCaption="Endere&#xe7;o" columnDataType="STRING" columnHidden="true" columnName="endereco" columnPosicao="10" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
-              </kawdbtextfield>
-              <kawdbtextfield name="KawDbTextField_849" id="Bairro" columnCaption="Bairro" columnDataType="STRING" columnHidden="true" columnName="bairro" columnPosicao="10" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="18" hAlign="Default" vAlign="Default"/>
-              </kawdbtextfield>
-              <kawdbtextfield name="KawDbTextField_850" id="enderecoNumero" columnCaption="N&#xba;" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnFixedPrecision="false" columnHidden="true" columnName="endereco_numero" columnPosicao="5" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="false" editable="true">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="17" hAlign="Default" vAlign="Default"/>
-              </kawdbtextfield>
               <kawdbtextfield name="KawDbTextField_851" id="Uf" columnCaption="UF " columnDataType="STRING" columnDisplayMask=">cc" columnEditable="true" columnEditMask=">cc" columnFixedPrecision="false" columnHidden="true" columnName="uf" columnPosicao="5" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="false" editable="true">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="18" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
@@ -608,27 +654,6 @@
             </panel>
           </panel>
         </tabbedpane>
-        <panel constraints="BorderLayout.SOUTH" name="Panel_797" layout="FormLayout">
-          <formLayout colspecs="100px,1dlu,100px,1dlu,106px" rowspecs="1dlu,35px,1px,1px,35px,1dlu"/>
-          <button name="Button_798" id="btnF8" toolTipText="Iniciar Fechamento da Venda Carrinho" visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F8-Fechamento" verticalAlignment="0" verticalTextPosition="0">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="2" hAlign="Fill" vAlign="Fill"/>
-          </button>
-          <button name="Button_799" id="btnForm1" preferredSize="70,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F1" verticalAlignment="0" verticalTextPosition="0">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Fill"/>
-          </button>
-          <button name="Button_800" id="btnForm2" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F2" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
-          </button>
-          <button name="Button_801" id="btnForm3" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F3" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Fill"/>
-          </button>
-          <button name="Button_802" id="btnF3" toolTipText="Consulta Produtos " visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F3-Produto" verticalAlignment="0" verticalTextPosition="0">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Fill" vAlign="Fill"/>
-          </button>
-          <button name="Button_803" id="btnF7" toolTipText="Iniciar/selecionar inclus&#xe3;o de produtos " visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F7-Carrinho" verticalAlignment="0" verticalTextPosition="0">
-            <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="2" hAlign="Fill" vAlign="Fill"/>
-          </button>
-        </panel>
       </panel>
     </panel>
   </panel>
@@ -662,5 +687,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=853-->
+<!--lastNameIndex=891-->
 <!--lastIdIndex=0-->

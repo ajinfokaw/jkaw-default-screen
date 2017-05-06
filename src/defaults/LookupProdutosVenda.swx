@@ -2,7 +2,7 @@
 <dialog xmlns="http://" bounds="0,0,1026,550" id="telaLookup" layout="BorderLayout" title="Consulta produtos">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
-      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" selected="true" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
       <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
       <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>

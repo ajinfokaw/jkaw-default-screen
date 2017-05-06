@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,609,404" id="telaLookup" layout="BorderLayout" title="Consulta Transa&#xe7;&#xe3;o">
+<dialog xmlns="http://" bounds="0,0,714,404" id="telaLookup" layout="BorderLayout" title="Consulta Transa&#xe7;&#xe3;o">
   <panel constraints="BorderLayout.NORTH" name="Panel_4" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -18,7 +18,7 @@
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_7" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_8" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_Transacao" id="tableLookup" connection="jkawflex" kawTableName="fat_transacao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END AND financ_classificacao_g ='2 - Financeiro' AND COALESCE(desativado, false) = false " queryDataSetView=""/>
+      <kawdbtable name="KawDbTable_Transacao" id="tableLookup" connection="jkawflex" kawTableName="fat_transacao" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9')  THEN id = string_integer(:ppesquisa) ELSE CASE WHEN NOT :ppesquisaconteudo THEN TRUE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END AND financ_classificacao_g ='2 - Financeiro' AND COALESCE(desativado, false) = false " queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_16" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_17" layout="BorderLayout">

@@ -65,7 +65,7 @@
             <label name="Label_138" horizontalAlignment="0" horizontalTextPosition="11" text="PESO &#xc0; PAGAR KG:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="3" gridX="12" gridY="23" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_188" id="pesoPagar" columnCalcType="CALC" columnCaption="Peso a Pagar" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="pesopagar" columnPosicao="10" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" fieldNotEdit="true">
+            <kawdbtextfield name="KawDbTextField_188" id="pesoPagar" columnCalcType="CALC" columnCaption="Peso a Pagar" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="" columnHidden="true" columnName="pesopagar" columnPosicao="10" columnResolvable="true" columnRowId="false" columnServerColumnName="pesopagar" columnTableName="fat_notapesagem" fieldNotEdit="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="16" gridY="23" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_196" horizontalAlignment="0" horizontalTextPosition="11" text="Impureza:" verticalAlignment="0" verticalTextPosition="0">
@@ -312,7 +312,7 @@
               <cellconstraints gridHeight="1" gridWidth="1" gridX="10" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbcombobox>
           </panel>
-          <panel constraints="BorderLayout.CENTER" name="Panel0" border="TitledBorder(Classe Gerencial:)" layout="BorderLayout">
+          <panel constraints="BorderLayout.CENTER" name="Panel0" border="TitledBorder(Parceiro(s):)" layout="BorderLayout">
             <panel constraints="BorderLayout.CENTER" name="Panel1" layout="BorderLayout">
               <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="TabbedPane_fat_notapesagem_p" tabPlacement="1" titles="Lista,Editar">
                 <panel name="Panel0" preferredSize="0,30" layout="BorderLayout">
@@ -389,7 +389,7 @@
                 </panel>
                 <panel constraints="BorderLayout.SOUTH" name="Panel2" layout="FlowLayout">
                   <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="PESO TOTAL:" verticalAlignment="0" verticalTextPosition="0"/>
-                  <kawdbtextfield name="KawDbTextField0" id="totalLcto" columnCaption="PESO" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditMask="###,###.##" columnName="pesopagar" columnPosicao="12" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="10" editable="true" enable="true" fieldNotEdit="true"/>
+                  <kawdbtextfield name="KawDbTextField0" id="totalLcto" columnCalcType="CALC" columnCaption="PESO" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditMask="###,###.##" columnName="pesopagar" columnPosicao="12" columnResolvable="true" columnRowId="false" columnServerColumnName="pesopagar" columnTableName="fat_notapesagem" columnWidth="10" editable="true" enable="true" fieldNotEdit="true"/>
                   <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="PESO LAN&#xc7;ADO:" verticalAlignment="0" verticalTextPosition="0"/>
                   <kawdbtextfield name="KawDbTextField1" id="aggTotalPeso" columnAggName="peso_pagar" columnCalcType="AGGREGATE" columnCaption="Total Peso" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="false" columnName="aggtotalpeso" columnPosicao="27" columnRowId="false" columnServerColumnName="" columnsSumAgg="fat_notapesagem_id" columnTableName="fat_notapesagem_p" columnWidth="10" editable="true" fieldNotEdit="true" focusable="false"/>
                   <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="RESTANTE:" verticalAlignment="0" verticalTextPosition="0"/>

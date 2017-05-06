@@ -11,7 +11,7 @@
       <kawdbtextfield name="KawDbTextField_Codigo" id="id" columnCaption="C&#xf3;digo" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnName="id" columnWidth="6">
         <cellconstraints gridX="5" gridY="1"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_Descricao" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnWidth="80">
+      <kawdbtextfield name="KawDbTextField_Descricao" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnWidth="50">
         <cellconstraints gridX="5" gridY="3"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_20" id="codigoricms" columnCaption="RICMS" columnDataType="STRING" columnEditable="false" columnName="codigoricms" columnWidth="80">

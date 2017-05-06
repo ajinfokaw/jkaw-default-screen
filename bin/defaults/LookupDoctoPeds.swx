@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1141,458" id="telaLookup" layout="BorderLayout" title="Consulta Lan&#xe7;amento">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_7" id="tableLookup" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="datainicial,datafinal,pcontrole,pnumero_docto,ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="DATE,DATE,INT,INT,STRING,BOOLEAN" queryDataSet="SELECT (select propriedade FROM view_transacao WHERE codigo_transacao = fat_docto_c.fat_transacao_id AND diretiva = 27),fat_docto_pc.status_p,controle,emissao,dataentradasaida,fat_docto_c.cad_filial_id AS cad_filial_id,fat_transacao_id,fat_transacao.descricao AS transacao_lookup, seriedocto_id, seriedocto_codigo,fat_serie.natureza as serie_natureza,numero_docto,fat_docto_c.cad_cadastro_id AS cad_cadastro_id,nome,cnpj_cpf, valortotal_docto,nfechaveacesso,nfeprotocolo,statuslcto FROM fat_docto_c LEFT JOIN fat_docto_pc ON fat_docto_c.controle = fat_docto_pc.fat_docto_c_controle  LEFT JOIN fat_transacao ON fat_transacao.id = fat_transacao_id LEFT JOIN fat_serie ON fat_serie.id = seriedocto_id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN controle = string_integer(:ppesquisa) OR numero_docto = string_integer(' ') WHEN :ppesquisaconteudo THEN UPPER((Select razaosocial FROM cad_cadastro where cad_cadastro.id = fat_docto_c.cad_cadastro_id)) LIKE '%'||UPPER('  ')||'%'  ELSE fat_docto_pc.status_p = 'P' END AND substring((select propriedade FROM view_transacao WHERE codigo_transacao = fat_docto_c.fat_transacao_id AND diretiva = 27) FROM 1 FOR 1 ) = 'P' AND fat_docto_pc.status_p = 'P'ORDER BY emissao,controle " queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_18" id="pesquisas" layout="FlowLayout">
+      <panel name="Panel_55" id="pesquisa" layout="FlowLayout">
+        <panel name="Panel_64" layout="FlowLayout">
+          <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbtextfield name="KawDbTextField2" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
+          <button name="Button3" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+      </panel>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,70px,2dlu,320px,2dlu,235px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+      <kawdbtextfield name="KawDbTextField_65" id="statusLcto" columnCaption="C.S." columnDataType="INT" columnEditable="false" columnEditMask="#" columnFixedPrecision="false" columnName="statuslcto" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="3" dragEnabled="true" editable="false" fieldNotEdit="true" focusable="false">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_66" id="nControle" columnAutoIncrement="true" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnFixedPrecision="false" columnName="controle" columnPosicao="0" columnRowId="true" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="1" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_67" id="emissao" columnCaption="Emiss&#xe3;o" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="emissao" columnPosicao="1" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" enable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Left" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_68" id="dataEntraSaida" columnCaption="Entrada/Sa&#xed;da" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="dataentradasaida" columnPosicao="1" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Left" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_69" id="cad_filial_id" columnCaption="Filial" columnDataType="INT" columnDefault="now" columnDisplayMask="###" columnEditMask="###" columnHidden="false" columnName="cad_filial_id" columnPosicao="0" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Left" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_73" id="seriedocto_id" columnAutoIncrement="true" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="##" columnFixedPrecision="false" columnHidden="true" columnName="seriedocto_id" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="1" gridY="11"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_74" id="seriedocto_codigo" columnAutoIncrement="true" columnCaption="C&#xf3;digo" columnDataType="STRING" columnDisplayMask=">cc#" columnEditable="false" columnEditMask=">cc#" columnFixedPrecision="false" columnHidden="true" columnName="seriedocto_codigo" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_75" id="serie_natureza" columnAutoIncrement="true" columnCaption="Natureza" columnDataType="STRING" columnDisplayMask="" columnEditable="false" columnEditMask="" columnFixedPrecision="false" columnHidden="true" columnName="serie_natureza" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_77" id="numero_docto" columnAutoIncrement="true" columnCaption="N&#xba; Docto" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnFixedPrecision="false" columnName="numero_docto" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="5"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_78" id="cad_cadastro_id" columnAutoIncrement="true" columnCaption="C&#xf3;d." columnDataType="INT" columnEditable="false" columnEditMask="#####" columnFixedPrecision="false" columnName="cad_cadastro_id" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="7"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_79" id="nome" columnAutoIncrement="true" columnCaption="Nome" columnDataType="STRING" columnEditable="false" columnEditMask="" columnFixedPrecision="false" columnName="nome" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="9"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_80" id="cnpj_cpf" columnAutoIncrement="true" columnCaption="CNPJ/CPF" columnDataType="STRING" columnEditable="false" columnEditMask="" columnFixedPrecision="false" columnName="cnpj_cpf" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="true" editable="false" fieldNotEdit="true">
+        <cellconstraints gridX="3" gridY="11"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_81" id="valorTotalDocto" columnCaption="Total Docto" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="valortotal_docto" columnPosicao="13" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" editable="true" fieldNotEdit="true" hidden="false">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Fill" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_83" id="nfeChaveAcesso" columnCaption="Chave Acesso" columnDataType="STRING" columnEditable="false" columnName="nfechaveacesso" columnTableName="fat_docto_c" columnWidth="30" editable="false" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_84" id="nfeProtocolo" columnCaption="N.Prot." columnDataType="STRING" columnEditable="false" columnName="nfeprotocolo" columnTableName="fat_docto_c" columnWidth="30" fieldNotEdit="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_86" id="tipoLcto" columnCaption="T.L." columnDataType="INT" columnEditable="false" columnEditMask="#" columnFixedPrecision="false" columnName="tipolcto" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="3" dragEnabled="true" editable="false" fieldNotEdit="true" focusable="false">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=86-->
+<!--lastIdIndex=0-->

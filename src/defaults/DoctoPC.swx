@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,663,458" id="telaLookup" layout="BorderLayout" title="Consulta Movimenta&#xe7;&#xf5;es ">
+<dialog xmlns="http://" bounds="0,0,776,458" id="telaLookup" layout="BorderLayout" title="Consulta Movimenta&#xe7;&#xf5;es ">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" id="" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
       <kawdbtable name="KawDbTable_7" id="fat_docto_pc" connection="jkawflex" kawTableName="fat_docto_pc" parameterQColumns="ppesquisa,ppesquisaconteudo,cad_cadastro_id,tipo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN,INT,STRING" queryDataSet="SELECT fat_docto_c_controle, tipo, cad_cadastro_id, cad_filial_id, data_p, status_p FROM fat_docto_pc WHERE  status_p ='P' AND tipo = :tipo AND cad_cadastro_id = :cad_cadastro_id" queryDataSetView=""/>
@@ -8,7 +8,7 @@
   <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_18" layout="BorderLayout"/>
     <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
-      <formLayout colspecs="89px,2dlu,default,2dlu,95px,2dlu,87px,2dlu,72px,2dlu,77px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,119px"/>
+      <formLayout colspecs="89px,2dlu,default,2dlu,95px,2dlu,87px,2dlu,72px,2dlu,77px,76px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,119px"/>
       <kawdbtextfield name="KawDbTextField_32" id="controle" columnCaption="Controle" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnName="fat_docto_c_controle" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pc" columnWidth="14">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
@@ -38,38 +38,41 @@
       <kawdbcheckbox name="KawDbCheckBox_57" id="baixar" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnName="baixar" columnResolvable="false" columnTableName="fat_docto_pc">
         <cellconstraints gridX="7" gridY="3"/>
       </kawdbcheckbox>
-      <kawdbcheckbox name="KawDbCheckBox_58" id="baixarPI" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnHidden="false" columnName="baixarpi" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="3">
+      <kawdbcheckbox name="KawDbCheckBox_58" id="baixarPI" columnCaption="B." columnDataType="BOOLEAN" columnEditable="true" columnHidden="false" columnName="baixarpi" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="1">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbcheckbox>
       <kawdbtextfield name="KawDbTextField_59" id="cadFilialId" columnCaption="Filial" columnDataType="INT" columnEditable="false" columnHidden="true" columnName="cad_filial_id" columnPosicao="3" columnTableName="fat_docto_pc">
         <cellconstraints gridX="5" gridY="5"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_60" id="produtoId" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="fat_produto_id" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pi" columnWidth="5">
+      <kawdbtextfield name="KawDbTextField_60" id="produtoId" columnCaption="Produto" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="fat_produto_id" columnPosicao="1" columnRowId="true" columnTableName="fat_docto_pi" columnWidth="4">
         <cellconstraints gridX="9" gridY="1"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_61" id="qtde" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde" columnPosicao="3" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_61" id="qtde" columnCaption="Qtde" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde" columnPosicao="3" columnTableName="fat_docto_pi" columnWidth="7">
         <cellconstraints gridX="9" gridY="5"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_62" id="qtdePendente" columnCaption="Qtde-Pendente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="qtde_pendente" columnPosicao="5" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_62" id="qtdePendente" columnCaption="Qtde-Pendente" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnName="qtde_pendente" columnPosicao="5" columnTableName="fat_docto_pi" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_63" id="produtoDescricao" columnCaption="Descricao" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="descricao" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="35">
+      <kawdbtextfield name="KawDbTextField_63" id="produtoDescricao" columnCaption="Descricao" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="descricao" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="28">
         <cellconstraints gridX="9" gridY="7"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_64" id="qtdeAtendida" columnCaption="Qtde-Atendida" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_atendida" columnPosicao="4" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_64" id="qtdeAtendida" columnCaption="Qtde-Atendida" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_atendida" columnPosicao="4" columnTableName="fat_docto_pi" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_65" id="qtdeCancelada" columnCaption="Qtde-Cancelada" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_cancelada" columnPosicao="6" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_65" id="qtdeCancelada" columnCaption="Qtde-Cancelada" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,###.###" columnName="qtde_cancelada" columnPosicao="6" columnTableName="fat_docto_pi" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_69" id="atender" columnCaption="Atender" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="atender" columnPosicao="7" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_69" id="atender" columnCaption="Atender" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="atender" columnPosicao="7" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_70" id="cancelar" columnCaption="Cancelar" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="cancelar" columnPosicao="8" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_70" id="cancelar" columnCaption="Cancelar" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnName="cancelar" columnPosicao="8" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_71" id="codigoBarra1" columnCaption="C&#xf3;d.Barras" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="codigobarra1" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="12">
+      <kawdbtextfield name="KawDbTextField_71" id="codigoBarra1" columnCaption="C&#xf3;d.Barras" columnDataType="STRING" columnEditable="false" columnEditMask="" columnName="codigobarra1" columnPosicao="2" columnTableName="fat_docto_pi" columnWidth="9">
         <cellconstraints gridX="9" gridY="9"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_72" id="qtdePendenteLookup" columnCaption="qtde-pendente-lookup" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnHidden="true" columnName="qtde_pendente_lookup" columnPosicao="5" columnResolvable="false" columnTableName="fat_docto_pi" columnWidth="8">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="12" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_39" visible="true" layout="FlowLayout">
@@ -87,5 +90,5 @@
     <button constraints="BorderLayout.EAST" name="Button_66" id="okButton" action="actionBaixar" actionCommand="" horizontalAlignment="0" horizontalTextPosition="11" text="Baixar Movimenta&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
   </panel>
 </dialog>
-<!--lastNameIndex=71-->
+<!--lastNameIndex=72-->
 <!--lastIdIndex=0-->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,928,451" id="telaLookup" layout="BorderLayout" title="Consulta Classifica&#xe7;&#xe3;o Gerencial">
+<dialog xmlns="http://" bounds="0,0,948,451" id="telaLookup" layout="BorderLayout" title="Consulta Classifica&#xe7;&#xe3;o Gerencial">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -11,17 +11,17 @@
       <kawdbtextfield name="KawDbTextField_32" id="codigo" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="id" columnTableName="financ_classificacao_g" columnWidth="6">
         <cellconstraints gridX="5" gridY="1"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_33" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnPosicao="3" columnTableName="financ_classificacao_g" columnWidth="40">
+      <kawdbtextfield name="KawDbTextField_33" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="descricao" columnPosicao="3" columnTableName="financ_classificacao_g" columnWidth="40">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_10" id="classificacao" columnCaption="Classifica&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="classificacao_g" columnPosicao="1" columnTableName="financ_classificacao_g" columnWidth="40">
+      <kawdbtextfield name="KawDbTextField_10" id="classificacao" columnCaption="Classifica&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="classificacao_g" columnPosicao="1" columnTableName="financ_classificacao_g" columnWidth="17">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
     </panel>
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_ClassificacaoG" id="tableLookup" connection="jkawflex" kawTableName="financ_classificacao_g" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,classificacao_g,descricao, repeat('    ', char_length(replace(classificacao_g,' ',''))-2)||descricao as &quot;Descri&#xe7;&#xe3;o Identada&quot; FROM financ_classificacao_g WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END"/>
+      <kawdbtable name="KawDbTable_ClassificacaoG" id="tableLookup" connection="jkawflex" kawTableName="financ_classificacao_g" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,classificacao_g,descricao, repeat('    ', char_length(replace(classificacao_g,' ',''))-2)||descricao as &quot;Descri&#xe7;&#xe3;o&quot;, natureza AS Natureza FROM financ_classificacao_g WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END ORDER BY classificacao_g"/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_12" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_13" layout="BorderLayout">

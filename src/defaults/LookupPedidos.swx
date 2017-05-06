@@ -2,7 +2,7 @@
 <dialog xmlns="http://" bounds="0,0,927,458" id="telaLookup" layout="BorderLayout" title="Consulta pedidos">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_Pedidos" id="tableLookup" connection="jkawflex" kawTableName="fat_docto_c" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT controle,fat_transacao_id,fat_transacao.descricao,emissao,cad_cadastro_id,cad_cadastro.razaosocial FROM fat_docto_c INNER JOIN fat_transacao ON fat_transacao_id = fat_transacao.id INNER JOIN cad_cadastro ON cad_cadastro_id = cad_cadastro.id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(serie_id) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(serie_id) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      <kawdbtable name="KawDbTable_Pedidos" id="tableLookup" connection="jkawflex" kawTableName="fat_docto_c" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT cada_filial_id,controle,fat_transacao_id,fat_transacao.descricao,emissao,cad_cadastro_id,cad_cadastro.razaosocial FROM fat_docto_c INNER JOIN fat_transacao ON fat_transacao_id = fat_transacao.id INNER JOIN cad_cadastro ON cad_cadastro_id = cad_cadastro.id WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(serie_id) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(serie_id) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_56" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_57" layout="BorderLayout">
@@ -37,6 +37,9 @@
       <kawdbtextfield name="KawDbTextField_38" id="razaoSocial" columnCaption="Nome do Cliente" columnDataType="STRING" columnEditable="false" columnName="razaosocial" columnPosicao="6">
         <cellconstraints gridX="7" gridY="5"/>
       </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_59" id="cadFilial" columnCaption="Filial" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="cad_filial_id" columnPosicao="5" columnWidth="6">
+        <cellconstraints gridX="7" gridY="7"/>
+      </kawdbtextfield>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -45,5 +48,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=57-->
+<!--lastNameIndex=59-->
 <!--lastIdIndex=0-->

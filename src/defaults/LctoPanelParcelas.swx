@@ -33,22 +33,22 @@
             <kawdbtextfield name="KawDbTextField8" id="tipoCobrancaCodigo" columnCaption="C&#xf3;d.T.Cobr." columnDataType="INT" columnEditable="false" columnName="tipocobranca_id" columnPosicao="7" columnTableName="financ_rp" columnWidth="15" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField9" id="vctoFinanceiro" columnCaption="Vencimento" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="true" columnEditMask="^dd/MM/yyyy" columnName="vcto" columnPosicao="3" columnTableName="financ_rp" columnWidth="15" hidden="true">
+            <kawdbtextfield name="KawDbTextField9" id="vctoFinanceiro" columnCaption="Vencimento" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="true" columnEditMask="^dd/MM/yyyy" columnName="vcto" columnPosicao="3" columnTableName="financ_rp" columnWidth="10" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField10" id="emissaoFinanceiro" columnCaption="Emiss&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="^dd/MM/yyyy" columnName="emissao" columnPosicao="2" columnTableName="financ_rp" columnWidth="10" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="21" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField11" id="parcelaFinanceiro" columnCaption="N&#xba; Parcela" columnDataType="INT" columnEditable="false" columnName="parcela" columnPosicao="1" columnRowId="true" columnTableName="financ_rp" columnWidth="8" hidden="true">
+            <kawdbtextfield name="KawDbTextField11" id="parcelaFinanceiro" columnCaption="N&#xba; Parcela" columnDataType="INT" columnEditable="false" columnName="parcela" columnPosicao="1" columnRowId="true" columnTableName="financ_rp" columnWidth="2" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="23" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField12" id="faturaFinanceiro" columnCaption="Controle" columnCurrency="true" columnDataType="LONG" columnEditable="false" columnName="fatura" columnResolvable="false" columnRowId="true" columnTableName="financ_rp" columnWidth="8" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="25" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField13" id="valorTotalFinanceiro" columnCaption="VL.NOMINAL" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="######.##" columnName="valor_total" columnPosicao="5" columnTableName="financ_rp" columnWidth="15" hidden="true">
+            <kawdbtextfield name="KawDbTextField13" id="valorTotalFinanceiro" columnCaption="VL.NOMINAL" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="######.##" columnName="valor_total" columnPosicao="5" columnResolvable="true" columnTableName="financ_rp" columnWidth="15" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField14" id="valorSaldoFinanceiro" columnCaption="Saldo" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="valor_saldo" columnPosicao="5" columnTableName="financ_rp" columnWidth="15" hidden="true">
+            <kawdbtextfield name="KawDbTextField14" id="valorSaldoFinanceiro" columnCaption="SALDO" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="valor_saldo" columnPosicao="5" columnResolvable="false" columnTableName="financ_rp" columnWidth="15" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label15" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">
@@ -57,7 +57,7 @@
             <kawdbtextfield name="KawDbTextField16" id="aggTotalParcelasSaldo" columnAggName="valor_saldo" columnCalcType="AGGREGATE" columnCaption="Total do desdobramento (Saldo)" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="false" columnName="aggtotalparcelassaldo" columnPosicao="27" columnRowId="false" columnServerColumnName="aggtotalparcelasSaldo" columnsSumAgg="fatura" columnTableName="financ_rp" columnWidth="10" editable="true" fieldNotEdit="true" focusable="false">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="35" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField17" id="prorrogacaoFinanceiro" columnCaption="Prorroga&#xe7;&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="^dd/MM/yyyy" columnName="prorrogacao" columnPosicao="10" columnTableName="financ_rp" columnWidth="15" hidden="true">
+            <kawdbtextfield name="KawDbTextField17" id="prorrogacaoFinanceiro" columnCaption="Prorroga&#xe7;&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="^dd/MM/yyyy" columnName="prorrogacao" columnPosicao="10" columnTableName="financ_rp" columnWidth="10" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField18" id="dias" columnCaption="Dias" columnDataType="INT" columnDisplayMask="###" columnEditable="false" columnEditMask="###^" columnName="dias" columnPosicao="3" columnResolvable="false" columnTableName="financ_rp" columnWidth="4" hidden="true">
