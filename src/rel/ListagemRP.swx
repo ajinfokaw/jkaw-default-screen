@@ -5,7 +5,7 @@
     <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente/Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
     </label>
-    <label name="Label_3" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente/Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
+    <label name="Label_3" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente/Fornecedor Final:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">

@@ -310,7 +310,7 @@
                 <button name="Button74" id="btnImprimirFicha" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir Ficha" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
                 </button>
-                <button name="Button75" focusable="false" id="btnConsultaSEFAZ" horizontalAlignment="0" horizontalTextPosition="11" text="Consulta SEFAZ" verticalAlignment="0" verticalTextPosition="0">
+                <button name="Button75" focusable="false" id="btnConsultaSEFAZ" toolTipText="Consulta o cadastro pelo CNPJ informado " horizontalAlignment="0" horizontalTextPosition="11" text=" Eletr&#xf4;nica" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="3" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
                 </button>
                 <panel name="Panel76" layout="BorderLayout">

@@ -48,7 +48,7 @@
             <kawdbtextfield name="KawDbTextField13" id="valorTotalFinanceiro" columnCaption="VL.NOMINAL" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="######.##" columnName="valor_total" columnPosicao="5" columnResolvable="true" columnTableName="financ_rp" columnWidth="15" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField14" id="valorSaldoFinanceiro" columnCaption="SALDO" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="valor_saldo" columnPosicao="5" columnResolvable="false" columnTableName="financ_rp" columnWidth="15" hidden="true">
+            <kawdbtextfield name="KawDbTextField14" id="valorSaldoFinanceiro" columnCaption="SALDO" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="valor_saldo" columnPosicao="5" columnTableName="financ_rp" columnWidth="15" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label15" horizontalAlignment="0" horizontalTextPosition="11" text="Saldo:" verticalAlignment="0" verticalTextPosition="0">

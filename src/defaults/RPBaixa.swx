@@ -313,7 +313,7 @@
                             <label name="Label_905" horizontalAlignment="4" horizontalTextPosition="11" text="CNPJ do Emitente:" verticalAlignment="0" verticalTextPosition="0">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
                             </label>
-                            <kawdbtextfield name="KawDbTextField_906" id="cnpj" columnCaption="CNPJ" columnDataType="STRING" columnDisplayMask="##'.'###'.'###'/'####'-'##" columnEditMask=">##'.'###'.'###'/'####'-##" columnName="cnpj" columnPosicao="23" columnResolvable="true" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="15" editable="true">
+                            <kawdbtextfield name="KawDbTextField_906" id="cnpj" columnCaption="CNPJ" columnDataType="STRING" columnDisplayMask="##'.'###'.'###'/'####'-'##" columnEditMask=">##'.'###'.'###'/'####'-'##" columnName="cnpj" columnPosicao="23" columnResolvable="true" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="15" editable="true">
                               <cellconstraints gridHeight="1" gridWidth="5" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
                             </kawdbtextfield>
                             <label name="Label_907" horizontalAlignment="4" horizontalTextPosition="11" text="Valor do Cheque:" verticalAlignment="0" verticalTextPosition="0">

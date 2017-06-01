@@ -137,6 +137,9 @@
             <kawdbcombobox name="KawDbComboBox_138" id="frmPadraoBoleto" columnCaption="FRM Padr&#xe3;o" columnDataType="STRING" columnDestino="frm_padrao_boleto" columnEditable="true" columnHidden="true" columnName="frm_padrao_boleto" columnPosicao="14" columnRequired="true" columnResolvable="true" columnRowId="false" columnTableName="financ_cc" columnWidth="4" connection="jkawflex" displayColumns="classificacao,sequencial" editable="true" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='financ_cc' AND coluna='frm_padrao_boleto' ORDER BY sequencial">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Default" vAlign="Fill"/>
             </kawdbcombobox>
+            <kawdbcheckbox name="KawDbCheckBox_139" id="boletosEmTeste" columnDataType="BOOLEAN" columnName="boletos_em_teste" columnPosicao="14" columnRowId="false" columnTableName="financ_cc" text="Boletos  em emiss&#xe3;o de Teste ?">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="9" gridY="17" hAlign="Default" vAlign="Fill"/>
+            </kawdbcheckbox>
           </panel>
           <panel name="Panel_42" layout="FormLayout">
             <formLayout colspecs="160px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
@@ -200,5 +203,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=138-->
+<!--lastNameIndex=140-->
 <!--lastIdIndex=0-->
