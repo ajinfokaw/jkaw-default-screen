@@ -26,7 +26,7 @@
     <label name="Label_39" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="1" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbtextfieldlookuprow name="IDCC" id="IDCC" columnCaption="ContaCorrente" columnDataType="INT"  columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="financ_cc_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_cc_id" columnRowId="true" columnTableName="" fieldNotEdit="false" hidden="false">
+    <kawdbtextfieldlookuprow name="IDCC" id="IDCC" columnCaption="ContaCorrente" columnDataType="INT" columnDefault="2" columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="financ_cc_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_cc_id" columnRowId="true" columnTableName="" fieldNotEdit="false" hidden="false">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="7" hAlign="Default" vAlign="Default"/>
     </kawdbtextfieldlookuprow>
     <kawlookupbutton name="KawLookupButton_52" id="lookupButtonContaCorrente" action="LookupContaCorrente" columnDestino="financ_cc_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_cc_movto" parameterQColumns="financ_cc_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao, numeroconta,financ_agencia_financ_banco_id,financ_agencia_id FROM financ_cc  WHERE id = :financ_cc_id ORDER BY id" xmlLookupView="LookupCC.xml">
@@ -38,10 +38,13 @@
     <kawdbcombobox name="KawDbComboBox_56" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="" columnWidth="15" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='extratoCC' ORDER BY id">
       <cellconstraints gridHeight="1" gridWidth="7" gridX="4" gridY="1" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
-    <kawdbcombobox name="TIPO_SALDO" id="TIPO_SALDO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="Emissao" columnDestino="tiposaldo" columnName="tiposaldo" columnPosicao="1" columnRowId="true" columnTableName="" columnWidth="10" editable="true" itens="E-Emissao,V-Vencimento,R-Referencia,C-Conciliado">
+    <kawdbcombobox name="TIPO_SALDO" id="TIPO_SALDO" columnCaption="Saldo" columnDataType="STRING" columnDefault="E-Emissao" columnDestino="tiposaldo" columnName="tiposaldo" columnPosicao="1" columnRowId="true" columnTableName="" columnWidth="10" editable="true" itens="E-Emissao,V-Vencimento,R-Referencia,C-Conciliado">
       <cellconstraints gridHeight="1" gridWidth="4" gridX="4" gridY="3" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
+    <button name="Button_59" id="btnEmail" toolTipText="Enviar Relat&#xf3;rio por E-mail" action="action_Email" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="5" gridX="4" gridY="9" hAlign="Default" vAlign="Default"/>
+    </button>
   </panel>
 </dialog>
-<!--lastNameIndex=58-->
+<!--lastNameIndex=59-->
 <!--lastIdIndex=0-->

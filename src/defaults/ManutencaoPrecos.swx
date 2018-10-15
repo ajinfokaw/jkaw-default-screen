@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="80,2,964,712" layout="BorderLayout" title="Manuten&#xe7;&#xe3;o de Pre&#xe7;os">
+<dialog xmlns="http://" bounds="80,2,1004,712" layout="BorderLayout" title="Manuten&#xe7;&#xe3;o de Pre&#xe7;os">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_3" id="tabbedPaneMain" tabLayoutPolicy="0" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel_4" layout="BorderLayout">
@@ -8,7 +8,7 @@
         </scrollpane>
       </panel>
       <panel name="Panel_8" layout="FormLayout">
-        <formLayout colspecs="345px,2dlu,87px,2dlu,30px,2dlu,12px,26px,82px,2dlu,28px,2dlu,29px,2dlu,122px,2dlu,119px,2dlu,24px" rowspecs="12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,default,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,default,2dlu,12dlu,2dlu,12dlu,default,12dlu,default,5dlu,2dlu,138px"/>
+        <formLayout colspecs="345px,2dlu,87px,2dlu,30px,2dlu,12px,70px,82px,2dlu,17px,2dlu,21px,2dlu,113px,2dlu,110px,2dlu,24px" rowspecs="12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,default,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,12dlu,2dlu,default,2dlu,12dlu,2dlu,12dlu,default,12dlu,default,5dlu,2dlu,138px"/>
         <label name="Label_9" horizontalAlignment="4" horizontalTextPosition="11" text="ID:" verticalAlignment="0" verticalTextPosition="0">
           <cellconstraints gridX="1" gridY="1"/>
         </label>

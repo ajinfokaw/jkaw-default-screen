@@ -18,10 +18,10 @@
             <panel name="Panel_84" layout="BorderLayout">
               <panel constraints="BorderLayout.WEST" name="Panel_117" layout="FormLayout">
                 <formLayout colspecs="169px,2dlu,122px,2dlu,26px,2dlu,116px,2dlu,108px,2dlu,107px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
-                <kawdbtextfield name="KawDbTextField_119" id="prazoMedioCodigo" columnCaption="" columnDataType="INT" columnName="fac_pmed_c_id" columnRowId="true" columnTableName="fac_pmed_i">
+                <kawdbtextfield name="KawDbTextField_119" id="prazoMedioCodigo" columnCaption="" columnDataType="INT" columnName="fac_pmed_c_id" columnRowId="true" columnTableName="fac_pmed_i" fieldNotEdit="true" hidden="false">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField_122" id="lancamento" columnAutoIncrement="true" columnCaption="Lcto" columnDataType="INT" columnHidden="true" columnName="lcto" columnRowId="true" columnTableName="fac_pmed_i">
+                <kawdbtextfield name="KawDbTextField_122" id="lancamento" columnAutoIncrement="true" columnCaption="Lcto" columnDataType="INT" columnHidden="true" columnName="lcto" columnRowId="true" columnTableName="fac_pmed_i" fieldNotEdit="true" hidden="false">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label_126" horizontalAlignment="4" horizontalTextPosition="11" text="Valor Cheque" verticalAlignment="0" verticalTextPosition="0">

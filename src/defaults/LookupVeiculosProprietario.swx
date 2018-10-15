@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1007,482" id="telaLookup" layout="BorderLayout" title="Consulta Veiculos">
+<dialog xmlns="http://" bounds="0,0,1007,482" id="telaLookup" layout="BorderLayout" name="CadastroVeiculos" title="Consulta Veiculos">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
       <kawdbtable name="KawDbTable_Veiculos" id="tableLookup" connection="jkawflex" kawTableName="cad_veiculo" parameterQColumns="ppesquisa,ppesquisaconteudo,cad_cadastro_id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT id,placa1,descricaoveiculo,ano, modelo,cor,cad_mun_id,fat_marca_id,cad_cadastro_id_motorista,cad_cadastro_id_proprietario,velocidademaxima  FROM cad_veiculo  WHERE cad_cadastro_id_proprietario = :cad_cadastro_id  AND CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricaoveiculo) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(tipo) LIKE UPPER(:ppesquisa)||'%' END END ORDER BY placa1" queryDataSetView=""/>
@@ -11,7 +11,7 @@
           <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
           <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
-        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="CadastroVeiculos,cad_veiculo,id" id="navToolBar"/>
       </panel>
     </panel>
   </panel>

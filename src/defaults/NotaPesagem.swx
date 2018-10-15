@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<panel xmlns="http://" bounds="2,23,1024,700" constraints="BorderLayout.CENTER" name="Nota de Pesagem" id="lancamento" layout="BorderLayout">
+<panel xmlns="http://" bounds="2,23,1024,750" constraints="BorderLayout.CENTER" name="Nota de Pesagem" id="lancamento" layout="BorderLayout">
   <panel constraints="BorderLayout.CENTER" name="Panel_ListaGeral" id="" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_12" id="tabbedPane_fat_notapesagem" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel_Lista" layout="BorderLayout">
@@ -26,7 +26,7 @@
             <label name="Label_95" horizontalAlignment="0" horizontalTextPosition="11" text="Peso Bruto:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="17" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_99" id="pesoBruto" columnCaption="Peso Bruto " columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnName="pesobruto" columnPosicao="10" columnRequired="false" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="9" editable="true">
+            <kawdbtextfield name="KawDbTextField_99" id="pesoBruto" columnCaption="Peso Bruto " columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditMask="###,###.###" columnName="pesobruto" columnPosicao="10" columnRequired="true" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="9" editable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="17" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label_100" horizontalAlignment="0" horizontalTextPosition="11" text="Peso Embalagem:" verticalAlignment="0" verticalTextPosition="0">
@@ -101,7 +101,7 @@
             <label name="Label_31" horizontalAlignment="0" horizontalTextPosition="11" text="Produtor:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="7" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="produtorId" columnCaption="C&#xf3;d. Produtor" columnDataType="INT" columnEditable="true" columnEditMask="" columnName="cad_produtor_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_produtor_id" columnPosicao="5" columnRequired="false" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="5" editable="true">
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="produtorId" columnCaption="C&#xf3;d. Produtor" columnDataType="INT" columnEditable="true" columnEditMask="" columnName="cad_produtor_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_produtor_id" columnPosicao="5" columnRequired="true" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="5" editable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="7" hAlign="Fill" vAlign="Center"/>
             </kawdbtextfieldlookuprow>
             <kawlookupbutton name="KawLookupButton_33" id="lkpbtns_produtor" action="actionLookupProdutor" columnDestino="cad_produtor_id" columnLIKE="" columnOrigem="id" connection="jkawflex" focusable="false" kawTableName="cad_cadastro" kawTableNameRelation="fat_notapesagem" parameterQColumns="cad_produtor_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial FROM cad_cadastro WHERE id = :cad_produtor_id" xmlLookupView="LookupProdutor.xml">
@@ -290,7 +290,7 @@
             <kawdbtextfield name="KawDbTextField1" id="valorFrete" columnCalcType="CALC" columnCaption="Frete" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="" columnHidden="true" columnName="valorfrete" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="80" editable="true" fieldNotEdit="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="31" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="produtoCodigo" columnCaption="Produto" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cad_produto_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_produto_id" columnPosicao="1" columnRowId="false" columnTableName="fat_notapesagem" focusable="true">
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="produtoCodigo" columnCaption="Produto" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cad_produto_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_produto_id" columnPosicao="1" columnRequired="true" columnRowId="false" columnTableName="fat_notapesagem" focusable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="5" hAlign="Default" vAlign="Default"/>
             </kawdbtextfieldlookuprow>
             <kawlookupbutton name="KawLookupButton1" id="lkpbtns_produto" action="lookupProduto" columnDestino="cad_produto_id,unidadedescarga" columnOrigem="id,unidadepadraovenda" connection="jkawflex" kawTableName="fat_produto" kawTableNameRelation="fat_notapesagem" parameterQColumns="cad_produto_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao,unidadepadraovenda,pesoliquido,pesobruto,volume FROM fat_produto WHERE id = :cad_produto_id" xmlLookupView="LookupProdutos.xml">
@@ -299,7 +299,7 @@
             <kawdbtextfieldlookup name="KawDbTextFieldLookup1" id="produtoLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnName="produto_lookup" columnNameLookupRow="cad_produto_id" columnNameOriginLookupRow="descricao" columnPosicao="2" columnResolvable="false" columnTableName="fat_notapesagem" columnWidth="30">
               <cellconstraints gridHeight="1" gridWidth="3" gridX="8" gridY="5" hAlign="Default" vAlign="Default"/>
             </kawdbtextfieldlookup>
-            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="transacaoId" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_transacao_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_transacao_id" columnPosicao="4" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="6" editable="true">
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="transacaoId" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="fat_transacao_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_transacao_id" columnPosicao="4" columnRequired="true" columnRowId="false" columnTableName="fat_notapesagem" columnWidth="6" editable="true">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="11" hAlign="Default" vAlign="Default"/>
             </kawdbtextfieldlookuprow>
             <kawlookupbutton name="KawLookupButton1" id="transacaoLookupButton" action="lookupTransacaoAction" columnDestino="fat_transacao_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_transacao" kawTableNameRelation="fat_notapesagem" parameterQColumns="fat_transacao_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE id = :fat_transacao_id" xmlLookupView="LookupTransacao.xml">
@@ -511,14 +511,19 @@
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_ToolBar" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_400" layout="FlowLayout">
+      <button name="Button0" id="btnGerarNota" horizontalAlignment="0" horizontalTextPosition="11" text="Gerar Notas" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Imprimir Ticket " id="btnImprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Relat&#xf3;rios" id="btnRelatorios" horizontalAlignment="0" horizontalTextPosition="11" text="Relat&#xf3;rios" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_10" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_401" layout="FlowLayout">
       <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Lan&#xe7;amento / Faturamento" id="navToolBar" paintingTile="true" tips="true"/>
-      <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
-      <kawdbnavfield name="CampoConsulta" id="navField" preferredSize="250,21"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel1" layout="FlowLayout">
+        <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle:" verticalAlignment="0" verticalTextPosition="0"/>
+        <kawdbnavfield name="CampoConsulta" id="navField" preferredSize="250,21"/>
+      </panel>
     </panel>
   </panel>
 </panel>

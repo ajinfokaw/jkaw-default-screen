@@ -21,7 +21,7 @@
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_7" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_8" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_produtomr" id="tableLookup" connection="jkawflex" kawTableName="fat_classtipi" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao ,codigoricms FROM fat_classtributaria WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = :ppesquisa ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      <kawdbtable name="KawDbTable_produtomr" id="tableLookup" connection="jkawflex" kawTableName="fat_classtipi" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao ,codigoricms FROM fat_classtributaria WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = :ppesquisa ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END ORDER BY id" queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_18" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_19" layout="BorderLayout">

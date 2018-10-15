@@ -16,7 +16,7 @@
     </panel>
   </panel>
   <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
-    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" visible="false" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
       <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" focusable="true" preferredSize="220,21"/>
       <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>

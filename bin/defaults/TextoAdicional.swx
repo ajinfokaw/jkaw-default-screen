@@ -11,18 +11,24 @@
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral">
           <panel name="Panel0" layout="BorderLayout">
             <panel constraints="BorderLayout.NORTH" name="Panel1" layout="FormLayout">
-              <formLayout colspecs="91px,2dlu,45px,2dlu,default,2dlu,306px" rowspecs="default,2dlu,default,2dlu,default"/>
+              <formLayout colspecs="91px,2dlu,45px,2dlu,default,2dlu,419px" rowspecs="default,2dlu,default,2dlu,default"/>
               <label name="Label2" horizontalAlignment="0" horizontalTextPosition="11" text="Codigo:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
               <kawdbtextfield name="KawDbTextField3" id="codigo" columnAutoIncrement="true" columnCaption="Codigo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnRowId="true" columnTableName="fat_textoadic" columnWidth="8" fieldNotEdit="true">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField1" id="descricao" columnAutoIncrement="false" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnName="descricao" columnPosicao="1" columnRowId="false" columnTableName="fat_textoadic" columnWidth="35" editable="true" enable="true" fieldNotEdit="false" focusable="true">
+                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
             </panel>
             <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane4" tabPlacement="1" titles="Texto">
               <panel name="Panel0" layout="BorderLayout">
                 <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                  <kawdbtextarea name="KawDbTextArea0" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnTableName="fat_textoadic" columnWidth="170"/>
+                  <kawdbtextarea name="KawDbTextArea0" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnPosicao="2" columnTableName="fat_textoadic" columnWidth="170"/>
                 </scrollpane>
               </panel>
             </tabbedpane>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,32,533,314" id="telaLookup" layout="BorderLayout" name="" title="Regra/Propriedade">
+<dialog xmlns="http://" bounds="0,32,635,314" id="telaLookup" layout="BorderLayout" name="" title="Regra/Propriedade">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
       <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px" rowspecs="2dlu,default,2dlu,default,2dlu,default"/>

@@ -111,6 +111,7 @@
     <panel constraints="BorderLayout.SOUTH" name="Panel3" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel4" layout="FlowLayout">
         <kawdbnavtoolbar name="Barra de Op&#xe7;&#xf5;es - Grupo de Produtos" id="navToolBar"/>
+        <button name="Button0" id="btnListaNumeros" toolTipText="Lista de n&#xfa;meros a serem inutilizados" visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Lista de N&#xfa;meros p/ inutiliza&#xe7;&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
         <label name="Label_31" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="..." verticalAlignment="0" verticalTextPosition="0"/>
         <kawdbnavfield name="KawDbNavField_32" id="navField"/>
       </panel>

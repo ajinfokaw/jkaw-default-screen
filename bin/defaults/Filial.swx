@@ -68,7 +68,7 @@
             <label name="Label_31" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone / Obs.:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_32" id="telefone1" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) ####-####" columnName="telefone1" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
+            <kawdbtextfield name="KawDbTextField_32" id="telefone1" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone1" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField_33" id="obsTelefone1" caretPosition="12" columnCaption="Contato" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="obstelefone1" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
@@ -77,7 +77,7 @@
             <label name="Label_34" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone / Obs.:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_35" id="telefone2" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) ####-####" columnName="telefone2" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
+            <kawdbtextfield name="KawDbTextField_35" id="telefone2" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone2" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField_36" id="obsTelefone2" caretPosition="12" columnCaption="Contato" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="obstelefone2" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
@@ -86,7 +86,7 @@
             <label name="Label_37" horizontalAlignment="0" horizontalTextPosition="11" text="Fax:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_38" id="fax" columnCaption="FAX" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) ####-####" columnName="fax" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
+            <kawdbtextfield name="KawDbTextField_38" id="fax" columnCaption="FAX" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="fax" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbtextfield name="KawDbTextField_39" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) ####-####" columnName="celular" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
@@ -186,7 +186,7 @@
               <label name="Label_78" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone do contador:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawdbtextfield name="KawDbTextField_80" id="contabilista_fone" columnCaption="Fone Contador" columnDataType="STRING" columnDisplayMask="{'('00')'}0000'-'0000^!" columnEditMask="{'('00')'}0000'-'0000^!" columnName="contabilista_fone" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
+              <kawdbtextfield name="KawDbTextField_80" id="contabilista_fone" columnCaption="Fone Contador" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="contabilista_fone" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
                 <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="3" hAlign="Fill" vAlign="Fill"/>
               </kawdbtextfield>
               <label name="Label_81" horizontalAlignment="0" horizontalTextPosition="11" text="CRC:" verticalAlignment="0" verticalTextPosition="0">

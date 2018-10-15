@@ -27,7 +27,7 @@
           <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
           <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
-        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="GrupoProdutos,fat_grupoprodutos,id" id="navToolBar"/>
       </panel>
     </panel>
   </panel>

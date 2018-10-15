@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<panel xmlns="http://" bounds="2,2,1340,600" constraints="BorderLayout.CENTER" name="Conta Corrente Movimento" id="CCMovto" layout="BorderLayout">
+<panel xmlns="http://" bounds="2,2,1340,800" constraints="BorderLayout.CENTER" name="Conta Corrente Movimento" id="CCMovto" layout="BorderLayout">
   <panel constraints="BorderLayout.NORTH" name="Panel1" id="pesquisas" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel2" layout="FlowLayout">
       <label name="Label_104" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo de Emiss&#xe3;o:" verticalAlignment="0" verticalTextPosition="0"/>
@@ -19,6 +19,20 @@
         <button name="Button4" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
       </panel>
     </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+      <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="30" verticalScrollBarPolicy="20">
+        <panel name="Panel3" layout="BorderLayout">
+          <panel constraints="BorderLayout.WEST" name="Panel4" layout="BorderLayout">
+            <panel constraints="BorderLayout.EAST" name="Panel5" layout="FlowLayout">
+              <kawdbtextfield name="KawDbTextField1" id="aggTotalEntLista" columnAggName="valor" columnCalcType="AGGREGATE" columnCaption="Total Lista" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="true" columnName="aggtotal_por_transacao" columnPosicao="7" columnsSumAgg="fat_transacao_id" columnTableName="financ_cc_movto" columnWidth="12" fieldNotEdit="true" hidden="false" preferredSize="150,15"/>
+            </panel>
+            <panel constraints="BorderLayout.WEST" name="Panel6" layout="FlowLayout">
+              <kawdbtextfield name="KawDbTextField3" id="statusLctoLookup" columnCalcType="CALC" columnDataType="STRING" columnHidden="true" columnName="status_lcto_lookup" columnTableName="financ_cc_movto" fieldNotEdit="true" horizontalAlignment="3" maximumSize="1500,15" minimumSize="800,15" preferredSize="1000,15"/>
+            </panel>
+          </panel>
+        </panel>
+      </scrollpane>
+    </panel>
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel3" layout="BorderLayout">
     <panel constraints="BorderLayout.SOUTH" name="Panel7" layout="BorderLayout">
@@ -35,7 +49,7 @@
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane10" id="tabbedPane_financ_cc_movto" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel11" id="pnl_Lista" layout="BorderLayout">
         <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_29" id="SPLista" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-          <kawdbtable name="Conta Corrente" id="financ_cc_movto" connection="jkawflex" kawTableName="financ_cc_movto" parameterQColumns="ppesquisa,ppesquisaconteudo,datainicial,datafinal,pcc,pcontrole,pnumero_docto" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,BOOLEAN,DATE,DATE,INT,INT,STRING" parameterQDefault="" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT financ_cc_id,controle,documento,fat_transacao_id, cad_filial_id, data_emissao, data_vencimento, data_conciliacao, data_referencia, natureza, valor, cc_controle_conta_transf,conta_transf, historico, nominal, financ_rp_lctobaixa_lcto, contas_receber_pagar, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'E', current_date)AS NUMERIC(14,2)) AS saldoemissao, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'C', current_date)AS NUMERIC(14,2)) AS saldoconciliado, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'V', current_date) AS NUMERIC(14,2)) AS saldovencimento,CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'R', current_date)AS NUMERIC(14,2)) AS saldoreferencia FROM financ_cc_movto  WHERE CASE WHEN (:pcontrole > 0) THEN controle = :pcontrole WHEN (LENGTH(TRIM(COALESCE(:pnumero_docto,''))) > 0) THEN UPPER(documento) LIKE  UPPER('%'||:pnumero_docto||'%') WHEN :ppesquisaconteudo THEN UPPER(historico) LIKE '%'||UPPER(:ppesquisa)||'%' WHEN :pcc > 0 THEN ((data_emissao BETWEEN :datainicial AND :datafinal) OR (data_conciliacao BETWEEN :datainicial AND :datafinal) OR (data_vencimento BETWEEN :datainicial AND :datafinal))  AND financ_cc_id = :pcc  END ORDER BY financ_cc_id, data_emissao, controle" queryDataSetView=""/>
+          <kawdbtable name="Conta Corrente" id="financ_cc_movto" connection="jkawflex" kawTableName="financ_cc_movto" parameterQColumns="ppesquisa,ppesquisaconteudo,datainicial,datafinal,pcc,pcontrole,pnumero_docto" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,BOOLEAN,DATE,DATE,INT,INT,STRING" parameterQDefault="" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT financ_cc_id,controle,documento,fat_transacao_id, cad_filial_id, data_emissao, data_vencimento, data_conciliacao, data_referencia, natureza, valor, cc_controle_conta_transf,conta_transf, historico, nominal, financ_rp_lctobaixa_lcto, contas_receber_pagar, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'E', current_date)AS NUMERIC(14,2)) AS saldoemissao, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'C', current_date)AS NUMERIC(14,2)) AS saldoconciliado, CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'V', current_date) AS NUMERIC(14,2)) AS saldovencimento,CAST(getsaldocc(financ_cc_movto.financ_cc_id, 'R', current_date)AS NUMERIC(14,2)) AS saldoreferencia, cad_cadastro_id FROM financ_cc_movto  WHERE CASE WHEN (:pcontrole > 0) THEN controle = :pcontrole WHEN (LENGTH(TRIM(COALESCE(:pnumero_docto,''))) > 0) THEN UPPER(documento) LIKE  UPPER('%'||:pnumero_docto||'%') WHEN :ppesquisaconteudo THEN UPPER(historico) LIKE '%'||UPPER(:ppesquisa)||'%' WHEN :pcc > 0 THEN ((data_emissao BETWEEN :datainicial AND :datafinal) OR (data_conciliacao BETWEEN :datainicial AND :datafinal) OR (data_vencimento BETWEEN :datainicial AND :datafinal))  AND financ_cc_id = :pcc  END ORDER BY financ_cc_id, data_emissao, controle" queryDataSetView=""/>
         </scrollpane>
       </panel>
       <panel name="Panel14" layout="BorderLayout">
@@ -127,7 +141,7 @@
                       <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="15" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfield>
                     <kawdbtextfield name="KawDbTextField13" id="valor" columnCaption="Valor" columnDataType="BIGDECIMAL" columnDisplayMask="###,###,###,##0.00" columnEditMask="###,###,###,###.##" columnName="valor" columnPosicao="12" columnRowId="false" columnTableName="financ_cc_movto" columnWidth="10" editable="true">
-                      <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="17" hAlign="Default" vAlign="Fill"/>
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfield>
                     <kawdbtextfield name="KawDbTextField14" id="dataConciliacao" columnCaption="Concili&#xe7;&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="data_conciliacao" columnPosicao="7" columnRowId="false" columnTableName="financ_cc_movto" columnWidth="8" editable="true">
                       <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="11" hAlign="Default" vAlign="Fill"/>
@@ -144,7 +158,7 @@
                     <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow18" id="contaTransf" columnCaption="C/C Tranf" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="conta_transf" columnNameLookupKey="id" columnNameRelationLookupKey="conta_transf" columnPosicao="14" columnResolvable="true" columnRowId="false" columnTableName="financ_cc_movto" columnWidth="5" editable="true" enable="true" focusable="false">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="13" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfieldlookuprow>
-                    <kawlookupbutton name="KawLookupButton19" id="lookupButtonContaTransf" action="LookupContaTransf" columnDestino="conta_transf" columnOrigem="id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_cc_movto" parameterQColumns="conta_transf" parameterQColumnsDataType="INT" queryDataSet="SELECT id,numeroconta,financ_agencia_financ_banco_id,financ_agencia_id FROM financ_cc WHERE id = :conta_transf " xmlLookupView="LookupCC.xml">
+                    <kawlookupbutton name="KawLookupButton19" id="lookupButtonContaTransf" action="LookupContaTransf" columnDestino="conta_transf" columnOrigem="id" columnsNameInitialKey="conta_transf" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_cc_movto" parameterQColumns="conta_transf" parameterQColumnsDataType="INT" queryDataSet="SELECT id,numeroconta,financ_agencia_financ_banco_id,financ_agencia_id FROM financ_cc WHERE id = :conta_transf " xmlLookupView="LookupCC.xml">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="13" hAlign="Default" vAlign="Default"/>
                     </kawlookupbutton>
                     <label name="Label20" horizontalAlignment="4" horizontalTextPosition="11" text="Natureza:" verticalAlignment="0" verticalTextPosition="0">
@@ -171,7 +185,7 @@
                     <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow30" id="filial" columnCaption="Filial" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnName="cad_filial_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_filial_id" columnPosicao="0" columnRowId="false" columnTableName="financ_cc_movto" columnWidth="5" editable="true">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
                     </kawdbtextfieldlookuprow>
-                    <kawlookupbutton name="KawLookupButton31" id="lookupButtonFilial" action="LookupFiliais" columnDestino="cad_filial_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_cc_movto" parameterQColumns="cad_filial_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia FROM cad_filial  WHERE id = :cad_filial_id" xmlLookupView="LookupFilial.xml">
+                    <kawlookupbutton name="KawLookupButton31" id="lookupButtonFilial" action="LookupFiliais" columnDestino="cad_filial_id" columnOrigem="id" columnsNameInitialKey="cad_filial_id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="financ_cc_movto" parameterQColumns="cad_filial_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia FROM cad_filial  WHERE id = :cad_filial_id" xmlLookupView="LookupFilial.xml">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
                     </kawlookupbutton>
                     <kawdbtextfieldlookup name="KawDbTextFieldLookup32" id="filialLookup" columnCalcType="CALC" columnCaption="Filial" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="filial_lookup" columnNameLookupRow="cad_filial_id" columnNameOriginLookupRow="razaosocial" columnPosicao="5" columnResolvable="false" columnRowId="false" columnServerColumnName="" columnTableName="financ_cc_movto" columnWidth="10">
@@ -207,6 +221,18 @@
                     <kawlookupbutton name="KawLookupButton0" id="lookupButtonTextoAdic" action="" columnDestino="historico" columnOrigem="texto" connection="jkawflex" defaultButton="true" hidden="true" kawTableName="fat_textoadic" kawTableNameRelation="fat_docto_c" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE id = :id" xmlLookupView="LookupTextoAdicional">
                       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
                     </kawlookupbutton>
+                    <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Clien./Forn:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="15" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="cadCadastroId" columnCaption="Cli/Forn" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="cad_cadastro_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_cadastro_id" columnPosicao="1" columnRowId="false" columnTableName="financ_cc_movto" columnWidth="6" focusable="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="15" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookuprow>
+                    <kawlookupbutton name="KawLookupButton1" id="lookupCadCadastroId" action="lookupFornecedor" columnDestino="cad_cadastro_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_cc_movto" parameterQColumns="cad_cadastro_id" parameterQColumnsCaption="" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,telefone1,email  FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="15" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="cadCadastroIdCadastroLookup" columnCalcType="CALC" columnCaption="Nome/Raz&#xe3;o Social" columnCurrency="false" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="codigo_cadastro" columnNameLookupRow="cad_cadastro_id" columnNameOriginLookupRow="razaosocial" columnPosicao="2" columnResolvable="false" columnTableName="financ_cc_movto" columnWidth="30">
+                      <cellconstraints gridHeight="1" gridWidth="7" gridX="9" gridY="17" hAlign="Fill" vAlign="Fill"/>
+                    </kawdbtextfieldlookup>
                   </panel>
                   <panel constraints="BorderLayout.CENTER" name="Panel0" border="TitledBorder(Classe Gerencial:)" layout="BorderLayout">
                     <panel constraints="BorderLayout.CENTER" name="Panel0" layout="BorderLayout">
@@ -357,12 +383,6 @@
                       <label name="Label0" horizontalAlignment="4" horizontalTextPosition="11" text="Agencia:" verticalAlignment="0" verticalTextPosition="0">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Default" vAlign="Default"/>
                       </label>
-                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="chpdAgencia" columnCaption="Agencia" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="agencia_id" columnNameLookupKey="id" columnNameRelationLookupKey="agencia_id" columnPosicao="11" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="10" editable="true">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
-                      </kawdbtextfieldlookuprow>
-                      <kawlookupbutton name="KawLookupButton2" id="lookupButtonChpdAgencia" action="LookupChpdAgencia" columnDestino="agencia_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_agencia" kawTableNameRelation="financ_rp_chpd" parameterQColumns="agencia_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING" queryDataSet="SELECT id,nome,financ_banco_id FROM financ_agencia WHERE id = :agencia_id" xmlLookupView="LookupAgencia.xml">
-                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="13" hAlign="Default" vAlign="Default"/>
-                      </kawlookupbutton>
                       <label name="Label4" horizontalAlignment="4" horizontalTextPosition="11" text="C/C:" verticalAlignment="0" verticalTextPosition="0">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
                       </label>
@@ -423,6 +443,12 @@
                       <kawdbtextfieldlookup name="KawDbTextFieldLookup0" id="lookupBanco" columnCalcType="CALC" columnCaption="Banco" columnDataType="STRING" columnEditable="false" columnName="chpd_banco_lookup" columnNameLookupRow="banco_id" columnNameOriginLookupRow="descricao" columnPosicao="5" columnResolvable="false" columnRowId="false" columnServerColumnName="" columnTableName="financ_rp_chpd" columnWidth="10">
                         <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="11" hAlign="Fill" vAlign="Default"/>
                       </kawdbtextfieldlookup>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="agenciaId" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnHidden="true" columnName="agencia_id" columnNameLookupKey="codigo,financ_banco_id" columnNameRelationLookupKey="agencia_id,banco_id" columnRequired="false" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="15" editable="true">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton1" id="lookupButtonAgenciaChpd" action="LookupFacAgencia" columnDestino="agencia_id" columnOrigem="codigo" columnsNameInitialKey="banco_id" connection="jkawflex" kawTableName="financ_agencia" kawTableNameRelation="financ_rp_chpd" parameterQColumns="agencia_id,banco_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,INT" queryDataSet="SELECT codigo,nome,financ_banco_id FROM financ_agencia WHERE codigo = :agencia_id" text="" xmlLookupView="LookupBancoAgencia.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="13" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
                     </panel>
                   </panel>
                 </tabbedpane>

@@ -11,14 +11,17 @@
       <kawdbtextfield name="KawDbTextField_Codigo" id="id" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="###" columnEditable="false" columnEditMask="###" columnName="id" columnWidth="6">
         <cellconstraints gridX="5" gridY="1"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_Descricao" id="texto" columnCaption="Texto" columnDataType="STRING" columnEditable="false" columnName="texto" columnWidth="80">
-        <cellconstraints gridX="5" gridY="3"/>
+      <kawdbtextfield name="KawDbTextField_Descricao" id="texto" columnCaption="Texto" columnDataType="STRING" columnEditable="false" columnName="texto" columnPosicao="2" columnWidth="80">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_20" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnPosicao="1" columnWidth="30">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
     </panel>
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_7" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_8" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_Marca" id="tableLookup" connection="jkawflex" kawTableName="fat_textoadic" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(texto) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(texto) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      <kawdbtable name="KawDbTable_Marca" id="tableLookup" connection="jkawflex" kawTableName="fat_textoadic" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao,texto FROM fat_textoadic WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(texto) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(texto) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_18" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_19" layout="BorderLayout">
@@ -27,10 +30,10 @@
           <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
           <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
-        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="TextoAdicional,fat_textoadic,id" id="navToolBar"/>
       </panel>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=19-->
+<!--lastNameIndex=20-->
 <!--lastIdIndex=0-->

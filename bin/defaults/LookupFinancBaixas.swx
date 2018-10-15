@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1108,400" id="telaLookup" layout="BorderLayout" title="Consulta Baixa(s) Parcial">
+<dialog xmlns="http://" bounds="0,0,1108,400" id="telaLookup" layout="BorderLayout" title="Consulta Baixa(s) ">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="Baixa(s) Parcial" id="tableLookup" connection="jkawflex" kawTableName="financ_rp_baixas" parameterQColumns="ppesquisa,ppesquisaconteudo,id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT id, financ_rp_id, financ_cc_id, financ_cc_movto_controle, financ_rp_lctobaixa_lcto, datapgto, valor_recebido,valor_juros, valor_despesasac, valor_devolucaom, valor_descontos, valor_liquido, financ_rp_baixas.docto,historico, fat_docto_c_controle, financ_rp_baixas.fat_transacao_id FROM financ_rp_baixas INNER JOIN financ_rp_lctobaixa ON lcto = financ_rp_lctobaixa_lcto WHERE financ_rp_id = :id ORDER BY datapgto" queryDataSetView=""/>
+      <kawdbtable name="Baixa(s) Parcial" id="tableLookup" connection="jkawflex" kawTableName="financ_rp_baixas" parameterQColumns="ppesquisa,ppesquisaconteudo,id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT id, financ_rp_id, financ_cc_id, financ_rp_lctobaixa.financ_cc_movto_controle, financ_rp_lctobaixa_lcto, datapgto, valor_recebido,valor_juros, valor_despesasac, valor_devolucaom, valor_descontos, valor_liquido, financ_rp_baixas.docto,historico, fat_docto_c_controle, financ_rp_baixas.fat_transacao_id,(SELECT lpad(cast(fat_transacao.id as varchar),5,'0') ||'-'||descricao FROM fat_transacao WHERE fat_transacao.id = financ_rp_baixas.fat_transacao_id) AS descricao FROM financ_rp_baixas INNER JOIN financ_rp_lctobaixa ON lcto = financ_rp_lctobaixa_lcto WHERE financ_rp_id = :id ORDER BY datapgto" queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
@@ -29,10 +29,10 @@
       <kawdbtextfield name="KawDbTextField_33" id="financ_cc_id" columnCaption="C/C" columnDataType="INT" columnEditable="false" columnName="financ_cc_id" columnPosicao="0" columnWidth="5">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_27" id="valor_recebido" columnCaption="VL.RECEBIDO" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnName="valor_recebido" columnPosicao="6" columnWidth="8">
+      <kawdbtextfield name="KawDbTextField_27" id="valor_recebido" columnCaption="VL. PG/REC" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnName="valor_recebido" columnPosicao="6" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_31" id="datapgto" columnCaption="Data Pgto/Rcbto" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="datapgto" columnPosicao="3" columnWidth="12">
+      <kawdbtextfield name="KawDbTextField_31" id="datapgto" columnCaption="Dt.Pgto/Rcbto" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="datapgto" columnPosicao="3" columnWidth="12">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_39" id="valor_juros" columnCaption="VL.JUROS" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="" columnHidden="false" columnName="valor_juros" columnPosicao="7" columnWidth="6">
@@ -41,10 +41,10 @@
       <kawdbtextfield name="KawDbTextField_43" id="financ_rp_lctobaixa_lcto" columnCaption="Lcto Baixa" columnDataType="INT" columnEditable="false" columnName="financ_rp_lctobaixa_lcto" columnPosicao="2" columnWidth="7">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_44" id="financ_cc_movto_controle" columnCaption="Lcto C/C" columnDataType="INT" columnEditable="false" columnName="financ_cc_movto_controle" columnPosicao="1" columnWidth="8">
+      <kawdbtextfield name="KawDbTextField_44" id="financ_cc_movto_controle" columnCaption="Ctrl C/C" columnDataType="INT" columnEditable="false" columnName="financ_cc_movto_controle" columnPosicao="1" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_48" id="valor_liquido" columnCaption="VL.L&#xcd;QUIDO" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnHidden="false" columnName="valor_liquido" columnPosicao="8" columnWidth="10">
+      <kawdbtextfield name="KawDbTextField_48" id="valor_liquido" columnCaption="VL.L&#xcd;QUIDO" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnHidden="false" columnName="valor_liquido" columnPosicao="8" columnWidth="10">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_44" id="historico" columnCaption="HIST&#xd3;RICO" columnDataType="STRING" columnEditable="false" columnName="historico" columnPosicao="5" columnWidth="40">
@@ -68,8 +68,14 @@
       <kawdbtextfield name="KawDbTextField_57" id="docto" columnCaption="DOCTO" columnDataType="STRING" columnEditable="false" columnName="docto" columnPosicao="4" columnWidth="12">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="10" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_58" id="fatTransacaoId" columnCaption="Transa&#xe7;&#xe3;o" columnDataType="INT" columnEditable="false" columnHidden="false" columnName="fat_transacao_id" columnPosicao="11" columnWidth="3">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_59" id="descricao" columnCaption="Trans.Financeira" columnDataType="STRING" columnName="descricao" columnPosicao="4" columnTableName="financ_rp_baixas" columnWidth="20">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=57-->
+<!--lastNameIndex=59-->
 <!--lastIdIndex=0-->

@@ -1,118 +1,148 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1157,587" layout="BorderLayout" title="Cadastro - Usu&#xe1;rios">
+<dialog xmlns="http://" bounds="0,0,1257,587" layout="BorderLayout" title="Cadastro - Usu&#xe1;rios">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_2" id="tabbedPaneMain" mnemonics="76, 69" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel_3" autoscrolls="false" layout="BorderLayout">
         <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_65" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-          <kawdbtable name="Usu&#xe1;rio" id="usuario" connection="jkawflex" kawTableName="usuario" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT usuario,tipo,nome,email,datanasc, superusuario,inserir, alterar, consultar, excluir, butils, bprincipal, bfaturamento, bfinanceiro, bos,bfactoring, bgrafico, blctonfceframe, blctoframe, desativado,instanciarnovasvendas   FROM usuario WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN usuario = :ppesquisa ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(nome) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nome) LIKE UPPER(:ppesquisa)||'%' AND UPPER(usuario) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+          <kawdbtable name="Usu&#xe1;rio" id="usuario" connection="jkawflex" kawTableName="usuario" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Pesquisa,Conteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT usuario,tipo,nome,email,cad_cadastro_id, trim(impressora) as impressora,datanasc, superusuario,inserir, alterar, consultar, excluir, butils, bprincipal, bfaturamento, bfinanceiro, bos,bfactoring, bgrafico, blctonfceframe, blctoframe, desativado,instanciarnovasvendas,alterar_docto_emitido, excluir_docto_emitido,alterar_parcela_docto_emitido,excluir_parcela_docto_emitido  FROM usuario WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN usuario = :ppesquisa ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(nome) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(nome) LIKE UPPER(:ppesquisa)||'%' AND UPPER(usuario) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
         </scrollpane>
       </panel>
       <panel name="Panel_4" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_9" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel_12" id="" layout="FormLayout">
-            <formLayout colspecs="152px,2dlu,119px,2dlu,61px,2dlu,129px,2dlu,164px,83px,298px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default,default,default"/>
+            <formLayout colspecs="152px,2dlu,119px,2dlu,39px,2dlu,129px,2dlu,164px,28px,298px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default,default,default"/>
             <label name="Label_13" horizontalAlignment="0" horizontalTextPosition="11" text="Usu&#xe1;rio:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_14" id="user" columnCaption="Usu&#xe1;rio" columnDataType="STRING" columnName="usuario" columnPosicao="1" columnRowId="true" columnTableName="usuario" columnWidth="15">
-              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="1" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <kawdbcheckbox name="KawDbCheckBox_15" id="desativado" columnCaption="D." columnDataType="BOOLEAN" columnName="desativado" columnPosicao="7" columnRowId="false" columnTableName="usuario" columnWidth="5" text="Desativado ?">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Fill"/>
             </kawdbcheckbox>
             <label name="Label_16" horizontalAlignment="0" horizontalTextPosition="11" text="Nome do usu&#xe1;rio:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_17" id="nome" columnCaption="Nome do usu&#xe1;rio" columnDataType="STRING" columnName="nome" columnPosicao="2" columnRowId="false" columnTableName="usuario" columnWidth="35">
-              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="3" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_18" horizontalAlignment="0" horizontalTextPosition="11" text="E-mail:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_19" id="email" columnCaption="e-mail" columnDataType="STRING" columnEditable="true" columnName="email" columnPosicao="3" columnRowId="false" columnTableName="usuario" columnWidth="35" editable="true" inheritsPopupMenu="true">
-              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
             <label name="Label_20" horizontalAlignment="0" horizontalTextPosition="11" text="Data de nascimento:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_21" id="dataNasc" columnCaption="Dt.Nasc." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datanasc" columnPosicao="4" columnRowId="false" columnTableName="usuario" columnWidth="10">
-              <cellconstraints gridX="3" gridY="7"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
             </kawdbtextfield>
-            <label name="Label_50" horizontalAlignment="0" horizontalTextPosition="11" text="Senha:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+            <label name="Label_50" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Senha:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
             </label>
-            <passwordfield name="PasswordField_51" id="SENHA" preferredSize="50,25" action="actionSenha" disabledTextColor="ffffff">
-              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
-            </passwordfield>
-            <label name="Label_52" horizontalAlignment="0" horizontalTextPosition="11" text="Redigite a Senha:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
-            </label>
-            <passwordfield name="PasswordField_53" id="REDIGITESENHA" preferredSize="50,25" action="actionRedigiteSenha">
-              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
-            </passwordfield>
-            <label name="Label_72" horizontalAlignment="0" horizontalTextPosition="11" text="_Senha" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Default" vAlign="Default"/>
-            </label>
-            <kawdbtextfield name="KawDbTextField_73" id="senha" columnCaption="Senha" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="senha" columnRowId="false" columnTableName="usuario">
+            <passwordfield name="PasswordField_51" id="SENHA" preferredSize="50,25" visible="false" action="actionSenha" disabledTextColor="ffffff">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
+            </passwordfield>
+            <label name="Label_52" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="Redigite a Senha:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
+            </label>
+            <passwordfield name="PasswordField_53" id="REDIGITESENHA" preferredSize="50,25" visible="false" action="actionRedigiteSenha">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
+            </passwordfield>
+            <label name="Label_72" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="_Senha" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Default" vAlign="Default"/>
+            </label>
+            <kawdbtextfield name="KawDbTextField_73" id="senha" columnCaption="Senha" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="senha" columnRowId="false" columnTableName="usuario" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbcombobox name="KawDbComboBox_88" id="tipo" columnCaption="Tipo" columnDataType="STRING" columnDestino="tipo" columnEditable="true" columnName="tipo" columnPosicao="5" columnTableName="usuario" columnWidth="10" editable="true" itens="Usuario,Grupo">
-              <cellconstraints gridX="7" gridY="1"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Fill"/>
             </kawdbcombobox>
             <kawdbcheckbox name="KawDbCheckBox0" id="superuser" columnCaption="Superusu&#xe1;rio" columnDataType="BOOLEAN" columnHidden="true" columnName="superusuario" columnResolvable="true" columnRowId="false" columnTableName="usuario" text="Superusu&#xe1;rio?">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
             </kawdbcheckbox>
             <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Diretivas:" verticalAlignment="0" verticalTextPosition="0">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbcheckbox name="KawDbCheckBox1" id="insert" columnCaption="Inserir" columnDataType="BOOLEAN" columnHidden="true" columnName="inserir" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Inserir">
-              <cellconstraints gridX="3" gridY="9"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
             <kawdbcheckbox name="KawDbCheckBox2" id="update" columnCaption="Alterar" columnDataType="BOOLEAN" columnHidden="true" columnName="alterar" columnPosicao="6" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Alterar">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="13" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
             <kawdbcheckbox name="KawDbCheckBox3" id="select" columnCaption="Consultar" columnDataType="BOOLEAN" columnHidden="true" columnName="consultar" columnPosicao="7" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Consultar">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
             <kawdbcheckbox name="KawDbCheckBox4" id="delete" columnCaption="Excluir" columnDataType="BOOLEAN" columnHidden="true" columnName="excluir" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Excluir" width="10">
-              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="11" hAlign="Default" vAlign="Default"/>
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
             <panel name="Panel_100" border="TitledBorder(Prefer&#xea;ncias do Usu&#xe1;rio :)" layout="BorderLayout">
-              <cellconstraints gridHeight="14" gridWidth="3" gridX="9" gridY="7" hAlign="Left" vAlign="Top"/>
+              <cellconstraints gridHeight="14" gridWidth="3" gridX="9" gridY="11" hAlign="Left" vAlign="Top"/>
               <panel constraints="BorderLayout.CENTER" name="Panel_102" layout="FormLayout">
-                <formLayout colspecs="default,2dlu,72px,2dlu,361px" rowspecs="default,default,default,default,default,default,default,default,default,default"/>
+                <formLayout colspecs="default,2dlu,263px,2dlu,default,2dlu,72px,2dlu,211px" rowspecs="default,default,default,default,default,default,default,default,default,default"/>
                 <kawdbcheckbox name="KawDbCheckBox_104" id="bprincipal" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bprincipal" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Principal ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="2" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_110" id="bFaturamento" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bfaturamento" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Faturamento ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_111" id="bFinanceiro" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bfinanceiro" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Financeiro ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="4" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_112" id="bOs" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bos" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Ordem Servi&#xe7;o ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="5" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_113" id="bFactoring" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bfactoring" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Factoring ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="6" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="6" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_114" id="bGrafico" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="bgrafico" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Grafico ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="7" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_115" id="bLctoNFCeFrame" columnCaption="Abrir NFC-e" columnDataType="BOOLEAN" columnHidden="true" columnName="blctonfceframe" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Abrir Venda NFC-e em Tela Maximizada ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="8" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="8" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_116" id="bLctoFrame" columnCaption="B.Principal" columnDataType="BOOLEAN" columnHidden="true" columnName="blctoframe" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Abrir Venda NF-e/MDF-e em Tela Maximizada ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="9" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_119" id="instanciarnovasvendas" columnCaption="Varias Vendas" columnDataType="BOOLEAN" columnHidden="true" columnName="instanciarnovasvendas" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Permitir abrir varias vendas">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="10" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="10" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <kawdbcheckbox name="KawDbCheckBox_120" id="butils" columnCaption="B.Utils" columnDataType="BOOLEAN" columnHidden="true" columnName="butils" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Ocultar Barra Utils ?">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <kawdbcheckbox name="KawDbCheckBox_122" id="alterar_docto_emitido" columnCaption="Permite Alterar Docto Emitido" columnDataType="BOOLEAN" columnHidden="true" columnName="alterar_docto_emitido" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Permite Alterar Docto Emitido">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <kawdbcheckbox name="KawDbCheckBox_135" id="excluir_docto_emitido" columnCaption="Permite Excluir Docto Emitido" columnDataType="BOOLEAN" columnHidden="true" columnName="excluir_docto_emitido" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Permite Excluir Docto Emitido">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="2" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <kawdbcheckbox name="KawDbCheckBox_136" id="alterar_parcela_docto_emitido" columnCaption="Permite Alterar Parcela Docto Emitido" columnDataType="BOOLEAN" columnHidden="true" columnName="alterar_parcela_docto_emitido" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Permite Alterar Parcela Docto Emitido">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <kawdbcheckbox name="KawDbCheckBox_137" id="excluir_parcela_docto_emitido" columnCaption="Permite Excluir Parcela Docto Emitido" columnDataType="BOOLEAN" columnHidden="true" columnName="excluir_parcela_docto_emitido" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="usuario" columnWidth="10" text="Permite Excluir Parcela Docto Emitido">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="1" gridY="4" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
               </panel>
             </panel>
+            <label name="Label_138" horizontalAlignment="0" horizontalTextPosition="11" text="Cadastro Vinculado:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_139" id="cadastroCodigo" columnCaption="Cadastro" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="cad_cadastro_id" columnNameLookupKey="id" columnNameRelationLookupKey="cad_cadastro_id" columnPosicao="1" columnRowId="false" columnTableName="usuario" columnWidth="6" focusable="true">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
+            </kawdbtextfieldlookuprow>
+            <kawlookupbutton name="KawLookupButton_140" id="lookupCadastroCodigo" action="lookupFornecedor" columnDestino="cad_cadastro_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="usuario" parameterQColumns="cad_cadastro_id" parameterQColumnsCaption="" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,telefone1,email  FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+            </kawlookupbutton>
+            <kawdbtextfieldlookup name="KawDbTextFieldLookup_142" id="codigoCadastroLookup" columnCalcType="CALC" columnCaption="Nome/Raz&#xe3;o Social" columnCurrency="false" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="codigo_cadastro" columnNameLookupRow="cad_cadastro_id" columnNameOriginLookupRow="razaosocial" columnPosicao="2" columnResolvable="false" columnTableName="usuario" columnWidth="30">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+            </kawdbtextfieldlookup>
+            <label name="Label_143" horizontalAlignment="0" horizontalTextPosition="11" text="Impressora Padr&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+            </label>
+            <kawdbcombobox name="KawDbComboBox_146" id="impressora" columnCaption="Impressora Padr&#xe3;o" columnDataType="STRING" columnDestino="impressora" columnEditable="true" columnName="impressora" columnPosicao="5" columnTableName="usuario" columnWidth="10" editable="true" itens="">
+              <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+            </kawdbcombobox>
           </panel>
           <panel name="Panel_75" layout="FormLayout">
             <formLayout colspecs="154px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
@@ -175,5 +205,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=120-->
+<!--lastNameIndex=146-->
 <!--lastIdIndex=0-->

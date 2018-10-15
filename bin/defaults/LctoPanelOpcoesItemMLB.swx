@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<panel xmlns="http://" bounds="0,0,1280,100" constraints="BorderLayout.CENTER" name="PANEL_OPCOES_ITEM_MLB" id="PANEL_OPCOES_ITEM_MLB" layout="BorderLayout">
+  <panel constraints="BorderLayout.WEST" name="Panel0" layout="FlowLayout">
+    <panel name="Op&#xe7;&#xf5;es - Produto/Servi&#xe7;o(s):" id="panelItens" layout="FlowLayout">
+      <button name="Button12" id="insereButton_fat_docto_i" preferredSize="120,25" toolTipText="Inserir novo item (Ctrl + Insert)" visible="true" actionCommand="fat_docto_i" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Novo" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button13" id="excluiButton_fat_docto_i" preferredSize="120,25" toolTipText="Deletar Item (Ctrl + Delete)" visible="true" actionCommand="fat_docto_i" horizontalAlignment="0" horizontalTextPosition="11" text="Deletar" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es -  Impress&#xe3;o Formul&#xe1;rio:" id="panelImpressao" layout="FlowLayout">
+      <button name="Button8" id="btnForm1" preferredSize="70,25" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="1" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button9" id="btnForm2" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="2" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+      <button name="Button10" id="btnForm3" preferredSize="70,25" horizontalAlignment="0" horizontalTextPosition="11" text="3" verticalAlignment="0" verticalTextPosition="0" defaultCapable="true"/>
+    </panel>
+    <panel name="Op&#xe7;&#xf5;es - Docto Mercado Livre" id="panelBtnAux" layout="FlowLayout">
+      <button name="Button1" id="sincronizarMLBButton" horizontalAlignment="0" horizontalTextPosition="11" text="Sincronizar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button2" id="consultarMLBButton" horizontalAlignment="0" horizontalTextPosition="11" text="Consultar " verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button5" id="enviarEmailButton" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</panel>

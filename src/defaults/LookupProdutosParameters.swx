@@ -41,7 +41,7 @@
     </scrollpane>
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_6" layout="FlowLayout">
-    <kawdbnavtoolbar name="KawDbNavToolBar_7" id="navToolBar" UIClassID="Produto.xml"/>
+    <kawdbnavtoolbar name="KawDbNavToolBar_7" id="Produto,fat_produto,id" UIClassID="Produto.xml"/>
     <button name="Button_8" id="okButton" action="" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="79" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
   </panel>
 </dialog>

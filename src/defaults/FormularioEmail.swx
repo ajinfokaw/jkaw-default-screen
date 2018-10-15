@@ -29,7 +29,7 @@
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_21" tabPlacement="1" titles="Email,Condigura&#xe7;&#xe3;o da conta de e-mail">
           <panel name="Panel_25" layout="BorderLayout">
             <panel constraints="BorderLayout.CENTER" name="Panel_26" id="lookupPara" layout="FormLayout">
-              <formLayout colspecs="97px,2dlu,435px,2dlu,436px,2dlu,181px,23px" rowspecs="default,default,2dlu,default,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
+              <formLayout colspecs="97px,2dlu,435px,2dlu,436px,2dlu,181px,23px" rowspecs="default,default,2dlu,66px,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
               <label name="Label_27" horizontalAlignment="0" horizontalTextPosition="11" text="De:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Right" vAlign="Default"/>
               </label>
@@ -43,7 +43,7 @@
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="6" hAlign="Right" vAlign="Default"/>
               </label>
               <kawdbtextfield name="KawDbTextField_31" id="assunto" columnCaption="Assunto" columnDataType="STRING" columnName="assunto" columnTableName="cad_email">
-                <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="6" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="6" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <label name="Label_32" horizontalAlignment="0" horizontalTextPosition="11" text="Texto:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
@@ -57,9 +57,6 @@
               <label name="Label_34" horizontalAlignment="0" horizontalTextPosition="11" text="Anexo(s):" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_36" id="para" columnCaption="Para" columnDataType="STRING" columnName="para" columnNameLookupKey="id" columnNameRelationLookupKey="para" columnTableName="cad_email">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
-              </kawdbtextfieldlookuprow>
               <kawlookupbutton name="KawLookupButton_37" id="lookupEmail" action="lookupCadastro" columnDestino="para" columnOrigem="email" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="cad_email" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,email,municipio,uf,telefone1,obstelefone1,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,pessoa FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="4" hAlign="Default" vAlign="Default"/>
               </kawlookupbutton>
@@ -102,6 +99,15 @@
               <kawlookupbutton name="KawLookupButton_50" id="lookupButtonTextoAdic" action="" columnDestino="Texto" columnOrigem="texto" connection="jkawflex" defaultButton="true" hidden="true" kawTableName="fat_textoadic" kawTableNameRelation="cad_email" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE id = :id" xmlLookupView="LookupTextoAdicional">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="10" hAlign="Default" vAlign="Fill"/>
               </kawlookupbutton>
+              <kawdbcheckbox name="KawDbCheckBox_51" id="html" columnCaption="HTML?" columnDataType="BOOLEAN" columnName="html" columnRowId="false" columnTableName="cad_email" columnWidth="2" text="HTML?">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+              </kawdbcheckbox>
+              <panel name="Panel_53" layout="BorderLayout">
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="4" hAlign="Fill" vAlign="Fill"/>
+                <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_54" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                  <kawdbtextarea name="KawDbTextArea_56" id="para" columnCaption="Para" columnDataType="STRING" columnName="para" columnTableName="cad_email"/>
+                </scrollpane>
+              </panel>
             </panel>
           </panel>
           <panel name="Panel_42" layout="BorderLayout">
@@ -159,5 +165,5 @@
     </tabbedpane>
   </panel>
 </dialog>
-<!--lastNameIndex=50-->
+<!--lastNameIndex=56-->
 <!--lastIdIndex=0-->

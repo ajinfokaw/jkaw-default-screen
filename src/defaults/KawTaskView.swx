@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,440,220" defaultCloseOperation="0" id="configuraBD" layout="BorderLayout" title="Executando ...">
+  <panel constraints="BorderLayout.SOUTH" name="Panel_11" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_12" layout="FlowLayout"/>
+  </panel>
+  <panel constraints="BorderLayout.CENTER" name="Panel_41" layout="GridBagLayout">
+    <progressbar name="Progressbar_42" id="progressBar" borderPainted="true">
+      <gridbagconstraints anchor="10" fill="0" gridheight="1" gridwidth="12" gridx="0" gridy="0" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+    </progressbar>
+    <label name="Label_43" id="lblInfo" horizontalAlignment="0" horizontalTextPosition="11" text="Label" verticalAlignment="0" verticalTextPosition="0">
+      <gridbagconstraints anchor="10" fill="0" gridheight="1" gridwidth="12" gridx="0" gridy="1" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+    </label>
+    <button name="Button_15" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0">
+      <gridbagconstraints gridx="11" gridy="2"/>
+    </button>
+    <button name="Button_44" id="btnFechar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0">
+      <gridbagconstraints gridx="0" gridy="2"/>
+    </button>
+  </panel>
+</dialog>
+<!--lastNameIndex=44-->
+<!--lastIdIndex=0-->

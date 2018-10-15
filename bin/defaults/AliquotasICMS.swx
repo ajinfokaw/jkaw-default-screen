@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1024,587" layout="BorderLayout" title="Cadastro - Al&#xed;quotas de ICMS">
+<dialog xmlns="http://" bounds="0,0,1024,713" layout="BorderLayout" title="Cadastro - Al&#xed;quotas de ICMS">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -98,73 +98,105 @@
             </panel>
             <panel name="Panel_EditarEstado" layout="BorderLayout">
               <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_51" tabPlacement="1" titles="Geral,Outros Dados">
-                <panel name="Panel_53" id="" layout="FormLayout">
-                  <formLayout colspecs="246px,2dlu,55px,2dlu,23px,2dlu,119px,2dlu,68px,2dlu,110px,2dlu,46px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,62px,2dlu,default,2dlu,default,2dlu,62px,2dlu"/>
-                  <label name="Label_54" horizontalAlignment="0" horizontalTextPosition="11" text="Uf/Estado" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
-                  </label>
-                  <label name="Label_55" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota para contribuintes:" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
-                  </label>
-                  <label name="Label_56" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota para n&#xe3;o contribuintes" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
-                  </label>
-                  <label name="Label_57" horizontalAlignment="0" horizontalTextPosition="11" text="Texto padr&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Top"/>
-                  </label>
-                  <kawdbtextfieldlookup name="KawDbTextField_62" id="estadoLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnName="estado_lookup" columnNameLookupRow="uf" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnTableName="cad_estado_trib" columnWidth="25">
-                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfieldlookup>
-                  <kawdbtextfield name="KawDbTextField_63" id="aliquotaIcmsContribuinte" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_icms_contribuinte" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
-                    <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <label name="Label_65" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Left" vAlign="Default"/>
-                  </label>
-                  <label name="Label_67" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Left" vAlign="Default"/>
-                  </label>
-                  <kawdbtextfield name="KawDbTextField_68" id="aliquotaIcmsNaoContribuinte" columnCaption="(%)Aliq.&#xd1;Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.##" columnName="aliquota_icms_naocontribuinte" columnPosicao="3" columnTableName="cad_estado_trib" columnWidth="15">
-                    <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <scrollpane name="ScrollPane_70" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                    <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="9" hAlign="Fill" vAlign="Fill"/>
-                    <kawdbtextarea name="KawDbTextArea_71" id="textoPadrao" columnCaption="Texto Padr&#xe3;o Aliq.ICMS" columnDataType="STRING" columnHidden="true" columnName="textopadrao" columnTableName="cad_estado_trib"/>
-                  </scrollpane>
-                  <label name="Label_72" horizontalAlignment="0" horizontalTextPosition="11" text=" Diferimento parcial:" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
-                  </label>
-                  <label name="Label_74" horizontalAlignment="0" horizontalTextPosition="11" text="Texto padr&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Top"/>
-                  </label>
-                  <kawdbtextfield name="KawDbTextField_75" id="aliquotaDifContribuinte" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_dif_contribuinte" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
-                    <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <kawdbtextfield name="KawDbTextField_76" id="aliquotaDifNaoContribuinte" columnCaption="(%)Aliq.&#xd1;Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_dif_naocontribuinte" columnPosicao="5" columnTableName="cad_estado_trib" columnWidth="15">
-                    <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <label name="Label_77" horizontalAlignment="0" horizontalTextPosition="11" text="(%) - Al&#xed;quota para contribuinte" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="11" hAlign="Left" vAlign="Default"/>
-                  </label>
-                  <scrollpane name="ScrollPane_81" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                    <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="15" hAlign="Fill" vAlign="Fill"/>
-                    <kawdbtextarea name="KawDbTextArea_82" id="textoPadraoDif" columnCaption="Texto Padr&#xe3;o Aliq.ICMS" columnDataType="STRING" columnHidden="true" columnName="textopadrao_dif" columnTableName="cad_estado_trib"/>
-                  </scrollpane>
-                  <label name="Label_98" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
-                  </label>
-                  <kawdbtextfield name="KawDbTextField_99" id="aliquotasCodigo" columnCaption="Aliquota Codigo" columnDataType="INT" columnDisplayMask="##" columnEditable="false" columnEditMask="##" columnHidden="true" columnName="fat_aliquotas_id" columnResolvable="true" columnRowId="true" columnTableName="cad_estado_trib" columnWidth="5" editable="true" fieldNotEdit="true">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="(%) - Al&#xed;quota para n&#xe3;o contribuinte" verticalAlignment="0" verticalTextPosition="0">
-                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="13" hAlign="Left" vAlign="Default"/>
-                  </label>
-                  <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_111" id="uf" columnCaption="UF" columnDataType="STRING" columnDisplayMask="CC" columnEditMask="CC" columnHidden="true" columnName="uf" columnNameLookupKey="uf" columnNameRelationLookupKey="uf" columnRowId="true" columnTableName="cad_estado_trib">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                  </kawdbtextfieldlookuprow>
-                  <kawlookupbutton name="lookupButtonuf" id="lookupButtonuf" action="lookupClassTipiNcm" columnDestino="uf" columnOrigem="uf" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="cad_estado_trib" parameterQColumns="uf" parameterQColumnsDataType="STRING" queryDataSet=" SELECT id,estado,uf FROM cad_estado WHERE uf = :uf" xmlLookupView="LookupEstado.xml">
-                    <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
-                  </kawlookupbutton>
+                <panel name="Panel_188" layout="BorderLayout">
+                  <panel constraints="BorderLayout.WEST" name="Panel_189" id="" layout="FormLayout">
+                    <formLayout colspecs="197px,2dlu,55px,2dlu,23px,2dlu,119px,2dlu,68px,2dlu,57px,2dlu,46px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,62px,2dlu,default,2dlu,default,2dlu,62px,1dlu"/>
+                    <label name="Label_190" horizontalAlignment="0" horizontalTextPosition="11" text="Uf/Estado" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_191" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota para contribuintes:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_192" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota para n&#xe3;o contribuintes" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_193" horizontalAlignment="0" horizontalTextPosition="11" text="Texto padr&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Top"/>
+                    </label>
+                    <kawdbtextfieldlookup name="KawDbTextFieldLookup_194" id="estadoLookup" columnCalcType="CALC" columnCaption="Estado" columnDataType="STRING" columnName="estado_lookup" columnNameLookupRow="uf" columnNameOriginLookupRow="estado" columnPosicao="1" columnResolvable="false" columnTableName="cad_estado_trib" columnWidth="25">
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookup>
+                    <kawdbtextfield name="KawDbTextField_195" id="aliquotaIcmsContribuinte" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_icms_contribuinte" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_196" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <label name="Label_197" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_198" id="aliquotaIcmsNaoContribuinte" columnCaption="(%)Aliq.&#xd1;Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.##" columnName="aliquota_icms_naocontribuinte" columnPosicao="3" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <scrollpane name="ScrollPane_199" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                      <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="9" hAlign="Fill" vAlign="Fill"/>
+                      <kawdbtextarea name="KawDbTextArea_71" id="textoPadrao" columnCaption="Texto Padr&#xe3;o Aliq.ICMS" columnDataType="STRING" columnHidden="true" columnName="textopadrao" columnTableName="cad_estado_trib"/>
+                    </scrollpane>
+                    <label name="Label_200" horizontalAlignment="0" horizontalTextPosition="11" text=" Diferimento parcial:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_201" horizontalAlignment="0" horizontalTextPosition="11" text="Texto padr&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Top"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_202" id="aliquotaDifContribuinte" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_dif_contribuinte" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_203" id="aliquotaDifNaoContribuinte" columnCaption="(%)Aliq.&#xd1;Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_dif_naocontribuinte" columnPosicao="5" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_204" horizontalAlignment="0" horizontalTextPosition="11" text="(%) - Al&#xed;quota para contribuinte" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="11" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <scrollpane name="ScrollPane_205" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+                      <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="15" hAlign="Fill" vAlign="Fill"/>
+                      <kawdbtextarea name="KawDbTextArea_82" id="textoPadraoDif" columnCaption="Texto Padr&#xe3;o Aliq.ICMS" columnDataType="STRING" columnHidden="true" columnName="textopadrao_dif" columnTableName="cad_estado_trib"/>
+                    </scrollpane>
+                    <label name="Label_206" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_207" id="aliquotasCodigo" columnCaption="Aliquota Codigo" columnDataType="INT" columnDisplayMask="##" columnEditable="false" columnEditMask="##" columnHidden="true" columnName="fat_aliquotas_id" columnResolvable="true" columnRowId="true" columnTableName="cad_estado_trib" columnWidth="5" editable="true" fieldNotEdit="true">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_208" horizontalAlignment="0" horizontalTextPosition="11" text="(%) - Al&#xed;quota para n&#xe3;o contribuinte" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="13" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_209" id="uf" columnCaption="UF" columnDataType="STRING" columnDisplayMask="CC" columnEditMask="CC" columnHidden="true" columnName="uf" columnNameLookupKey="uf" columnNameRelationLookupKey="uf" columnRowId="true" columnTableName="cad_estado_trib">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfieldlookuprow>
+                    <kawlookupbutton name="KawLookupButton_210" id="lookupButtonuf" action="lookupClassTipiNcm" columnDestino="uf" columnOrigem="uf" connection="jkawflex" kawTableName="cad_estado" kawTableNameRelation="cad_estado_trib" parameterQColumns="uf" parameterQColumnsDataType="STRING" queryDataSet=" SELECT id,estado,uf FROM cad_estado WHERE uf = :uf" xmlLookupView="LookupEstado.xml">
+                      <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawlookupbutton>
+                  </panel>
+                  <panel constraints="BorderLayout.EAST" name="Panel_212" border="TitledBorder(FCP:)" layout="FormLayout">
+                    <formLayout colspecs="166px,2dlu,121px,2dlu,45px,2dlu,24px" rowspecs="default,2dlu,default,2dlu,default"/>
+                    <label name="Label_213" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_214" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <label name="Label_215" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST Anterior:" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                    </label>
+                    <kawdbtextfield name="KawDbTextField_216" id="fcp_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_aliquota" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_217" id="fcp_subst_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <kawdbtextfield name="KawDbTextField_218" id="fcp_subst_anterior_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_anterior_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                    </kawdbtextfield>
+                    <label name="Label_219" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <label name="Label_220" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Left" vAlign="Default"/>
+                    </label>
+                    <label name="Label_221" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Left" vAlign="Default"/>
+                    </label>
+                  </panel>
                 </panel>
                 <panel name="Panel_83" layout="FormLayout">
                   <formLayout colspecs="116px,2dlu,85px,2dlu,132px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
@@ -223,5 +255,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=114-->
+<!--lastNameIndex=221-->
 <!--lastIdIndex=0-->

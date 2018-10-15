@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="2,2,1153,758" id="baixa" layout="BorderLayout" name="" resizable="true" title="Baixa T&#xed;tulo">
+<dialog xmlns="http://" bounds="2,2,1153,779" id="baixa" layout="BorderLayout" name="" resizable="true" title="Baixa T&#xed;tulo">
   <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_992" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
     <panel name="Panel_993" id="RPBaixa" layout="BorderLayout">
       <panel constraints="BorderLayout.NORTH" name="Panel_994" id="paneMain" layout="BorderLayout">
@@ -22,7 +22,6 @@
       <panel constraints="BorderLayout.SOUTH" name="Panel_995" layout="BorderLayout">
         <panel constraints="BorderLayout.EAST" name="Panel_792" layout="FlowLayout">
           <button name="Button_10" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" mnemonic="70" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
-          <button name="Button_990" id="btnSelecionarCHPD" toolTipText="Selecinar Cheques Pr&#xe9; p/ pgto c/ cheques de 3&#xba;s" visible="false" action="actionSelecionarCHPD" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="70" text="Selcionar CHPD(s) " verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
         <panel constraints="BorderLayout.WEST" name="Panel_793" layout="FlowLayout">
           <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Lan&#xe7;amento / Faturamento" id="navToolBar" paintingTile="true" tips="true"/>
@@ -180,7 +179,7 @@
                         <cellconstraints gridHeight="1" gridWidth="13" gridX="3" gridY="4" hAlign="Default" vAlign="Fill"/>
                       </kawdbtextfield>
                       <label name="Label_972" horizontalAlignment="4" horizontalTextPosition="11" text="Total Pago/Recebido:" verticalAlignment="0" verticalTextPosition="0">
-                        <cellconstraints gridHeight="1" gridWidth="7" gridX="11" gridY="6" hAlign="Default" vAlign="Default"/>
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="6" hAlign="Default" vAlign="Default"/>
                       </label>
                       <kawdbtextfield name="KawDbTextField_973" id="totalLancadoPago" columnAggName="valorpago" columnCalcType="AGGREGATE" columnCaption="Tot.Pago" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="false" columnEditMask="" columnHidden="false" columnName="aggTotalPago" columnPosicao="7" columnRequired="false" columnResolvable="false" columnRowId="true" columnServerColumnName="" columnsSumAgg="cad_cadastro_id" columnTableName="financ_rp_lctobaixa" columnWidth="12" editable="false" enable="false" fieldNotEdit="true">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="6" hAlign="Default" vAlign="Fill"/>
@@ -203,6 +202,9 @@
                       <kawdbtextfield name="KawDbTextField_987" id="totalNominal" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnHidden="true" columnName="totalNominal" columnResolvable="false" columnTableName="financ_rp_lctobaixa" editable="false" enable="false" fieldNotEdit="true">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="9" hAlign="Default" vAlign="Fill"/>
                       </kawdbtextfield>
+                      <button name="Button_990" id="btnSelecionarCHPD" toolTipText="Selecinar Cheques Pr&#xe9; p/ pgto c/ cheques de 3&#xba;s" visible="false" action="actionSelecionarCHPD" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="70" text="Selcionar CHPD(s) " verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+                      </button>
                     </panel>
                     <panel constraints="BorderLayout.CENTER" name="Panel_847" layout="BorderLayout">
                       <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_849" id="tabbedPane_financ_rp_chpd" tabPlacement="1" titles="Lista de Cheques Pr&#xe9;-Datado,Editar Cheque Pr&#xe9;-Datado,Outros Dados">
@@ -292,10 +294,10 @@
                             <label name="Label_898" horizontalAlignment="4" horizontalTextPosition="11" text="Agencia:" verticalAlignment="0" verticalTextPosition="0">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Default" vAlign="Default"/>
                             </label>
-                            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_899" id="agenciaId" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnHidden="true" columnName="agencia_id" columnNameLookupKey="id,financ_banco_id" columnNameRelationLookupKey="agencia_id,banco_id" columnRequired="false" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="15" editable="true">
+                            <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_899" id="agenciaId" columnCaption="" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnHidden="true" columnName="agencia_id" columnNameLookupKey="codigo,financ_banco_id" columnNameRelationLookupKey="agencia_id,banco_id" columnRequired="false" columnRowId="false" columnTableName="financ_rp_chpd" columnWidth="15" editable="true">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="5" hAlign="Default" vAlign="Default"/>
                             </kawdbtextfieldlookuprow>
-                            <kawlookupbutton name="KawLookupButton_900" id="lookupButtonAgenciaChpd" action="LookupFacAgencia" columnDestino="agencia_id" columnOrigem="id" columnsNameInitialKey="banco_id" connection="jkawflex" kawTableName="financ_agencia" kawTableNameRelation="financ_rp_chpd" parameterQColumns="agencia_id,banco_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,INT" queryDataSet="SELECT id,nome,financ_banco_id FROM financ_agencia WHERE id = :agencia_id" text="" xmlLookupView="LookupBancoAgencia.xml">
+                            <kawlookupbutton name="KawLookupButton_900" id="lookupButtonAgenciaChpd" action="LookupFacAgencia" columnDestino="agencia_id" columnOrigem="codigo" columnsNameInitialKey="banco_id" connection="jkawflex" kawTableName="financ_agencia" kawTableNameRelation="financ_rp_chpd" parameterQColumns="agencia_id,banco_id" parameterQColumnsCaption="" parameterQColumnsDataType="STRING,INT" queryDataSet="SELECT codigo,nome,financ_banco_id FROM financ_agencia WHERE codigo = :agencia_id" text="" xmlLookupView="LookupBancoAgencia.xml">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="5" hAlign="Default" vAlign="Default"/>
                             </kawlookupbutton>
                             <label name="Label_901" horizontalAlignment="4" horizontalTextPosition="11" text="Nome do Emitente:" verticalAlignment="0" verticalTextPosition="0">

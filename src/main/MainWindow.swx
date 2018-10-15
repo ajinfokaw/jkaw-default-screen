@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<frame xmlns="http://" bounds="2,2,1024,730" id="mainframe" layout="BorderLayout" title="JKawFlex - vers&#xe3;o  beta">
+<frame xmlns="http://" bounds="2,2,1024,730" id="mainframe" layout="BorderLayout" title="JKawFlex ">
   <menubar name="MenuBar_33">
     <menu name="Arquivo" text="Arquivo">
       <menu name="Config.Sistema" icon="com/infokaw/udf/image/config.png" text="Configura&#xe7;&#xe3;o do Sistema">
@@ -18,21 +18,23 @@
       <separator name="Separator_46"/>
       <menuitem name="Cad.Empresa" action="actionEmpresa" icon="img_ConfigBD" text="Cadastro de Empresas"/>
       <menuitem name="Cad.Usuario" action="actionUsuario" icon="" text="Cadastro de Usuarios"/>
+      <menuitem name="AlterPassWord" action="actionAlterPassword" icon="" text="Alterar Senha"/>
+      <menuitem name="Auditoria" action="actionAuditoria" icon="" text="Auditoria do Sistema"/>
       <separator name="Separator_51"/>
-      <separator name="Separator_268"/>
-      <menuitem name="Config.Padrao" action="actionConfigPadrao" text="Configuracoes padrao do sistema"/>
-      <menuitem name="Encargos Pradr&#xf5;es" action="actionEncargoPadrao" text="Encargos Pradr&#xf5;es"/>
-      <menuitem name="Config.BD" action="ConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Configura Acesso ao Banco de Dados"/>
-      <separator name="Separator_55"/>
-      <menuitem name="MenuItem_482" action="actionJnfeCfop" text="Jnfe CFOP"/>
-      <menuitem name="MenuItem_435" action="actionLogin" text="Logon"/>
       <menu name="Manutencao" horizontalAlignment="2" horizontalTextPosition="11" icon="com/infokaw/udf/image/config.png" text="Manuten&#xe7;&#xe3;o de Dados">
-        <menuitem name="MenuItem_629" action="actionImpDFeXml" icon="img_ImportaTxt" text="Importar Docto Eletr&#xf4;nico"/>
+        <menuitem name="MenuItem_629" action="actionImpDFeXml400" icon="img_ImportaTxt" text="Importar Docto Eletr&#xf4;nico v4.00"/>
+        <menuitem name="MenuItem_671" action="actionImpDFeXml310" icon="img_ImportaTxt" text="Importar Docto Eletr&#xf4;nico v3.10"/>
+        <menuitem name="MenuItem_670" action="actionExportacaoBalanca" icon="img_ImportaTxt" text="Gerar Arquivo de Exporta&#xe7;&#xe3;o Balan&#xe7;a"/>
         <separator name="Separator_628"/>
         <menuitem name="MenuItem_610" action="actionImpDoctos" icon="img_ImportaTxt" text="Importar Lctos INFOKAW"/>
         <menuitem name="MenuItem_611" action="actionImpBaixaRP" icon="img_ImportaTxt" text="Importa Baixas Contas Receber/Pagar (INFOKAW)"/>
         <menuitem name="MenuItem_613" action="actionImportaDados" icon="img_ImportaTxt" text="Importa/Gera Script SQL (INFOKAW)"/>
       </menu>
+      <separator name="Separator_268"/>
+      <menuitem name="Config.Padrao" action="actionConfigPadrao" text="Configuracoes padrao do sistema"/>
+      <menuitem name="Encargos Pradr&#xf5;es" action="actionEncargoPadrao" text="Encargos Pradr&#xf5;es"/>
+      <menuitem name="Config.BD" action="ConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Configura Acesso ao Banco de Dados"/>
+      <separator name="Separator_55"/>
       <menuitem name="Sair" action="actionExit" icon="com/infokaw/udf/image/door_in16.png" text="Sair"/>
     </menu>
     <menu name="Cadastros" text="Cadastros">
@@ -103,7 +105,9 @@
     <menu name="Movimentacao" text="Movimentacao">
       <menu name="Faturamento" action="" text="Faturamento">
         <menuitem name="Lan&#xe7;amento" action="actionLcto" text="Lan&#xe7;amento (NF-e/Venda/Compra/Pedido/Or&#xe7;amento/etc..)"/>
+        <menuitem name="MovtoProdCli" action="actionMovtoProdCli" text="Movmenta&#xe7;&#xe3;o de Produtos p/ Cliente"/>
         <menuitem name="NFC-e" action="actionNFCe" text="NFC-e  Venda"/>
+        <menuitem name="MDF-eUtils" action="actionMdfeUtils" text="MDF-e N&#xe3;o Encerrados"/>
         <menuitem name="Cotacao" action="actionFatCotacao" text="Cota&#xe7;&#xe3;o de Compras"/>
         <menuitem name="Romaneio" action="actionRomaneio" text="Romaneio"/>
         <separator name="Separator_526"/>
@@ -178,7 +182,9 @@
     <menu name="Ajuda" text="Ajuda">
       <menuitem name="Pensamento" action="actionPensa" text="Pensamento do Dia ..."/>
       <menuitem name="MenuItem_188" action="actionHelp" text="Ajuda "/>
-      <menuitem name="MenuItem_189" action="actionAbout" text="Sobre Alt+S"/>
+      <menuitem name="Atualizacao" toolTipText="Checa se existe atualiza&#xe7;&#xe3;o disponivel" action="actionAtualizar" text="Checar por Atualiza&#xe7;&#xe3;o"/>
+      <menuitem name="Backup" action="actionBackup" text="Backup(C&#xf3;pia de Seguran&#xe7;a)"/>
+      <menuitem name="MenuItem_668" action="actionAbout" text="Sobre Alt+S"/>
     </menu>
   </menubar>
   <panel constraints="BorderLayout.NORTH" name="Panel_128" layout="BorderLayout">
@@ -198,16 +204,20 @@
       </toolbar>
       <toolbar name="B_ Faturamento" id="bFaturamento">
         <button name="Lancamento" toolTipText="Lan&#xe7;amento (NF-e/Venda/Compra/Pedido/Or&#xe7;amento/etc..)" action="actionLcto" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/lcto.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="MovtoProdCli" toolTipText="Movmenta&#xe7;&#xe3;o de Produtos p/ Cliente" action="actionMovtoProdCli" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/movtoprod.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="Romaneio" defaultLocale="true" toolTipText="Romaneio de Carga" visible="true" action="actionRomaneio" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/romaneio.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="NPesagem" defaultLocale="true" toolTipText="Notas de pesagem" visible="true" action="actionNotaPesagem" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/notapesagem.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="NFe" toolTipText="Gerenciador NF-e" action="actionNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/nfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="InutiliNFe" toolTipText="Inutiliza&#xe7;&#xe3;o n&#xfa;mero NF-e" action="actionInutiliNFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/inutilinfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="MDF-e" toolTipText="MDFe Manisfesto Eletr&#xf4;nico" action="actionLctoMDFe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/mdfe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="CTe" toolTipText="CTe Conhecimento de Transporte Eletr&#xf4;nico" action="actionLctoCTe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/cte.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Confere" toolTipText="Confer&#xea;ncia de documento/Lan&#xe7;amento" action="actionConfere" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/confere.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_ Carrinho" id="bCarrinho">
         <button name="Venda Carrinho" toolTipText="Lan&#xe7;amento (Carrinho de Venda..)" action="actionLctoCarrinho" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/carrinho.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="VendaRapida" toolTipText="Lan&#xe7;amento (Venda R&#xe1;pida..)" action="actionLctoVendaRapida" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/vendarapida.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="Tele Vendas" toolTipText="Lan&#xe7;amento (Tele Vendas..)" action="actionLctoTeleVendas" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/televendas.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="MLB" toolTipText="Lan&#xe7;amento (MLB..)" action="actionLctoMLB" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/mlb.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_Grafico" id="bGrafico">
         <button name="Venda E Compra" toolTipText="Grafico Venda e Compra" action="actionFat" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/graf.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
@@ -220,6 +230,7 @@
         <button name="Ext CC" font="Arial-7-NORMAL" toolTipText="Extrato Conta Corrente" action="actionExtratoCC" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/extcc.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
         <button name="ContasReceber" font="Arial-7-NORMAL" toolTipText="Contas a Receber" action="actionReceber" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/receber.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
         <button name="ContasPagar" font="Arial-7-NORMAL" toolTipText="Contas a Pagar" action="actionPagar" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/pagar.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+        <button name="ConsultaCHPD" font="Arial-7-NORMAL" toolTipText="Consulta Cheques Pr&#xe9; Datado" action="actionConsultaCHPD" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/vendacomp.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
       </toolbar>
       <toolbar name="B_Transporte" id="bTransporte">
         <button name="Button_645" toolTipText="Conhecimento de frete" visible="true" action="actionLancCTe" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/CTe.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
@@ -227,10 +238,9 @@
       </toolbar>
       <toolbar name="B_OS" id="bOS">
         <button name="Cad_veiculos" font="Arial-7-NORMAL" toolTipText="Cadastro de ve&#xed;culos" action="actionVeiculo" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/autos.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
-        <button name="OrdemServico" font="Arial-7-NORMAL" toolTipText="Ordem de servi&#xe7;o" action="actionFatOS" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/os.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
+        <button name="OrdemServico" font="Arial-7-NORMAL" toolTipText="Ordem de servi&#xe7;o" action="actionLctoOS" horizontalAlignment="0" horizontalTextPosition="0" icon="com/infokaw/udf/image/os.png" text="" verticalAlignment="0" verticalTextPosition="3"/>
       </toolbar>
       <toolbar name="B_Factoring" id="bFactoring">
-        <button name="Simula&#xe7;&#xe3;o de juros" toolTipText="Simula&#xe7;&#xe3;o de juros" action="actionFacSimulacao" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/simulacao.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
         <button name="DecontoCheque" toolTipText="Desconto de cheques pr&#xe9; datado" action="actionDescontoPorCheque" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/cheque.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B_Chat" id="bChat">
@@ -258,5 +268,5 @@
   </panel>
   <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
 </frame>
-<!--lastNameIndex=657-->
+<!--lastNameIndex=671-->
 <!--lastIdIndex=0-->

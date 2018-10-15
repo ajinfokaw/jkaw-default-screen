@@ -62,24 +62,24 @@
       </kawdbcombobox>
     </panel>
     <panel name="Panel2" layout="FormLayout">
-      <formLayout colspecs="150px,2dlu,67px,2dlu,20px,2dlu,74px,2dlu,37px,2dlu,100px,2dlu,49px,2dlu,58px,2dlu,56px,2dlu,45px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default"/>
+      <formLayout colspecs="150px,2dlu,67px,2dlu,20px,2dlu,74px,2dlu,37px,2dlu,100px,2dlu,49px,2dlu,58px,2dlu,56px,2dlu,45px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,default,default"/>
       <label name="Label9" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d.Motorista:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
       </label>
       <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow" id="transp_idmotorista" columnCaption="Cod.Motorista" columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnHidden="true" columnName="transp_idmotorista" columnNameLookupKey="id" columnPosicao="0" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="15" editable="true">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfieldlookuprow>
-      <kawlookupbutton name="KawLookupButton11" id="cadastroMotoristaLookupButton" action="lookupCadastroMotorista" columnDestino="transp_idmotorista,transp_ufveiculo,transp_descricaoveiculo,transp_placaveiculo,transp_placaveiculo_reboque1,transp_placaveiculo_reboque3" columnOrigem="id,uf,veiculo,placa1,placa2,placa3" connection="jkawflex" kawTableName="cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="transp_idmotorista" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,municipio,uf,telefone1,obstelefone1 FROM cad_cadastro WHERE id = :transp_idmotorista" xmlLookupView="LookupMotorista.xml">
+      <kawlookupbutton name="KawLookupButton11" id="cadastroMotoristaLookupButton" action="lookupCadastroMotorista" columnDestino="transp_idmotorista,transp_ufveiculo,transp_descricaoveiculo,transp_placaveiculo,transp_placaveiculo_reboque1,transp_placaveiculo_reboque3" columnOrigem="id,uf,veiculo,placa1,placa2,placa3" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="transp_idmotorista" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,municipio,uf,telefone1,obstelefone1 FROM cad_cadastro WHERE id = :transp_idmotorista" xmlLookupView="LookupMotorista.xml">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawlookupbutton>
       <kawdbtextfield name="KawDbTextField12" id="transpCodigoMotoristaLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="motorista_lookup" columnPosicao="0" columnRowId="false" columnWidth="30" editable="false" fieldNotEdit="true" UIClassID=" ">
         <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <label name="Label13" horizontalAlignment="0" horizontalTextPosition="11" text="UF Veiculo:" verticalAlignment="0" verticalTextPosition="0">
-        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="1" hAlign="Right" vAlign="Default"/>
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="15" gridY="3" hAlign="Right" vAlign="Default"/>
       </label>
       <kawdbtextfield name="KawDbTextField14" id="transpUfVeiculo" columnCaption="UF Veiculo" columnDataType="STRING" columnDisplayMask=">cc" columnEditable="true" columnEditMask=">cc" columnFixedPrecision="false" columnHidden="true" columnName="transp_ufveiculo" columnPosicao="0" columnRequired="false" columnRowId="false" columnTableName="fat_docto_c" columnWidth="10" dragEnabled="false" editable="true">
-        <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="19" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <label name="Label15" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o Veiculo:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
@@ -111,9 +111,15 @@
       <kawdbtextfield name="KawDbTextField4" id="transpPlacaReboque3" columnCaption="Placa Reboque3" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnFixedPrecision="false" columnHidden="true" columnName="transp_placaveiculo_reboque3" columnPosicao="10" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="21" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField0" id="transpRNTRC" columnCaption="RNTRC" columnDataType="STRING" columnDisplayMask="" columnEditable="true" columnEditMask="" columnFixedPrecision="false" columnHidden="true" columnName="transp_rntrc" columnPosicao="0" columnRequired="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="50" dragEnabled="false" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="6" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="RNTRC:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="6" hAlign="Right" vAlign="Default"/>
+      </label>
     </panel>
     <panel name="Panel3" layout="FormLayout">
-      <formLayout colspecs="97px,2dlu,123px,2dlu,68px,2dlu,102px,2dlu,140px,2dlu,default,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,2dlu"/>
+      <formLayout colspecs="187px,2dlu,123px,2dlu,27px,2dlu,102px,2dlu,140px,2dlu,default,2dlu,default,default,default,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
       <label name="Label_535" horizontalAlignment="0" horizontalTextPosition="11" text="Esp&#xe9;cie:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
       </label>
@@ -129,19 +135,19 @@
       <label name="Label_539" horizontalAlignment="0" horizontalTextPosition="11" text="Peso Bruto:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Right" vAlign="Default"/>
       </label>
-      <kawdbtextfield name="KawDbTextField_540" id="pesoBruto" columnCaption="Peso Bruto" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnFixedPrecision="false" columnHidden="true" columnName="pesobruto" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
+      <kawdbtextfield name="KawDbTextField_540" id="pesoBruto" columnCaption="Peso Bruto" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnFixedPrecision="false" columnHidden="true" columnName="pesobruto" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <label name="Label_541" horizontalAlignment="0" horizontalTextPosition="11" text="Peso Liquido:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Right" vAlign="Default"/>
       </label>
-      <kawdbtextfield name="KawDbTextField_542" id="pesoLiquido" columnCaption="Peso Liquido" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnFixedPrecision="false" columnHidden="true" columnName="pesoliquido" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
+      <kawdbtextfield name="KawDbTextField_542" id="pesoLiquido" columnCaption="Peso Liquido" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnFixedPrecision="false" columnHidden="true" columnName="pesoliquido" columnPosicao="0" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Volumes:" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
       </label>
-      <kawdbtextfield name="KawDbTextField0" id="volumes" columnCaption="Volumes" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnFixedPrecision="false" columnHidden="true" columnName="volumes" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
+      <kawdbtextfield name="KawDbTextField0" id="volumes" columnCaption="Volumes" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnEditMask="###,###.###" columnFixedPrecision="false" columnHidden="true" columnName="volumes" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="(kg)" verticalAlignment="0" verticalTextPosition="0">
@@ -150,6 +156,24 @@
       <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="(kg)" verticalAlignment="0" verticalTextPosition="0">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="5" hAlign="Right" vAlign="Default"/>
       </label>
+      <label name="Label0" id="lbProdutoPred" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="Produto Predominante:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+      </label>
+      <label name="Label0" id="lbTotalCarga" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="Valor Total da Carga:" verticalAlignment="0" verticalTextPosition="0">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+      </label>
+      <kawdbtextfield name="KawDbTextField1" id="cteTotalCarga" columnCaption="Total Carga" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="###,###.##" columnFixedPrecision="false" columnHidden="true" columnName="cte_total_carga" columnPosicao="0" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="20" dragEnabled="false" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow0" id="fat_produto_idpred" columnCaption="Remet." columnDataType="INT" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="fat_produto_idpred" columnNameLookupKey="id" columnNameRelationLookupKey="fat_produto_idpred" columnPosicao="5" columnRequired="false" columnResolvable="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" editable="true">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookuprow>
+      <kawlookupbutton name="KawLookupButton1" id="lookupButtonProdutoPred" action="actionLookupRemetente" columnDestino="fat_produto_idpred" columnOrigem="id" connection="jkawflex" kawTableName="fat_produto" kawTableNameRelation="fat_docto_c" parameterQColumns="fat_produto_idpred" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao,cad_unidade1,pesobruto,pesoliquido,volume FROM fat_produto WHERE id = :fat_produto_idpred" xmlLookupView="LookupProdutos.xml">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawlookupbutton>
+      <kawdbtextfieldlookup name="KawDbTextFieldLookup2" id="fat_produto_idpred_lookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="fat_produto_idpred_lookup" columnNameLookupRow="fat_produto_idpred" columnNameOriginLookupRow="descricao" columnPosicao="6" columnRowId="false" columnTableName="fat_docto_c" columnWidth="30" editable="false" UIClassID=" ">
+        <cellconstraints gridHeight="1" gridWidth="9" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfieldlookup>
     </panel>
   </tabbedpane>
 </panel>

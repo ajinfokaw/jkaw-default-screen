@@ -18,7 +18,7 @@
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="67, 79" tabPlacement="1" titles="Cadastro,Outros Dados">
           <panel name="Panel2" layout="BorderLayout">
             <panel constraints="BorderLayout.CENTER" name="Panel3" layout="FormLayout">
-              <formLayout colspecs="194px,2dlu,103px,2dlu,23px,2dlu,136px,2dlu,163px,2dlu,172px" rowspecs="default,2dlu,137px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default,default,default"/>
+              <formLayout colspecs="338px,2dlu,103px,2dlu,23px,2dlu,136px,2dlu,163px,2dlu,172px" rowspecs="default,2dlu,137px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default,default,default"/>
               <label name="Label4" horizontalAlignment="0" horizontalTextPosition="11" text="Descri&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Top"/>
               </label>
@@ -43,7 +43,7 @@
               <kawdbtextfield name="KawDbTextField15" id="fator" columnCaption="Fator" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnEditable="true" columnEditMask="###,##0.00" columnName="fator" columnPosicao="8" columnRowId="true" columnTableName="fat_classtipi" columnWidth="10">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
-              <label name="Label16" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota MVA Ajustado:" verticalAlignment="0" verticalTextPosition="0">
+              <label name="Label16" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota MVA Original:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
               </label>
               <kawdbtextfield name="KawDbTextField17" id="aliquota" columnCaption="Aliq.MVA" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.00" columnName="aliquota" columnPosicao="7" columnRowId="true" columnTableName="fat_classtipi" columnWidth="10">

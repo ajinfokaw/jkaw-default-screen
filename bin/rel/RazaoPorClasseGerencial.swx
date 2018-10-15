@@ -101,10 +101,11 @@
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_79" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_80" layout="FlowLayout">
+      <button name="Button_134" id="btnEmail" toolTipText="Enviar Relat&#xf3;rio por E-mail" action="action_Email" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_97" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=133-->
+<!--lastNameIndex=134-->
 <!--lastIdIndex=0-->

@@ -18,7 +18,7 @@
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPane_fat_condpg" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel3" layout="BorderLayout">
             <panel constraints="BorderLayout.NORTH" name="Panel4" layout="FormLayout">
-              <formLayout colspecs="208px,2dlu,120px,22px,218px,2dlu,193px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2px"/>
+              <formLayout colspecs="208px,2dlu,120px,22px,218px,2dlu,130px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2px,default"/>
               <label name="Label5" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
@@ -53,8 +53,26 @@
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
               </kawdbcombobox>
               <kawdbcheckbox name="KawDbCheckBox16" id="alteraParcela" columnCaption="AP." columnName="alteraparcela" columnRowId="false" columnTableName="fat_condpg" columnWidth="3" text="Permitir alterar parcelas?">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
               </kawdbcheckbox>
+              <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Desconto M&#xed;nimo (%):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Right" vAlign="Default"/>
+              </label>
+              <label name="Label15" horizontalAlignment="0" horizontalTextPosition="11" text="Desconto M&#xe1;ximo (%):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField0" id="descontoMinimo" columnCaption="% Desc Min" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditable="true" columnEditMask="###.##" columnName="perc_desconto_min" columnPosicao="3" columnRequired="false" columnRowId="false" columnTableName="fat_condpg" editable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <kawdbtextfield name="KawDbTextField0" id="descontoMaximo" columnCaption="% Desc Max" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditable="true" columnEditMask="###.##" columnName="perc_desconto_max" columnPosicao="3" columnRequired="false" columnRowId="false" columnTableName="fat_condpg" editable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
+              <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Desconto Padr&#xe3;o (%):" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField1" id="descontoPadrao" columnCaption="% Desc Padr&#xe3;o" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00" columnEditable="true" columnEditMask="###.##" columnName="perc_desconto_padrao" columnPosicao="3" columnRequired="false" columnRowId="false" columnTableName="fat_condpg" editable="true">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
             </panel>
             <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPane_fat_condpg_p" tabPlacement="1" titles="Tab Condicoes de Pagamento,Editar,Outros Dados">
               <panel name="Panel1" layout="BorderLayout">
@@ -100,7 +118,7 @@
                 <kawdbtextfield name="KawDbTextField_76" id="percentual" columnCaption="(%)" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="##0.00000" columnEditable="true" columnEditMask="" columnName="percentual" columnPosicao="3" columnRequired="true" columnRowId="false" columnTableName="fat_condpg_p" editable="true">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow1" id="financ_portador_id" columnCaption="Portador " columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="financ_portador_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_portador_id" columnPosicao="4" columnRowId="true" columnTableName="fat_condpg_p" columnWidth="5" editable="true" text="">
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow1" id="financ_portador_id" columnCaption="Portador " columnDataType="INT" columnDefault="1" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="financ_portador_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_portador_id" columnPosicao="4" columnRowId="false" columnTableName="fat_condpg_p" columnWidth="5" editable="true" text="">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfieldlookuprow>
                 <kawlookupbutton name="KawLookupButton2" id="lookupButtonPortadorInicial" action="lookupPortadorInicial" columnDestino="financ_portador_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_portador" kawTableNameRelation="fat_condpg_p" parameterQColumns="financ_portador_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_portador WHERE id = :financ_portador_id ORDER BY id">
@@ -109,7 +127,7 @@
                 <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="portadorInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="financ_portador_id_lookup" columnNameLookupRow="financ_portador_id" columnNameOriginLookupRow="descricao" columnTableName="fat_condpg_p" text="">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="6" gridY="9" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfieldlookup>
-                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow4" id="financ_tipocobranca_id" columnCaption="T.Cobran&#xe7;a" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="financ_tipocobranca_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_tipocobranca_id" columnPosicao="4" columnRowId="true" columnTableName="fat_condpg_p" columnWidth="5" editable="true" text="">
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow4" id="financ_tipocobranca_id" columnCaption="T.Cobran&#xe7;a" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="financ_tipocobranca_id" columnNameLookupKey="id" columnNameRelationLookupKey="financ_tipocobranca_id" columnPosicao="4" columnRowId="false" columnTableName="fat_condpg_p" columnWidth="5" editable="true" text="">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfieldlookuprow>
                 <kawlookupbutton name="KawLookupButton5" id="lookupButtonTipoCobrancaInicial" action="lookupTipoCobrancaInicial" columnDestino="financ_tipocobranca_id" columnOrigem="id" connection="jkawflex" kawTableName="financ_tipocobranca" kawTableNameRelation="fat_condpg_p" parameterQColumns="financ_tipocobranca_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_tipocobranca WHERE id = :financ_tipocobranca_id ORDER BY id">

@@ -100,7 +100,7 @@
                   </panel>
                 </panel>
                 <panel constraints="BorderLayout.SOUTH" name="Panel_132" id="PanelDiretivaRegraOpG" visible="false" layout="FormLayout">
-                  <formLayout colspecs="119px,2dlu,54px,2dlu,18px,2dlu,128px,2dlu,16px,2dlu,110px,2dlu,358px,31px" rowspecs="18px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default"/>
+                  <formLayout colspecs="119px,2dlu,54px,2dlu,18px,2dlu,128px,2dlu,16px,2dlu,110px,2dlu,358px,164px" rowspecs="18px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default"/>
                   <label name="Label_133" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
                     <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
                   </label>
@@ -120,7 +120,7 @@
                     <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
                   </kawdbtextfieldlookuprow>
                   <kawdbtextfieldlookup name="KawDbTextField_140" id="regraLookup" caretPosition="0" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnName="regra_lookup" columnNameLookupRow="diretiva_regra_id" columnNameOriginLookupRow="descricao" columnPosicao="1" columnTableName="fat_transacao_dr" columnWidth="30">
-                    <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
+                    <cellconstraints gridHeight="1" gridWidth="8" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
                   </kawdbtextfieldlookup>
                   <label name="Label_141" horizontalAlignment="0" horizontalTextPosition="11" text="Propriedade:" verticalAlignment="0" verticalTextPosition="0">
                     <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
@@ -182,7 +182,7 @@
                 </panel>
               </panel>
               <panel constraints="BorderLayout.NORTH" name="Panel_122" id="PanelDiretivaRegraG" visible="true" layout="FormLayout">
-                <formLayout colspecs="133px,2dlu,58px,2dlu,20px,2dlu,125px,2dlu,71px,2dlu,default,2dlu,default,2dlu,145px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
+                <formLayout colspecs="133px,2dlu,58px,2dlu,20px,2dlu,125px,2dlu,71px,2dlu,default,2dlu,default,2dlu,358px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu"/>
                 <label name="Label_123" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
                 </label>

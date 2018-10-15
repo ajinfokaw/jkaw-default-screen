@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="8,19,826,429" id="ListagemProdutoMovto" layout="BorderLayout" title="Listagem de Movimenta&#xe7;&#xe3;o dos Produtos">
+<dialog xmlns="http://" bounds="8,19,946,429" id="ListagemProdutoMovto" layout="BorderLayout" title="Listagem de Movimenta&#xe7;&#xe3;o dos Produtos">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
-    <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,default" rowspecs="default,2dlu,34px,2dlu,29px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,216px" rowspecs="default,2dlu,34px,2dlu,29px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
     <label name="Label_2" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente/Fornecedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
     </label>
@@ -101,10 +101,11 @@
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_79" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_80" layout="FlowLayout">
+      <button name="Button_81" id="btnEmail" toolTipText="Enviar Relat&#xf3;rio por E-mail" action="action_Email" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_97" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=80-->
+<!--lastNameIndex=81-->
 <!--lastIdIndex=0-->

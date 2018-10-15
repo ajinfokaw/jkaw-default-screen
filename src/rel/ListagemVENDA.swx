@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="1,2,935,443" id="ListagemCadastro" layout="BorderLayout" name="" title="Listagem de Vendas">
+<dialog xmlns="http://" bounds="1,2,970,656" id="ListagemCadastro" layout="BorderLayout" name="" title="Listagem de Vendas">
   <panel constraints="BorderLayout.CENTER" name="Panel_1" layout="FormLayout">
-    <formLayout colspecs="205px,2dlu,107px,2dlu,21px,2dlu,122px,2dlu,294px,141px" rowspecs="27px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <formLayout colspecs="205px,2dlu,126px,2dlu,21px,2dlu,131px,2dlu,129px,2px,158px,2dlu,160px" rowspecs="27px,2dlu,15dlu,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,25px,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
     <label name="Label_61" horizontalAlignment="0" horizontalTextPosition="11" text="Opera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="22" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="37" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbcheckbox name="VENDA" id="VENDA" columnCaption="Venda" columnDataType="BOOLEAN" columnDefault="true" columnName="venda" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Venda">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="22" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="37" hAlign="Default" vAlign="Default"/>
     </kawdbcheckbox>
     <kawdbcheckbox name="VENDABALCAO" id="VENDABALCAO" columnCaption="VendaB" columnDataType="BOOLEAN" columnDefault="true" columnName="vendabalcao" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Venda Balcao">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="24" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="39" hAlign="Default" vAlign="Default"/>
     </kawdbcheckbox>
     <kawdbcheckbox name="COMPRA" id="COMPRA" columnCaption="Compra" columnDataType="BOOLEAN" columnDefault="true" columnName="compra" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Compra">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="26" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="41" hAlign="Default" vAlign="Default"/>
     </kawdbcheckbox>
     <kawdbcheckbox name="ORDEMDESERVICO" id="ORDEMDESERVICO" columnCaption="Ordemdeservico" columnDataType="BOOLEAN" columnDefault="true" columnName="ordemdeservico" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Ordem de Servico(OS)">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="22" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="43" hAlign="Default" vAlign="Default"/>
     </kawdbcheckbox>
     <kawdbcheckbox name="OUTROS" id="OUTROS" columnCaption="Outros" columnDataType="BOOLEAN" columnDefault="true" columnName="outros" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Outros">
-      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="24" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="39" hAlign="Default" vAlign="Default"/>
     </kawdbcheckbox>
     <label name="Label_111" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbcombobox name="KawDbComboBox_112" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemVENDA' ORDER BY id">
-      <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <label name="Label_113" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
@@ -39,9 +39,9 @@
       <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Fill" vAlign="Fill"/>
     </kawdatefield>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_117" id="clienteInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_inicial_lookup" columnNameLookupRow="cliente_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
-      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
-    <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
+    <kawdbtextfieldlookuprow name="CLIENTE_INICIAL" id="CLIENTE_INICIAL" columnCaption="Cliente Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="cliente_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="cliente_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="0">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <label name="Label_120" horizontalAlignment="0" horizontalTextPosition="11" text="Cliente Inicial:" verticalAlignment="0" verticalTextPosition="0">
@@ -54,69 +54,157 @@
       <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_124" id="clienteFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="cliente_final_lookup" columnNameLookupRow="cliente_final" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; final >>">
-      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="7" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
     <label name="Label_125" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo de Documento:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="23" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbcombobox name="TIPO_DOCTO" id="TIPO_DOCTO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="tipoDocto" columnName="tipoDocto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="NOTA FISCAL,ORCAMENTO,PEDIDO,TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="13" hAlign="Fill" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="23" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <label name="Label_127" horizontalAlignment="0" horizontalTextPosition="11" text="Natureza:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="25" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbcombobox name="NATUREZA" id="NATUREZA" columnCaption="Pessoa" columnDataType="STRING" columnDefault="TODOS" columnDestino="natureza" columnName="natureza" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="SAIDA,ENTRADA,TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="15" hAlign="Fill" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="25" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <label name="Label_129" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo Lcto:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Right" vAlign="Default"/>
     </label>
     <kawdbcombobox name="TIPO_LCTO" id="TIPO_LCTO" columnCaption="Pessoa" columnDataType="STRING" columnDefault="99-TODOS" columnDestino="tipoLcto" columnName="tipoLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="0-DIVERSOS,1-NFE,2-CUPOM FISCAL,3-ORCAMENTO,4-PEDIDO,99-TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="17" hAlign="Fill" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="27" hAlign="Fill" vAlign="Fill"/>
     </kawdbcombobox>
     <label name="Label_131" horizontalAlignment="0" horizontalTextPosition="11" text="Status Lcto:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="20" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbcombobox name="STATUS_LCTO" id="STATUS_LCTO" columnCaption="Status" columnDataType="STRING" columnDefault="999-TODOS" columnDestino="statusLcto" columnName="statusLcto" columnPosicao="1" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="10" editable="true" itens="5-EM DIGITACAO,6-EMITIDO,7-CANCELADO,8-DENEGADO,9-ASSINADO,11-Finalizado,100-Autorizado Uso NF-e,999-TODOS">
-      <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="20" hAlign="Fill" vAlign="Fill"/>
-    </kawdbcombobox>
-    <kawlookupbutton name="KawLookupButton_136" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id" xmlLookupView="LookupClientes.xml">
+    <kawlookupbutton name="KawLookupButton_136" id="lookupButtonClienteInicial" action="lookupClienteInicial" columnDestino="cliente_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cliente_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_inicial ORDER BY id" xmlLookupView="LookupClientes.xml">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
-    <kawlookupbutton name="KawLookupButton_137" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id" xmlLookupView="LookupClientes.xml">
+    <kawlookupbutton name="KawLookupButton_137" id="lookupButtonClienteFinal" action="lookupClienteFinal" columnDestino="cliente_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="fat_docto_c" parameterQColumns="cliente_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :cliente_final ORDER BY id" xmlLookupView="LookupClientes.xml">
       <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="7" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
     <label name="Label_138" horizontalAlignment="0" horizontalTextPosition="11" text="Vendedor Inicial:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
     </label>
     <label name="Label_139" horizontalAlignment="0" horizontalTextPosition="11" text="Vendedor Final:" verticalAlignment="0" verticalTextPosition="0">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
     </label>
-    <kawdbtextfieldlookuprow name="VENDEDOR_INICIAL" id="VENDEDOR_INICIAL" columnCaption="Vendedor Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="vendedor_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="vendedor_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+    <kawdbtextfieldlookuprow name="VENDEDOR_INICIAL" id="VENDEDOR_INICIAL" columnCaption="Vendedor Inicial" columnDataType="INT" columnDefault="0" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="vendedor_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="vendedor_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <kawdbtextfieldlookuprow name="VENDEDOR_FINAL" id="VENDEDOR_FINAL" columnCaption="Vendedor Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="vendedor_final" columnNameLookupKey="id" columnNameRelationLookupKey="vendedor_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="17" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookuprow>
     <kawlookupbutton name="KawLookupButton_142" id="lookupButtonVendedorInicial" action="lookupVendedorInicial" columnDestino="vendedor_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="vendedor_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :vendedor_inicial ORDER BY id" xmlLookupView="LookupVendedores.xml">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
     <kawlookupbutton name="KawLookupButton_143" id="lookupButtonVendedorFinal" action="lookupVendedorFinal" columnDestino="vendedor_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp" parameterQColumns="vendedor_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,endereco FROM cad_cadastro WHERE id = :vendedor_final ORDER BY id" xmlLookupView="LookupVendedores.xml">
-      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="17" hAlign="Default" vAlign="Default"/>
     </kawlookupbutton>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_144" id="vendedorInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="vendedor_inicial_lookup" columnNameLookupRow="vendedor_inicial" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
-      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="15" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
     <kawdbtextfieldlookup name="KawDbTextFieldLookup_145" id="vendedorFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="vendedor_final_lookup" columnNameLookupRow="vendedor_final" columnNameOriginLookupRow="razaosocial" columnTableName="financ_rp" text="&lt;&lt; final >>">
-      <cellconstraints gridHeight="1" gridWidth="4" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="17" hAlign="Default" vAlign="Fill"/>
     </kawdbtextfieldlookup>
+    <kawdbcheckbox name="EMITIDO" id="EMITIDO" columnCaption="Emitido" columnDataType="BOOLEAN" columnDefault="true" columnName="emitido" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Emitido">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="29" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="AUTORIZADO" id="AUTORIZADO" columnCaption="Autorizado" columnDataType="BOOLEAN" columnDefault="true" columnName="autorizado" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Autorizado ">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="29" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="CANCELADO" id="CANCELADO" columnCaption="Cancelado" columnDataType="BOOLEAN" columnDefault="true" columnName="cancelado" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Cancelado">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="31" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="DENEGADO" id="DENEGADO" columnCaption="Denegado" columnDataType="BOOLEAN" columnDefault="true" columnName="denegado" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Denegado">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="31" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="EM_DIGITACAO" id="EM_DIGITACAO" columnCaption="Em Digita&#xe7;&#xe3;o" columnDataType="BOOLEAN" columnDefault="true" columnName="em_digitacao" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Em Digita&#xe7;&#xe3;o">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="33" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="FINALIZADO" id="FINALIZADO" columnCaption="Finalizado" columnDataType="BOOLEAN" columnDefault="true" columnName="finalizado" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" selected="false" text="Finalizado">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="33" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <label name="Label_193" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_194" horizontalAlignment="0" horizontalTextPosition="11" text="Transa&#xe7;&#xe3;o Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfieldlookuprow name="TRANSACAO_INICIAL" id="TRANSACAO_INICIAL" columnCaption="Transa&#xe7;&#xe3;o Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="transacao_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="transacao_inicial" columnPosicao="4" columnReadOnly="false" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="1">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="19" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="TRANSACAO_FINAL" id="TRANSACAO_FINAL" columnCaption="Transa&#xe7;&#xe3;o Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="transacao_final" columnNameLookupKey="id" columnNameRelationLookupKey="transacao_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="99999">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="21" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_197" id="lookupButtonTransacaoInicial" action="lookupTransacaoInicial" columnDestino="transacao_inicial" columnOrigem="id" connection="jkawflex" kawTableName="fat_transacao" kawTableNameRelation="financ_rp" parameterQColumns="transacao_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE id = :transacao_inicial" xmlLookupView="LookupTransacao.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="19" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_198" id="lookupButtonTransacaoFinal" action="lookupTransacaoFinal" columnDestino="transacao_final" columnOrigem="id" connection="jkawflex" kawTableName="fat_transacao" kawTableNameRelation="financ_rp" parameterQColumns="transacao_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE id = :transacao_final" xmlLookupView="LookupTransacao.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="21" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_199" id="transacaoInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="transacao_inicial_lookup" columnNameLookupRow="transacao_inicial" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="19" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_200" id="transacaoFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="transacao_final_lookup" columnNameLookupRow="transacao_final" columnNameOriginLookupRow="descricao" columnTableName="financ_rp" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="21" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbcheckbox name="IDEM" id="IDEM" columnCaption="Idem/C&#xf3;pia" columnDataType="BOOLEAN" columnDefault="true" columnName="idem_copia" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" hidden="true" selected="false" text="Idem/C&#xf3;pia">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="31" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="ROMANEIO" id="ROMANEIO" columnCaption="Romaneio" columnDataType="BOOLEAN" columnDefault="true" columnName="romaneio" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" hidden="true" selected="false" text="Romaneio Carga">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="29" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="IMPORTADO" id="IMPORTADO" columnCaption="Importado/Outros" columnDataType="BOOLEAN" columnDefault="true" columnName="importado_outros" columnRowId="false" columnTableName="cad_cadastro_grupo" enable="false" hidden="true" selected="false" text="Importado/Outros">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="9" gridY="33" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <label name="Label_204" horizontalAlignment="0" horizontalTextPosition="11" text="Filial Inicial:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_205" horizontalAlignment="0" horizontalTextPosition="11" text="Filial Final:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="11" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfieldlookuprow name="FILIAL_INICIAL" id="FILIAL_INICIAL" columnCaption="Filial Inicial" columnDataType="INT" columnDefault="1" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_codigo_inicial" columnNameLookupKey="id" columnNameRelationLookupKey="filial_codigo_inicial" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="" UIClassID="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawdbtextfieldlookuprow name="FILIAL_FINAL" id="FILIAL_FINAL" columnCaption="Filial Final" columnDataType="INT" columnDefault="99999" columnDisplayMask="#####" columnEditable="true" columnEditMask="#####" columnName="filial_codigo_final" columnNameLookupKey="id" columnNameRelationLookupKey="filial_codigo_final" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5" editable="true" text="">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookuprow>
+    <kawlookupbutton name="KawLookupButton_208" id="lookupButtonFilialInicial" action="lookupFilialInicial" columnDestino="filial_codigo_inicial" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="fat_docto_c" parameterQColumns="filial_codigo_inicial" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,endereco FROM cad_filial WHERE id = :filial_codigo_inicial ORDER BY id" xmlLookupView="LookupFilial.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="9" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawlookupbutton name="KawLookupButton_209" id="lookupButtonFilialFinal" action="lookupFilialFinal" columnDestino="filial_codigo_final" columnOrigem="id" connection="jkawflex" kawTableName="cad_filial" kawTableNameRelation="fat_docto_c" parameterQColumns="filial_codigo_final" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,endereco FROM cad_filial WHERE id = :filial_codigo_final ORDER BY id" xmlLookupView="LookupFilial.xml">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="11" hAlign="Default" vAlign="Default"/>
+    </kawlookupbutton>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_210" id="filialInicialLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_codigo_inicial_lookup" columnNameLookupRow="filial_codigo_inicial" columnNameOriginLookupRow="nomefantasia" columnTableName="financ_rp" focusable="false" text="&lt;&lt; inicial >>">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="9" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <kawdbtextfieldlookup name="KawDbTextFieldLookup_211" id="filialFinalLookup" columnCalcType="CALC" columnCaption=".." columnDataType="STRING" columnName="filial_codigo_final_lookup" columnNameLookupRow="filial_codigo_final" columnNameOriginLookupRow="nomefantasia" columnTableName="financ_rp" text="&lt;&lt; final >>">
+      <cellconstraints gridHeight="1" gridWidth="7" gridX="7" gridY="11" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfieldlookup>
+    <label name="Label_212" horizontalAlignment="0" horizontalTextPosition="11" text="Filial Condicional:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="FILIAL_CONDICIONAL" id="FILIAL_CONDICIONAL" columnCaption="Condicional" columnDataType="STRING" columnDefault="" columnEditable="true" columnName="filial_condicional" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5">
+      <cellconstraints gridHeight="1" gridWidth="9" gridX="3" gridY="13" hAlign="Fill" vAlign="Fill"/>
+    </kawdbtextfield>
+    <kawdbcheckbox name="VENDACARRINHO" id="VENDACARRINHO" columnCaption="VendaCar" columnDataType="BOOLEAN" columnDefault="true" columnName="vendacarrinho" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Venda Carrinho">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="41" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="VENDARAPIDA" id="VENDARAPIDA" columnCaption="VendaRap" columnDataType="BOOLEAN" columnDefault="true" columnName="vendarapida" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Venda R&#xe1;pida">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="43" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
+    <kawdbcheckbox name="TELEVENDAS" id="TELEVENDAS" columnCaption="Televendas" columnDataType="BOOLEAN" columnDefault="true" columnName="televendas" columnRowId="false" columnTableName="cad_cadastro_grupo" selected="false" text="Televendas">
+      <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="37" hAlign="Default" vAlign="Default"/>
+    </kawdbcheckbox>
   </panel>
   <panel constraints="BorderLayout.SOUTH" name="Panel_16" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_17" layout="FlowLayout">
+      <button name="Button_217" id="btnEmail" toolTipText="Enviar Relat&#xf3;rio por E-mail" action="action_Email" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_108" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
       <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=145-->
+<!--lastNameIndex=217-->
 <!--lastIdIndex=0-->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,948,451" id="telaLookup" layout="BorderLayout" title="Consulta Classifica&#xe7;&#xe3;o Gerencial">
+<dialog xmlns="http://" bounds="0,0,948,451" id="telaLookup" layout="BorderLayout" name="Classificacao_G" title="Consulta Classifica&#xe7;&#xe3;o Gerencial">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
@@ -30,7 +30,7 @@
           <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
           <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
         </panel>
-        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="KawDbNavToolBar_17" id="navToolBar"/>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="Classificacao_G,financ_classificacao_g,id" id="navToolBar"/>
       </panel>
     </panel>
   </panel>

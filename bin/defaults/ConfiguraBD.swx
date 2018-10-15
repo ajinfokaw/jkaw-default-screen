@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,661,286" id="configuraBD" layout="BorderLayout" title="Configura acesso ao banco de dados">
+<dialog xmlns="http://" bounds="0,0,661,286" defaultCloseOperation="0" id="configuraBD" layout="BorderLayout" title="Configura acesso ao banco de dados">
   <panel constraints="BorderLayout.SOUTH" name="Panel_11" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_12" layout="FlowLayout">
-      <button name="Button_14" action="actionTestar" horizontalAlignment="0" horizontalTextPosition="11" text="Testar Conex&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
-      <button name="Button_13" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Salvar configura&#xe7;&#xf5;es" verticalAlignment="0" verticalTextPosition="0"/>
-      <button name="Button_15" action="actionCancelar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_14" id="btnTestar" action="actionTestar" horizontalAlignment="0" horizontalTextPosition="11" text="Testar Conex&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_13" id="btnSalvar" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Salvar configura&#xe7;&#xf5;es" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_15" id="btnFechar" action="actionCancelar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
   </panel>
   <panel constraints="BorderLayout.WEST" name="Panel_16" layout="GridBagLayout">
@@ -32,15 +32,6 @@
     <combobox name="ComboBox_18" id="ComboBoxTipoBD" preferredSize="150,25">
       <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="4" gridx="10" gridy="0" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </combobox>
-    <label name="Label_19" id="labelAtencao1" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="ATEN&#xc7;&#xc3;O: Caso os dados estejam corretos, ao clicar em 'Salvar configura&#xe7;&#xf5;es', " verticalAlignment="0" verticalTextPosition="0">
-      <gridbagconstraints anchor="10" fill="0" gridheight="2" gridwidth="24" gridx="0" gridy="6" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
-    </label>
-    <label name="Label_22" id="labelAtencao2" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="o Sistema ir&#xe1; executar a tarefa para criar  toda estrutura do bco de dados," verticalAlignment="0" verticalTextPosition="0">
-      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="14" gridx="10" gridy="9" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
-    </label>
-    <label name="Label_30" id="labelAtencao3" visible="true" horizontalAlignment="0" horizontalTextPosition="11" text="fazendo com que o sistema fique sem responder  por um breve periodo de tempo" verticalAlignment="0" verticalTextPosition="0">
-      <gridbagconstraints anchor="10" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="11" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
-    </label>
     <checkbox name="CheckBox_31" id="executaAtualizacao" horizontalAlignment="2" horizontalTextPosition="11" text="Executar atualiza&#xe7;&#xe3;o do banco de dados sempre que executar o sistema?" verticalAlignment="0" verticalTextPosition="0">
       <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="5" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </checkbox>

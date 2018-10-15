@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,1055,558" id="telaLookup" layout="BorderLayout" title="Consulta produtos">
+<dialog xmlns="http://" bounds="0,0,1055,558" id="telaLookup" layout="BorderLayout" name="Produto" title="Consulta produtos">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.SOUTH" name="Panel_3" visible="false" layout="FormLayout">
       <formLayout colspecs="default,2dlu,default,2dlu,148px,2dlu,129px,2dlu,122px,2dlu,85px,2dlu,80px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default"/>
@@ -15,7 +15,7 @@
       <kawdbtextfield name="KawDbTextField_29" id="marca" columnCaption="Marca" columnDataType="STRING" columnEditable="false" columnName="desc_marca" columnPosicao="4" columnWidth="7">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_30" id="preco" columnCaption="Pre&#xe7;o Tab.1" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="preco" columnPosicao="6" columnWidth="6">
+      <kawdbtextfield name="KawDbTextField_30" id="preco" columnCaption="P.VENDA" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="preco" columnPosicao="6" columnWidth="6">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_31" id="saldo" columnCaption="Estoque" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnEditMask="###,##0.000" columnName="saldo" columnPosicao="8" columnWidth="6">
@@ -57,8 +57,11 @@
       <kawdbtextfield name="KawDbTextField_36" id="localizacao" columnCaption="Local" columnDataType="STRING" columnEditable="false" columnName="localizacao" columnPosicao="10" columnRowId="false" columnTableName="fat_produto" columnWidth="20">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_37" id="preco2" columnCaption="Pre&#xe7;o Tab.2" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="preco2" columnPosicao="7" columnWidth="8">
-        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
+      <kawdbtextfield name="KawDbTextField_37" id="preco2" columnCaption="TAB 2" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="preco2" columnPosicao="7" columnWidth="8">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="7" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_38" id="preco1" columnCaption="TAB 1" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="preco1" columnPosicao="7" columnWidth="8">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_27" id="pesquisas" layout="FlowLayout">
@@ -69,7 +72,7 @@
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_Produtos" id="tableLookup" connection="jkawflex" kawTableName="fat_produto" parameterQColumns="ppesquisa,ppesquisaconteudo,plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,pcadastro_codigo,ptipomovto,pproduto_id" parameterQColumnsCaption="Lista de precos,Tabela de preco,Filial,UF,Tipo Aliq.,Aliq.DIf,PArcial" parameterQColumnsDataType="STRING,BOOLEAN,INT,INT,INT,STRING,INT,INT,INT,STRING,STRING,INT" queryDataSet="SELECT fat_produto.id,fat_produto.referencia,fat_produto.codigobarra1,fat_produto.descricao AS descricao, unidadepadraovenda,volume,pesoliquido,pesobruto,fat_marca.descricao AS desc_marca,CAST(getpreco(:plista, :ptabela,fat_produto.id) AS NUMERIC(12,2)) AS preco,CAST(getpreco(:plista, :ptabela,fat_produto.id) AS NUMERIC(12,2)) AS preco2, CAST(getestoque((SELECT fatfilialpadrao FROM fat_parameters LIMIT 1),fat_produto.id) AS NUMERIC(12,3)) AS saldo, CAST(getCustoProd((SELECT fatfilialpadrao FROM fat_parameters LIMIT 1),fat_produto.id, CURRENT_DATE) AS NUMERIC(12,4)) AS custodigitado, classtipi_codigonbm, localizacao FROM fat_produto  LEFT JOIN fat_marca ON fat_produto.fat_marca_id = fat_marca.id  WHERE  coalesce(desativado,false) &lt;> true AND CASE WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN fat_produto.id = string_integer(:ppesquisa) WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false) = FALSE)) THEN UPPER(fat_produto.descricao) LIKE UPPER(:ppesquisa)||'%' WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false))) THEN (UPPER(fat_produto.descricao) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(fat_marca.descricao) LIKE '%'||UPPER(:ppesquisa)||'%') END ORDER BY fat_produto.descricao "/>
+      <kawdbtable name="KawDbTable_Produtos" id="tableLookup" connection="jkawflex" kawTableName="fat_produto" parameterQColumns="ppesquisa,ppesquisaconteudo,plista,ptabela,pfilial,pUf,pTipoA,ptipoAdif,pcadastro_codigo,ptipomovto,pproduto_id" parameterQColumnsCaption="Lista de precos,Tabela de preco,Filial,UF,Tipo Aliq.,Aliq.DIf,PArcial" parameterQColumnsDataType="STRING,BOOLEAN,INT,INT,INT,STRING,INT,INT,INT,STRING,STRING,INT" queryDataSet="SELECT fat_produto.id,fat_produto.referencia,fat_produto.codigobarra1,fat_produto.descricao AS descricao, unidadepadraovenda,volume,pesoliquido,pesobruto,fat_marca.descricao AS desc_marca,CAST(getpreco(:plista, :ptabela,fat_produto.id) AS NUMERIC(12,2)) AS preco,CAST(getpreco(fat_parameters.fatlistaprecopadrao,fat_parameters.fattabelavendapadrao,fat_produto.id) AS NUMERIC(12,2)) AS preco1,CAST(getpreco(fat_parameters.fatlistaprecopadrao,fat_parameters.fattabelavendapadrao2,fat_produto.id) AS NUMERIC(12,2)) AS preco2, CAST(getestoque(fat_parameters.fatfilialpadrao,fat_produto.id) AS NUMERIC(12,3)) AS saldo, CAST(getCustoProd(fat_parameters.fatfilialpadrao,fat_produto.id, CURRENT_DATE) AS NUMERIC(12,4)) AS custodigitado, classtipi_codigonbm, localizacao FROM fat_produto  LEFT JOIN fat_marca ON fat_produto.fat_marca_id = fat_marca.id, fat_parameters  WHERE  coalesce(desativado,false) &lt;> true AND CASE WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN fat_produto.id = string_integer(:ppesquisa) WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false) = FALSE)) THEN UPPER(fat_produto.descricao) LIKE UPPER(:ppesquisa)||'%' WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, false))) THEN (UPPER(fat_produto.descricao) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(fat_marca.descricao) LIKE '%'||UPPER(:ppesquisa)||'%') END ORDER BY TRIM(fat_produto.descricao) COLLATE &quot;C&quot;"/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_32" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_33" layout="BorderLayout">
@@ -83,5 +86,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=37-->
+<!--lastNameIndex=38-->
 <!--lastIdIndex=0-->

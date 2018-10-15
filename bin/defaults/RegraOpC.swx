@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,32,480,314" id="telaLookup" layout="BorderLayout" name="" title="Regra/Propriedade">
+<dialog xmlns="http://" bounds="0,32,634,314" id="telaLookup" layout="BorderLayout" name="" title="Regra/Propriedade">
   <panel constraints="BorderLayout.NORTH" name="Panel_1" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" visible="true" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
