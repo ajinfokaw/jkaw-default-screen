@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="2,2,1153,779" id="baixa" layout="BorderLayout" name="" resizable="true" title="Baixa T&#xed;tulo">
+<dialog xmlns="http://" bounds="2,2,1153,758" id="baixa" layout="BorderLayout" name="" resizable="true" title="Baixa T&#xed;tulo">
   <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_992" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
     <panel name="Panel_993" id="RPBaixa" layout="BorderLayout">
       <panel constraints="BorderLayout.NORTH" name="Panel_994" id="paneMain" layout="BorderLayout">
@@ -139,7 +139,7 @@
                       <kawlookupbutton name="KawLookupButton_843" id="lookupButtonTransacao" action="lookupTransacaoAction" columnDestino="fat_transacao_id" columnOrigem="id" columnsNameInitialKey="fat_transacao_id" connection="jkawflex" defaultButton="true" kawTableName="fat_transacao" kawTableNameRelation="financ_rp_lctobaixa" parameterQColumns="fat_transacao_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_transacao WHERE id = :fat_transacao_id" xmlLookupView="LookupTransacaoFinanc.xml">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="1" hAlign="Default" vAlign="Default"/>
                       </kawlookupbutton>
-                      <kawlookupbutton name="KawLookupButton_844" id="lookupButtonCC" action="LookupContaCorrente" columnDestino="financ_cc_id" columnOrigem="id" columnsNameInitialKey="financ_cc_id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_rp_lctobaixa" parameterQColumns="financ_cc_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao, numeroconta,financ_agencia_financ_banco_id,financ_agencia_id FROM financ_cc  WHERE id = :financ_cc_id ORDER BY id" xmlLookupView="LookupCC.xml">
+                      <kawlookupbutton name="KawLookupButton_844" id="lookupButtonCC" action="LookupContaCorrente" columnDestino="financ_cc_id" columnOrigem="id" columnsNameInitialKey="financ_cc_id" connection="jkawflex" kawTableName="financ_cc" kawTableNameRelation="financ_rp_lctobaixa" parameterQColumns="financ_cc_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao, numeroconta,financ_banco_id,agencia_id FROM financ_cc  WHERE id = :financ_cc_id ORDER BY id" xmlLookupView="LookupCC.xml">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="2" hAlign="Default" vAlign="Default"/>
                       </kawlookupbutton>
                       <kawlookupbutton name="KawLookupButton_845" id="lookupCadastroCodigo" action="lookupFornecedor" columnDestino="nominal" columnOrigem="razaosocial" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="financ_rp_lctobaixa" parameterQColumns="cad_cadastro_id" parameterQColumnsCaption="" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,telefone1,email  FROM cad_cadastro" xmlLookupView="LookupClientes.xml">

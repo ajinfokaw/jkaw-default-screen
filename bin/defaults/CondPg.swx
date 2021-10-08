@@ -179,7 +179,7 @@
             </tabbedpane>
           </panel>
           <panel name="Panel_60" layout="FormLayout">
-            <formLayout colspecs="152px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
+            <formLayout colspecs="152px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
             <label name="Label_71" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Altera&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
             </label>
@@ -215,6 +215,9 @@
             </label>
             <kawdbtextfield name="KawDbTextField_82" id="usuarioAlteracao" columnCalcType="CALC" columnDataType="STRING" columnHidden="true" columnName="usuarioalteracao" columnRowId="false" columnTableName="fat_condpg" columnWidth="30" editable="false" fieldNotEdit="true" hidden="false">
               <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
+            <kawdbtextfield name="KawDbTextField0" id="uuid" columnCaption="uuid" columnDataType="STRING" columnHidden="true" columnName="uuid" columnPosicao="3" columnResolvable="false" columnRowId="false" columnTableName="fat_condpg" columnWidth="40" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="1" gridY="16" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
           </panel>
         </tabbedpane>

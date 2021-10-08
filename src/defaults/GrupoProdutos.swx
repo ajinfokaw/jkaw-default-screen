@@ -17,7 +17,7 @@
       <panel name="Panel_4" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel_9" layout="FormLayout">
-            <formLayout colspecs="198px,2dlu,100px,2dlu,119px,2dlu,152px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <formLayout colspecs="198px,2dlu,100px,2dlu,119px,2dlu,198px" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
             <label name="Label_10" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
             </label>
@@ -51,6 +51,9 @@
             <kawdbtextfield name="KawDbTextField_25" id="sequencia" columnCalcType="" columnCaption="Sequ&#xea;ncia" columnDataType="STRING" columnName="sequencia" columnPosicao="5" columnRowId="false" columnTableName="fat_grupoprodutos" columnWidth="10">
               <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="9" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
+            <kawdbcheckbox name="KawDbCheckBox_36" id="ecommerce" columnCaption="D." columnName="ecommerce" columnRowId="true" columnTableName="fat_grupoprodutos" columnWidth="3" text="Publicar E-Commerce">
+              <cellconstraints gridX="7" gridY="1"/>
+            </kawdbcheckbox>
           </panel>
           <panel name="Panel_60" layout="FormLayout">
             <formLayout colspecs="150px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,2dlu"/>
@@ -106,5 +109,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=35-->
+<!--lastNameIndex=36-->
 <!--lastIdIndex=0-->

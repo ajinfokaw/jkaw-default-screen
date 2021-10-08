@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="0,0,1007,482" id="telaLookup" layout="BorderLayout" name="CadastroLotes" title="Consulta Lotes">
+  <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
+    <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+      <kawdbtable name="KawDbTable_Lote" id="tableLookup" connection="jkawflex" kawTableName="fat_produto_lote" parameterQColumns="ppesquisa,ppesquisaconteudo,fat_produto_id" parameterQColumnsDataType="STRING,BOOLEAN,INT" queryDataSet="SELECT id,lote,data_fabricacao,data_validade, qtde, qtde_atual FROM fat_produto_lote  WHERE fat_produto_id = :fat_produto_id AND loteemaberto = true AND CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(lote) LIKE '%'||UPPER(:ppesquisa)||'%' END END ORDER BY data_validade" queryDataSetView=""/>
+    </scrollpane>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
+      <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
+        <panel constraints="BorderLayout.EAST" name="Panel_16" layout="FlowLayout">
+          <label name="Label_18" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Protocolo" verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="KawDbNavField_19" id="navField" dimensaoMaxima="180,21" dimensaoMinima="75,21" dimensaoPadrao="120,21" editable="true"/>
+          <button name="Button_18" id="okButton" action="" contentAreaFilled="true" horizontalAlignment="0" horizontalTextPosition="11" text="Selecionar" verticalAlignment="0" verticalTextPosition="0"/>
+        </panel>
+        <kawdbnavtoolbar constraints="BorderLayout.WEST" name="fat_produto_lote" id="navToolBar"/>
+      </panel>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.NORTH" name="Panel_17" layout="BorderLayout">
+    <panel constraints="BorderLayout.WEST" name="Panel_5" id="pesquisas" layout="FlowLayout">
+      <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" focusable="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" focusable="true" preferredSize="220,21"/>
+      <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+    <panel constraints="BorderLayout.SOUTH" name="Panel_19" visible="false" layout="FormLayout">
+      <formLayout colspecs="default,2dlu,default,2dlu,260px,2dlu,320px,2dlu,235px" rowspecs="default,2dlu,default,2dlu,default,2dlu"/>
+      <kawdbtextfield name="KawDbTextField_32" id="id" columnCaption="C&#xf3;digo" columnDataType="INT" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="1" columnWidth="6">
+        <cellconstraints gridX="5" gridY="1"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_33" id="dataFabricacao" columnCaption="Fabrica&#xe7;&#xe3;o" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="data_fabricacao" columnPosicao="3" columnWidth="12">
+        <cellconstraints gridX="5" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_30" id="lote" columnCaption="Lote" columnDataType="STRING" columnEditable="false" columnName="lote" columnPosicao="2" columnWidth="10">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_55" id="dataValidade" columnCaption="Validade" columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditable="false" columnEditMask="dd/MM/yyyy" columnName="data_validade" columnPosicao="4" columnWidth="12">
+        <cellconstraints gridX="7" gridY="3"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_56" id="qtde" columnCaption="Qtde Inicial" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="qtde" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="fat_produto_lote" columnWidth="10" editable="true" fieldNotEdit="true" hidden="false">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Fill" vAlign="Default"/>
+      </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_57" id="qtdeAtual" columnCaption="Qtde Atual" columnCurrency="true" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="true" columnHidden="false" columnName="qtde_atual" columnPosicao="5" columnResolvable="true" columnRowId="false" columnTableName="fat_produto_lote" columnWidth="10" editable="true" fieldNotEdit="true" hidden="false">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Fill" vAlign="Default"/>
+      </kawdbtextfield>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=57-->
+<!--lastIdIndex=0-->

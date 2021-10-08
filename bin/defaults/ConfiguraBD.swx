@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="0,0,661,286" defaultCloseOperation="0" id="configuraBD" layout="BorderLayout" title="Configura acesso ao banco de dados">
+<dialog xmlns="http://" bounds="0,0,661,329" defaultCloseOperation="0" id="configuraBD" layout="BorderLayout" title="Configura acesso ao banco de dados">
   <panel constraints="BorderLayout.SOUTH" name="Panel_11" layout="BorderLayout">
     <panel constraints="BorderLayout.EAST" name="Panel_12" layout="FlowLayout">
       <button name="Button_14" id="btnTestar" action="actionTestar" horizontalAlignment="0" horizontalTextPosition="11" text="Testar Conex&#xe3;o" verticalAlignment="0" verticalTextPosition="0"/>
@@ -24,16 +24,16 @@
       <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="3" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </textfield>
     <label name="Label_8" horizontalAlignment="0" horizontalTextPosition="11" text="Senha:" verticalAlignment="0" verticalTextPosition="0">
-      <gridbagconstraints anchor="13" fill="0" gridheight="1" gridwidth="1" gridx="0" gridy="4" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+      <gridbagconstraints anchor="13" fill="0" gridheight="1" gridwidth="1" gridx="0" gridy="5" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </label>
     <passwordfield name="PasswordField_10" id="SenhaBD" preferredSize="200,25">
-      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="4" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="5" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </passwordfield>
     <combobox name="ComboBox_18" id="ComboBoxTipoBD" preferredSize="150,25">
       <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="4" gridx="10" gridy="0" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </combobox>
     <checkbox name="CheckBox_31" id="executaAtualizacao" horizontalAlignment="2" horizontalTextPosition="11" text="Executar atualiza&#xe7;&#xe3;o do banco de dados sempre que executar o sistema?" verticalAlignment="0" verticalTextPosition="0">
-      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="5" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="7" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </checkbox>
     <textfield name="TextField_32" id="nomeBancoDados" preferredSize="300,25">
       <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="1" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
@@ -41,7 +41,13 @@
     <label name="Label_33" horizontalAlignment="0" horizontalTextPosition="11" text="Nome do banco de dados" verticalAlignment="0" verticalTextPosition="0">
       <gridbagconstraints anchor="13" fill="0" gridheight="1" gridwidth="1" gridx="0" gridy="1" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
     </label>
+    <label name="Label_58" horizontalAlignment="0" horizontalTextPosition="11" text="JKawFlex Porta:" verticalAlignment="0" verticalTextPosition="0">
+      <gridbagconstraints anchor="13" fill="0" gridheight="1" gridwidth="1" gridx="0" gridy="6" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+    </label>
+    <textfield name="TextField_60" id="jkawflexPort" preferredSize="200,25">
+      <gridbagconstraints anchor="17" fill="0" gridheight="1" gridwidth="1" gridx="10" gridy="6" ipadx="0" ipady="0" weightx="0.0" weighty="0.0"/>
+    </textfield>
   </panel>
 </dialog>
-<!--lastNameIndex=33-->
+<!--lastNameIndex=60-->
 <!--lastIdIndex=0-->

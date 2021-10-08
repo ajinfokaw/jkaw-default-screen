@@ -125,6 +125,9 @@
             <label name="Label0" horizontalAlignment="2" horizontalTextPosition="11" text="(Dias)" verticalAlignment="0" verticalTextPosition="3">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="17" hAlign="Left" vAlign="Default"/>
             </label>
+            <kawdbtextfield name="KawDbTextField_74" id="uuid" columnCaption="uui" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="uuid" columnPosicao="10" columnRequired="false" columnResolvable="false" columnRowId="false" columnTableName="financ_tipocobranca" columnWidth="30" editable="true" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="23" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
           </panel>
           <panel name="Panel_58" layout="FormLayout">
             <formLayout colspecs="160px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
@@ -188,5 +191,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=73-->
+<!--lastNameIndex=74-->
 <!--lastIdIndex=0-->

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<dialog xmlns="http://" bounds="2,36,1087,786" defaultCloseOperation="2" layout="BorderLayout" title=" C A R R I N H O">
+<dialog xmlns="http://" bounds="2,36,1087,686" defaultCloseOperation="2" layout="BorderLayout" title=" C A R R I N H O">
   <panel constraints="BorderLayout.CENTER" name="Panel_Principal" id="Panel_Principal" layout="BorderLayout">
     <panel constraints="BorderLayout.SOUTH" name="Panel_ToolBar" id="Panel_ToolBar" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_395" layout="BorderLayout">
         <panel constraints="BorderLayout.WEST" name="Panel_396" layout="FlowLayout">
           <kawdbnavtoolbar name="KawDbNavToolBar5" id="navToolBar" focusable="false" paintingTile="true" tips="true"/>
-          <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
-          <kawdbnavfield name="CampoConsulta" id="navField" preferredSize="250,21"/>
+          <button name="Button_965" id="autorizarNfeButton" toolTipText="Autorizar NF-e / NFC-e" horizontalAlignment="0" horizontalTextPosition="11" text="Autorizar" verticalAlignment="0" verticalTextPosition="0"/>
+          <button name="Button_966" id="imprimirDanfeButton" toolTipText="Imprimir NF-e / NFC-e" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+          <label name="Label_8" id="lblConsulta" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="..." verticalAlignment="0" verticalTextPosition="0"/>
+          <kawdbnavfield name="CampoConsulta" id="navField" hidden="true" preferredSize="250,21"/>
         </panel>
         <panel constraints="BorderLayout.EAST" name="Panel_397" layout="BorderLayout">
           <panel constraints="BorderLayout.EAST" name="Panel1" id="panelBarProgress" layout="BorderLayout"/>
@@ -30,8 +32,8 @@
           </panel>
           <panel constraints="BorderLayout.NORTH" name="Panel_535" layout="BorderLayout">
             <panel constraints="BorderLayout.WEST" name="Panel_876" layout="FormLayout">
-              <formLayout colspecs="116px,1dlu,119px,1dlu,180px,1dlu,110px,1dlu,99px,1dlu,115px" rowspecs="1dlu,35px,1px,1px,1dlu"/>
-              <button name="Button_877" id="btnF8" toolTipText="Iniciar Fechamento da Venda Carrinho" visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F8/F11-Fechamento" verticalAlignment="0" verticalTextPosition="0">
+              <formLayout colspecs="116px,1dlu,119px,1dlu,148px,1dlu,110px,1dlu,99px,1dlu,115px" rowspecs="1dlu,35px,1px,1px,1dlu"/>
+              <button name="Button_877" id="btnF8" toolTipText="Iniciar Fechamento da Venda Carrinho" visible="true" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" icon="" mnemonic="0" text="F11-Fechamento" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="2" hAlign="Fill" vAlign="Fill"/>
               </button>
               <button name="Button_878" id="btnForm1" preferredSize="70,25" toolTipText="Imprimir Formul&#xe1;rio 1" focusPainted="true" horizontalAlignment="0" horizontalTextPosition="11" text="Ctrl+F1" verticalAlignment="0" verticalTextPosition="0">
@@ -165,7 +167,7 @@
               <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_602" id="condpgCodigo" columnCaption="C.P." columnDataType="INT" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnHidden="false" columnName="fat_condpg_id" columnNameLookupKey="id" columnNameRelationLookupKey="fat_condpg_id" columnPosicao="14" columnRequired="true" columnRowId="false" columnTableName="fat_docto_c" columnWidth="5" editable="true" focusable="false" requestFocusEnabled="true">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="2" gridY="19" hAlign="Default" vAlign="Fill"/>
               </kawdbtextfieldlookuprow>
-              <kawlookupbutton name="KawLookupButton_603" id="condpgLookupButton" action="lookupCondPgto" columnDestino="fat_condpg_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_condpg" kawTableNameRelation="fat_docto_c" parameterQColumns="fat_condpg_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM fat_condpg WHERE id = :fat_condpg_id" xmlLookupView="LookupCondPg.xml">
+              <kawlookupbutton name="KawLookupButton_603" id="condpgLookupButton" action="lookupCondPgto" columnDestino="fat_condpg_id" columnOrigem="id" columnsNameInitialKey="fat_condpg_id" connection="jkawflex" kawTableName="fat_condpg" kawTableNameRelation="fat_docto_c" parameterQColumns="fat_condpg_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id, descricao FROM fat_condpg WHERE id = :fat_condpg_id" xmlLookupView="LookupCondPg.xml">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="4" gridY="19" hAlign="Default" vAlign="Fill"/>
               </kawlookupbutton>
               <kawdbtextfieldlookup name="KawDbTextFieldLookup_604" id="condpgLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnHidden="false" columnName="condpg_lookup" columnNameLookupRow="fat_condpg_id" columnNameOriginLookupRow="descricao" columnPosicao="15" columnRowId="false" columnServerColumnName="" columnTableName="fat_docto_c" columnWidth="15" editable="false" UIClassID=" ">
@@ -713,5 +715,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=963-->
+<!--lastNameIndex=966-->
 <!--lastIdIndex=0-->

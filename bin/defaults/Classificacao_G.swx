@@ -10,7 +10,7 @@
       <panel name="Panel_4" id="Tab_Cadastro" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPaneCadastro" mnemonics="71, 79" tabPlacement="1" titles="Geral,Outros Dados">
           <panel name="Panel_13" id="ClassDescri" layout="FormLayout">
-            <formLayout colspecs="117px,2dlu,77px,2dlu,200px,2dlu,236px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+            <formLayout colspecs="117px,2dlu,77px,2dlu,200px,2dlu,236px,2dlu,default" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,default"/>
             <label name="Label_14" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
             </label>
@@ -44,7 +44,7 @@
             <kawdbcheckbox name="KawDbCheckBox_19" id="AtualizarRegimeCompetencia" columnCaption="Cp" columnDataType="BOOLEAN" columnName="atualizarregimecompetencia" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Atualizar regime de Compet&#xea;ncia?">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="9" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
-            <kawdbtextfield name="KawDbTextField_21" id="DescricaoIdentada" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricaoidentada" columnPosicao="3" columnTableName="financ_classificacao_g" columnWidth="50" hidden="true">
+            <kawdbtextfield name="KawDbTextField_21" id="uui" columnCaption="uuid" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="uuid" columnPosicao="3" columnResolvable="false" columnTableName="financ_classificacao_g" columnWidth="50" hidden="true">
               <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="13" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <kawdbcheckbox name="KawDbCheckBox0" id="despesaFixa" columnCaption="Cx" columnDataType="BOOLEAN" columnName="despesafixa" columnPosicao="99" columnRowId="true" columnTableName="financ_classificacao_g" text="Agregar &#xe0; custos fixos?">

@@ -2,7 +2,7 @@
 <dialog xmlns="http://" bounds="0,0,1108,533" id="telaLookup" layout="BorderLayout" title="Consulta Intens Faturado">
   <panel constraints="BorderLayout.CENTER" name="Panel_3" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="Itens Faturado" id="tableLookup" connection="jkawflex" kawTableName="cad_veiculo" parameterQColumns="ppesquisa,ppesquisaconteudo,fatura" parameterQColumnsDataType="STRING,BOOLEAN,LONG" queryDataSet="SELECT fat_docto_i.fat_docto_c_controle,fat_produto_id,fat_produto.descricao AS produto_lookup, fat_produto.unidadepadraovenda AS unidadepadraovenda_lookup, numero_docto,fat_transacao_id,cad_filial_id,seriedocto_codigo,qtde,valor_unitario,valor_unitario_liquido,desc_perc_unitario,valor_total_liquido,fat_docto_i.dataalteracao,fat_docto_i.horaalteracao,fat_docto_i.usuarioalteracao,fat_docto_i.datainclusao,fat_docto_i.horainclusao,fat_docto_i.usuarioinclusao  FROM  fat_docto_i  LEFT JOIN fat_produto ON fat_produto.id = fat_docto_i.fat_produto_id WHERE fat_docto_i.fat_docto_c_controle = :fatura ORDER BY fat_docto_i.datainclusao, fat_docto_i.horaalteracao" queryDataSetView=""/>
+      <kawdbtable name="Itens Faturado" id="tableLookup" connection="jkawflex" kawTableName="cad_veiculo" parameterQColumns="ppesquisa,ppesquisaconteudo,fatura" parameterQColumnsDataType="STRING,BOOLEAN,LONG" queryDataSet="SELECT fat_docto_i.fat_docto_c_controle,fat_produto_id,fat_produto.codigo,fat_produto.descricao AS produto_lookup, fat_produto.unidadepadraovenda AS unidadepadraovenda_lookup, numero_docto,fat_transacao_id,cad_filial_id,seriedocto_codigo,qtde,valor_unitario,valor_unitario_liquido,desc_perc_unitario,valor_total_liquido,fat_docto_i.dataalteracao,fat_docto_i.horaalteracao,fat_docto_i.usuarioalteracao,fat_docto_i.datainclusao,fat_docto_i.horainclusao,fat_docto_i.usuarioinclusao  FROM  fat_docto_i  LEFT JOIN fat_produto ON fat_produto.id = fat_docto_i.fat_produto_id WHERE fat_docto_i.fat_docto_c_controle = :fatura ORDER BY fat_docto_i.datainclusao, fat_docto_i.horaalteracao" queryDataSetView=""/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_53" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_54" layout="BorderLayout">
@@ -26,7 +26,7 @@
       <kawdbtextfield name="KawDbTextField_32" id="id" columnCaption="Ctrl/Fatura" columnDataType="LONG" columnEditable="false" columnEditMask="##########" columnName="fat_docto_c_controle" columnPosicao="0" columnWidth="8">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_33" id="descricaoVeiculo" columnCaption="C&#xf3;d." columnDataType="INT" columnEditable="false" columnName="fat_produto_id" columnPosicao="4" columnWidth="5">
+      <kawdbtextfield name="KawDbTextField_33" id="idProduto" columnCaption="#ID" columnDataType="INT" columnEditable="false" columnName="fat_produto_id" columnPosicao="4" columnWidth="5">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_27" id="placa1" columnCaption="Vl.Unit.Liq" columnDataType="BIGDECIMAL" columnDisplayMask="###,##0.000" columnEditable="false" columnName="valor_unitario_liquido" columnPosicao="9" columnWidth="8">
@@ -62,8 +62,11 @@
       <kawdbtextfield name="KawDbTextField" id="velocidademaxima" columnCaption="S&#xe9;rie" columnDataType="STRING" columnEditable="false" columnName="seriedocto_codigo" columnPosicao="1" columnWidth="3">
         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
       </kawdbtextfield>
+      <kawdbtextfield name="KawDbTextField_55" id="codigoProduto" columnCaption="C&#xf3;d." columnDataType="INT" columnEditable="false" columnName="codigo" columnPosicao="4" columnWidth="5">
+        <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+      </kawdbtextfield>
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=54-->
+<!--lastNameIndex=55-->
 <!--lastIdIndex=0-->

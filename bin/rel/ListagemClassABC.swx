@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<dialog xmlns="http://" bounds="8,19,946,429" id="ListagemClassABC" layout="BorderLayout" title="Classific&#xe7;&#xe3;o ABC">
+  <panel constraints="BorderLayout.WEST" name="Panel_1" layout="FormLayout">
+    <formLayout colspecs="170px,2dlu,91px,2dlu,21px,2dlu,98px,2dlu,303px,216px" rowspecs="29px,2dlu,34px,2dlu,29px,2dlu,29px,2dlu,29px,2dlu,default,2dlu,default,2dlu,default,2dlu,default"/>
+    <label name="Label_26" horizontalAlignment="0" horizontalTextPosition="11" text="Per&#xed;odo:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_28" horizontalAlignment="0" horizontalTextPosition="11" text="a" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
+    </label>
+    <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Op&#xe7;&#xe3;o de Impress&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbcombobox name="opcaoImpressao" id="opcaoImpressao" columnCaption="Op&#xe7;&#xe3;o Impress&#xe3;o" columnDataType="STRING" columnDestino="opcaoimpressao" columnEditable="true" columnName="opcaoimpressao" columnPosicao="8" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_grupo" columnWidth="150" connection="jkawflex" displayColumns="titulo,id" editable="false" queryDataSet="SELECT titulo, id,repositorio,nome  FROM jk_rel WHERE not desativado AND grupo='listagemClassABC' ORDER BY id">
+      <cellconstraints gridHeight="1" gridWidth="8" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
+    </kawdbcombobox>
+    <kawdatefield name="DATA_INICIAL" id="DATA_INICIAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Fill" vAlign="Fill"/>
+    </kawdatefield>
+    <kawdatefield name="DATA_FINAL" id="DATA_FINAL">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="3" hAlign="Fill" vAlign="Fill"/>
+    </kawdatefield>
+    <label name="Label_82" horizontalAlignment="0" horizontalTextPosition="11" text="(%) Classifica&#xe7;&#xe3;o A:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+    </label>
+    <label name="Label_83" horizontalAlignment="0" horizontalTextPosition="11" text="(%) Classifica&#xe7;&#xe3;o B:" verticalAlignment="0" verticalTextPosition="0">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
+    </label>
+    <kawdbtextfield name="CLASS_A" id="CLASS_A" columnCaption="Classifica&#xe7;&#xe3;o A" columnDataType="BIGDECIMAL" columnDefault="60" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="class_a" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfield>
+    <kawdbtextfield name="CLASS_B" id="CLASS_B" columnCaption="Classifica&#xe7;&#xe3;o B" columnDataType="BIGDECIMAL" columnDefault="30" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="class_b" columnPosicao="4" columnRowId="true" columnTableName="cad_cadastro_grupo" columnWidth="5">
+      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="7" hAlign="Default" vAlign="Fill"/>
+    </kawdbtextfield>
+    <panel name="Panel_93" layout="BorderLayout">
+      <cellconstraints gridHeight="5" gridWidth="2" gridX="9" gridY="7" hAlign="Fill" vAlign="Fill"/>
+      <textpane constraints="BorderLayout.CENTER" name="TextPane_100" border="TitledBorder(Obs:)" text="Para se obter o resultao desejado, se faz necess&#xe1;rio a configura&#xe7;&#xe3;o das Transa&#xe7;&#xf5;es de Sa&#xed;da, que far&#xe3;o parte da Curva ABC, assim sendo, deve-se editar a transa&#xe7;&#xe3;o desejada e incluir a diretiva &quot;Entra Curva ABC (Sim)&quot;"/>
+    </panel>
+  </panel>
+  <panel constraints="BorderLayout.SOUTH" name="Panel_79" layout="BorderLayout">
+    <panel constraints="BorderLayout.EAST" name="Panel_80" layout="FlowLayout">
+      <button name="Button_81" id="btnEmail" toolTipText="Enviar Relat&#xf3;rio por E-mail" action="action_Email" horizontalAlignment="0" horizontalTextPosition="11" text="Enviar E-mail" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_97" id="btnImprimir" action="action_Imprimir" horizontalAlignment="0" horizontalTextPosition="11" text="Imprimir" verticalAlignment="0" verticalTextPosition="0"/>
+      <button name="Button_28" id="btnFechar" visible="false" action="actionFechar" horizontalAlignment="0" horizontalTextPosition="11" text="Fechar" verticalAlignment="0" verticalTextPosition="0"/>
+    </panel>
+  </panel>
+</dialog>
+<!--lastNameIndex=100-->
+<!--lastIdIndex=0-->

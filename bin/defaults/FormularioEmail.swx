@@ -3,6 +3,7 @@
   <panel constraints="BorderLayout.NORTH" name="Panel_5" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_6" id="pesquisas" layout="FlowLayout">
       <kawdbcheckbox name="CheckBox_Conteudo" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+      <label name="Label_65" horizontalAlignment="0" horizontalTextPosition="11" text="Pesquisa: " verticalAlignment="0" verticalTextPosition="0"/>
       <kawdbtextfield name="KawDbTextField_Pesquisa" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
       <button name="Button_14" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
     </panel>
@@ -14,22 +15,27 @@
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_12" layout="FlowLayout">
       <kawdbnavtoolbar name="KawDbNavToolBar_184" id="navToolBar" paintingTile="true" tips="true"/>
-      <label name="Label_185" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
-      <kawdbnavfield name="KawDbNavField_186" id="navField" preferredSize="250,21"/>
     </panel>
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_15" layout="BorderLayout">
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_16" id="tabbedPane_cad_email" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar">
-      <panel name="Panel_17" layout="CardLayout">
-        <scrollpane constraints="ScrollPane_142" name="ScrollPane_4" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-          <kawdbtable name="KawDbTable_179" id="cad_email" connection="jkawflex" kawTableName="cad_email" parameterQColumns="datainicial,datafinal,pid,pnumero_docto,ppesquisa,ppesquisaconteudo" parameterQColumnsCaption="Data Inicial,Data Final,N.Controle,N.Docto" parameterQColumnsDataType="DATE,DATE,INT,INT,STRING,BOOLEAN" parameterQDefault="now,now" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT * FROM cad_email WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(assunto) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(de) LIKE '%'||UPPER(:ppesquisa)||'%' OR UPPER(para) LIKE '%'||UPPER(:ppesquisa)||'%'  ELSE UPPER(assunto) LIKE UPPER(:ppesquisa)||'%' OR UPPER(de) LIKE UPPER(:ppesquisa)||'%' END END" queryDataSetView=""/>
+      <panel name="Panel_17" layout="BorderLayout">
+        <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_57" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
+          <kawdbtable name="Emails" id="cad_email" connection="jkawflex" kawTableName="cad_email" parameterQColumns="datainicial,datafinal,pid,pnumero_docto,ppesquisa,ppesquisaconteudo,reg_p_pagina,pagina" parameterQColumnsCaption="Data Inicial,Data Final,N.Controle,N.Docto" parameterQColumnsDataType="DATE,DATE,INT,INT,STRING,BOOLEAN,INT,INT" parameterQDefault="now,now" parameterQDisplayMask="dd/MM/yy,dd/MM/yy" parameterQEditMask="dd/MM/yy,dd/MM/yy" queryDataSet="SELECT * FROM cad_email WHERE CASE WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN id = string_integer(:ppesquisa) WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND COALESCE(:ppesquisaconteudo, false)) = TRUE THEN UPPER(assunto) LIKE '%'||UPPER(COALESCE(:ppesquisa, ' '))||'%' OR UPPER(de) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%' OR UPPER(para) LIKE '%'||UPPER(COALESCE(:ppesquisa, ' '))||'%'   WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND COALESCE(:ppesquisaconteudo, false) = FALSE) THEN UPPER(assunto) LIKE UPPER(COALESCE(:ppesquisa, ' '))||'%' OR UPPER(de) LIKE UPPER(COALESCE(:ppesquisa,' '))||'%' OR UPPER(para) LIKE UPPER(COALESCE(:ppesquisa, ' '))||'%' END ORDER BY data_envio DESC LIMIT :reg_p_pagina OFFSET(:pagina - 1) * :reg_p_pagina" queryDataSetView="Select count(cad_email.id)/CAST(:reg_p_pagina AS DOUBLE PRECISION) AS paginas FROM cad_email WHERE CASE WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN id = string_integer(:ppesquisa) WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND COALESCE(:ppesquisaconteudo, false)) = TRUE THEN UPPER(assunto) LIKE '%'||UPPER(COALESCE(:ppesquisa, ' '))||'%' OR UPPER(de) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%' OR UPPER(para) LIKE '%'||UPPER(COALESCE(:ppesquisa, ' '))||'%'   WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND COALESCE(:ppesquisaconteudo, false) = FALSE) THEN UPPER(assunto) LIKE UPPER(COALESCE(:ppesquisa, ' '))||'%' OR UPPER(de) LIKE UPPER(COALESCE(:ppesquisa,' '))||'%' OR UPPER(para) LIKE UPPER(COALESCE(:ppesquisa, ' '))||'%' END"/>
         </scrollpane>
+        <panel constraints="BorderLayout.SOUTH" name="Panel_59" layout="BorderLayout">
+          <kawpagination constraints="BorderLayout.EAST" name="KawPagination_60" id="cad_email_pagination"/>
+          <panel constraints="BorderLayout.WEST" name="Panel_61" layout="FlowLayout">
+            <label name="Label_62" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Id" verticalAlignment="0" verticalTextPosition="0"/>
+            <kawdbnavfield name="KawDbNavField_64" id="navField" preferredSize="250,21"/>
+          </panel>
+        </panel>
       </panel>
       <panel name="Panel_18" layout="BorderLayout">
         <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane_21" tabPlacement="1" titles="Email,Condigura&#xe7;&#xe3;o da conta de e-mail">
           <panel name="Panel_25" layout="BorderLayout">
             <panel constraints="BorderLayout.CENTER" name="Panel_26" id="lookupPara" layout="FormLayout">
-              <formLayout colspecs="97px,2dlu,435px,2dlu,436px,2dlu,181px,23px" rowspecs="default,default,2dlu,66px,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,40px"/>
+              <formLayout colspecs="97px,2dlu,435px,2dlu,436px,2dlu,181px,23px" rowspecs="default,default,2dlu,52px,29px,2dlu,default,2dlu,default,2dlu,130px,2dlu,119px,29px"/>
               <label name="Label_27" horizontalAlignment="0" horizontalTextPosition="11" text="De:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Right" vAlign="Default"/>
               </label>
@@ -40,26 +46,23 @@
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Right" vAlign="Default"/>
               </label>
               <label name="Label_30" horizontalAlignment="0" horizontalTextPosition="11" text="Assunto:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="6" hAlign="Right" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="7" hAlign="Right" vAlign="Default"/>
               </label>
               <kawdbtextfield name="KawDbTextField_31" id="assunto" columnCaption="Assunto" columnDataType="STRING" columnName="assunto" columnTableName="cad_email">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="6" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="7" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <label name="Label_32" horizontalAlignment="0" horizontalTextPosition="11" text="Texto:" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
               </label>
               <panel name="Panel_33" layout="BorderLayout">
-                <cellconstraints gridHeight="3" gridWidth="5" gridX="3" gridY="8" hAlign="Fill" vAlign="Fill"/>
+                <cellconstraints gridHeight="3" gridWidth="5" gridX="3" gridY="9" hAlign="Fill" vAlign="Fill"/>
                 <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_84" id="textoScroll" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
                   <kawdbtextarea name="KawDbTextArea_94" id="texto" columnCaption="Texto" columnDataType="STRING" columnName="texto" columnTableName="cad_email"/>
                 </scrollpane>
               </panel>
               <label name="Label_34" horizontalAlignment="0" horizontalTextPosition="11" text="Anexo(s):" verticalAlignment="0" verticalTextPosition="0">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
               </label>
-              <kawlookupbutton name="KawLookupButton_37" id="lookupEmail" action="lookupCadastro" columnDestino="para" columnOrigem="email" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="cad_email" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,email,municipio,uf,telefone1,obstelefone1,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,pessoa FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="4" hAlign="Default" vAlign="Default"/>
-              </kawlookupbutton>
               <label name="Label_38" horizontalAlignment="0" horizontalTextPosition="11" text="Id" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
@@ -70,7 +73,7 @@
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Fill" vAlign="Default"/>
               </kawdbtextfield>
               <panel name="Panel_44" id="pannelAnexos" layout="BorderLayout">
-                <cellconstraints gridHeight="2" gridWidth="5" gridX="3" gridY="12" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="2" gridWidth="5" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
                 <panel constraints="BorderLayout.CENTER" name="Panel_45" layout="BorderLayout">
                   <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane6" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
                     <kawdbtable name="Anexos" id="cad_email_anexos" connection="jkawflex" hidden="false" kawTableName="cad_email_anexos" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="cad_email_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="cad_email" managingFocus="true" parameterQColumns="id" parameterQColumnsCaption="id docto" parameterQColumnsDataType="INT" parameterQDisplayMask="###########" queryDataSet="SELECT *  FROM cad_email_anexos WHERE cad_email_id = :id ORDER BY cad_arquivos_id" queryDataSetView=""/>
@@ -97,17 +100,23 @@
                 </panel>
               </panel>
               <kawlookupbutton name="KawLookupButton_50" id="lookupButtonTextoAdic" action="" columnDestino="Texto" columnOrigem="texto" connection="jkawflex" defaultButton="true" hidden="true" kawTableName="fat_textoadic" kawTableNameRelation="cad_email" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,texto FROM fat_textoadic WHERE id = :id" xmlLookupView="LookupTextoAdicional">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="10" hAlign="Default" vAlign="Fill"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="11" hAlign="Default" vAlign="Fill"/>
               </kawlookupbutton>
               <kawdbcheckbox name="KawDbCheckBox_51" id="html" columnCaption="HTML?" columnDataType="BOOLEAN" columnName="html" columnRowId="false" columnTableName="cad_email" columnWidth="2" text="HTML?">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="6" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="7" hAlign="Default" vAlign="Default"/>
               </kawdbcheckbox>
               <panel name="Panel_53" layout="BorderLayout">
-                <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="4" hAlign="Fill" vAlign="Fill"/>
+                <cellconstraints gridHeight="2" gridWidth="3" gridX="3" gridY="4" hAlign="Fill" vAlign="Fill"/>
                 <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_54" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
                   <kawdbtextarea name="KawDbTextArea_56" id="para" columnCaption="Para" columnDataType="STRING" columnName="para" columnTableName="cad_email"/>
                 </scrollpane>
               </panel>
+              <kawlookupbutton name="KawLookupButton_74" id="lookupEmail" action="lookupCadastro" columnDestino="para" columnOrigem="email" connection="jkawflex" kawTableName="cad_cadastro" kawTableNameRelation="cad_email" parameterQColumns="cad_cadastro_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,razaosocial,nomefantasia,email,municipio,uf,telefone1,obstelefone1,CASE WHEN contribuinteicms IS NULL THEN 'Sim' ELSE contribuinteicms END AS contribuinteicms, calculoicmssobre_ipi,pessoa FROM cad_cadastro WHERE id = :cad_cadastro_id" xmlLookupView="LookupClientes.xml">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="4" hAlign="Default" vAlign="Default"/>
+              </kawlookupbutton>
+              <kawdbcheckbox name="KawDbCheckBox_75" id="mala_direta" columnCaption="Mala Direta ?" columnDataType="BOOLEAN" columnName="mala_direta" columnRowId="false" columnTableName="cad_email" columnWidth="2" text="Mala Direta ?">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+              </kawdbcheckbox>
             </panel>
           </panel>
           <panel name="Panel_42" layout="BorderLayout">
@@ -165,5 +174,5 @@
     </tabbedpane>
   </panel>
 </dialog>
-<!--lastNameIndex=56-->
+<!--lastNameIndex=75-->
 <!--lastIdIndex=0-->

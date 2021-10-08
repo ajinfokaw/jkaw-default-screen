@@ -89,7 +89,7 @@
             <kawdbtextfield name="KawDbTextField_38" id="fax" columnCaption="FAX" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="fax" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
               <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <kawdbtextfield name="KawDbTextField_39" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) ####-####" columnName="celular" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
+            <kawdbtextfield name="KawDbTextField_39" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="celular" columnPosicao="11" columnRowId="true" columnTableName="cad_filial" columnWidth="20">
               <cellconstraints gridHeight="1" gridWidth="7" gridX="11" gridY="21" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
             <label name="Label_40" horizontalAlignment="0" horizontalTextPosition="11" text="E-mail:" verticalAlignment="0" verticalTextPosition="0">
@@ -104,13 +104,13 @@
             <kawdbtextfield name="KawDbTextField_43" id="webSite" columnCaption="Web-Site" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="website" columnPosicao="18" columnRowId="true" columnTableName="cad_filial" columnWidth="25">
               <cellconstraints gridHeight="1" gridWidth="15" gridX="3" gridY="25" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <label name="Label_44" horizontalAlignment="0" horizontalTextPosition="11" text="CNPJ:" verticalAlignment="0" verticalTextPosition="0">
+            <label name="Label_44" toolTipText="Informar o CPF se a Filial for do tipo Pessoa F&#xed;sica" horizontalAlignment="0" horizontalTextPosition="11" text="CNPJ/CPF:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="27" hAlign="Right" vAlign="Default"/>
             </label>
-            <kawdbtextfield name="KawDbTextField_45" id="inscricaoFederal" columnCaption="CNPJ/CPF" columnDataType="STRING" columnDisplayMask="00'.'000'.'000'/'0000'-'00" columnEditMask="00'.'000'.'000'/'0000'-'00" columnName="inscricaofederal" columnPosicao="19" columnResolvable="true" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
+            <kawdbtextfield name="KawDbTextField_45" id="inscricaoFederal" columnCaption="CNPJ/CPF" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="inscricaofederal" columnPosicao="19" columnResolvable="true" columnRowId="true" columnTableName="cad_filial" columnWidth="15">
               <cellconstraints gridHeight="1" gridWidth="7" gridX="3" gridY="27" hAlign="Default" vAlign="Default"/>
             </kawdbtextfield>
-            <label name="Label_46" horizontalAlignment="0" horizontalTextPosition="11" text="Incri&#xe7;&#xe3;o Estadual:" verticalAlignment="0" verticalTextPosition="0">
+            <label name="Label_46" toolTipText="Informar o RG se a Filial for do tipo Pessoa F&#xed;sica" horizontalAlignment="0" horizontalTextPosition="11" text="Incri&#xe7;&#xe3;o Estadual/RG:" verticalAlignment="0" verticalTextPosition="0">
               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="29" hAlign="Right" vAlign="Default"/>
             </label>
             <kawdbtextfield name="KawDbTextField_47" id="inscricaoEstadual" columnCaption="Inscricao" columnDataType="STRING" columnName="inscricaoestadual" columnPosicao="20" columnRowId="true" columnTableName="cad_filial" columnWidth="15">

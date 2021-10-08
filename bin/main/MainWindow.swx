@@ -22,18 +22,32 @@
       <menuitem name="Auditoria" action="actionAuditoria" icon="" text="Auditoria do Sistema"/>
       <separator name="Separator_51"/>
       <menu name="Manutencao" horizontalAlignment="2" horizontalTextPosition="11" icon="com/infokaw/udf/image/config.png" text="Manuten&#xe7;&#xe3;o de Dados">
+        <menuitem name="MenuItem_628" action="actionDFDistribuicaoXml" icon="img_ImportaTxt" text="Consulta DF's recebidas(Ci&#xea;ncia de emiss&#xe3;o e Download)"/>
         <menuitem name="MenuItem_629" action="actionImpDFeXml400" icon="img_ImportaTxt" text="Importar Docto Eletr&#xf4;nico v4.00"/>
-        <menuitem name="MenuItem_671" action="actionImpDFeXml310" icon="img_ImportaTxt" text="Importar Docto Eletr&#xf4;nico v3.10"/>
+        <menuitem name="MenuItem_627" action="actionConsultaNSU" icon="img_ImportaTxt" text="Consulta Eventos DFe(NSU)"/>
+        <menuitem name="MenuItem_671" action="actionManuLcto" icon="img_ImportaTxt" text="Manute&#xe7;&#xe3;o Pre&#xe7;os por Lan&#xe7;amento"/>
+        <menuitem name="MenuItem_678" action="actionManuLP" icon="img_ImportaTxt" text="Manute&#xe7;&#xe3;o Pre&#xe7;os Lista de Pre&#xe7;os"/>
         <menuitem name="MenuItem_670" action="actionExportacaoBalanca" icon="img_ImportaTxt" text="Gerar Arquivo de Exporta&#xe7;&#xe3;o Balan&#xe7;a"/>
         <separator name="Separator_628"/>
         <menuitem name="MenuItem_610" action="actionImpDoctos" icon="img_ImportaTxt" text="Importar Lctos INFOKAW"/>
         <menuitem name="MenuItem_611" action="actionImpBaixaRP" icon="img_ImportaTxt" text="Importa Baixas Contas Receber/Pagar (INFOKAW)"/>
         <menuitem name="MenuItem_613" action="actionImportaDados" icon="img_ImportaTxt" text="Importa/Gera Script SQL (INFOKAW)"/>
+        <separator name="Separator_673"/>
+        <menuitem name="MenuItem_674" action="actionSyncForcaVenda" icon="img_ImportaTxt" text="SINCRONIZAR - FOR&#xc7;A DE VENDA"/>
+        <menuitem name="MenuItem_675" id="syncContatosMenuItem" action="actionSyncContatos" icon="img_ImportaTxt" text="SINCRONIZAR - CONTATOS SITE > INFOKAW"/>
       </menu>
       <separator name="Separator_268"/>
-      <menuitem name="Config.Padrao" action="actionConfigPadrao" text="Configuracoes padrao do sistema"/>
+      <menuitem name="Config.Sistema" action="actionConfigSistema" text="Configuracoes padrao do sistema"/>
       <menuitem name="Encargos Pradr&#xf5;es" action="actionEncargoPadrao" text="Encargos Pradr&#xf5;es"/>
-      <menuitem name="Config.BD" action="ConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Configura Acesso ao Banco de Dados"/>
+      <menuitem name="Config.BD" action="actionConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Propriedades do Sistema"/>
+      <menuitem name="Config.DF" action="actionConfigDF" text="Configura&#xe7;&#xf5;es Default  "/>
+      <separator name="Separator_t"/>
+      <menu name="MLB" horizontalAlignment="2" horizontalTextPosition="11" icon="com/infokaw/udf/image/mlb.png" text="Manuten&#xe7;&#xe3;o do Mercado Livre">
+        <menuitem name="Mlb.Login" action="actionMlbLogin" text="Fazer Login no Mercado Livre"/>
+        <menuitem name="Mlb.Categoria" action="actionMlbCategoria" text="Escolher categoria para produtos"/>
+        <menuitem name="Mlb.Sync" action="actionLctoMLB" text="Novo lan&#xe7;amento no Mercado Livre"/>
+        <menuitem name="Mlb.Ordens" action="actionMlbOrders" text="Ordens(pedidos) no Mercado Livre"/>
+      </menu>
       <separator name="Separator_55"/>
       <menuitem name="Sair" action="actionExit" icon="com/infokaw/udf/image/door_in16.png" text="Sair"/>
     </menu>
@@ -57,6 +71,7 @@
         <separator name="Separator_100"/>
         <menu name="Produto" text="Produto">
           <menuitem name="Cad.Prod" action="actionFatProduto" text="Produtos"/>
+          <menuitem name="Fat.TabelaMedidas" action="actionFatTabelaMedidas" text="Tabela de Medidas"/>
           <menuitem name="Especificacao_Tec" action="actionFatEspecificacaoTecnica" text="Especifica&#xe7;&#xe3;o T&#xe9;cnica"/>
           <separator name="Separator_91"/>
           <menuitem name="Clas.Orig" action="actionFatClassOrigem" text="Classifica&#xe7;&#xe3;o de Origem"/>
@@ -71,7 +86,7 @@
           <menuitem name="Situacao Tributaria" action="actionSituacaoTributaria" text="Cadastro Situacao Tributaria"/>
           <menuitem name="TabST" action="actionTabSubsTrib" text="Tabela Substitui&#xe7;&#xe3;o Tribut&#xe1;ria"/>
           <separator name="Separator_563"/>
-          <menuitem name="CadastroEtiquetas" toolTipText="Cadastro de Etiquetas p/ emiss&#xe3;o de Codigo de Barras" action="actionEtiquetaProduto" text="Cadastro de Etiquetas p/ emiss&#xe3;o de Codigo de Barras"/>
+          <menuitem name="CadastroEtiquetas" toolTipText="Cadastro de Etiquetas p/ emiss&#xe3;o de Codigo de Barras" action="actionEtiquetaProduto" text="Cadastro de Etiquetas p/ emiss&#xe3;o de    Codigo de Barras"/>
         </menu>
         <separator name="Separator_99"/>
         <menu name="Veiculo" text="Ve&#xed;culo">
@@ -97,6 +112,7 @@
         <menuitem name="Recibo Avulso" action="actionReciboAvulso" text="Recibo Avulso"/>
       </menu>
       <menu name="Esc.Fiscal" text="Escrita Fiscal">
+        <menuitem name="Sped" action="actionSped" text="SPED"/>
         <menuitem name="Cad.TabCFOP" action="actionEscritaTabCFOP" text="Tabela CFOP"/>
         <menuitem name="Carta Correcao" action="actionCartaCorrecao" text="Carta Correcao"/>
         <menuitem name="MenuItem_430" action="actionIrregularidade" text="Irregularidades"/>
@@ -105,6 +121,7 @@
     <menu name="Movimentacao" text="Movimentacao">
       <menu name="Faturamento" action="" text="Faturamento">
         <menuitem name="Lan&#xe7;amento" action="actionLcto" text="Lan&#xe7;amento (NF-e/Venda/Compra/Pedido/Or&#xe7;amento/etc..)"/>
+        <menuitem name="Ordem de Produ&#xe7;&#xe3;o" action="actionOrdemProducao" text="Ordem de Produ&#xe7;&#xe3;o"/>
         <menuitem name="MovtoProdCli" action="actionMovtoProdCli" text="Movmenta&#xe7;&#xe3;o de Produtos p/ Cliente"/>
         <menuitem name="NFC-e" action="actionNFCe" text="NFC-e  Venda"/>
         <menuitem name="MDF-eUtils" action="actionMdfeUtils" text="MDF-e N&#xe3;o Encerrados"/>
@@ -153,7 +170,8 @@
         <menuitem name="lista de precos" action="actionListagemPrecoProduto" text="Lista de Pre&#xe7;os"/>
         <menuitem name="listagem movimentacao de produtos" action="actionListagemProdutoMovto" text="Listagem de Movimenta&#xe7;&#xe3;o de Produtos"/>
         <menuitem name="inventario de produtos" action="actionInventarioProduto" text="Invent&#xe1;rio de Produtos"/>
-        <menuitem name="listagem vendas" action="actionListagemVENDA" text="Vendas"/>
+        <menuitem name="ClassAB" action="actionListagemClassABC" text="Listagem Classificacao ABC"/>
+        <menuitem name="listagem vendas" action="actionListagemVENDA" text="Vendas/Compras"/>
         <menuitem name="compras por fornecedor" action="actionComprasFornecedor" text="Compras por Fornecedor"/>
         <menuitem name="listagem de grupo de produtos" action="actionListagemGrupoProdutos" text="Listagem de Grupo de Produtos"/>
         <menuitem name="listagem de consignacao" action="actionListagemConsignacao" text="Vendas por Consignacao"/>
@@ -184,17 +202,23 @@
       <menuitem name="MenuItem_188" action="actionHelp" text="Ajuda "/>
       <menuitem name="Atualizacao" toolTipText="Checa se existe atualiza&#xe7;&#xe3;o disponivel" action="actionAtualizar" text="Checar por Atualiza&#xe7;&#xe3;o"/>
       <menuitem name="Backup" action="actionBackup" text="Backup(C&#xf3;pia de Seguran&#xe7;a)"/>
+      <menuitem name="AtualizarUUID" action="actionUpdateUUID" text="Atualizar UUID's vazios"/>
+      <menuitem name="AtualizarCadMun" action="actionUpdateCadMun" text="Atualizar Cadastro de Cidades"/>
+      <menuitem name="Contrato" action="actionContrato" text="Ver contratos"/>
       <menuitem name="MenuItem_668" action="actionAbout" text="Sobre Alt+S"/>
     </menu>
   </menubar>
   <panel constraints="BorderLayout.NORTH" name="Panel_128" layout="BorderLayout">
     <panel constraints="BorderLayout.WEST" name="Panel_359" layout="FlowLayout">
+      <toolbar name="B_Sair" id="bSair">
+        <button name="Sair" id="btnSair" toolTipText="Sair do sistema ..." action="actionExit" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
+      </toolbar>
       <toolbar name="B_Utils" id="bUtils">
-        <button name="Sair" toolTipText="Sair do sistema ..." action="actionExit" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/exit.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
-        <button name="Calculadora" toolTipText="Calculadora" action="actionCalc" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/calc.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
-        <button name="Bloco de Notas" toolTipText="Anota&#xe7;&#xf5;es" action="actionEditor" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/editor.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
-        <button name="Solicita&#xe7;&#xe3;o" toolTipText="Solicita&#xe7;&#xe3;o" action="actionSolicitacao" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/solicitacao.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
-        <button name="Atendimento" toolTipText="Atendimento" action="actionAtendimento" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/atend.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Calculadora" id="btnCalculadora" toolTipText="Calculadora" action="actionCalc" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Bloco de Notas" id="btnAnotacoes" toolTipText="Anota&#xe7;&#xf5;es" action="actionEditor" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Atendimento" id="btnAtndimento" toolTipText="Atendimento" action="actionAtendimento" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Contatos" id="btnContatos" toolTipText="Contatos" action="actionContato" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
+        <button name="Autorizacao" id="btnAutorizacao" toolTipText="Autoriza&#xe7;&#xe3;o de Lan&#xe7;amentos" action="actionAutorizar" horizontalAlignment="0" horizontalTextPosition="11" icon="\uf09c" text="" verticalAlignment="0" verticalTextPosition="0"/>
       </toolbar>
       <toolbar name="B._Principal" id="bPrincipal">
         <button name="Email" toolTipText="Enviar E-mail" action="actionEmail" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/email.png" text="" verticalAlignment="0" verticalTextPosition="0"/>
@@ -257,6 +281,7 @@
         <kawdblabel name="KawDbLabel_584" id="" text="Usu&#xe1;rio:"/>
         <kawdblabel name="KawDbLabel_583" id="UsuarioLogin" text="Usu&#xe1;rio"/>
         <kawclock name="KawClock_581"/>
+        <progressbar id="initProgress" preferredSize="200,15" borderPainted="true"/>
       </panel>
     </panel>
     <panel constraints="BorderLayout.WEST" name="Panel_600" layout="BorderLayout">
@@ -268,5 +293,5 @@
   </panel>
   <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
 </frame>
-<!--lastNameIndex=671-->
+<!--lastNameIndex=695-->
 <!--lastIdIndex=0-->

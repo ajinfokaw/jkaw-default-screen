@@ -8,9 +8,11 @@
           <formattedtextfield name="FormattedTextField1" focusable="true" id="cnpjCadastro" preferredSize="145,21"/>
           <label name="Label14" horizontalAlignment="0" horizontalTextPosition="11" text="CPF:" verticalAlignment="0" verticalTextPosition="0"/>
           <formattedtextfield name="FormattedTextField2" focusable="true" id="cpfCadastro" preferredSize="105,21"/>
+          <checkbox name="CheckBox0" id="pAniversariantes" preferredSize="205,21" horizontalAlignment="2" horizontalTextPosition="11" text="Aniversariantes hoje" verticalAlignment="0" verticalTextPosition="0"/>
           <panel name="Panel_422" id="pesquisaConteudo" layout="FlowLayout">
             <kawdbcheckbox name="KawDbCheckBox0" id="pDesativado" columnDataType="BOOLEAN" columnDefault="true" columnName="pdesativado" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Destivados?" verticalAlignment="0" verticalTextPosition="0"/>
             <kawdbcheckbox name="KawDbCheckBox1" id="pPesquisaConteudo" columnDataType="BOOLEAN" columnDefault="true" columnName="ppesquisaconteudo" columnRowId="false" horizontalAlignment="2" horizontalTextPosition="11" text="Conte&#xfa;do?" verticalAlignment="0" verticalTextPosition="0"/>
+            <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Nome ou Raz&#xe3;o Social:" verticalAlignment="0" verticalTextPosition="0"/>
             <kawdbtextfield name="KawDbTextField_425" id="pPesquisa" columnDataType="STRING" columnName="ppesquisa" preferredSize="220,21"/>
             <button name="Button_426" horizontalAlignment="0" horizontalTextPosition="11" text="Ok" verticalAlignment="0" verticalTextPosition="0"/>
           </panel>
@@ -33,29 +35,32 @@
       </panel>
       <panel constraints="BorderLayout.WEST" name="Panel14" layout="FlowLayout">
         <kawdbnavtoolbar name="Barra de op&#xe7;&#xf5;es - Cadastro" id="navToolBar" paintingTile="true" tips="true"/>
-        <label name="Label_8" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="Controle" verticalAlignment="0" verticalTextPosition="0"/>
-        <kawdbnavfield name="CampoConsulta" id="navField" preferredSize="250,21"/>
+        <button name="Button0" id="btnEmail" toolTipText="Monta E-mail dos Cadastro(s) selecionado(s) p/ Envio l" visible="true" action="" horizontalAlignment="0" horizontalTextPosition="11" icon="com/infokaw/udf/image/enviaremail.png" mnemonic="70" text="E-mail" verticalAlignment="0" verticalTextPosition="0"/>
       </panel>
     </panel>
     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" id="tabbedPane_cad_cadastro" mnemonics="76,69" tabPlacement="1" titles="Lista,Editar">
       <panel name="Panel1" layout="BorderLayout">
         <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane2" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-          <kawdbtable name="Cadastro" id="cad_cadastro" autoscrolls="false" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="ppesquisa,ppesquisaconteudo,pcpf,pcnpj,pdatainicial,pdatafinal,pdesativado" parameterQColumnsCaption="Pesquisa,Conteudo,Cpf,Cnpj" parameterQColumnsDataType="STRING,BOOLEAN,STRING,STRING,DATE,DATE,BOOLEAN" queryDataSet="SELECT * FROM cad_cadastro  WHERE CASE WHEN (:pcpf IS NOT NULL)  THEN cpf = :pcpf  WHEN (:pcnpj IS NOT NULL) THEN inscricaofederal = :pcnpj WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) WHEN :pdesativado THEN CASE WHEN :ppesquisaconteudo THEN (UPPER(nomefantasia) LIKE '%'||UPPER(:ppesquisa)||'%' OR  UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa)||'%') AND desativado = true ELSE (UPPER(razaosocial) LIKE UPPER(:ppesquisa)||'%' OR UPPER(nomefantasia) LIKE UPPER(:ppesquisa)||'%') AND desativado = true END ELSE CASE WHEN :ppesquisaconteudo THEN (UPPER(nomefantasia) LIKE '%'||UPPER(:ppesquisa)||'%' OR  UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa)||'%') AND COALESCE(desativado, false) = false ELSE (UPPER(razaosocial) LIKE UPPER(:ppesquisa)||'%' OR UPPER(nomefantasia) LIKE UPPER(:ppesquisa)||'%') AND COALESCE(desativado, false) = false END END" queryDataSetView=""/>
+          <kawdbtable name="Cadastro" id="cad_cadastro" autoscrolls="false" connection="jkawflex" kawTableName="cad_cadastro" parameterQColumns="paniversariantes,ppesquisa,ppesquisaconteudo,pcpf,pcnpj,pdatainicial,pdatafinal,pdesativado,reg_p_pagina,pagina" parameterQColumnsCaption="Aniversariantes,Pesquisa,Conteudo,Cpf,Cnpj" parameterQColumnsDataType="BOOLEAN,STRING,BOOLEAN,STRING,STRING,DATE,DATE,BOOLEAN,INT,INT" queryDataSet="SELECT * FROM cad_cadastro WHERE CASE WHEN (:pcpf IS NOT NULL) THEN cpf = :pcpf  WHEN (:pcnpj IS NOT NULL) THEN inscricaofederal = :pcnpj  WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN cad_cadastro.id = string_integer(:ppesquisa) WHEN (coalesce(:paniversariantes, false) = true) THEN CASE WHEN COALESCE((SELECT anivers_pelo_cadastro FROM padrao.usuario WHERE current_user = usuario),false) THEN extract(month FROM current_date) = extract(month FROM cad_cadastro.datanasc) AND extract(day FROM cad_cadastro.datanasc) BETWEEN extract(day FROM current_date) AND extract(day FROM current_date)+COALESCE((SELECT dias_aniversariantes FROM padrao.usuario WHERE current_user = usuario),0)  AND cad_cadastro.pessoa = 'Fisica' END OR CASE WHEN COALESCE((SELECT anivers_pelo_contato FROM padrao.usuario WHERE current_user = usuario),false) THEN (select count(*) from cad_cadastro_contato where extract(month FROM current_date) = extract(month FROM cad_cadastro_contato.data_nasc) AND extract(day FROM cad_cadastro_contato.data_nasc) BETWEEN extract(day FROM current_date) AND extract(day FROM current_date)+COALESCE((SELECT dias_aniversariantes FROM padrao.usuario WHERE current_user = usuario),0)  AND cad_cadastro_contato.cad_cadastro_id = cad_cadastro.id) > 0 END WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, true) = FALSE)) THEN ((UPPER(nomefantasia) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%') OR (UPPER(razaosocial) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%')) AND (coalesce(:pdesativado, false) = coalesce(desativado, false)) WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, true))) THEN ((UPPER(nomefantasia) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%') OR (UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa              )||'%')) AND (coalesce(:pdesativado, false) = coalesce(desativado, false)) END ORDER BY razaosocial COLLATE &quot;C&quot; LIMIT :reg_p_pagina OFFSET(:pagina - 1) * :reg_p_pagina" queryDataSetView="Select CEIL(count(cad_cadastro.id)/CAST(:reg_p_pagina AS DOUBLE PRECISION)) AS paginas from cad_cadastro WHERE CASE WHEN (:pcpf IS NOT NULL) THEN cpf = :pcpf  WHEN (:pcnpj IS NOT NULL) THEN inscricaofederal = :pcnpj  WHEN (SELECT :ppesquisa ~ '^[-0-9]+$') THEN cad_cadastro.id = string_integer(:ppesquisa) WHEN coalesce(:paniversariantes, false) = true THEN (extract(month FROM current_date) = extract(month FROM cad_cadastro.datanasc) AND extract(day FROM current_date) = extract(day FROM cad_cadastro.datanasc) AND cad_cadastro.pessoa = 'Fisica') OR (select count(*) from cad_cadastro_contato where extract(month FROM current_date) = extract(month FROM cad_cadastro_contato.data_nasc) AND extract(day FROM current_date) = extract(day FROM cad_cadastro_contato.data_nasc) AND cad_cadastro_contato.cad_cadastro_id = cad_cadastro.id) > 0 WHEN  ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, true) = FALSE)) THEN ((UPPER(nomefantasia) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%') OR (UPPER(razaosocial) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%')) AND (coalesce(:pdesativado, false) = coalesce(desativado, false)) WHEN ((NOT (SELECT :ppesquisa ~ '^[-0-9]+$')) AND (coalesce(:ppesquisaconteudo, true))) THEN ((UPPER(nomefantasia) LIKE '%'||UPPER(COALESCE(:ppesquisa,' '))||'%') OR (UPPER(razaosocial) LIKE '%'||UPPER(:ppesquisa              )||'%')) AND (coalesce(:pdesativado, false) = coalesce(desativado, false)) END"/>
         </scrollpane>
+        <panel constraints="BorderLayout.SOUTH" name="Panel0" layout="BorderLayout">
+          <kawpagination constraints="BorderLayout.EAST" name="KawPagination1" id="cad_cadastro_pagination"/>
+          <panel constraints="BorderLayout.WEST" name="Panel2" layout="FlowLayout">
+            <label name="Label0" id="lblConsulta" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo" verticalAlignment="0" verticalTextPosition="0"/>
+            <kawdbnavfield name="KawDbNavField1" id="navField" preferredSize="250,21"/>
+          </panel>
+        </panel>
       </panel>
       <panel name="Panel0" layout="BorderLayout">
-        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" tabPlacement="1" titles="Cadastro,Endere&#xe7;o de Cobran&#xe7;a,An&#xe1;lise de Cr&#xe9;dito,Ocorr&#xea;ncias,Movimenta&#xe7;&#xf5;es,Vendedores/Representantes,Anexo(s),Outros Dados">
+        <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane0" tabPlacement="1" titles="Cadastro,Endere&#xe7;o de Cobran&#xe7;a,An&#xe1;lise de Cr&#xe9;dito,Ocorr&#xea;ncias,Movimenta&#xe7;&#xf5;es,Vendedores/Representantes,Anexos/Foto,Outros Dados">
           <panel name="Panel0" layout="BorderLayout">
             <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
               <panel name="Panel9" layout="FormLayout">
-                <formLayout colspecs="230px,1dlu,76px,1dlu,48px,1dlu,183px,1dlu,155px,1dlu,116px,1dlu,34px,1dlu,63px,1dlu,130px,1dlu,278px" rowspecs="default,1dlu,59px,1dlu,default,default,default,default,default,default,default,default,default,default,default,fill:default,default,default,default,default,1dlu,107px,1dlu,20dlu"/>
+                <formLayout colspecs="230px,1dlu,76px,1dlu,48px,1dlu,183px,1dlu,155px,1dlu,116px,1dlu,34px,1dlu,63px,1dlu,130px,1dlu,278px" rowspecs="default,1dlu,57px,1dlu,default,default,default,default,default,default,default,default,default,default,default,default,fill:default,default,default,default,default,1dlu,89px,1dlu,20dlu"/>
                 <label name="Label10" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField11" id="id" columnAutoIncrement="true" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="1" columnRowId="true" columnsSumAgg="" columnTableName="cad_cadastro" columnWidth="5" editable="true" fieldNotEdit="true" focusable="false">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Left" vAlign="Default"/>
-                </kawdbtextfield>
-                <kawdbcheckbox name="KawDbCheckBox12" id="desativado" columnCaption="D." columnDataType="BOOLEAN" columnName="desativado" columnRowId="false" columnTableName="cad_cadastro" columnWidth="3" text="Desativado?">
+                <kawdbcheckbox name="KawDbCheckBox12" id="desativado" columnCaption="Desativado?" columnDataType="BOOLEAN" columnName="desativado" columnPosicao="2" columnRowId="false" columnTableName="cad_cadastro" columnWidth="3" text="Desativado?">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
                 </kawdbcheckbox>
                 <label name="Label13" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo pessoa:" verticalAlignment="0" verticalTextPosition="0">
@@ -83,79 +88,79 @@
                   <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="11" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label21" horizontalAlignment="0" horizontalTextPosition="11" text="Endere&#xe7;o:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
-                </label>
-                <kawdbtextfield name="KawDbTextField22" id="endereco" columnCaption="Endere&#xe7;o" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="endereco" columnPosicao="10" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="30">
-                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="12" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfield>
-                <label name="Label23" horizontalAlignment="0" horizontalTextPosition="11" text="Cidade:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
-                </label>
-                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow24" id="cidadeId" columnCaption="Cidade" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_mun_id" columnNameLookupKey="id" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" editable="true" enable="true">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfieldlookuprow>
-                <kawlookupbutton name="KawLookupButton25" id="cidadesLookupButton" action="lookupCidade" columnDestino="cad_mun_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_mun" kawTableNameRelation="cad_cadastro" parameterQColumns="cad_mun_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,municipio,uf,codigoibge FROM cad_mun WHERE  id = :cad_mun_id" text="" xmlLookupView="LookupCidades.xml">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="15" hAlign="Default" vAlign="Default"/>
-                </kawlookupbutton>
-                <kawdbtextfieldlookup name="KawDbTextFieldLookup26" id="cidadeLookup" columnCalcType="CALC" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="cidade_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="municipio" columnPosicao="8" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15" editable="false" enable="false">
-                  <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="15" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfieldlookup>
-                <kawdbtextfieldlookup name="KawDbTextFieldLookup27" id="ufLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="uf" columnPosicao="9" columnRowId="false" columnTableName="cad_cadastro" columnWidth="2">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="15" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfieldlookup>
-                <kawdbtextfield name="KawDbTextField28" id="complemento" columnCaption="Complemento" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="complemento" columnPosicao="14" columnRequired="false" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15">
-                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="14" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField29" id="cep" columnCaption="CEP" columnDataType="STRING" columnDisplayMask="00000 '-'000^!" columnEditMask="00000 '-'000^!" columnName="cep" columnPosicao="13" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="9">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="13" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfield>
-                <label name="Label30" horizontalAlignment="0" horizontalTextPosition="11" text="Bairro:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="13" hAlign="Right" vAlign="Default"/>
                 </label>
-                <label name="Label31" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone/Obs:" verticalAlignment="0" verticalTextPosition="0">
+                <kawdbtextfield name="KawDbTextField22" id="endereco" columnCaption="Endere&#xe7;o" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="endereco" columnPosicao="10" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="30">
+                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label23" horizontalAlignment="0" horizontalTextPosition="11" text="Cidade:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="16" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField32" id="telefone1" columnCaption="Telefone" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone1" columnPosicao="15" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15">
-                  <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="16" hAlign="Default" vAlign="Default"/>
+                <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow24" id="cidadeId" columnCaption="Cidade" columnDataType="INT" columnEditable="true" columnEditMask="#####" columnName="cad_mun_id" columnNameLookupKey="id" columnPosicao="7" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" editable="true" enable="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="16" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookuprow>
+                <kawlookupbutton name="KawLookupButton25" id="cidadesLookupButton" action="lookupCidade" columnDestino="cad_mun_id" columnOrigem="id" connection="jkawflex" kawTableName="cad_mun" kawTableNameRelation="cad_cadastro" parameterQColumns="cad_mun_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,municipio,uf,codigoibge FROM cad_mun WHERE  id = :cad_mun_id" text="" xmlLookupView="LookupCidades.xml">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="16" hAlign="Default" vAlign="Default"/>
+                </kawlookupbutton>
+                <kawdbtextfieldlookup name="KawDbTextFieldLookup26" id="cidadeLookup" columnCalcType="CALC" columnCaption="Cidade" columnDataType="STRING" columnEditable="false" columnName="cidade_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="municipio" columnPosicao="8" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15" editable="false" enable="false">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="7" gridY="16" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <kawdbtextfieldlookup name="KawDbTextFieldLookup27" id="ufLookup" columnCalcType="CALC" columnCaption="UF" columnDataType="STRING" columnEditable="false" columnName="uf_lookup" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="uf" columnPosicao="9" columnRowId="false" columnTableName="cad_cadastro" columnWidth="2">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="16" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfieldlookup>
+                <kawdbtextfield name="KawDbTextField28" id="complemento" columnCaption="Complemento" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="complemento" columnPosicao="14" columnRequired="false" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15">
+                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="15" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField33" id="obsTelefone1" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone1" columnRowId="false" columnTableName="cad_cadastro">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="16" hAlign="Default" vAlign="Default"/>
+                <kawdbtextfield name="KawDbTextField29" id="cep" columnCaption="CEP" columnDataType="STRING" columnDisplayMask="00000 '-'000^!" columnEditMask="00000 '-'000^!" columnName="cep" columnPosicao="13" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="9">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="12" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <label name="Label34" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone 2/Obs:" verticalAlignment="0" verticalTextPosition="0">
+                <label name="Label30" horizontalAlignment="0" horizontalTextPosition="11" text="Bairro:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="14" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label31" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone/Obs:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="17" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField35" id="telefone2" columnCaption="Telefone 2" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone2" columnPosicao="16" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
+                <kawdbtextfield name="KawDbTextField32" id="telefone1" columnCaption="Telefone" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone1" columnPosicao="15" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15">
                   <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="17" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <kawdbtextfield name="KawDbTextField36" id="obsTelefone2" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone2" columnRowId="false" columnTableName="cad_cadastro">
+                <kawdbtextfield name="KawDbTextField33" id="obsTelefone1" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone1" columnRowId="false" columnTableName="cad_cadastro">
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="17" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
-                <label name="Label37" horizontalAlignment="0" horizontalTextPosition="11" text="E-mail:" verticalAlignment="0" verticalTextPosition="0">
+                <label name="Label34" horizontalAlignment="0" horizontalTextPosition="11" text="Telefone 2/Obs:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="18" hAlign="Right" vAlign="Default"/>
                 </label>
-                <label name="Label38" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xba;:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="12" hAlign="Default" vAlign="Default"/>
-                </label>
-                <label name="Label39" horizontalAlignment="0" horizontalTextPosition="11" text="CEP:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="13" hAlign="Default" vAlign="Default"/>
-                </label>
-                <label name="Label40" horizontalAlignment="0" horizontalTextPosition="11" text="Web Site:" verticalAlignment="0" verticalTextPosition="0">
+                <kawdbtextfield name="KawDbTextField35" id="telefone2" columnCaption="Telefone 2" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="telefone2" columnPosicao="16" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="18" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbtextfield name="KawDbTextField36" id="obsTelefone2" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone2" columnRowId="false" columnTableName="cad_cadastro">
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="7" gridY="18" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label37" horizontalAlignment="0" horizontalTextPosition="11" text="E-mail:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="19" hAlign="Right" vAlign="Default"/>
                 </label>
+                <label name="Label38" horizontalAlignment="0" horizontalTextPosition="11" text="N&#xba;:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="13" hAlign="Default" vAlign="Default"/>
+                </label>
+                <label name="Label39" horizontalAlignment="0" horizontalTextPosition="11" text="CEP:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
+                </label>
+                <label name="Label40" horizontalAlignment="0" horizontalTextPosition="11" text="Web Site:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="20" hAlign="Right" vAlign="Default"/>
+                </label>
                 <kawdbtextfield name="KawDbTextField41" id="webSite" columnCaption="Web Site" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="website" columnRowId="false" columnTableName="cad_cadastro">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="19" hAlign="Default" vAlign="Fill"/>
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="20" hAlign="Default" vAlign="Fill"/>
                 </kawdbtextfield>
                 <label name="Label42" horizontalAlignment="0" horizontalTextPosition="11" text="Fax:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="16" hAlign="Right" vAlign="Default"/>
-                </label>
-                <kawdbtextfield name="KawDbTextField43" id="fax" columnCaption="Fax" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) ####-####" columnName="fax" columnPosicao="17" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="16" hAlign="Fill" vAlign="Center"/>
-                </kawdbtextfield>
-                <label name="Label44" horizontalAlignment="0" horizontalTextPosition="11" text="Celular:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="17" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField45" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="(##) ####-####" columnEditMask="(##) #####-####" columnName="celular" columnPosicao="18" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="17" hAlign="Default" vAlign="Default"/>
+                <kawdbtextfield name="KawDbTextField43" id="fax" columnCaption="Fax" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="fax" columnPosicao="17" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="17" hAlign="Fill" vAlign="Center"/>
+                </kawdbtextfield>
+                <label name="Label44" horizontalAlignment="0" horizontalTextPosition="11" text="Celular:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="18" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField45" id="celular" columnCaption="Celular" columnDataType="STRING" columnDisplayMask="(##) #####-####" columnEditMask="(##) #####-####" columnName="celular" columnPosicao="18" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="18" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label46" horizontalAlignment="0" horizontalTextPosition="11" text="CPF:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="8" hAlign="Right" vAlign="Default"/>
@@ -166,8 +171,8 @@
                 <label name="Label48" horizontalAlignment="0" horizontalTextPosition="11" text="RG:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="8" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField49" id="email" columnCaption="E-mail " columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="false" columnName="email" columnPosicao="6" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="17">
-                  <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="18" hAlign="Default" vAlign="Default"/>
+                <kawdbtextfield name="KawDbTextField49" id="email" columnCaption="E-mail " columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="false" columnName="email" columnPosicao="6" columnRequired="false" columnRowId="false" columnTableName="cad_cadastro" columnWidth="17">
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="19" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <kawdbtextfield name="KawDbTextField50" id="rg" columnCaption="RG" columnDataType="STRING" columnName="rg" columnPosicao="25" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="8" hAlign="Default" vAlign="Default"/>
@@ -185,37 +190,37 @@
                   <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="7" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label55" horizontalAlignment="0" horizontalTextPosition="11" text="Data Funda&#xe7;&#xe3;o ou Nascimento:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="18" hAlign="Right" vAlign="Default"/>
-                </label>
-                <kawdbtextfield name="KawDbTextField56" id="dataNascimento" columnCaption="Fund./Nasc." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datanasc" columnRowId="false" columnTableName="cad_cadastro">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="18" hAlign="Default" vAlign="Default"/>
-                </kawdbtextfield>
-                <label name="Label57" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Cadastro:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="19" hAlign="Right" vAlign="Default"/>
                 </label>
-                <kawdbtextfield name="KawDbTextField58" id="dataCadastro" columnCaption="Dt.Cadastro" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datacadastro" columnRowId="false" columnTableName="cad_cadastro" fieldNotEdit="true">
+                <kawdbtextfield name="KawDbTextField56" id="dataNascimento" columnCaption="Fund./Nasc." columnDataType="DATE" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datanasc" columnRowId="false" columnTableName="cad_cadastro">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="19" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
+                <label name="Label57" horizontalAlignment="0" horizontalTextPosition="11" text="Data de Cadastro:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="20" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField58" id="dataCadastro" columnCaption="Dt.Cadastro" columnDataType="DATE" columnDefault="now" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnName="datacadastro" columnRowId="false" columnTableName="cad_cadastro" fieldNotEdit="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="20" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
                 <kawdbtextfield name="KawDbTextField59" id="numero" columnCaption="No." columnDataType="STRING" columnDisplayMask="ccccccccaccc" columnEditMask="" columnName="numero" columnPosicao="11" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="5">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="12" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="13" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label60" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="_Cidade:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="20" hAlign="Right" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="21" hAlign="Right" vAlign="Default"/>
                 </label>
                 <kawdbtextfield name="KawDbTextField61" id="cidade" columnCaption="_Cidade" columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="municipio" columnRowId="false" columnTableName="cad_cadastro" columnWidth="25" hidden="true">
-                  <cellconstraints gridHeight="1" gridWidth="9" gridX="3" gridY="20" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="21" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label62" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="_Uf" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="20" hAlign="Right" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="21" hAlign="Right" vAlign="Default"/>
                 </label>
                 <kawdbtextfield name="KawDbTextField63" id="uf" columnCaption="_Uf" columnDataType="STRING" columnHidden="true" columnName="uf" columnRowId="false" columnTableName="cad_cadastro" columnWidth="3" editable="false" hidden="true">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="20" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="21" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <vbox name="Vbox64">
-                  <cellconstraints gridHeight="1" gridWidth="17" gridX="1" gridY="22" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="17" gridX="1" gridY="23" hAlign="Default" vAlign="Default"/>
                   <panel name="Panel8" border="Faturamento" id="diretivaFaturamento" layout="BorderLayout">
                     <panel constraints="BorderLayout.SOUTH" name="Panel_167" layout="FormLayout">
-                      <formLayout colspecs="154px,2dlu,default,2dlu,25px,2dlu,114px,2dlu,default,2px,124px,2dlu,37px,2dlu,18px,2dlu,122px,2dlu,default" rowspecs="default,20px,21px"/>
+                      <formLayout colspecs="154px,2dlu,default,2dlu,25px,2dlu,114px,2dlu,default,2px,124px,2dlu,37px,2dlu,18px,2dlu,122px,2dlu,default,default,277px" rowspecs="default,20px,21px"/>
                       <label name="Label_169" horizontalAlignment="0" horizontalTextPosition="11" text="Contribuinte ICMS:" verticalAlignment="0" verticalTextPosition="0">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
                       </label>
@@ -261,14 +266,32 @@
                       <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Condi&#xe7;&#xe3;o Pgto:" verticalAlignment="0" verticalTextPosition="0">
                         <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
                       </label>
+                      <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Tipo de Cobran&#xe7;a:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="3" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow1" id="tipoCobranca" columnCaption="C&#xf3;d" columnDataType="INT" columnDisplayMask="###" columnEditMask="###" columnHidden="true" columnName="tipo_cobranca_id" columnNameLookupKey="id" columnNameRelationLookupKey="tipo_cobranca_id" columnPosicao="12" columnRowId="false" columnTableName="cad_cadastro" columnWidth="5" editable="true" focusable="true">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton2" id="lookupButtonTipoCobranca" action="LookupTipoCob" columnDestino="tipo_cobranca_id" columnOrigem="id" columnsNameInitialKey="tipo_cobranca_id" connection="jkawflex" kawTableName="financ_tipocobranca" kawTableNameRelation="cad_cadastro" parameterQColumns="tipo_cobranca_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM financ_tipocobranca  ORDER BY id" xmlLookupView="LookupTipoCobranca.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="15" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup3" id="tipoCobrancaLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnEditable="false" columnHidden="true" columnName="tipoCobranca_lookup" columnNameLookupRow="tipo_cobranca_id" columnNameOriginLookupRow="descricao" columnPosicao="13" columnRowId="false" columnServerColumnName="" columnTableName="cad_cadastro" columnWidth="15" UIClassID=" ">
+                        <cellconstraints gridHeight="1" gridWidth="5" gridX="17" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                      <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Filial:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="1" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbcombobox name="KawDbComboBox1" id="filialId" columnCaption="Filial" columnDataType="INT" columnDefault="1" columnDestino="filial_id" columnDisplayMask="###" columnEditable="true" columnEditMask="###" columnName="filial_id" columnRowId="false" columnTableName="cad_cadastro" columnWidth="12" connection="jkawflex" displayColumns="id,nomefantasia" editable="true" enable="true" kawTableName="cad_filial" queryDataSet="SELECT id,nomefantasia,razaosocial,cad_mun_id FROM cad_filial">
+                        <cellconstraints gridHeight="1" gridWidth="3" gridX="15" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbcombobox>
                     </panel>
                   </panel>
                 </vbox>
                 <kawdbtextfieldlookup name="KawDbTextFieldLookup65" id="codigoIbgeLookup" columnCalcType="CALC" columnCaption="C&#xf3;d. IBGE" columnDataType="INT" columnDisplayMask="" columnEditable="false" columnEditMask="" columnHidden="true" columnName="codigoibge" columnNameLookupRow="cad_mun_id" columnNameOriginLookupRow="codigoibge" columnPosicao="10" columnRequired="false" columnRowId="false" columnTableName="cad_cadastro" columnWidth="8">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="15" hAlign="Fill" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="17" gridY="16" hAlign="Fill" vAlign="Default"/>
                 </kawdbtextfieldlookup>
                 <label name="Label66" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;d. IBGE:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="15" hAlign="Right" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="3" gridX="13" gridY="16" hAlign="Right" vAlign="Default"/>
                 </label>
                 <label name="Label67" horizontalAlignment="0" horizontalTextPosition="11" text="Inscri&#xe7;&#xe3;o Estadual do  Produtor:" verticalAlignment="0" verticalTextPosition="0">
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="9" hAlign="Right" vAlign="Default"/>
@@ -283,10 +306,10 @@
                   <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="6" hAlign="Default" vAlign="Default"/>
                 </kawlookupbutton>
                 <kawdbtextfield name="KawDbTextField71" id="bairro" columnCaption="Bairro" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnName="bairro" columnPosicao="12" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro" columnWidth="15">
-                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="13" hAlign="Default" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="11" gridX="3" gridY="14" hAlign="Default" vAlign="Default"/>
                 </kawdbtextfield>
                 <label name="Label72" horizontalAlignment="0" horizontalTextPosition="11" text="Complemento:" verticalAlignment="0" verticalTextPosition="0">
-                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="14" hAlign="Right" vAlign="Default"/>
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="15" hAlign="Right" vAlign="Default"/>
                 </label>
                 <vbox name="Vbox73">
                   <cellconstraints gridHeight="1" gridWidth="17" gridX="1" gridY="3" hAlign="Default" vAlign="Default"/>
@@ -314,7 +337,7 @@
                   <cellconstraints gridHeight="3" gridWidth="1" gridX="9" gridY="7" hAlign="Default" vAlign="Default"/>
                 </button>
                 <panel name="Panel76" layout="BorderLayout">
-                  <cellconstraints gridHeight="19" gridWidth="1" gridX="19" gridY="3" hAlign="Fill" vAlign="Fill"/>
+                  <cellconstraints gridHeight="20" gridWidth="1" gridX="19" gridY="3" hAlign="Fill" vAlign="Fill"/>
                   <panel constraints="BorderLayout.CENTER" name="Panel0" border="TitledBorder(Contatos:)" layout="BorderLayout">
                     <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPane_cad_cadastro_contato" tabPlacement="1" titles="Lista,Editar">
                       <panel name="Panel0" layout="BorderLayout">
@@ -325,7 +348,7 @@
                       <panel name="Panel0" layout="BorderLayout">
                         <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane0" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
                           <panel name="Panel0" layout="FormLayout">
-                            <formLayout colspecs="99px,2dlu,59px,2dlu,70px,2dlu,47px" rowspecs="25px,25px,2dlu,25px,2dlu,25px,2dlu,25px,2dlu,25px,2dlu,25px"/>
+                            <formLayout colspecs="99px,2dlu,59px,2dlu,70px,2dlu,47px" rowspecs="25px,25px,2dlu,25px,2dlu,25px,2dlu,25px,2dlu,25px,2dlu,25px,2dlu,25px"/>
                             <label name="Label1" id="lbContatoCargo" horizontalAlignment="0" horizontalTextPosition="11" text="Rela&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="4" hAlign="Right" vAlign="Default"/>
                             </label>
@@ -339,7 +362,7 @@
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="2" hAlign="Right" vAlign="Default"/>
                             </label>
                             <label name="Label5" horizontalAlignment="0" horizontalTextPosition="11" text="E-mail:" verticalAlignment="0" verticalTextPosition="0">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="10" hAlign="Right" vAlign="Default"/>
+                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
                             </label>
                             <kawdbtextfield name="KawDbTextField6" id="cadCadastroIdContato" columnAutoIncrement="false" columnCalcType="" columnCaption="Cliente" columnDataType="INT" columnDisplayMask="#####" columnEditMask="#####" columnHidden="true" columnName="cad_cadastro_id" columnRowId="true" columnTableName="cad_cadastro_contato" fieldNotEdit="true" hidden="true">
                               <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Fill" vAlign="Fill"/>
@@ -353,18 +376,24 @@
                             <kawdbtextfield name="KawDbTextField10" id="contatoFone" columnCaption="Fone" columnDataType="STRING" columnDisplayMask="{'('00')'}#0000'-'000#^!" columnEditMask="{'('00')'}#0000'-'000#^!" columnName="telefone" columnPosicao="0" columnRowId="false" columnTableName="cad_cadastro_contato" columnWidth="10">
                               <cellconstraints gridHeight="1" gridWidth="4" gridX="3" gridY="8" hAlign="Fill" vAlign="Fill"/>
                             </kawdbtextfield>
-                            <kawdbtextfield name="KawDbTextField11" id="contatoObsFone" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone" columnRowId="false" columnTableName="cad_cadastro_contato">
-                              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="10" hAlign="Fill" vAlign="Fill"/>
+                            <kawdbtextfield name="KawDbTextField11" id="contatoEmail" columnCaption="E-mail" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="email" columnRowId="false" columnTableName="cad_cadastro_contato">
+                              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="12" hAlign="Fill" vAlign="Fill"/>
                             </kawdbtextfield>
                             <kawdbcombobox name="KawDbComboBox0" id="relacao" columnCaption="Rela&#xe7;&#xe3;o" columnDataType="STRING" columnDefault="OUTROS" columnDestino="relacao" columnEditable="true" columnName="relacao" columnPosicao="2" columnRequired="true" columnRowId="false" columnTableName="cad_cadastro_contato" columnWidth="10" connection="jkawflex" displayColumns="classificacao,sequencial" editable="false" preferredSize="100,21" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='cad_cadastro_contato' AND coluna='relacao' ORDER BY sequencial">
                               <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>
                             </kawdbcombobox>
                             <kawdbtextfield name="KawDbTextField0" id="cargo" columnCaption="Cargo/Profiss&#xe3;o" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="cargo" columnRowId="false" columnTableName="cad_cadastro_contato">
-                              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="12" hAlign="Fill" vAlign="Fill"/>
+                              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="14" hAlign="Fill" vAlign="Fill"/>
                             </kawdbtextfield>
                             <label name="Label1" horizontalAlignment="0" horizontalTextPosition="11" text="Cargo/Profiss&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
-                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="12" hAlign="Right" vAlign="Default"/>
+                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="14" hAlign="Right" vAlign="Default"/>
                             </label>
+                            <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Observa&#xe7;&#xe3;o:" verticalAlignment="0" verticalTextPosition="0">
+                              <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="10" hAlign="Right" vAlign="Default"/>
+                            </label>
+                            <kawdbtextfield name="KawDbTextField1" id="contatoObsFone" columnCaption="Telefone Obs" columnDataType="STRING" columnDisplayMask="" columnEditMask="" columnHidden="true" columnName="obstelefone" columnRowId="false" columnTableName="cad_cadastro_contato">
+                              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="10" hAlign="Fill" vAlign="Fill"/>
+                            </kawdbtextfield>
                           </panel>
                         </scrollpane>
                       </panel>
@@ -376,6 +405,24 @@
                     </panel>
                   </panel>
                 </panel>
+                <kawdbtextfield name="KawDbTextField0" id="id" columnAutoIncrement="true" columnCaption="C&#xf3;digo" columnDataType="INT" columnDisplayMask="#####" columnEditable="false" columnEditMask="#####" columnName="id" columnPosicao="1" columnRowId="true" columnsSumAgg="" columnTableName="cad_cadastro" columnWidth="5" editable="true" fieldNotEdit="true" focusable="false">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Left" vAlign="Default"/>
+                </kawdbtextfield>
+                <kawdbcheckbox name="KawDbCheckBox1" id="selecionado" columnCaption="Selecionar" columnCurrency="false" columnDataType="BOOLEAN" columnEditable="true" columnName="selecionado" columnPosicao="0" columnRequired="false" columnResolvable="false" columnTableName="cad_cadastro" columnWidth="3" contentAreaFilled="false" hidden="true" hideActionText="false" text="Selecionar">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="9" gridY="1" hAlign="Default" vAlign="Default"/>
+                </kawdbcheckbox>
+                <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="CNH:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="9" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField1" id="cnh" columnCaption="CHH" columnDataType="STRING" columnName="cnh" columnPosicao="25" columnRowId="false" columnTableName="cad_cadastro" columnWidth="20">
+                  <cellconstraints gridHeight="1" gridWidth="5" gridX="13" gridY="9" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
+                <label name="Label0" visible="false" horizontalAlignment="0" horizontalTextPosition="11" text="_Codigo:" verticalAlignment="0" verticalTextPosition="0">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="11" gridY="21" hAlign="Right" vAlign="Default"/>
+                </label>
+                <kawdbtextfield name="KawDbTextField1" id="codigo" columnCaption="_Codigo" columnDataType="INT" columnHidden="true" columnName="codigo" columnRowId="false" columnTableName="cad_cadastro" columnWidth="3" editable="false" hidden="true">
+                  <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="21" hAlign="Default" vAlign="Default"/>
+                </kawdbtextfield>
               </panel>
             </scrollpane>
           </panel>
@@ -455,7 +502,7 @@
           </panel>
           <panel name="Panel0" layout="BorderLayout">
             <panel constraints="BorderLayout.NORTH" name="Panel1" id="analiseCredito" layout="FormLayout">
-              <formLayout colspecs="default,2dlu,245px,2dlu,2dlu,94px,default,211px,9px,109px,2px,55px,77px,default,2px,center:137px" rowspecs="default,default,2dlu,default,2dlu,default,default,default,37px,13px"/>
+              <formLayout colspecs="default,2dlu,245px,2dlu,2dlu,94px,default,211px,9px,109px,2px,55px,77px,78px,2px,77px" rowspecs="default,default,2dlu,default,2dlu,default,default,default,37px,13px"/>
               <label name="Label66" horizontalAlignment="0" horizontalTextPosition="11" text="C&#xf3;digo:" verticalAlignment="0" verticalTextPosition="0">
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Right" vAlign="Default"/>
               </label>
@@ -505,7 +552,7 @@
                 <cellconstraints gridHeight="1" gridWidth="1" gridX="10" gridY="8" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
               <scrollpane name="ScrollPane82" defaultLocale="true" preferredSize="100,50" visible="false" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                <cellconstraints gridHeight="1" gridWidth="1" gridX="13" gridY="8" hAlign="Default" vAlign="Default"/>
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="12" gridY="8" hAlign="Default" vAlign="Default"/>
                 <kawdbtable name="KawDbTable4" id="financ_analisecred" connection="jkawflex" kawTableName="financ_analisecred" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="cad_cadastro_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="cad_cadastro" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM financ_analisecred WHERE cad_cadastro_id = :id"/>
               </scrollpane>
               <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Data do Contrato:" verticalAlignment="0" verticalTextPosition="0">
@@ -541,6 +588,15 @@
               <kawdbtextfield name="KawDbTextField0" id="limiteCreditoSaldo" columnCaption="Total  e abertor" columnDataType="BIGDECIMAL" columnDefault="" columnDisplayMask="###,###,##0.000" columnEditable="false" columnEditMask="###,###,##0.000" columnFixedPrecision="false" columnHidden="true" columnName="limite_credito_saldo" columnPosicao="3" columnReadOnly="false" columnRowId="false" columnTableName="financ_analisecred" columnWidth="60" dragEnabled="false" editable="false" fieldNotEdit="true">
                 <cellconstraints gridHeight="1" gridWidth="3" gridX="14" gridY="4" hAlign="Default" vAlign="Default"/>
               </kawdbtextfield>
+              <button name="Button0" id="btnConsistirAnalise" toolTipText="Consistir An&#xe1;lise de cr&#xe9;dito" horizontalAlignment="0" horizontalTextPosition="11" text="Consistir An&#xe1;lise" verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="4" gridX="13" gridY="8" hAlign="Default" vAlign="Default"/>
+              </button>
+              <label name="Label0" horizontalAlignment="0" horizontalTextPosition="11" text="Valor Total Vencido: " verticalAlignment="0" verticalTextPosition="0">
+                <cellconstraints gridHeight="1" gridWidth="1" gridX="8" gridY="7" hAlign="Right" vAlign="Default"/>
+              </label>
+              <kawdbtextfield name="KawDbTextField1" id="debitosEmAtraso" columnCaption="Total Vencido" columnDataType="BIGDECIMAL" columnDefault="" columnDisplayMask="###,###,##0.000" columnEditable="false" columnEditMask="###,###,##0.000" columnFixedPrecision="false" columnHidden="true" columnName="debitos_em_atraso" columnPosicao="3" columnReadOnly="false" columnRowId="false" columnTableName="financ_analisecred" columnWidth="60" dragEnabled="false" editable="false" fieldNotEdit="true">
+                <cellconstraints gridHeight="1" gridWidth="2" gridX="10" gridY="7" hAlign="Default" vAlign="Default"/>
+              </kawdbtextfield>
             </panel>
             <panel constraints="BorderLayout.CENTER" name="Panel2" layout="BorderLayout">
               <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane92" tabLayoutPolicy="1" tabPlacement="1" titles="Observa&#xe7;&#xf5;es Gerais">
@@ -553,10 +609,10 @@
             </panel>
           </panel>
           <panel name="Panel0" layout="BorderLayout">
-            <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPane_cad_cadastro_ocorr" tabPlacement="1" titles="Lista de Doctos Referenciado ,Editar">
+            <tabbedpane constraints="BorderLayout.CENTER" name="TabbedPane1" id="tabbedPane_cad_cadastro_ocorr" tabPlacement="1" titles="Lista de Ocorr&#xea;ncia,Editar">
               <panel name="Panel0" layout="BorderLayout">
                 <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane1" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-                  <kawdbtable name="KawDbTable0" id="cad_cadastro_ocorr" connection="jkawflex" kawTableName="cad_cadastro_ocorr" linkCascadeDeletes="true" linkCascadeUpdates="true" linkDetailColumns="cad_cadastro_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="cad_cadastro" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM  cad_cadastro_ocorr WHERE cad_cadastro_id = :id"/>
+                  <kawdbtable name="KawDbTable0" id="cad_cadastro_ocorr" connection="jkawflex" kawTableName="cad_cadastro_ocorr" linkCascadeDeletes="false" linkCascadeUpdates="false" linkDetailColumns="cad_cadastro_id" linkFetchAsNeeded="true" linkMasterColumns="id" linkMasterTable="cad_cadastro" parameterQColumns="id" parameterQColumnsDataType="INT" queryDataSet="SELECT * FROM  cad_cadastro_ocorr WHERE cad_cadastro_id = :id"/>
                 </scrollpane>
               </panel>
               <panel name="Panel0" layout="BorderLayout">
@@ -573,9 +629,6 @@
                   </label>
                   <kawdbtextfield name="KawDbTextField6" id="avisar_data_final" columnCaption="T&#xe9;rmino do aviso" columnDataType="DATE" columnDefault="" columnDisplayMask="dd/MM/yyyy" columnEditMask="dd/MM/yyyy" columnHidden="false" columnName="avisar_data_final" columnPosicao="1" columnRequired="false" columnRowId="false" columnTableName="cad_cadastro_ocorr" columnWidth="20" editable="true" enable="true">
                     <cellconstraints gridHeight="1" gridWidth="3" gridX="3" gridY="8" hAlign="Fill" vAlign="Default"/>
-                  </kawdbtextfield>
-                  <kawdbtextfield name="KawDbTextField3" id="cad_cadastro_id_ocorr" columnDataType="INT" columnHidden="true" columnName="cad_cadastro_id" columnTableName="cad_cadastro_ocorr" fieldNotEdit="true" hidden="true">
-                    <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="8" hAlign="Default" vAlign="Default"/>
                   </kawdbtextfield>
                   <kawdbcombobox name="KawDbComboBox0" id="avisar" columnCaption="Avisar" columnDataType="STRING" columnDestino="avisar" columnEditable="true" columnName="avisar" columnPosicao="0" columnRequired="true" columnRowId="false" columnScale="40" columnTableName="cad_cadastro_ocorr" columnWidth="0" connection="jkawflex" displayColumns="classificacao,sequencial" queryDataSet="SELECT classificacao,tabela,coluna,sequencial FROM cad_classificacao_reg WHERE tabela='cad_cadastro_ocorr' AND coluna='avisar' ORDER BY sequencial">
                     <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="4" hAlign="Default" vAlign="Default"/>

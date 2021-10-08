@@ -14,10 +14,10 @@
       <kawdbtextfield name="KawDbTextField_33" id="descricao" columnCaption="Descri&#xe7;&#xe3;o" columnDataType="STRING" columnEditable="false" columnName="descricao" columnTableName="financ_cc" columnWidth="40">
         <cellconstraints gridX="5" gridY="3"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_27" id="agenciaCodigo" columnCaption="Ag&#xea;ncia" columnDataType="STRING" columnEditable="false" columnName="financ_agencia_id" columnRowId="false" columnTableName="financ_cc" columnWidth="6">
+      <kawdbtextfield name="KawDbTextField_27" id="agenciaCodigo" columnCaption="Ag&#xea;ncia" columnDataType="STRING" columnEditable="false" columnName="agencia_id" columnRowId="false" columnTableName="financ_cc" columnWidth="6">
         <cellconstraints gridX="5" gridY="5"/>
       </kawdbtextfield>
-      <kawdbtextfield name="KawDbTextField_29" id="bancoCodigo" columnCaption="Banco" columnDataType="INT" columnEditable="false" columnName="financ_agencia_financ_banco_id" columnRowId="false" columnTableName="financ_cc" columnWidth="6">
+      <kawdbtextfield name="KawDbTextField_29" id="bancoCodigo" columnCaption="Banco" columnDataType="INT" columnEditable="false" columnName="financ_banco_id" columnRowId="false" columnTableName="financ_cc" columnWidth="6">
         <cellconstraints gridX="5" gridY="7"/>
       </kawdbtextfield>
       <kawdbtextfield name="KawDbTextField_30" id="numeroConta" columnCaption="N&#xfa;mero Conta" columnCurrency="true" columnDataType="STRING" columnDisplayMask="#,##0.00" columnEditable="false" columnEditMask="" columnName="numeroconta" columnTableName="financ_cc" columnWidth="12">
@@ -27,7 +27,7 @@
   </panel>
   <panel constraints="BorderLayout.CENTER" name="Panel_4" layout="BorderLayout">
     <scrollpane constraints="BorderLayout.CENTER" name="ScrollPane_5" horizontalScrollBarPolicy="32" verticalScrollBarPolicy="22">
-      <kawdbtable name="KawDbTable_CC" id="tableLookup" connection="jkawflex" kawTableName="financ_cc" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao,financ_agencia_id,financ_agencia_financ_banco_id,numeroconta FROM financ_cc WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END"/>
+      <kawdbtable name="KawDbTable_CC" id="tableLookup" connection="jkawflex" kawTableName="financ_cc" parameterQColumns="ppesquisa,ppesquisaconteudo" parameterQColumnsDataType="STRING,BOOLEAN" queryDataSet="SELECT id,descricao,agencia_id,financ_banco_id,numeroconta FROM financ_cc WHERE CASE WHEN SUBSTRING(:ppesquisa from 1 for 1) IN ('0','1','2','3','4','5','6','7','8','9') THEN id = string_integer(:ppesquisa) ELSE CASE WHEN :ppesquisaconteudo THEN UPPER(descricao) LIKE '%'||UPPER(:ppesquisa)||'%' ELSE UPPER(descricao) LIKE UPPER(:ppesquisa)||'%' END END"/>
     </scrollpane>
     <panel constraints="BorderLayout.SOUTH" name="Panel_18" layout="BorderLayout">
       <panel constraints="BorderLayout.WEST" name="Panel_19" layout="BorderLayout">

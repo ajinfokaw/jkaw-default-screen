@@ -167,35 +167,70 @@
                       <cellconstraints gridHeight="2" gridWidth="1" gridX="5" gridY="3" hAlign="Default" vAlign="Default"/>
                     </kawlookupbutton>
                   </panel>
-                  <panel constraints="BorderLayout.EAST" name="Panel_212" border="TitledBorder(FCP:)" layout="FormLayout">
-                    <formLayout colspecs="166px,2dlu,121px,2dlu,45px,2dlu,24px" rowspecs="default,2dlu,default,2dlu,default"/>
-                    <label name="Label_213" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota:" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
-                    </label>
-                    <label name="Label_214" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST:" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
-                    </label>
-                    <label name="Label_215" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST Anterior:" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
-                    </label>
-                    <kawdbtextfield name="KawDbTextField_216" id="fcp_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_aliquota" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
-                    </kawdbtextfield>
-                    <kawdbtextfield name="KawDbTextField_217" id="fcp_subst_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
-                    </kawdbtextfield>
-                    <kawdbtextfield name="KawDbTextField_218" id="fcp_subst_anterior_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_anterior_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
-                    </kawdbtextfield>
-                    <label name="Label_219" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Left" vAlign="Default"/>
-                    </label>
-                    <label name="Label_220" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Left" vAlign="Default"/>
-                    </label>
-                    <label name="Label_221" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
-                      <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Left" vAlign="Default"/>
-                    </label>
+                  <panel constraints="BorderLayout.EAST" name="Panel_222" layout="BorderLayout">
+                    <panel constraints="BorderLayout.CENTER" name="Panel_223" border="TitledBorder(Fundo Combate a Ppbreza:)" layout="FormLayout">
+                      <formLayout colspecs="149px,2dlu,121px,2dlu,45px,2dlu,24px" rowspecs="default,2dlu,default,2dlu,default"/>
+                      <label name="Label_224" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label_225" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label_226" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ST Anterior:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfield name="KawDbTextField_227" id="fcp_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_aliquota" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfield name="KawDbTextField_228" id="fcp_subst_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfield name="KawDbTextField_229" id="fcp_subst_anterior_aliquota" columnCaption="(%)Aliq.Contrib" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="fcp_subst_anterior_aliquota" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <label name="Label_230" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Left" vAlign="Default"/>
+                      </label>
+                      <label name="Label_231" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Left" vAlign="Default"/>
+                      </label>
+                      <label name="Label_232" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Left" vAlign="Default"/>
+                      </label>
+                    </panel>
+                    <panel constraints="BorderLayout.NORTH" name="Panel_233" border="TitledBorder(Par&#xe2;metrod p/ c&#xe1;lculo ST:)" layout="FormLayout">
+                      <formLayout colspecs="149px,2dlu,74px,2dlu,32px,2dlu,132px" rowspecs="default,2dlu,default,2dlu,default"/>
+                      <label name="Label_234" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota MVA: " verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="1" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <label name="Label_235" horizontalAlignment="0" horizontalTextPosition="11" text="Redu&#xe7;&#xe3;o Base de C&#xe1;lculo:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="3" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfield name="KawDbTextField_237" id="aliquota_mva" columnCaption="(%)Al&#xed;q. MVA" columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="aliquota_mva" columnPosicao="4" columnTableName="cad_estado_trib" columnWidth="15">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="1" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <kawdbtextfield name="KawDbTextField_238" id="reducao_base" columnCaption="(%)Aliq.Red." columnDataType="BIGDECIMAL" columnDisplayMask="##0.000" columnEditMask="###.###" columnName="reducao_base" columnPosicao="2" columnTableName="cad_estado_trib" columnWidth="15">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="3" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfield>
+                      <label name="Label_240" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="1" hAlign="Left" vAlign="Default"/>
+                      </label>
+                      <label name="Label_241" horizontalAlignment="0" horizontalTextPosition="11" text="(%)" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="3" hAlign="Left" vAlign="Default"/>
+                      </label>
+                      <label name="Label_244" horizontalAlignment="0" horizontalTextPosition="11" text="Al&#xed;quota ICMS Interna Destino:" verticalAlignment="0" verticalTextPosition="0">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="1" gridY="5" hAlign="Right" vAlign="Default"/>
+                      </label>
+                      <kawdbtextfieldlookuprow name="KawDbTextFieldLookupRow_245" id="aliq_dest_id" columnCaption="Aliq. Int. Dest." columnDataType="INT" columnDisplayMask="##" columnEditMask="##" columnHidden="true" columnName="aliq_dest_id" columnNameLookupKey="id" columnNameRelationLookupKey="aliq_dest_id" columnTableName="cad_estado_trib">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookuprow>
+                      <kawlookupbutton name="KawLookupButton_246" id="lookupButtonaliq_dest_id" action="lookupClassTipiNcm" columnDestino="aliq_dest_id" columnOrigem="id" connection="jkawflex" kawTableName="fat_aliquotas " kawTableNameRelation="cad_estado_trib" parameterQColumns="aliq_dest_id" parameterQColumnsDataType="INT" queryDataSet="SELECT id,descricao FROM fat_aliquotas WHERE id = :aliq_dest_id" xmlLookupView="LookupAliquotas.xml">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="5" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawlookupbutton>
+                      <kawdbtextfieldlookup name="KawDbTextFieldLookup_247" id="aliquotasNormalLookup" columnCalcType="CALC" columnCaption="..." columnDataType="STRING" columnHidden="true" columnName="aliquotas_normal_codigo_lookup" columnNameLookupRow="aliq_dest_id" columnNameOriginLookupRow="descricao" columnTableName="cad_estado_trib" columnWidth="20">
+                        <cellconstraints gridHeight="1" gridWidth="1" gridX="7" gridY="5" hAlign="Default" vAlign="Default"/>
+                      </kawdbtextfieldlookup>
+                    </panel>
                   </panel>
                 </panel>
                 <panel name="Panel_83" layout="FormLayout">
@@ -255,5 +290,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=221-->
+<!--lastNameIndex=247-->
 <!--lastIdIndex=0-->

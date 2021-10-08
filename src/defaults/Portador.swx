@@ -26,6 +26,9 @@
             <kawdbcheckbox name="KawDbCheckBox_55" id="desativado" columnCaption="D." columnName="desativado" columnRowId="true" columnTableName="financ_portador" columnWidth="5" text="Registro Desativo?">
               <cellconstraints gridHeight="1" gridWidth="3" gridX="5" gridY="1" hAlign="Default" vAlign="Default"/>
             </kawdbcheckbox>
+            <kawdbtextfield name="KawDbTextField_56" id="uuid" columnCaption="uuid" columnDataType="STRING" columnEditable="true" columnHidden="true" columnName="uuid" columnPosicao="1" columnResolvable="false" columnRowId="false" columnTableName="financ_portador" columnWidth="57" hidden="true">
+              <cellconstraints gridHeight="1" gridWidth="5" gridX="3" gridY="5" hAlign="Default" vAlign="Default"/>
+            </kawdbtextfield>
           </panel>
           <panel name="Panel_42" layout="FormLayout">
             <formLayout colspecs="160px,2dlu,85px,2dlu,86px,2dlu,131px,2dlu,46px,2dlu" rowspecs="default,2dlu,default,2dlu,default,2dlu,default,2dlu,default,2dlu,20px,2px,default,2dlu,default,default,2dlu"/>
@@ -89,5 +92,5 @@
     </panel>
   </panel>
 </dialog>
-<!--lastNameIndex=55-->
+<!--lastNameIndex=56-->
 <!--lastIdIndex=0-->
