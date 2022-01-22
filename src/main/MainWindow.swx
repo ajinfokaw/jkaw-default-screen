@@ -38,6 +38,7 @@
       </menu>
       <separator name="Separator_268"/>
       <menuitem name="Config.Sistema" action="actionConfigSistema" text="Configuracoes padrao do sistema"/>
+      <menuitem name="Config_Contab" action="actionConfigContab" text="Configura&#xe7;&#xe3;o Contabilidade"/>
       <menuitem name="Encargos Pradr&#xf5;es" action="actionEncargoPadrao" text="Encargos Pradr&#xf5;es"/>
       <menuitem name="Config.BD" action="actionConfigBD" icon="com/infokaw/udf/image/database_gear.png" text="Propriedades do Sistema"/>
       <menuitem name="Config.DF" action="actionConfigDF" text="Configura&#xe7;&#xf5;es Default  "/>
@@ -116,6 +117,9 @@
         <menuitem name="Cad.TabCFOP" action="actionEscritaTabCFOP" text="Tabela CFOP"/>
         <menuitem name="Carta Correcao" action="actionCartaCorrecao" text="Carta Correcao"/>
         <menuitem name="MenuItem_430" action="actionIrregularidade" text="Irregularidades"/>
+      </menu>
+      <menu name="Contab." text="Contabilidade">
+        <menuitem name="Cadastro.Conta" action="actionContabConta" text="Cadastro de Conta"/>
       </menu>
     </menu>
     <menu name="Movimentacao" text="Movimentacao">
@@ -293,5 +297,5 @@
   </panel>
   <kawtabbedpane constraints="BorderLayout.CENTER" name="KawTabbedPane_510" id="mainTabbedPane"/>
 </frame>
-<!--lastNameIndex=695-->
-<!--lastIdIndex=0-->
+        <!--lastNameIndex=696-->
+        <!--lastIdIndex=0-->
